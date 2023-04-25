@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+/* estilo css de la pagina consejos de salud*/
+
+#contenedor-consejos-salud{
+	margin-top: 30px;
+	text-align: justify;
+	
+}
+
+
+#contenedor-consejos-salud h2 {
+	font-size: 25px;
+}
+
+.foto-gato-consejo-salud{
+	width: 400px;
+	margin: auto;
+	display: block;
+}

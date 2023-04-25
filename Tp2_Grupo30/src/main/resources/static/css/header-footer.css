@@ -1,1 +1,49 @@
 @charset "UTF-8";
+
+/* Pagina donde se probo el menu es pagina consejos de salud*/
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#contenedor {
+	margin: 40px;
+}
+
+header {
+	background-image: url("../images/Logo-Puppis.jpg");
+	width: 100%;
+	height: 400px;
+}
+
+#Menu-principal {
+	background-color: aqua;
+	font-size: 30px
+}
+
+.enlases-menu a {
+	text-decoration: none;
+}
+
+.enlases-menu a:hover {
+	background-color: fuchsia;
+}
+
+.enlases-menu ul {
+	list-style-type: none;
+}
+
+.enlases-menu li {
+	display: inline;
+	margin-right: 10px;
+	border: #D7C8B6 2px solid;
+	background-color: green;
+}
+
+footer {
+	width: 100%;
+	background-color: fuchsia;
+	text-align: center;
+	margin-top: 20px;
+	font-size: 20px;
+}
