@@ -45,5 +45,6 @@ footer {
 	background-color: fuchsia;
 	text-align: center;
 	margin-top: 20px;
+	float: left;
 	font-size: 20px;
 }

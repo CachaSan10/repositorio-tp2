@@ -1,0 +1,54 @@
+@charset "ISO-8859-1";
+
+.contenedor-section{
+    width: 100%;
+    margin-top: 10px;
+    float:left;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.tarjeta{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    width: 20%;
+    min-height: 300px;
+    margin: 20px;
+    border: 2px solid lightgray;
+    box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+    border-radius:15px;
+    cursor: default;
+}
+
+.tarjeta:hover{
+    box-shadow: 6px 6px 18px 8px #d3d3d3d1;
+    transform: translateY(-3%);
+}
+
+.cuerpo{
+  padding: 10px;
+  text-align: center;
+}
+
+.cuerpo img{
+    width: 100%;
+}
+
+.cuerpo p{
+    font-size: larger;
+}
+
+.tarjeta button{
+  background: orange;
+  border-radius:0 0 15px 15px;
+  padding: 10px;
+  color: black;
+  font-size: large;
+}
+
+.tarjeta button:hover{
+    background: orangered;
+    color: white;
+  }
