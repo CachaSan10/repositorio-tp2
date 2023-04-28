@@ -4,11 +4,11 @@
 #contenedor-consejos-salud {
 	margin-top: 30px;
 	text-align: justify;
-	font-family: 'Heebo', sans-serif,fantasy;
+  font-family: 'Heebo', sans-serif,fantasy;
 	}
 
 #contenedor-consejos-salud h2 {
-	font-size: 35px;
+	font-size: 50px;
 	text-align: center;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -17,13 +17,13 @@
 
 #contenedor-consejos-salud h1{
 	text-align: center;
-	font-size: 50px;
+	font-size: 70px;
 	color: #8B0000;
 	font-family: sans-serif ,inherit,cursive;
 }
 
 #contenedor-consejos-salud h3 {
-	font-size: 30px;
+	font-size: 35px;
 	margin: 15px;
 	text-align: center;
 	color: #FA8072;
@@ -31,7 +31,7 @@
 }
 
 #contenedor-consejos-salud h4 {
-	font-size: 25px;
+	font-size: 35px;
 	margin: 20px;
 	text-align: center;
 	color: #CD853F;
@@ -59,7 +59,7 @@
 	margin-top: 15px;
 	margin-bottom:20px;
 	display: block;
-	font-size: 20px;
+	font-size: 30px;
 	width: 80%;
 }
 
@@ -71,7 +71,7 @@
 	margin-bottom:10px;
 	display: block;
 	width: 80%;
-	font-size: 20px;
+	font-size: 30px;
 }
 
 #contenedor-consejos-salud article ul li strong {
