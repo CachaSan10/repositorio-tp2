@@ -1,0 +1,146 @@
+@charset "ISO-8859-1";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+
+
+/* padding para los p en el form */
+form p {
+	padding: 5px;
+}
+
+/* Formulario */
+form {
+	margin: 0 auto;
+	width: 300px;
+	background-color: #8000ff;
+	padding: 20px;
+	color: #999;
+	border-radius: 5px;
+	font-size: 0.8em;
+	
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.aForm{
+	text-decoration: none;
+	color: #ff0000;
+}
+
+/* input y textarea del formulario */
+input, textarea {
+	outline: none;
+	border: 0;
+}
+/* clases para input del formulario */
+.field {
+	border: solid 1px #ccc;
+	padding: 10px;
+	width: 280px;
+}
+
+.field:focus {
+	border-color: #ff0080;
+}
+
+.center-content {
+	text-align: center;
+}
+
+/* Boton Enviar Datos del formulario */
+.boton {
+	border-radius: 3px;
+	display: inline-block;
+	padding: 20px 15px;
+	text-decoration: none;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.boton-verde {
+	color: white;
+	background-color: #3CC93F;
+}
+
+.boton-verde:hover {
+	background-color: #37B839;
+}
+
+.boton-verde:active {
+	background-color: #29962A;
+}
+
+body{
+	margin: 0;
+	background-color: #333;
+	font-family: sans-serif;
+	position: relative;
+	padding-bottom: 3em;
+	min-height: 100vh;
+}
+
+/* Mi footer */
+.foot322 footer p{
+	
+	color: white;
+	padding: 20px;
+	margin: 3px;
+	justify-content: center;
+	text-align: center;
+}
+
+.foot322{
+	background-color: #092327;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	margin: auto;
+	justify-content: center;
+	padding: 1em 0;
+
+}
+
+
+/* logo imagen puppis */
+.logo322{
+	display: flex;
+	align-items: center;
+}
+.logo322 img{
+	height: 100px;
+	margin-right: 10px; /* margen a la derecha del h2 */
+}
+/* header para que nav este arriva horizontal */ /* Navegacion Menu */
+.header322{
+	display: flex;
+	justify-content: space-between; /*ubica los elementos en eje principal*/
+	min-height: 120px;
+	background-color: #092327;
+	align-items: center; /*alinea letras al centro*/
+	padding: 10px;
+}
+
+.link a{
+	font-weight: 600;
+	padding-right: 15px;
+	text-decoration: none;
+	color: coral;
+}
+.link a:hover{
+	color: white;
+}
+
+/*header responsive*/
+@media (max-width:700px){
+	header{
+	flex-direction: column;
+	}
+}
+
+
