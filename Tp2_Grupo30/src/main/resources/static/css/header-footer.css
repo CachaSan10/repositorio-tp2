@@ -13,20 +13,23 @@
 header {
 	background-image: url("../images/Logo-Puppis.jpg");
 	width: 100%;
-	height: 400px;
+	height: 300px;
 }
 
 #Menu-principal {
-	background-color: aqua;
-	font-size: 30px
+	background-color: #FFFACD;
+	font-size: 25px;
 }
 
 .enlases-menu a {
 	text-decoration: none;
+	color: #0000CD;
+	
 }
 
 .enlases-menu a:hover {
-	background-color: fuchsia;
+	background-color: #4B0082;
+	color: #F0FFF0;
 }
 
 .enlases-menu ul {
@@ -36,14 +39,16 @@ header {
 .enlases-menu li {
 	display: inline;
 	margin-right: 10px;
-	border: #D7C8B6 2px solid;
-	background-color: green;
 }
+
+
+
 
 footer {
 	width: 100%;
 	background-color: fuchsia;
 	text-align: center;
 	margin-top: 20px;
+	float: left;
 	font-size: 20px;
 }

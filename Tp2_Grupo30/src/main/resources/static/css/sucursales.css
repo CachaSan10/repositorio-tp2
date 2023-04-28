@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/* estilo css de la pagina sucursales.html */
+/* Estilos para el cuerpo y contenedor */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+#contenedor {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #80ffff;
+    color: #000000;
+    text-align: center;
+    padding: 10px;
+}
+nav {
+    background-color: #F0ECEC;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #707070;
+    color: #fff;
+}
+
+
+#contenido-principal-sucursales {
+  margin: 50px auto;
+  width: 100%;
+  text-align: center;
+}
+
+.sucursales-h1 {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #FF8D18;
+  text-shadow: 2px 2px 3px #c0c0c0;
+}
+
+.sucursales-h1 h1:first-child {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.sucursales-h1 h1:last-child {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.contenedor-de-sucursales {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contenedor-de-sucursales ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.contenedor-de-sucursales li {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 300px;
+  max-width: 100%;
+  box-shadow: 0 0 10px #ff3e3e;
+}
+
+.contenedor-de-sucursales strong {
+  font-weight: bold;
+}
+
+.contenedor-de-sucursales li:last-child {
+  margin-bottom: 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+
