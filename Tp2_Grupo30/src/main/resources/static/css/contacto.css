@@ -3,144 +3,84 @@
 * {
 	margin: 0px;
 	padding: 0px;
+	box-sizing: border-box;
 }
 
 
 
-/* padding para los p en el form */
-form p {
-	padding: 5px;
-}
+/*  formulario de Contactanos.html */
 
-/* Formulario */
-form {
-	margin: 0 auto;
-	width: 300px;
-	background-color: #8000ff;
-	padding: 20px;
-	color: #999;
-	border-radius: 5px;
-	font-size: 0.8em;
-	
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.aForm{
-	text-decoration: none;
-	color: #ff0000;
-}
-
-/* input y textarea del formulario */
-input, textarea {
-	outline: none;
-	border: 0;
-}
-/* clases para input del formulario */
-.field {
-	border: solid 1px #ccc;
-	padding: 10px;
-	width: 280px;
-}
-
-.field:focus {
-	border-color: #ff0080;
-}
-
-.center-content {
-	text-align: center;
-}
-
-/* Boton Enviar Datos del formulario */
-.boton {
-	border-radius: 3px;
-	display: inline-block;
-	padding: 20px 15px;
-	text-decoration: none;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-}
-
-.boton-verde {
+.form-register{
+	width: 400px;
+	background: #24303c;
+	padding: 30px;
+	margin: auto;
+	margin-top: 100px;
+	border-radius: 4px;
+	font-family: 'calibri';
 	color: white;
-	background-color: #3CC93F;
+	box-shadow: 7px 13px 37px #000;
+	
 }
 
-.boton-verde:hover {
-	background-color: #37B839;
+.form-register h3{
+	font-size: 22px;
+	margin-bottom: 20px;
+	
 }
 
-.boton-verde:active {
+
+.form-register p{
+	height: 40px;
+	text-align: center;
+	font-size: 17px;
+	line-height: 40px;
+}
+
+
+.form-register a{
+	color: white;
+	text-decoration: none;
+
+}
+
+.form-register a:hover{
+	color: white;
+	text-decoration: underline;
+}
+
+.form-register .botons{
+	width: 100%;
+	background: #1f53c5;
+	border: none;
+	padding: 15px;
+	color: white;
+	margin: 16px 0; 
+}
+
+.form-register .botons:active {
 	background-color: #29962A;
 }
 
-body{
-	margin: 0;
-	background-color: #333;
-	font-family: sans-serif;
-	position: relative;
-	padding-bottom: 3em;
-	min-height: 100vh;
+.form-register .botons:hover {
+	background-color: #29962A;
 }
 
-/* Mi footer */
-.foot322 footer p{
-	
-	color: white;
-	padding: 20px;
-	margin: 3px;
-	justify-content: center;
-	text-align: center;
-}
-
-.foot322{
-	background-color: #092327;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	margin: auto;
-	justify-content: center;
-	padding: 1em 0;
-
-}
-
-
-/* logo imagen puppis */
-.logo322{
-	display: flex;
-	align-items: center;
-}
-.logo322 img{
-	height: 100px;
-	margin-right: 10px; /* margen a la derecha del h2 */
-}
-/* header para que nav este arriva horizontal */ /* Navegacion Menu */
-.header322{
-	display: flex;
-	justify-content: space-between; /*ubica los elementos en eje principal*/
-	min-height: 120px;
-	background-color: #092327;
-	align-items: center; /*alinea letras al centro*/
+/* inputs de Contactanos.html */
+.controls{
+	width: 100%;  /* tamaño de cajas */
+	background: #24303c;
 	padding: 10px;
-}
-
-.link a{
-	font-weight: 600;
-	padding-right: 15px;
-	text-decoration: none;
-	color: coral;
-}
-.link a:hover{
+	border-radius: 4px;
+	margin-bottom: 16px;
+	border: 1px solid #1f53c5;
+	font-family: 'calibri';
+	font-size: 18px;
 	color: white;
+	
 }
 
-/*header responsive*/
-@media (max-width:700px){
-	header{
-	flex-direction: column;
-	}
+.controls:hover{
+	background-color: #ffffff;
+	
 }
-
-

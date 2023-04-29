@@ -2,56 +2,68 @@
 <html>
 <head>
 <link rel="stylesheet" href="../static/css/contacto.css">
+<link rel="stylesheet" href="../static/css/header-footer.css">
 <meta charset="utf-8">
 <title>Contacto</title>
 </head>
 <body>
 
-	
-
-	
-	<header class="header322">
-		<div class="logo322">
-			<img src="../static/images/noF.png" alt="Logo-PUPPIS" class="#">
-			<h1 class="nombre-empresa">Tienda de mascotas Puppis</h1>
-		</div>
-		<nav class="link">
-				<a href="index.html" title="Ir a la pagina de Inicio">Principal</a>
-				<a href="Productos.html" title="Ir a Producto">Productos</a>
-				<a href="consejoDeSalud.html" title="Ir a Consejo de Salud">Consejos de Salud</a>
-				<a href="servicioDePaseos.html" title="Ir a Sevicio de Paseo">Servicios de Paseos</a>
-				<a href="sucursales.html" title="Ir a Sucursales">Sucursales</a>
-				<a href="Contáctanos.html" title="Ir a Contacto">Contactanos</a>
+	<div id="contenedor">
+		<header class="#">
+			<!-- <img src="../static/images/Logo-Puppis.jpg" alt="Logo-PUPPIS" class="#">-->
+			<h1 class="#">TIENDA DE MASCOTAS PUPPIS</h1>
+			<p class="#">Envios a Domicilio sin Cargo.</p>
+			<p>Tanto de Alimentos para Mascotas como Accesorios y Farmacía.</p>
+			<p>Consulte Zonas de Envios</p>
+		</header>
+		<nav id="Menu-principal">
+			<ul class="enlases-menu">
+				<li><a href="index.html" title="Ir a la pagina de Inicio">Principal</a></li>
+				<li><a href="Productos.html" title="Ir a Producto">Productos</a></li>
+				<li><a href="consejoDeSalud.html" title="Ir a Consejo de Salud">Consejos
+						de Salud</a></li>
+				<li><a href="servicioDePaseos.html"
+					title="Ir a Sevicio de Paseo">Servicios de Paseos</a></li>
+				<li><a href="sucursales.html" title="Ir a Sucursales">Sucursales</a></li>
+				<li><a href="Contáctanos.html" title="Ir a Contacto">Contactanos</a></li>
+			</ul>
 		</nav>
-	</header>
 		
-		<form >
-				<h3>Contáctenos</h3>
-				<p>3915 Av. General Belgrano, 388-4999999</p>
-				<p>Lunes a Viernes: 9:00 a.m. a 8:00 p.m.,</p>
-				<p>Sábado a Domingo: 9:00 a.m. a 12:30 p.m.</p>
-				<a HREF="index.html" class="aForm">grupo30@gmail.com</a>
-				<p><li ><a HREF="index.html" class="aForm" >Facebook</a></li></p>
-				<p><li><a HREF="index.html" class="aForm">Instagram</a></li></p>
-				<p><li><a HREF="index.html" class="aForm">Twitter</a></p>
-			<hr>
-				<p><label for="nombre">Nombre <input type="text" class="field" id="nombre" placeholder="Ingrese su Nombre"></label></p>
-				<p><label for="email">Email <input type="email" class="field" id="email" placeholder="Ingrese un email válido"></label></p>	
-				<p><label for="ciudad">Ciudad <input type="text" class="field" id="ciudad" placeholder="Ingrese su ciudad"></label></p>
-				<p><label for="mensaje">Mensaje <textarea id="mensaje" class="field" style="height:80px; width:240px"></textarea></label></p>
-				<p class="center-content"><button type="submit" class="boton boton-verde" >Enviar Datos</button></p>
-			
-		</form>
-	<section class="foot322">
-		<footer>
-			<p>Portal de Mascotas - Av. General Belgrano 3915 - Teléfono
-				(388) 4999999 S. S. de Jujuy República Argentina.</p>
 
-			<p>Derechos Reservados 2023 - Tienda de Mascotas PUPPIS -
-				Diseñado por Grupo 30 - Jujuy - Argentina</p>
+			<section class="form-register">
+				<form action="">
+								<h3>Contáctenos</h3> 
+					<p>3915 Av. General Belgrano, 388-4999999</p> 
+					<p>Lunes a Viernes: 9:00 a.m. a 8:00 p.m.,</p> 
+					<p>Sábado a Domingo: 9:00 a.m. a 12:30 p.m.</p> 
+					<p><a HREF="index.html" >grupo30@gmail.com</a></p>
+					<p><a HREF="index.html"  >Facebook</a></p>
+					<p><a HREF="index.html" >Instagram</a></p>
+					<p><a HREF="index.html" >Twitter</a></p>
+					
+					<input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+					<input class="controls" type="email" name="mail" id="mail" placeholder="Ingrese un email valido">
+					<input class="controls" type="text" name="ciudad" id="ciudad" placeholder="Ingrese su Ciudad">
+					<textarea rows="" cols="" class="controls" type="text" name="mensaje" id="mensaje"  placeholder="Ingrese Mensaje"></textarea>
+					<button type="submit" class="botons" >Enviar Datos</button> 
+				</form>
+			</section>
 
-		</footer>
-	</section>
+		
+			<footer >
+				<p>Portal de Mascotas - Av. General Belgrano 3915 - Teléfono
+					(388) 4999999 S. S. de Jujuy República Argentina.</p>
+
+				<p>Derechos Reservados 2023 - Tienda de Mascotas PUPPIS -
+					Diseñado por Grupo 30 - Jujuy - Argentina</p>
+
+			</footer>
+		
+	</div>
+
+		
+
+
 
 
 </body>
