@@ -1,0 +1,444 @@
+@charset "ISO-8859-1";
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+#contenedor {
+	margin: 20px;
+}
+
+/*---------HEADER------------*/
+header {
+	background-image: url("../images/Logo-Puppis.jpg");
+	background-repeat:no-repeat;
+	background-size:300px;
+	width: 100%;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+header h1{
+	text-align: right;
+	text-shadow: 1px 1px 2px black;
+	padding-right:30px;
+	padding-top:20px;
+	color: orange;
+	font-size: 65px;
+	
+	
+}
+
+header p{
+	padding: 5px;
+	text-align: center;
+	color: #092327;
+	font-size: 20px;
+}
+
+/*------------MENU------------------*/
+nav {
+	background-color: #092327;
+	padding: 10px40px 10px 40px;
+	height: 40px
+}
+
+nav ul li {
+	list-style: none;
+	float: left;
+}
+
+nav ul li a {
+	text-decoration: none;
+	text-transform: uppercase; 
+	color: orange;
+	display: block;
+	padding: 0px 20px 0px 20px;
+	text-align: center;
+	font-size: 20px;
+	line-height: 40px;
+}
+
+nav ul li a:hover {
+	background: orangered;
+	color: white;
+}
+
+/*----------ConsejoDeSalud---------*/
+
+#contenedor-consejos-salud {
+	margin-top: 30px;
+	text-align: justify;
+  	font-family: 'Heebo', sans-serif,fantasy;
+}
+
+#contenedor-consejos-salud h2 {
+	font-size: 50px;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #6A5ACD;
+}
+
+#contenedor-consejos-salud h1{
+	text-align: center;
+	font-size: 70px;
+	color: #8B0000;
+	font-family: sans-serif ,inherit,cursive;
+}
+
+#contenedor-consejos-salud h3 {
+	font-size: 35px;
+	margin: 15px;
+	text-align: center;
+	color: #FA8072;
+	
+}
+
+#contenedor-consejos-salud h4 {
+	font-size: 35px;
+	margin: 20px;
+	text-align: center;
+	color: #CD853F;
+	
+}
+
+.foto-gato-consejo-salud {
+	width: 70%;
+	margin: auto;
+	display: block;
+}
+
+#contenedor-consejos-salud article {
+	width: 80%;
+	margin: auto;
+	margin-top: 20px;
+	display: block;
+	border: 5px dashed black;
+	background-color: #FFEFD5;
+	
+}
+
+#contenedor-consejos-salud article p {
+	margin: auto;
+	margin-top: 15px;
+	margin-bottom:20px;
+	display: block;
+	font-size: 30px;
+	width: 80%;
+}
+
+#contenedor-consejos-salud article p strong {
+	color: #FF4500;
+	}
+#contenedor-consejos-salud article ul {
+	margin: auto;
+	margin-bottom:10px;
+	display: block;
+	width: 80%;
+	font-size: 30px;
+}
+
+#contenedor-consejos-salud article ul li strong {
+	color: #008080;
+}
+
+/*--------------contactanos---------------*/
+/*  formulario de Contactanos.html */
+.form-register{
+	width: 400px;
+	background: #24303c;
+	padding: 30px;
+	margin: auto;
+	margin-top: 100px;
+	border-radius: 4px;
+	font-family: 'calibri';
+	color: white;
+	box-shadow: 7px 13px 37px #000;
+	
+}
+
+.form-register h3{
+	font-size: 22px;
+	margin-bottom: 20px;
+	
+}
+
+
+.form-register p{
+	height: 40px;
+	text-align: center;
+	font-size: 17px;
+	line-height: 40px;
+}
+
+
+.form-register a{
+	color: white;
+	text-decoration: none;
+
+}
+
+.form-register a:hover{
+	color: white;
+	text-decoration: underline;
+}
+
+.form-register .botons{
+	width: 100%;
+	background: #1f53c5;
+	border: none;
+	padding: 15px;
+	color: white;
+	margin: 16px 0; 
+}
+
+.form-register .botons:active {
+	background-color: #29962A;
+}
+
+.form-register .botons:hover {
+	background-color: #29962A;
+}
+
+/* inputs de Contactanos.html */
+.controls{
+	width: 100%;  /* tamaño de cajas */
+	background: #24303c;
+	padding: 10px;
+	border-radius: 4px;
+	margin-bottom: 16px;
+	border: 1px solid #1f53c5;
+	font-family: 'calibri';
+	font-size: 18px;
+	color: white;
+	
+}
+
+.controls:hover{
+	background-color: #ffffff;
+	
+}
+
+
+/*----------Productos---------*/
+
+.contenedor-section{
+    width: 100%;
+    margin-top: 10px;
+    float:left;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tarjeta{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    width: 20%;
+    min-height: 300px;
+    margin: 20px;
+    border: 2px solid lightgray;
+    box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+    border-radius:15px;
+    cursor: default;
+}
+
+.tarjeta:hover{
+    box-shadow: 6px 6px 18px 8px #d3d3d3d1;
+    transform: translateY(-3%);
+}
+
+.cuerpo{
+  padding: 10px;
+  text-align: center;
+}
+
+.cuerpo img{
+    width: 100%;
+}
+
+.cuerpo p{
+    font-size: larger;
+}
+
+.tarjeta button{
+  background: orange;
+  border-radius:0 0 15px 15px;
+  padding: 10px;
+  color: black;
+  font-size: large;
+}
+
+.tarjeta button:hover{
+    background: orangered;
+    color: white;
+  }
+
+/*---------------------------------------MAIN DE SERVICIO DE PASEOS-------------------------------------------------------------*/
+
+.bg-primary{
+	background: #BEBFC5;
+}
+.bg-secondary{
+	background:#FF8000;
+}
+.bg-success{
+	background:#00B9E8;
+}
+.bg-info{
+	background:#DDD06A;
+}
+
+.container-paseos{
+	width: 98%;
+	max-width: 980px;
+	height:100%;
+	justify-content:center;
+	display: grid;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.titulo-paseo{
+	text-align:center;
+	font-size:30px;
+	height:50px;
+	color:white;
+	font-weight:bold;
+	font-family:arial;	
+	border:2px solid #999c44;
+	
+}
+.border{
+	border: 1px solid #3a3c62;
+	padding:5px 2px;
+}
+.border-td-th{
+	border:2px solid #004f9a;
+	padding:5px 5px;
+	text-align: center;
+	background-color:#d8ffc2;
+	
+}
+.tabla{
+	grid-template-columns: repeat(8,25%);
+	grid-auto-rows:50px;
+	padding:5px 5px;
+	
+}
+.cabecera-tabla{
+		margin:auto;
+}
+.fila{
+	font-size:20px;
+	padding:5px;
+	color:#fddc6f;
+	text-align:center;
+	border:2px solid #004f9a;
+	background:#576CBC;
+}
+.contacto{
+	text-align:center;
+	font-size:20px;
+	height:40px;
+	color:white;
+	font-weight:bold;
+	font-family:arial;	
+	border:2px solid #999c44;
+}
+
+
+.mb-20{
+	padding:20px;
+}
+.mt-20{
+	margin-top:20px;
+}
+pt-30{
+	padding-top: 30px;
+}
+.w-980{
+	width:980px;
+}
+.h-50{
+	height:50px;
+}
+
+/*------------sucursales--------------*/
+
+#contenido-principal-sucursales {
+  margin: 50px auto;
+  width: 100%;
+  text-align: center;
+}
+
+.sucursales-h1 {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #FF8D18;
+  text-shadow: 2px 2px 3px #c0c0c0;
+}
+
+.sucursales-h1 h1:first-child {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.sucursales-h1 h1:last-child {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.contenedor-de-sucursales {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contenedor-de-sucursales ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.contenedor-de-sucursales li {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 300px;
+  max-width: 100%;
+  box-shadow: 0 0 10px #ff3e3e;
+}
+
+.contenedor-de-sucursales strong {
+  font-weight: bold;
+}
+
+.contenedor-de-sucursales li:last-child {
+  margin-bottom: 0;
+}
+
+
+/*------------FOOTER------------------*/
+footer {
+	width: 100%;
+	padding:5px;
+	background-color: #092327;
+	color: white;
+	text-align: center;
+	margin-top: 20px;
+	float: left;
+	font-size: 15px;
+}
