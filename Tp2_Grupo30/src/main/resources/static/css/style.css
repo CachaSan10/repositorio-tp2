@@ -42,7 +42,6 @@ header p{
 
 /*------------MENU------------------*/
 nav {
-	margin: 50px;
 	background-color: #092327;
 	padding: 10px40px 10px 40px;
 	height: 40px
@@ -60,7 +59,7 @@ nav ul li a {
 	display: block;
 	padding: 0px 20px 0px 20px;
 	text-align: center;
-	font-size: 0.8em;
+	font-size: 20px;
 	line-height: 40px;
 }
 
@@ -224,7 +223,81 @@ nav ul li a:hover {
 	background-color: #ffffff;
 	
 }
+/*-----------Index------------*/
+.container-index{
+	background:#DDD06A;
+	height: 950px;
+}
 
+.seccion-index{
+	background:#DDD06A;
+	width: 80%;
+    float:left;
+    display: flex;
+}
+
+.bg-image{
+	width:100%;
+	height:500px;
+}
+.titulo-h2{
+	font-size:2rem;
+	padding:0.5em;
+	height:100px;
+	text-align:center;
+	color:black;
+	border:solid #00B9E8; 
+	background-color:#BEBFC5;
+	margin-top: 40px;
+}
+
+.articulo-index{
+	background:#FF8000;
+	display:flex;
+    flex-direction:column;
+    width:15rem;
+    min-height: 200px;
+    margin: 20px;
+    border: 2px solid lightgray;
+    border-radius:0.5rem;
+    cursor: default;
+	
+}
+
+.titulo-body{
+	padding:1em;
+}
+.titulo-body h3{
+	font-family:sans-serif;
+	text-align:center;
+	font-size:1.5rem;
+	margin:1em 0;
+	font-weight:bold;
+}
+.titulo-body p{
+	font-family:sans-serif;
+	text-align:center;
+	font-size:1rem;
+}
+
+.sitios-amigos{
+	background:#DDD06A;
+	width:20%;
+	float:left;
+	text-align: left;
+	padding-left: 20px;
+}
+
+.referencias h2{
+	font-size:1.25rem;
+	text-align:center;
+}
+
+.lista li{
+	display:block;
+	font-family:sans-serif;
+	text-decoration:none;
+}
 
 /*----------Productos---------*/
 
@@ -429,104 +502,6 @@ pt-30{
 
 .contenedor-de-sucursales li:last-child {
   margin-bottom: 0;
-}
-
-/*----------index-------------------*/
-.container{
-	width: 98%;
-	max-width: 1000px;
-	height:1000px;
-	
-	
-}
-.bg-image{
-	width:100%;
-	height:500px;
-}
-.seccion {
-	float:left;
-	margin:30px 30px;
-}
-.titulo-h2{
-	font-size:2rem;
-	padding:0.5em;
-	text-align:center;
-	color:black;
-	border:solid #00B9E8; 
-	background-color:#BEBFC5;
-}
-.articulo{
-	width:15rem;
-	overflow:hidden;
-	border-radius:0.5rem;
-}
-.articulo-imagen{
-	width:100%
-}
-.articulo-body{
-	padding:1em;
-}
-.articulo-body h3{
-	font-family:sans-serif;
-	text-align:center;
-	font-size:1.5rem;
-	margin:1em 0;
-	font-weight:bold;
-}
-.articulo-body p{
-	font-family:sans-serif;
-	text-align:center;
-	font-size:1rem;
-}
-.sitios-amigos{
-	float:left;
-	margin-top:10rem;
-}
-
-.referencias h2{
-	font-size:1.25rem;
-	text-align:center;
-	color:black;
-}
-.lista li{
-	display:block;
-	font-family:sans-serif;
-	text-decoration:none;
-}
-
-.m-auto{
-	margin-left:auto;
-	margin-right:auto;
-}
-.mt-2{
-	margin-top:2rem;
-}
-.d-inline-block{
-	display:inline-block;	
-}
-.border-box{
-	box-sizing:border-box;
-}
-.w-250{
-	width:250px;
-}
-.h-350{
-	height:350px;
-}
-.border{
-	border-style: solid;
-}
-.bg-primary{
-	background: #BEBFC5;
-}
-.bg-secondary{
-	background:#FF8000;
-}
-.bg-success{
-	background:#00B9E8;
-}
-.bg-info{
-	background:#DDD06A;
 }
 
 
