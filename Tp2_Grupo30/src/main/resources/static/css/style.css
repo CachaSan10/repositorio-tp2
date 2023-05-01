@@ -42,6 +42,8 @@ header p{
 
 /*------------MENU------------------*/
 nav {
+	margin: 50px;
+	height:auto;
 	background-color: #092327;
 	padding: 10px40px 10px 40px;
 	height: 40px
