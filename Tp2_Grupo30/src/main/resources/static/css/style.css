@@ -1,4 +1,3 @@
-@charset "ISO-8859-1";
 
 * {
 	margin: 0px;
@@ -223,7 +222,81 @@ nav ul li a:hover {
 	background-color: #ffffff;
 	
 }
+/*-----------Index------------*/
+.container-index{
+	background:#DDD06A;
+	height: 950px;
+}
 
+.seccion-index{
+	background:#DDD06A;
+	width: 80%;
+    float:left;
+    display: flex;
+}
+
+.bg-image{
+	width:100%;
+	height:500px;
+}
+.titulo-h2{
+	font-size:2rem;
+	padding:0.5em;
+	height:100px;
+	text-align:center;
+	color:black;
+	border:solid #00B9E8; 
+	background-color:#BEBFC5;
+	margin-top: 40px;
+}
+
+.articulo-index{
+	background:#FF8000;
+	display:flex;
+    flex-direction:column;
+    width:15rem;
+    min-height: 200px;
+    margin: 20px;
+    border: 2px solid lightgray;
+    border-radius:0.5rem;
+    cursor: default;
+	
+}
+
+.titulo-body{
+	padding:1em;
+}
+.titulo-body h3{
+	font-family:sans-serif;
+	text-align:center;
+	font-size:1.5rem;
+	margin:1em 0;
+	font-weight:bold;
+}
+.titulo-body p{
+	font-family:sans-serif;
+	text-align:center;
+	font-size:1rem;
+}
+
+.sitios-amigos{
+	background:#DDD06A;
+	width:20%;
+	float:left;
+	text-align: left;
+	padding-left: 20px;
+}
+
+.referencias h2{
+	font-size:1.25rem;
+	text-align:center;
+}
+
+.lista li{
+	display:block;
+	font-family:sans-serif;
+	text-decoration:none;
+}
 
 /*----------Productos---------*/
 
