@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 
 <head>
 	<meta charset="UTF-8">
 	<title>ConsejosDeSalud - Tienda de Mascota Puppis</title>
-	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap" rel="stylesheet">
@@ -13,25 +13,9 @@
 
 <body>
 	<div id="contenedor">
-		<header class="#">
-			<!-- <img src="../static/images/Logo-Puppis.jpg" alt="Logo-PUPPIS" class="#">-->
-			<h1 class="#">TIENDA DE MASCOTAS PUPPIS</h1>
-			<p class="#">Envios a Domicilio sin Cargo.</br>
-			Tanto de Alimentos para Mascotas como Accesorios y Farmacía.</br>
-			Consulte Zonas de Envios</p>
-		</header>
-		<nav id="Menu-principal">
-			<ul class="enlases-menu" style="font-size: 40px; ">
-				<li><a href="index.html" title="Ir a la pagina de Inicio">Principal</a></li>
-				<li><a href="Productos.html" title="Ir a Producto">Productos</a></li>
-				<li><a href="consejoDeSalud.html" title="Ir a Consejo de Salud">Consejos
-						de Salud</a></li>
-				<li><a href="servicioDePaseos.html"
-					title="Ir a Sevicio de Paseo">Servicios de Paseos</a></li>
-				<li><a href="sucursales.html" title="Ir a Sucursales">Sucursales</a></li>
-				<li><a href="Contáctanos.html" title="Ir a Contacto">Contactanos</a></li>
-			</ul>
-		</nav>
+		<header th:replace="layouts/header :: header"></header>
+		
+		<nav id="Menu-principal" th:replace="layouts/nav :: nav"></nav>
 
 
 		<section id="contenedor-consejos-salud">
@@ -42,7 +26,7 @@
 					pelo</h2>
 				<img class="foto-gato-consejo-salud"
 					alt="Gato que esta siendo cepillado"
-					src="../static/images/cepillar-gato.jpg">
+					src="/images/cepillar-gato.jpg">
 				<p> La caída del pelo en los gatos es muy habitual sobre todo en
 					primavera. A continuación veremos varios consejos para evitar
 					problemas con las bolas de pelo.</p>
@@ -85,7 +69,7 @@
 			<article>
 				<h2>Alimentación para perros con digestiones sensibles</h2>
 				<img class="foto-gato-consejo-salud" alt="Perro Caminando"
-					src="../static/images/alimentacion-digestion-sensible.jpg">
+					src="/images/alimentacion-digestion-sensible.jpg">
 
 				<p>
 					Algunos perros sufren digestiones <strong>más sensibles de
@@ -114,7 +98,7 @@
 				<h2>¿Cuántas veces al día debe comer un perro?</h2>
 				<img class="foto-gato-consejo-salud"
 					alt="Un perro que esta apunto de comer"
-					src="../static/images/comer-dia-perro-portada.jpg">
+					src="/images/comer-dia-perro-portada.jpg">
 				<p>La cantidad de comida de los perros es muy importante. ¡Es
 					una de las claves de su salud! Nuestro amigo de cuatro patas nos
 					pediría comida a todas horas, pero ¿cada cuánto tiempo deberíamos
@@ -185,13 +169,8 @@
 
 		</section>
 
-		<footer>
-			<p>Portal de Mascotas - Av. General Belgrano 3915 - Teléfono
-				(388) 4999999 S. S. de Jujuy República Argentina.</p>
-
-			<p>Derechos Reservados 2023 - Tienda de Mascotas PUPPIS -
-				Diseñado por Grupo 30 - Jujuy - Argentina</p>
-
+		<footer th:replace="layouts/footer :: footer">
+			
 		</footer>
 	</div>
 

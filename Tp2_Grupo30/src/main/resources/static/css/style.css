@@ -20,6 +20,7 @@ header {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	margin-bottom: 10px;
 }
 
 header h1{
@@ -28,13 +29,14 @@ header h1{
 	padding-right:30px;
 	padding-top:20px;
 	color: orange;
-	font-size: 65px;
+	font-size: 45px;
 	
 	
 }
 
 header p{
 	padding: 5px;
+	margin-left:150px;
 	text-align: center;
 	color: #092327;
 	font-size: 20px;
@@ -44,7 +46,7 @@ header p{
 nav {
 	background-color: #092327;
 	padding: 10px40px 10px 40px;
-	height: 40px
+	height: 40px;
 }
 
 nav ul li {
@@ -59,7 +61,7 @@ nav ul li a {
 	display: block;
 	padding: 0px 20px 0px 20px;
 	text-align: center;
-	font-size: 20px;
+	font-size: 0.85em;
 	line-height: 40px;
 }
 
@@ -71,13 +73,13 @@ nav ul li a:hover {
 /*----------ConsejoDeSalud---------*/
 
 #contenedor-consejos-salud {
-	margin-top: 30px;
+	margin-top: 20px;
 	text-align: justify;
   	font-family: 'Heebo', sans-serif,fantasy;
 }
 
 #contenedor-consejos-salud h2 {
-	font-size: 50px;
+	font-size: 20px;
 	text-align: center;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -86,13 +88,13 @@ nav ul li a:hover {
 
 #contenedor-consejos-salud h1{
 	text-align: center;
-	font-size: 70px;
+	font-size: 40px;
 	color: #8B0000;
 	font-family: sans-serif ,inherit,cursive;
 }
 
 #contenedor-consejos-salud h3 {
-	font-size: 35px;
+	font-size: 20px;
 	margin: 15px;
 	text-align: center;
 	color: #FA8072;
@@ -100,7 +102,7 @@ nav ul li a:hover {
 }
 
 #contenedor-consejos-salud h4 {
-	font-size: 35px;
+	font-size: 20px;
 	margin: 20px;
 	text-align: center;
 	color: #CD853F;
@@ -114,7 +116,7 @@ nav ul li a:hover {
 }
 
 #contenedor-consejos-salud article {
-	width: 80%;
+	width: 70%;
 	margin: auto;
 	margin-top: 20px;
 	display: block;
@@ -128,7 +130,7 @@ nav ul li a:hover {
 	margin-top: 15px;
 	margin-bottom:20px;
 	display: block;
-	font-size: 30px;
+	font-size: 15px;
 	width: 80%;
 }
 
@@ -140,7 +142,7 @@ nav ul li a:hover {
 	margin-bottom:10px;
 	display: block;
 	width: 80%;
-	font-size: 30px;
+	font-size: 15px;
 }
 
 #contenedor-consejos-salud article ul li strong {
