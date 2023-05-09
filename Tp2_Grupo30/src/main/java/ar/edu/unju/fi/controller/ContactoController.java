@@ -12,7 +12,7 @@ import ch.qos.logback.core.model.Model;
 public class ContactoController {
 	
 	@GetMapping("/contacto")
-	public String getContactoPage(Model model) {
+	public String getContactoPage() {
 		
 		return "contacto";
 	}
