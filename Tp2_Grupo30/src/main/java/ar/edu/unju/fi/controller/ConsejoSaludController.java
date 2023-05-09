@@ -1,5 +1,5 @@
 package ar.edu.unju.fi.controller;
 
-public class ConsultaSaludController {
+public class ConsejoSaludController {
 
 }

@@ -1,5 +1,5 @@
 package ar.edu.unju.fi.model;
 
-public class ConsultaSalud {
+public class ConsejoSalud {
 
 }
