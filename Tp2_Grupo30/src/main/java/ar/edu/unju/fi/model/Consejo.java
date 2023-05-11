@@ -1,27 +1,19 @@
 package ar.edu.unju.fi.model;
 
-import java.util.ArrayList;
-
 public class Consejo {
-	
+
 	private String titulo;
-	private ArrayList<String> parrafos;
+	private String parrafo;
 	private String imagenes;
-	
+
 	public Consejo() {
-		super();
 	}
 
-	
-
-	public Consejo(String titulo, ArrayList<String> parrafos, String imagenes) {
-		super();
+	public Consejo(String titulo, String parrafo, String imagenes) {
 		this.titulo = titulo;
-		this.parrafos = parrafos;
+		this.parrafo = parrafo;
 		this.imagenes = imagenes;
 	}
-
-
 
 	public String getTitulo() {
 		return titulo;
@@ -31,26 +23,20 @@ public class Consejo {
 		this.titulo = titulo;
 	}
 
-	public ArrayList<String> getParrafos() {
-		return parrafos;
+	public String getParrafo() {
+		return parrafo;
 	}
 
-	public void setParrafos(ArrayList<String> parrafos) {
-		this.parrafos = parrafos;
+	public void setParrafo(String parrafo) {
+		this.parrafo = parrafo;
 	}
-
-
 
 	public String getImagenes() {
 		return imagenes;
 	}
 
-
-
 	public void setImagenes(String imagenes) {
 		this.imagenes = imagenes;
 	}
-	
-	
 
 }
