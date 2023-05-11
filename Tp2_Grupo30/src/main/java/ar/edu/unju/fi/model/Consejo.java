@@ -6,16 +6,22 @@ public class Consejo {
 	
 	private String titulo;
 	private ArrayList<String> parrafos;
+	private String imagenes;
 	
 	public Consejo() {
 		super();
 	}
 
-	public Consejo(String titulo, ArrayList<String> parrafos) {
+	
+
+	public Consejo(String titulo, ArrayList<String> parrafos, String imagenes) {
 		super();
 		this.titulo = titulo;
 		this.parrafos = parrafos;
+		this.imagenes = imagenes;
 	}
+
+
 
 	public String getTitulo() {
 		return titulo;
@@ -31,6 +37,18 @@ public class Consejo {
 
 	public void setParrafos(ArrayList<String> parrafos) {
 		this.parrafos = parrafos;
+	}
+
+
+
+	public String getImagenes() {
+		return imagenes;
+	}
+
+
+
+	public void setImagenes(String imagenes) {
+		this.imagenes = imagenes;
 	}
 	
 	

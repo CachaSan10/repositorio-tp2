@@ -1,34 +1,22 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 	<title>Servicio de Paseos - Tienda de Mascota Puppis</title>
 </head>
 
 <body>
 	<div id="contenedor">
-		<header class="#">
-			<!-- <img src="../static/images/Logo-Puppis.jpg" alt="Logo-PUPPIS" class="#">-->
-			<h1 class="#">TIENDA DE MASCOTAS PUPPIS</h1>
-			<p class="#">Envios a Domicilio sin Cargo.</br>
-			Tanto de Alimentos para Mascotas como Accesorios y Farmacía.</br>
-			Consulte Zonas de Envios</p>
-		</header>
-		<nav id="Menu-principal">
-			<ul>
-				<li><a href="index.html" title="Ir a la pagina de Inicio">Principal</a></li>
-				<li><a href="Productos.html" title="Ir a Producto">Productos</a></li>
-				<li><a href="consejoDeSalud.html" title="Ir a Consejo de Salud">Consejos
-						de Salud</a></li>
-				<li><a href="servicioDePaseos.html"
-					title="Ir a Sevicio de Paseo">Servicios de Paseos</a></li>
-				<li><a href="sucursales.html" title="Ir a Sucursales">Sucursales</a></li>
-				<li><a href="contacto.html" title="Ir a Contacto">Contactanos</a></li>
-			</ul>
-		</nav>
+				<header th:replace="layouts/header :: header"></header>
+
+				<nav id="Menu-principal" th:replace="layouts/nav :: nav"></nav>
+
+		
+		
+		
 		<main class="container-paseos content bg-success">
 			<div class="titulo-paseo bg-secondary mt-20">
 				<h2 class="">HORARIOS DE SERVICIOS</h2>
@@ -148,14 +136,8 @@
 			</div>
 			</div>
 		</main>
-		<footer>
-			<p>Portal de Mascotas - Av. General Belgrano 3915 - Teléfono
-				(388) 4999999 S. S. de Jujuy República Argentina.</p>
+				<footer th:replace="layouts/footer :: footer"></footer>
 
-			<p>Derechos Reservados 2023 - Tienda de Mascotas PUPPIS -
-				Diseñado por Grupo 30 - Jujuy - Argentina</p>
-
-		</footer>
 	</div>
 </body>
 </html>

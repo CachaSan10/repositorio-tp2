@@ -1,53 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="../static/css/style.css">
+		<link rel="stylesheet" th:href="@{/css/style.css}">
 		<title>Tienda de Mascotas - PUPPIS</title>
 	</head>
 	<body>
 		<div id="contenedor">
-		<header class="#">
-			<!-- <img src="../static/images/Logo-Puppis.jpg" alt="Logo-PUPPIS" class="#">-->
-			<h1 class="#">TIENDA DE MASCOTAS PUPPIS</h1>
-			<p class="#">Envios a Domicilio sin Cargo.</br>
-			Tanto de Alimentos para Mascotas como Accesorios y Farmacía.</br>
-			Consulte Zonas de Envios</p>
-		</header>
-		<nav id="Menu-principal">
-			<ul class="enlases-menu">
-				<li><a href="index" title="Ir a la pagina de Inicio">Principal</a></li>
-				<li><a href="Productos" title="Ir a Producto">Productos</a></li>
-				<li><a href="consejo-salud" title="Ir a Consejo de Salud">Consejos
-						de Salud</a></li>
-				<li><a href="serviciodepaseos"
-					title="Ir a Sevicio de Paseos">Servicios de Paseos</a></li>
-				<li><a href="sucursales" title="Ir a Sucursales">Sucursales</a></li>
-				<li><a href="contacto" title="Ir a Contacto">Contactanos</a></li>
-			</ul>
-		</nav>
+				<header th:replace="layouts/header :: header"></header>
+
+				<nav id="Menu-principal" th:replace="layouts/nav :: nav"></nav>
+
 	    <main class="container-index">
-	    	<img src="../static/images/mascotas-pets.jpg" alt="Imagen de Presentacion" class="bg-image">
+	    	<img src="/images/mascotas-pets.jpg" alt="Imagen de Presentacion" class="bg-image">
 	    	<section class="seccion-index">
 	    			<h2 class="titulo-h2">ARTICULOS DESTACADOS</h2>
 		    		<article class="articulo-index">
-	                    <img src="../static/images/oferta_mes.jpg" alt="Oferta del Mes" class="articulo-imagen">
+	                    <img src="/images/oferta_mes.jpg" alt="Oferta del Mes" class="articulo-imagen">
 	                    <div class="titulo-body">
 		                    <h3>OFERTAS DEL MES</h3>
 		                    <p>Los productos PRO PLAN en sus diferentes opciones aportan las nutrientes necesarios para su mascota.</p>
 		                </div>
 	                </article>
 	                <article class="articulo-index">
-	                    <img src="../static/images/perro_mejor-mascota.jpg" class="articulo-imagen">
+	                    <img src="/images/perro_mejor-mascota.jpg" class="articulo-imagen">
 	                    <div class="titulo-body">
 		                    <h3>LA MASCOTA DEL MES</h3>
 		                    <p>La mascota ganadora del mes fue Bolt de la Ciudad del Perico. Su dueña Maria comento que Bolt tiene muy buena actitud</p> 
 		                </div>
 	                </article>           
 	                <article class="articulo-index">
-	                    <img src="../static/images/alimentos.jpg" alt="Mejores marcas" class="articulo-imagen">
+	                    <img src="/images/alimentos.jpg" alt="Mejores marcas" class="articulo-imagen">
 	                    <div class="titulo-body">
 		                    <h3>LAS MEJORES MARCAS</h3>
 		                    <p>La salud de sus Mascotas es el Pilar de nuestro negocio por eso Ofrecemos todas marcas de calidad a los mejores precios</p>
@@ -65,11 +50,8 @@
 				     </div>
 	    	</aside>
 	    </main>
-	    <footer>
-			<p>Portal de Mascotas - Av. General Belgrano 3915 -
-				Teléfono (388) 4999999 S. S. de Jujuy República Argentina.</p>
-			<p>Derechos Reservados 2023 - Tienda de Mascotas PUPPIS - Diseñado por Grupo 30 - Jujuy - Argentina</p>
-	    </footer>
+	    		<footer th:replace="layouts/footer :: footer"></footer>
+
 	    </div>
 	</body>
 </html>
