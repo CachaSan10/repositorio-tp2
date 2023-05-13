@@ -1,19 +1,25 @@
 package ar.edu.unju.fi.model;
 
+import java.time.LocalDate;
+
 public class Consejo {
 
 	private String titulo;
 	private String parrafo;
-	private String imagenes;
+	private LocalDate fechaPublicacion;
 
 	public Consejo() {
 	}
 
-	public Consejo(String titulo, String parrafo, String imagenes) {
+	
+
+	public Consejo(String titulo, String parrafo, LocalDate fechaPublicacion) {
 		this.titulo = titulo;
 		this.parrafo = parrafo;
-		this.imagenes = imagenes;
+		this.fechaPublicacion = fechaPublicacion;
 	}
+
+
 
 	public String getTitulo() {
 		return titulo;
@@ -31,12 +37,18 @@ public class Consejo {
 		this.parrafo = parrafo;
 	}
 
-	public String getImagenes() {
-		return imagenes;
+
+
+	public LocalDate getFechaPublicacion() {
+		return fechaPublicacion;
 	}
 
-	public void setImagenes(String imagenes) {
-		this.imagenes = imagenes;
+
+
+	public void setFechaPublicacion(LocalDate fechaPublicacion) {
+		this.fechaPublicacion = fechaPublicacion;
 	}
+
+	
 
 }
