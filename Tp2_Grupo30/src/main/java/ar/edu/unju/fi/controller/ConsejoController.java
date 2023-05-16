@@ -68,9 +68,8 @@ public class ConsejoController {
 	*/
 	
 	@PostMapping("/modificar/{id}")
-	public String modificarConsejo(@ModelAttribute("consejo")Consejo consejoModificado,@PathVariable(value="id")String id) {
+	public String modificarConsejo(@ModelAttribute("consejo")Consejo consejoModificado) {
 		consejoModificado.setFechaPublicacion(LocalDate.now());
-		//consejoModificado.setId(id);
 		listaConsejo.updateConsejo(consejoModificado);
 		return "redirect:/consejo/listado";
 	}
