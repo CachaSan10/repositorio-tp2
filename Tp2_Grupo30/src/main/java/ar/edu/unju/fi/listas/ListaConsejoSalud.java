@@ -22,14 +22,14 @@ public class ListaConsejoSalud {
 				+ " Para evitar problemas en los gatos por la caída del pelo, se recomiendan varias pautas concretas. Por un lado, es muy importante que el gato lleve una correcta alimentación. En el mercado existen alimentos específicos que previenen las bolas de pelo en el estómago. Estos alimentos favorecen la calidad del pelo del gato y la salud de la piel. Así, logramos que el gato desprenda menos pelo y a la vez que trague menos. Además, este tipo de pienso también es muy adecuado para un correcto tránsito y así eliminar el pelo y evitar la formación.\n"
 				+ " Otra de las medidas que se deben tomar, y la más básica, es el cepillado diario del pelo. Los gatos, tienden a lamerse mucho el cuerpo, y a raíz de lamerse tanto el cuerpo, tragan demasiado pelo.Si nos acostumbramos a cepillarles el pelo una vez al día, todo el pelo que recojamos con el cepillo, no acabará en el estómago de la mascota.";
 		fechaPublicacion = LocalDate.of(2023, 5, 12);
-		consejos.add(new Consejo(titulo, parrafo, fechaPublicacion));
+		consejos.add(new Consejo("1",titulo, parrafo, fechaPublicacion));
 
 		titulo = " Alimentación para perros con digestiones sensibles";
 		parrafo = "Algunos perros sufren digestiones más sensibles de lo normal y necesitan una alimentación especialmente formulada para ellos.\n"
 				+ " Este tipo de alimentos suelen tener carne de cordero como primer ingrediente, ya que es muy fácil de digerir. Contiene, además, otros ingredientes especiales para las digestiones sensibles como:\n"
 				+ " Bentonita, una arcilla nutricional que actúa como si fuera una venda dentro del intestino protegiendo contra las toxinas y absorbiendo agua de manera que las heces salen más compactas. Una combinación especial de fibras que también ayudan a compactar las heces. Huevo, muy fácil de digerir para que el intestino trabaje menos.\n";
 		fechaPublicacion = LocalDate.of(2023, 3, 21);
-		consejos.add(new Consejo(titulo, parrafo, fechaPublicacion));
+		consejos.add(new Consejo("2",titulo, parrafo, fechaPublicacion));
 
 		titulo = " ¿Cuántas veces al día debe comer un perro";
 		parrafo = "La cantidad de comida de los perros es muy importante. ¡Es una de las claves de su salud! Nuestro amigo de cuatro patas nos pediría comida a todas horas, pero ¿cada cuánto tiempo deberíamos darle su ración? ¡Conoce todas las cantidades que necesita en cada etapa!.\n"
@@ -48,7 +48,7 @@ public class ListaConsejoSalud {
 				+ " que avanza el embarazo de una perra, es importante adaptar la frecuencia de su alimentación, ya que cada vez podrá ingerir menos cantidad de comida en cada toma. Sensibilidad digestiva: Para facilitar la digestión de los perros con sensibilidad digestiva, se recomienda repartir su ración de comida diaria en 3 tomas al día. Ansiedad: En perros con ansiedad conviene incrementar la frecuencia de alimentación hasta un"
 				+ " máximo de 4 raciones diarias. Además de todo esto, es importante respetar siempre las mismas horas para cada toma, ya que los perros son animales de costumbres. Y recuerda que estas recomendaciones son orientativas. Si tienes alguna duda, pide consejo a tu veterinario, él es quien mejor puede asesorarte.";
 		fechaPublicacion= LocalDate.of(2023, 4, 16);
-		consejos.add(new Consejo(titulo, parrafo, fechaPublicacion));
+		consejos.add(new Consejo("3",titulo, parrafo, fechaPublicacion));
 		
 	}
 
@@ -60,4 +60,46 @@ public class ListaConsejoSalud {
 		this.consejos = consejos;
 	}
 
+	public void addConsejo(Consejo consejo) {
+		String id = Integer.toString(1+ consejos.size());
+		consejo.setFechaPublicacion(LocalDate.now());
+		consejo.setId(id);
+		consejos.add(consejo);
+	}
+	
+	public void updateConsejo(Consejo consejoModificado) {
+		List<Consejo> listaConsejo = new ArrayList<Consejo>();
+		listaConsejo=getConsejos();
+		 for(Consejo consejo: listaConsejo) {
+		    	if(consejo.getId().equals(consejoModificado.getId())) {
+		    		consejo.setFechaPublicacion(consejoModificado.getFechaPublicacion());
+		    		consejo.setParrafo(consejoModificado.getParrafo());
+		    		consejo.setTitulo(consejoModificado.getTitulo());
+		    		break;
+		    	}
+		    }
+		 setConsejos(listaConsejo);
+	}
+	
+	
+	public Consejo getConsejo(String id) {
+	    Consejo consejoEncontrado = new Consejo();
+	    for(Consejo consejo: getConsejos()) {
+	    	if(consejo.getId().equals(id)) {
+	    		consejoEncontrado=consejo;
+	    		break;
+	    	}
+	    }
+		return consejoEncontrado;
+	}
+	
+	public void deleteConsejo(String id) {
+		for(Consejo consejo: getConsejos()) {
+	    	if(consejo.getId().equals(id)) {
+	    		getConsejos().remove(consejo);
+	    		break;
+	    	}
+	    }
+	}
+	
 }

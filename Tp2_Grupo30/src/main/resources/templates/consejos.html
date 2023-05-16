@@ -13,20 +13,23 @@
 
 <body>
 	<div id="contenedor">
-		<header th:replace="layouts/header :: header"></header>
-		
-		<nav id="Menu-principal" th:replace="layouts/nav :: nav"></nav>
+		<header th:replace="~{layouts/header :: header}"></header>
+		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 
-		<div class="contenedor-boton"><a href="/agregar-consejo" ><button type="button" class="boton-agregar" >Agregar Consejo</button></a></div>
+		<div class="contenedor-boton"><a th:href="@{/consejo/nuevo}" ><button type="button" class="boton-agregar" >Agregar Consejo</button></a></div>
 		
 		<section id="contenedor-consejos-salud">
 			<h1>Consejos de Salud para las mascotas</h1>
 
-			<article th:each="consejo : ${listaConsejo}" >
+			<article th:each="consejo : ${consejos}" >
 				<h2 th:text="${consejo.titulo}"></h2>
 				
 				<p> Fecha de Publicacion: <Strong th:text="${#temporals.format(consejo.fechaPublicacion,'dd-MM-yyyy')}"></Strong></p>
 				<p th:text="${consejo.parrafo}"> </p>
+						<div class="contenedor-boton">
+						<a th:href="@{/consejo/modificar/}+${consejo.id}" ><button type="button" class="boton-agregar" >Modificar</button></a>
+						<a th:href="@{/consejo/eliminar/}+${consejo.id}" ><button type="button" class="boton-agregar" >Eliminar</button></a>
+						</div>
 				
 			</article>
 
@@ -34,9 +37,8 @@
 			
 		</section>
 
-		<footer th:replace="layouts/footer :: footer">
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
 			
-		</footer>
 	</div>
 
 </body>

@@ -15,5 +15,4 @@ public class NavController {
 		ModelAndView modelAndView = new ModelAndView(page);
 		return modelAndView;
 	}
-
 }
