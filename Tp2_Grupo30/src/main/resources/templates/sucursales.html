@@ -36,6 +36,10 @@
 							<td th:text="${#temporals.format(sucu.fechaInicio, 'dd/MM/yyyy')}"></td> 
 							<td th:text="${sucu.email}"></td> 
 							<td th:text="${sucu.telefono}"></td>
+							<td>
+								<a class="botons" th:href="@{/sucursal/modificar/}+${sucu.codigo}">Modificar</a>
+								<a class="botons" th:href="@{/sucursal/eliminar/}+${sucu.codigo}">Eliminar</a>
+							</td> 
 						</tr>
 			</table>
 			</div>
