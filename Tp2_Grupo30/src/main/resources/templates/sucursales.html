@@ -6,37 +6,41 @@
 		<title>Sucursales - Tienda de Mascota Puppis</title>
 	</head>
 	<body>
+	
 		<div id="contenedor">
 		
-							<header th:replace="layouts/header :: header"></header>
-
-							<nav id="Menu-principal" th:replace="layouts/nav :: nav"></nav>
-
-			<main id="contenido-principal-sucursales">
-				<div class="sucursales-h1">
-					<h1>SUCURSALES</h1>
-					<h1>¡ENCONTRA LA SUCURSAL MÁS CERCANA!</h1>
-				</div>
-				<div class="contenedor-de-sucursales">
-					<ul class="#">
-						<li><strong>CASA CENTRAL</strong><br> Av. General Belgrano
-							Nº 3915<br> 388-4999999</li>
-						<li><strong>SUCURSAL LAVALLE</strong><br> Lavalle Nº 222<br>
-							388-4999998</li>
-						<li><strong>SUCURSAL NECOCHEA</strong><br> Necochea Nº 440<br>
-							388-4999997</li>
-						<li><strong>SUCURSAL MERCADO</strong><br> José de la
-							Iglesia Nº 1050<br> 388-4999996</li>
-						<li><strong>SUCURSAL DORREGO</strong><br> Dorrego Nº 85<br>
-							388-4999995</li>
-						<li><strong>SUCURSAL SANTIAGO DEL ESTERO</strong><br>
-							Santiago del Estero Nº 140<br> 388-4999994</li>
-					</ul>
-				</div>
-			</main>
+		<header th:replace="layouts/header :: header"></header>
+		
+		<nav id="Menu-principal" th:replace="layouts/nav :: nav"></nav>
+	
+			<div id="main-container">
+				<a th:href="@{/sucursal/nuevo}">Nueva Sucursal</a>
+				<table class="tabla322">
+					<thead class="thead322">
+						<tr>
+							<th>Codigo</th>
+							<th>Nombre</th>
+							<th>Direccion</th>
+							<th>Provincia</th>
+							<th>Fecha Inicio</th>
+							<th>Email</th>
+							<th>Telefono</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+						<tr th:each="sucu: ${sucursales}">
+							<td th:text="${sucu.codigo}"></td>
+							<td th:text="${sucu.nombre}"></td> 
+							<td th:text="${sucu.direccion}"></td> 
+							<td th:text="${sucu.provincia}"></td> 
+							<td th:text="${#temporals.format(sucu.fechaInicio, 'dd/MM/yyyy')}"></td> 
+							<td th:text="${sucu.email}"></td> 
+							<td th:text="${sucu.telefono}"></td>
+						</tr>
+			</table>
+			</div>
 				
-			<footer th:replace="layouts/footer :: footer">
-			</footer>
+		<footer th:replace="layouts/footer :: footer"></footer>
 		</div>
 	</body>
 </html>

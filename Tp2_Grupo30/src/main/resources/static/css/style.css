@@ -10,6 +10,7 @@
 	margin: 20px;
 }
 
+
 /*---------HEADER------------*/
 header {
 	background-image: url("../images/Logo-Puppis.jpg");
@@ -470,7 +471,31 @@ pt-30{
 }
 
 /*------------sucursales--------------*/
+#main-container{
+	margin: 150px auto;
+	width: 600px;
+}
+.tabla322{
+	background-color: #ffffff;
+	text-align: left;
+	width: 100%;
+	border-collapse:collapse; 
+	
+}
+th, td{
+	
+	padding: 10px;
+}
+.thead322{
+	background-color: #246355;
+	border-bottom: solid 5px #0F362D;
+	color: white;
+}
 
+.tabla322 tr:hover td{
+	background-color: #369681;
+	color: white;
+}
 #contenido-principal-sucursales {
   margin: 50px auto;
   width: 100%;
