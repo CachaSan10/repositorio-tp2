@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" th:href="@{/css/style.css}">
-		<title>Sucursales - Tienda de Mascota Puppis</title>
-	</head>
-	<body>
-	<header th:replace="layouts/header :: header"></header>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<title>Sucursales - Tienda de Mascota Puppis</title>
+</head>
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
 	<section class="form-register">
 				<form th:action="${edicion}?@{/sucursal/modificar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
 								<h3 th:text="${edicion}?'Modificar Sucursal':'Nueva Sucursal'"></h3> 
@@ -17,12 +17,11 @@
 					<input th:field="*{fechaInicio}" class="controls" type="date" name="ciudad" id="ciudad" placeholder="fecha">
 					<input th:field="*{email}" class="controls" type="email" name="ciudad" id="ciudad" placeholder="Email">
 					<input th:field="*{telefono}" class="controls" type="text" name="ciudad" id="ciudad" placeholder="Telefono">
-<!-- 					<button type="submit" class="botons" th:value="${edicio}?'Modicicar':'Guardar'" ></button>  -->
 					<p><input type="submit" class="botons" th:value="${edicio}?'Modicicar':'Guardar'"></p>
 				</form>
 	</section>
-	
-	<footer th:replace="layouts/footer :: footer"></footer>
-	</body>
+
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+</body>
 
 </html>
