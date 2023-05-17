@@ -9,10 +9,9 @@
 	
 		<div id="contenedor">
 		
-		<header th:replace="layouts/header :: header"></header>
-		
-		<nav id="Menu-principal" th:replace="layouts/nav :: nav"></nav>
-	
+		<header th:replace="~{layouts/header :: header}"></header>
+		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
+
 			<div id="main-container">
 				<a th:href="@{/sucursal/nuevo}">Nueva Sucursal</a>
 				<table class="tabla322">
@@ -40,7 +39,7 @@
 			</table>
 			</div>
 				
-		<footer th:replace="layouts/footer :: footer"></footer>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
 		</div>
 	</body>
 </html>

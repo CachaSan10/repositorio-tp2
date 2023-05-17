@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" th:href="@{/css/style.css}">
-	<title>Servicio de Paseos - Tienda de Mascota Puppis</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<title>Servicio de Paseos - Tienda de Mascota Puppis</title>
 </head>
 
 <body>
 	<div id="contenedor">
-				<header th:replace="layouts/header :: header"></header>
+		<header th:replace="~{layouts/header :: header}"></header>
+		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 
-				<nav id="Menu-principal" th:replace="layouts/nav :: nav"></nav>
 
-		
-		
-		
+
+
 		<main class="container-paseos content bg-success">
 			<div class="titulo-paseo bg-secondary mt-20">
 				<h2 class="">HORARIOS DE SERVICIOS</h2>
 			</div>
-			<div class="" >
+			<div class="">
 				<table class="tabla">
 					<thead class="cabecera-tabla bg-info h-50 border-td-th">
 						<tr class="">
@@ -38,12 +37,24 @@
 					<tbody class="body-tabla bg-success">
 						<tr class="">
 							<td class="fila">Horario</td>
-							<td class="border-td-th h-50"> 7:30 a 8:30<br>14:30 a 15:30</td>
-							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a 15:30</td>
-							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a 15:30</td>
-							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a 15:30</td>
-							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a 15:30</td>
-							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a 15:30</td>
+							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a
+								15:30
+							</td>
+							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a
+								15:30
+							</td>
+							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a
+								15:30
+							</td>
+							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a
+								15:30
+							</td>
+							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a
+								15:30
+							</td>
+							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a
+								15:30
+							</td>
 							<td class="border-td-th h-50">9 a 12</td>
 						</tr>
 						<tr class=" h-50">
@@ -58,7 +69,7 @@
 						</tr>
 					</tbody>
 				</table>
-				
+
 				<table class="tabla">
 					<thead class="cabecera-tabla bg-info h-50 border-td-th">
 						<tr class="">
@@ -75,12 +86,18 @@
 					<tbody class="body-tabla bg-success">
 						<tr class="#">
 							<td class="fila">Horario</td>
-							<td class="border-td-th h-50">9 a 10<br>16 a 17</td>
-							<td class="border-td-th h-50">9 a 10<br>16 a 17</td>
-							<td class="border-td-th h-50">9 a 10<br>16 a 17</td>
-							<td class="border-td-th h-50">9 a 10<br>16 a 17</td>
-							<td class="border-td-th h-50">9 a 10<br>16 a 17</td>
-							<td class="border-td-th h-50">9 a 10<br>16 a 17</td>
+							<td class="border-td-th h-50">9 a 10<br>16 a 17
+							</td>
+							<td class="border-td-th h-50">9 a 10<br>16 a 17
+							</td>
+							<td class="border-td-th h-50">9 a 10<br>16 a 17
+							</td>
+							<td class="border-td-th h-50">9 a 10<br>16 a 17
+							</td>
+							<td class="border-td-th h-50">9 a 10<br>16 a 17
+							</td>
+							<td class="border-td-th h-50">9 a 10<br>16 a 17
+							</td>
 							<td class="border-td-th h-50">9 a 10</td>
 						</tr>
 						<tr class="h-50">
@@ -111,12 +128,24 @@
 					<tbody>
 						<tr>
 							<td class="fila">Horario</td>
-							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a 18:30</td>
-							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a 18:30</td>
-							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a 18:30</td>
-							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a 18:30</td>
-							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a 18:30</td>
-							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a 18:30</td>
+							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a
+								18:30
+							</td>
+							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a
+								18:30
+							</td>
+							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a
+								18:30
+							</td>
+							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a
+								18:30
+							</td>
+							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a
+								18:30
+							</td>
+							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a
+								18:30
+							</td>
 							<td class="border-td-th h-50">9 a 10</td>
 						</tr>
 						<tr>
@@ -132,11 +161,11 @@
 					</tbody>
 				</table>
 				<div class="contacto bg-secondary">
-				<h2 class="">CONTACTO PARA RESERVAS: Cel 3886767980</h2>
-			</div>
+					<h2 class="">CONTACTO PARA RESERVAS: Cel 3886767980</h2>
+				</div>
 			</div>
 		</main>
-				<footer th:replace="layouts/footer :: footer"></footer>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
 
 	</div>
 </body>
