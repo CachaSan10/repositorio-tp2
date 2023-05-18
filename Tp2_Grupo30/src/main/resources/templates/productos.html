@@ -16,96 +16,26 @@
 
 
 
+		<div class="contenedor-boton"><a th:href="@{/productos/nuevo}" ><button type="button" class="boton-agregar" >Agregar Producto</button></a></div>	
 		<section class="contenedor-section">
-			<div class="tarjeta">
-				<div class="cuerpo">
-					<img src="/images/Producto1.png" alt="imagen de producto">
-					<h1>VitalCan Premium Perro 20kg</h1>
-					<p>$ 6,500.00</p>
+		
+            <div th:each="produc: ${productos}" class="tarjeta">
+                <div class="cuerpo">
+                    <img src="/images/Producto1.png" alt="imagen de producto">
+                    <h1 th:text="${produc.nombreProducto}"></h1>
+                    <h6>cod. <span th:text=${produc.id}></span></h6>
+                    <p >$ <span th:text="${produc.precioProducto}"></span></p>
+                </div>
+                <div class="contenedor-boton">
+	  				<a><button type="button" class="boton-opcion" >Modificar</button></a>
+					<a><button type="button" class="boton-opcion" >Eliminar</button></a>
 				</div>
-				<button>
-					Comprar <i class="fa-sharp fa-solid fa-cart-shopping fa-lg"
-						style="color: #000000;"></i>
-				</button>
-			</div>
-			<div class="tarjeta">
-				<div class="cuerpo">
-					<img src="/images/Producto2.png" alt="imagen de producto">
-					<h1>Raza Perro Adulto Carne 21 Kg.</h1>
-					<p>$ 5,390.00</p>
-				</div>
-				<button>
-					Comprar <i class="fa-sharp fa-solid fa-cart-shopping fa-lg"
-						style="color: #000000;"></i>
-				</button>
-			</div>
-			<div class="tarjeta">
-				<div class="cuerpo">
-					<img src="/images/Producto3.png" alt="imagen de producto">
-					<h1>HOP GATITO 7.5Kg</h1>
-					<p>$ 3,200.00</p>
-				</div>
-				<button>
-					Comprar <i class="fa-sharp fa-solid fa-cart-shopping fa-lg"
-						style="color: #000000;"></i>
-				</button>
-			</div>
-			<div class="tarjeta">
-				<div class="cuerpo">
-					<img src="/images/Producto4.png" alt="imagen de producto">
-					<h1>Lata Agility Gato Sabor Carne Vacuna 340gr.</h1>
-					<p>$ 500</p>
-				</div>
-				<button>
-					Comprar <i class="fa-sharp fa-solid fa-cart-shopping fa-lg"
-						style="color: #000000;"></i>
-				</button>
-			</div>
-			<div class="tarjeta">
-				<div class="cuerpo">
-					<img src="/images/Producto5.jpg" alt="imagen de producto">
-					<h1>Comedero Doble Cuadrado</h1>
-					<p>$ 290.00</p>
-				</div>
-				<button>
-					Comprar <i class="fa-sharp fa-solid fa-cart-shopping fa-lg"
-						style="color: #000000;"></i>
-				</button>
-			</div>
-			<div class="tarjeta">
-				<div class="cuerpo">
-					<img src="/images/Producto6.jpg" alt="imagen de producto">
-					<h1>Comedero Circular Chico</h1>
-					<p>$ 110.00</p>
-				</div>
-				<button>
-					Comprar <i class="fa-sharp fa-solid fa-cart-shopping fa-lg"
-						style="color: #000000;"></i>
-				</button>
-			</div>
-			<div class="tarjeta">
-				<div class="cuerpo">
-					<img src="/images/Producto7.png" alt="imagen de producto">
-					<h1>Kit Sanitario Grande</h1>
-					<p>$ 1,100.00</p>
-				</div>
-				<button>
-					Comprar <i class="fa-sharp fa-solid fa-cart-shopping fa-lg"
-						style="color: #000000;"></i>
-				</button>
-			</div>
-			<div class="tarjeta">
-				<div class="cuerpo">
-					<img src="/images/Producto8.png" alt="imagen de producto">
-					<h1>Hueso Suelto 4/5</h1>
-					<p>$ 140.00</p>
-				</div>
-				<button>
-					Comprar <i class="fa-sharp fa-solid fa-cart-shopping fa-lg"
-						style="color: #000000;"></i>
-				</button>
-			</div>
-		</section>
+                <button class="boton-compra">Comprar
+                    <i class="fa-sharp fa-solid fa-cart-shopping fa-lg" style="color: #000000;"></i>
+                </button>
+            </div>
+            
+        </section>
 
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 
