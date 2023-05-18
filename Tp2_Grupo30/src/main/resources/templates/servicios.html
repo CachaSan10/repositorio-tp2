@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<title>Servicio de Paseos - Tienda de Mascota Puppis</title>
+	</head>
+	<body>
+		<div id="contenedor">
+			<header th:replace="~{layouts/header :: header}"></header>
+			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
+			<h1>Dog Walkers Services</h1>
+		   	<div class="container-button"><a th:href="@{/servicio/nuevo}"><button type="button" class="button-add">Add Service</button></a></div>
+	        <section class="container-servicios">
+	        
+	        <table class="table table-bordered" border=1>
+	            <thead>
+		            <tr>
+		            	<th>Id</th>
+		                <th>Schedules</th>
+		                <th>Full Name</th>
+		                <th>Day</th>
+		                <th>Edit</th>
+		                <th>Delete</th>
+		             </tr>
+	             </thead>
+	             <tbody>
+		            <tr th:each="servicio : ${servicios}">
+		            	<td th:text="${servicio.id}"></td>
+		                <td th:text="${servicio.fullTime}"></td>
+		                <td th:text="${servicio.fullName}"></td>
+		                <td th:text="${servicio.day}"></td>
+		                <td><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="boton-agregar" >Edit</button></a></td>
+		                <td><a th:href="@{/servicio/eliminar/}+${servicio.id}" ><button type="button" class="boton-agregar" >Delete</button></a></td>
+		            </tr>
+	             </tbody>
+	       	</table>
+	   	</section>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+		</div>
+	</body>
+</html>
