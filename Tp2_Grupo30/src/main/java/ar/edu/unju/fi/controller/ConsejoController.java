@@ -16,14 +16,14 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 
 
-import ar.edu.unju.fi.listas.ListaConsejoSalud;
+import ar.edu.unju.fi.listas.ListaConsejo;
 import ar.edu.unju.fi.model.Consejo;
 
 @Controller
 @RequestMapping("/consejo")
 public class ConsejoController {
 
-	private ListaConsejoSalud listaConsejo = new ListaConsejoSalud();
+	private ListaConsejo listaConsejo = new ListaConsejo();
 
 	@GetMapping("/listado")
 	public String getListaConsejo(Model model) {
@@ -50,22 +50,14 @@ public class ConsejoController {
 	}
 	
 	@GetMapping("/modificar/{id}")
-	public String getModificarConsejoPage(Model model,@PathVariable(value="id")String id) {
+	public String getModificarConsejoPage(Model model,@PathVariable(value="id")int id) {
 		boolean edicion=true;
 		model.addAttribute("consejo", listaConsejo.getConsejo(id));
 		model.addAttribute("edicion", edicion);
 		
 		return "nuevo_consejo";
 	}
-	/*
-	@PostMapping("/modificar/{id}")
-	public String modificarConsejo(@ModelAttribute("consejo")Consejo consejoModificado,@PathVariable(value="id")String id) {
-		consejoModificado.setFechaPublicacion(LocalDate.now());
-		consejoModificado.setId(id);
-		listaConsejo.updateConsejo(consejoModificado);
-		return "redirect:/consejo/listado";
-	}
-	*/
+	
 	
 	@PostMapping("/modificar/{id}")
 	public String modificarConsejo(@ModelAttribute("consejo")Consejo consejoModificado) {
@@ -75,7 +67,7 @@ public class ConsejoController {
 	}
 	
 	@GetMapping("/eliminar/{id}")
-	public String eliminarConsejo(@PathVariable(value="id")String id) {
+	public String eliminarConsejo(@PathVariable(value="id")int id) {
 		listaConsejo.deleteConsejo(id);
 		return "redirect:/consejo/listado";
 	}

@@ -6,7 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class Consejo {
 
-	private String id;
+	private int id;
 	private String titulo;
 	private String parrafo;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -15,20 +15,32 @@ public class Consejo {
 	public Consejo() {
 	}
 
-	public Consejo(String id, String titulo, String parrafo, LocalDate fechaPublicacion) {
+	
+	
+
+	public Consejo(int id, String titulo, String parrafo, LocalDate fechaPublicacion) {
 		this.id = id;
 		this.titulo = titulo;
 		this.parrafo = parrafo;
 		this.fechaPublicacion = fechaPublicacion;
 	}
 
-	public String getId() {
+
+
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+
+
+
+	public void setId(int id) {
 		this.id = id;
 	}
+
+
+
 
 	public String getTitulo() {
 		return titulo;
