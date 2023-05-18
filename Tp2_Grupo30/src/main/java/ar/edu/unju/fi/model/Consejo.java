@@ -1,27 +1,34 @@
 package ar.edu.unju.fi.model;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Consejo {
-	
+
+	private String id;
 	private String titulo;
-	private ArrayList<String> parrafos;
-	private String imagenes;
-	
+	private String parrafo;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private LocalDate fechaPublicacion;
+
 	public Consejo() {
-		super();
 	}
 
-	
-
-	public Consejo(String titulo, ArrayList<String> parrafos, String imagenes) {
-		super();
+	public Consejo(String id, String titulo, String parrafo, LocalDate fechaPublicacion) {
+		this.id = id;
 		this.titulo = titulo;
-		this.parrafos = parrafos;
-		this.imagenes = imagenes;
+		this.parrafo = parrafo;
+		this.fechaPublicacion = fechaPublicacion;
 	}
 
+	public String getId() {
+		return id;
+	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getTitulo() {
 		return titulo;
@@ -31,26 +38,20 @@ public class Consejo {
 		this.titulo = titulo;
 	}
 
-	public ArrayList<String> getParrafos() {
-		return parrafos;
+	public String getParrafo() {
+		return parrafo;
 	}
 
-	public void setParrafos(ArrayList<String> parrafos) {
-		this.parrafos = parrafos;
+	public void setParrafo(String parrafo) {
+		this.parrafo = parrafo;
 	}
 
-
-
-	public String getImagenes() {
-		return imagenes;
+	public LocalDate getFechaPublicacion() {
+		return fechaPublicacion;
 	}
 
-
-
-	public void setImagenes(String imagenes) {
-		this.imagenes = imagenes;
+	public void setFechaPublicacion(LocalDate fechaPublicacion) {
+		this.fechaPublicacion = fechaPublicacion;
 	}
-	
-	
 
 }

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<title>Servicio de Paseos - Tienda de Mascota Puppis</title>
+</head>
+
+<body>
+	<div id="contenedor">
+		<header th:replace="~{layouts/header :: header}"></header>
+		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
+
+
+
+
+		<main class="container-paseos content bg-success">
+			<div class="titulo-paseo bg-secondary mt-20">
+				<h2 class="">HORARIOS DE SERVICIOS</h2>
+			</div>
+			<div class="">
+				<table class="tabla">
+					<thead class="cabecera-tabla bg-info h-50 border-td-th">
+						<tr class="">
+							<th class="fila">Día</th>
+							<th class="border-td-th">Lunes</th>
+							<th class="border-td-th">Martes</th>
+							<th class="border-td-th">Miercoles</th>
+							<th class="border-td-th">Jueves</th>
+							<th class="border-td-th">Viernes</th>
+							<th class="border-td-th">Sabado</th>
+							<th class="border-td-th">Domingo</th>
+						</tr>
+					</thead>
+					<tbody class="body-tabla bg-success">
+						<tr class="">
+							<td class="fila">Horario</td>
+							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a
+								15:30
+							</td>
+							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a
+								15:30
+							</td>
+							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a
+								15:30
+							</td>
+							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a
+								15:30
+							</td>
+							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a
+								15:30
+							</td>
+							<td class="border-td-th h-50">7:30 a 8:30<br>14:30 a
+								15:30
+							</td>
+							<td class="border-td-th h-50">9 a 12</td>
+						</tr>
+						<tr class=" h-50">
+							<td class="fila h-50">Paseador</td>
+							<td class="border-td-th h-50">Maria Dominguez</td>
+							<td class="border-td-th h-50">Lucas Rodriguez</td>
+							<td class="border-td-th h-50">Facundo Arias</td>
+							<td class="border-td-th h-50">Lorena Martin</td>
+							<td class="border-td-th h-50">Alicia Martinez</td>
+							<td class="border-td-th h-50">Cristina Galian</td>
+							<td class="border-td-th h-50">Ana Vega</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<table class="tabla">
+					<thead class="cabecera-tabla bg-info h-50 border-td-th">
+						<tr class="">
+							<th class="fila">Día</th>
+							<th class="border-td-th">Lunes</th>
+							<th class="border-td-th">Martes</th>
+							<th class="border-td-th">Miercoles</th>
+							<th class="border-td-th">Jueves</th>
+							<th class="border-td-th">Viernes</th>
+							<th class="border-td-th">Sabado</th>
+							<th class="border-td-th">Domingo</th>
+						</tr>
+					</thead>
+					<tbody class="body-tabla bg-success">
+						<tr class="#">
+							<td class="fila">Horario</td>
+							<td class="border-td-th h-50">9 a 10<br>16 a 17
+							</td>
+							<td class="border-td-th h-50">9 a 10<br>16 a 17
+							</td>
+							<td class="border-td-th h-50">9 a 10<br>16 a 17
+							</td>
+							<td class="border-td-th h-50">9 a 10<br>16 a 17
+							</td>
+							<td class="border-td-th h-50">9 a 10<br>16 a 17
+							</td>
+							<td class="border-td-th h-50">9 a 10<br>16 a 17
+							</td>
+							<td class="border-td-th h-50">9 a 10</td>
+						</tr>
+						<tr class="h-50">
+							<td class="fila">Paseador</td>
+							<td class="border-td-th h-50">Maria Dominguez</td>
+							<td class="border-td-th h-50">Lucas Rodriguez</td>
+							<td class="border-td-th h-50">Facundo Arias</td>
+							<td class="border-td-th h-50">Lorena Martin</td>
+							<td class="border-td-th h-50">Alicia Martinez</td>
+							<td class="border-td-th h-50">Cristina Galian</td>
+							<td class="border-td-th h-50">Ana Vega</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="tabla">
+					<thead class="cabecera-tabla bg-info h-50 border-td-th">
+						<tr class="">
+							<th class="fila">Día</th>
+							<th class="border-td-th">Lunes</th>
+							<th class="border-td-th">Martes</th>
+							<th class="border-td-th">Miercoles</th>
+							<th class="border-td-th">Jueves</th>
+							<th class="border-td-th">Viernes</th>
+							<th class="border-td-th">Sabado</th>
+							<th class="border-td-th">Domingo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="fila">Horario</td>
+							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a
+								18:30
+							</td>
+							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a
+								18:30
+							</td>
+							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a
+								18:30
+							</td>
+							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a
+								18:30
+							</td>
+							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a
+								18:30
+							</td>
+							<td class="border-td-th h-50">10:30 a 11:30<br>17:30 a
+								18:30
+							</td>
+							<td class="border-td-th h-50">9 a 10</td>
+						</tr>
+						<tr>
+							<td class="fila">Paseador</td>
+							<td class="border-td-th h-50">Maria Dominguez</td>
+							<td class="border-td-th h-50">Lucas Rodriguez</td>
+							<td class="border-td-th h-50">Facundo Arias</td>
+							<td class="border-td-th h-50">Lorena Martin</td>
+							<td class="border-td-th h-50">Alicia Martinez</td>
+							<td class="border-td-th h-50">Cristina Galian</td>
+							<td class="border-td-th h-50">Ana Vega</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="contacto bg-secondary">
+					<h2 class="">CONTACTO PARA RESERVAS: Cel 3886767980</h2>
+				</div>
+			</div>
+		</main>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+
+	</div>
+</body>
+</html>

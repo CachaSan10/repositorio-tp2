@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+<title>Agregar Consejo de Salud</title>
+</head>
+<body>
+	<div id="contenedor">
+
+		<header th:replace="~{layouts/header :: header}"></header>
+
+
+		<section class="form-register">
+			<form th:object="${consejo}" th:action="${edicion}?@{/consejo/modificar/}+${consejo.id}:@{/consejo/guardar}"
+				method="post">
+				<h3 th:text="${edicion}?'Modificar Consejo de Salud':'Agregar Consejo de Salud'"></h3>
+				
+
+
+				<input th:field="*{titulo}" class="controls" type="text"
+					name="titulo" id="idtitulo" placeholder="Ingrese Titulo">
+				<textarea th:field="*{parrafo}" rows="15" cols="5" class="controls"
+					name="parrafo" id="idparrafo" placeholder="Ingrese Parrafo"></textarea>
+				<button type="submit" class="botons" th:text="${edicion}?'Modificar':'Agregar'" ></button>
+			</form>
+		</section>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+</body>
+</html>

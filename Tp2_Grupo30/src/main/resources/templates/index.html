@@ -9,9 +9,8 @@
 	</head>
 	<body>
 		<div id="contenedor">
-				<header th:replace="layouts/header :: header"></header>
-
-				<nav id="Menu-principal" th:replace="layouts/nav :: nav"></nav>
+				<header th:replace="~{layouts/header :: header}"></header>
+		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 
 	    <main class="container-index">
 	    	<img src="/images/mascotas-pets.jpg" alt="Imagen de Presentacion" class="bg-image">
@@ -50,7 +49,7 @@
 				     </div>
 	    	</aside>
 	    </main>
-	    		<footer th:replace="layouts/footer :: footer"></footer>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
 
 	    </div>
 	</body>
