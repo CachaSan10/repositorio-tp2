@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<title>Nuevo Producto - Tienda de Mascota Puppis</title>
+	</head>
+	<body>
+		<div id="contenedor">
+		
+			<header th:replace="~{layouts/header :: header}"></header>
+
+			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
+			
+			<section class="form-register">
+				<form th:action="@{/productos/guardar}" th:object="${producto}" method="post">
+					<input type="number" id="codigoProducto" name="codigo" placeholder="Ingrese Codigo"  th:field="*{id}" class="controls">
+					<input type="text" id="nombreProducto" name="nombre" placeholder="Ingrese Nombre" th:field="*{nombreProducto}" class="controls">
+					<input type="text" id="descripcionProducto" name="descripcion" placeholder="Ingrese descripcion" th:field="*{descripcionProducto}" class="controls">
+					<input type="number" id="precioProducto" name="precio" placeholder="Ingrese precio" th:field="*{precioProducto}" class="controls">
+					
+					<button type="submit" class="botons" th:text="Guardar" ></button>
+				</form>
+			</section>
+			
+			<footer th:replace="~{layouts/footer :: footer}"></footer>
+		</div>
+	</body>
+</html>

@@ -367,7 +367,7 @@ nav ul li a:hover {
     font-size: larger;
 }
 
-.tarjeta button{
+.boton-compra{
   background: orange;
   border-radius:0 0 15px 15px;
   padding: 10px;
@@ -375,10 +375,24 @@ nav ul li a:hover {
   font-size: large;
 }
 
-.tarjeta button:hover{
+.boton-compra:hover{
     background: orangered;
     color: white;
   }
+  
+.boton-opcion{
+	width:48%;
+	background: #1f53c5;
+	color: white;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: none;
+	
+}
+
+.boton-opcion:hover{
+	background-color: #29962A;
+}
 
 /*---------------------------------------MAIN DE SERVICIO DE PASEOS-------------------------------------------------------------*/
 
