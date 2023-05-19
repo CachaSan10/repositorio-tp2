@@ -11,17 +11,17 @@
 		<div id="contenedor">
 			<header th:replace="~{layouts/header :: header}"></header>
 			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
-			<div class="contenedor-boton"><a th:href="@{/servicio/nuevo}"><button type="button" class="boton-agregar">Add Service</button></a></div>
+			<div class="contenedor-boton"><a th:href="@{/servicio/nuevo}"><button type="button" class="boton-agregar">Agregar Servicio</button></a></div>
 	        <section class="container-paseos content bg-success">
-	        <h1 class="titulo-paseo bg-secondary mt-20">Dog Walkers Services</h1>
+	        <h1 class="titulo-paseo bg-secondary mt-20">Servicios de Paseos</h1>
 	        <table class="tabla">
 	            <thead class="cabecera-tabla bg-info h-50 border-td-th">
 		            <tr>
 		            	<th class="border-td-th">Id</th>
-		                <th class="border-td-th">Schedules</th>
-		                <th class="border-td-th">Full Name</th>
-		                <th class="border-td-th">Day</th>
-		                <th class="border-td-th">Action</th>
+		                <th class="border-td-th">Horarios</th>
+		                <th class="border-td-th">Nombre y Apellido</th>
+		                <th class="border-td-th">Día</th>
+		                <th class="border-td-th">Acción</th>
 		                
 		             </tr>
 	             </thead>
@@ -31,8 +31,8 @@
 		                <td th:text="${servicio.fullTime}" class="border-td-th h-50"></td>
 		                <td th:text="${servicio.fullName}" class="border-td-th h-50"></td>
 		                <td th:text="${servicio.day}" class="border-td-th h-50"></td>
-		                <td  class="border-td-th"><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="bt-add" >Edit</button></a><br/>
-		                	<a th:href="@{/servicio/eliminar/}+${servicio.id}"><button type="button" class="bt-add" >Delete</button></a>
+		                <td  class="border-td-th"><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="bt-add" >Editar</button></a><br/>
+		                	<a th:href="@{/servicio/eliminar/}+${servicio.id}"><button type="button" class="bt-add" >Eliminar</button></a>
 		                </td>
 		                
 		            </tr>
