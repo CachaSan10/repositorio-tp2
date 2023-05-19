@@ -10,10 +10,16 @@ public class ListaServicio {
 	public ListaServicio(){
 		servicios = new ArrayList<Servicio>();
 		
-		servicios.add(new Servicio("1","07:30 a 08:30","Marco Solis","Monday"));
-		servicios.add(new Servicio("2","07:30 a 08:30","Marco Solis","Tuesday"));
-		servicios.add(new Servicio("3","07:30 a 08:30","Marco Solis","Wednesday"));
-		servicios.add(new Servicio("4","07:30 a 08:30","Marco Solis","Thrusday"));
+		servicios.add(new Servicio("1","07:30 a 08:30","Luis Martinez","Monday"));
+		servicios.add(new Servicio("2","09:00 a 10:00","Maria Darco","Monday"));
+		servicios.add(new Servicio("3","07:30 a 08:30","Horacio Campos","Tuesday"));
+		servicios.add(new Servicio("4","09:00 a 10:00","Luna Jara","Tuesday"));
+		servicios.add(new Servicio("5","07:30 a 08:30","Luis Martinez","Wednesday"));
+		servicios.add(new Servicio("6","09:00 a 10:00","Maria Darco","Wednesday"));
+		servicios.add(new Servicio("7","07:30 a 08:30","Horacio Campos","Thursday"));
+		servicios.add(new Servicio("8","09:00 a 10:00","Luna Jara","Thursday"));
+		servicios.add(new Servicio("9","07:30 a 08:30","Lucas Diaz","Friday"));
+		servicios.add(new Servicio("10","09:00 a 10:00","Marisol Davalo","Friday"));
 	}
 	
 	public void addServicio(Servicio servicio) {

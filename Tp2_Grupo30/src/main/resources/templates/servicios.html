@@ -11,29 +11,30 @@
 		<div id="contenedor">
 			<header th:replace="~{layouts/header :: header}"></header>
 			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
-			<h1>Dog Walkers Services</h1>
-		   	<div class="container-button"><a th:href="@{/servicio/nuevo}"><button type="button" class="button-add">Add Service</button></a></div>
-	        <section class="container-servicios">
-	        
-	        <table class="table table-bordered" border=1>
-	            <thead>
+			<div class="contenedor-boton"><a th:href="@{/servicio/nuevo}"><button type="button" class="boton-agregar">Add Service</button></a></div>
+	        <section class="container-paseos content bg-success">
+	        <h1 class="titulo-paseo bg-secondary mt-20">Dog Walkers Services</h1>
+	        <table class="tabla">
+	            <thead class="cabecera-tabla bg-info h-50 border-td-th">
 		            <tr>
-		            	<th>Id</th>
-		                <th>Schedules</th>
-		                <th>Full Name</th>
-		                <th>Day</th>
-		                <th>Edit</th>
-		                <th>Delete</th>
+		            	<th class="border-td-th">Id</th>
+		                <th class="border-td-th">Schedules</th>
+		                <th class="border-td-th">Full Name</th>
+		                <th class="border-td-th">Day</th>
+		                <th class="border-td-th">Action</th>
+		                
 		             </tr>
 	             </thead>
-	             <tbody>
+	             <tbody class="body-tabla bg-success">
 		            <tr th:each="servicio : ${servicios}">
-		            	<td th:text="${servicio.id}"></td>
-		                <td th:text="${servicio.fullTime}"></td>
-		                <td th:text="${servicio.fullName}"></td>
-		                <td th:text="${servicio.day}"></td>
-		                <td><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="boton-agregar" >Edit</button></a></td>
-		                <td><a th:href="@{/servicio/eliminar/}+${servicio.id}" ><button type="button" class="boton-agregar" >Delete</button></a></td>
+		            	<td th:text="${servicio.id}" class="border-td-th h-50"></td>
+		                <td th:text="${servicio.fullTime}" class="border-td-th h-50"></td>
+		                <td th:text="${servicio.fullName}" class="border-td-th h-50"></td>
+		                <td th:text="${servicio.day}" class="border-td-th h-50"></td>
+		                <td  class="border-td-th"><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="bt-add" >Edit</button></a><br/>
+		                	<a th:href="@{/servicio/eliminar/}+${servicio.id}"><button type="button" class="bt-add" >Delete</button></a>
+		                </td>
+		                
 		            </tr>
 	             </tbody>
 	       	</table>

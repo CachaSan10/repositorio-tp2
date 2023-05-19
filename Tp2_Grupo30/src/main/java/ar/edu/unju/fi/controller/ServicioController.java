@@ -43,7 +43,7 @@ public class ServicioController {
 	}
 	
 	@GetMapping("/modificar/{id}")
-	public String getModificarConsejoPage(Model model, @PathVariable(value="id") String id) {
+	public String getModificarServicioPage(Model model, @PathVariable(value="id") String id) {
 		boolean edicion=true;
 		model.addAttribute("servicio", listaServicio.getServicio(id));
 		model.addAttribute("edicion", edicion);
@@ -53,7 +53,7 @@ public class ServicioController {
 		
 	@PostMapping("/modificar/{id}")
 	public String modificarServicio(@ModelAttribute("servicio")Servicio servicioModificado) {
-		servicioModificado.setId("id");
+		//servicioModificado.setId("id");
 		listaServicio.updateServicio(servicioModificado);
 		return "redirect:/servicio/listado";
 	}
