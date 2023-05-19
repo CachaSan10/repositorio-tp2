@@ -3,7 +3,6 @@ package ar.edu.unju.fi.controller;
 
 
 
-import java.time.LocalDate;
 
 
 import org.springframework.stereotype.Controller;
@@ -61,7 +60,6 @@ public class ConsejoController {
 	
 	@PostMapping("/modificar/{id}")
 	public String modificarConsejo(@ModelAttribute("consejo")Consejo consejoModificado) {
-		consejoModificado.setFechaPublicacion(LocalDate.now());
 		listaConsejo.updateConsejo(consejoModificado);
 		return "redirect:/consejo/listado";
 	}

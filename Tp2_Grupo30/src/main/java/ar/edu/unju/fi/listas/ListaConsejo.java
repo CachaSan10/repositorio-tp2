@@ -60,6 +60,11 @@ public class ListaConsejo {
 		this.consejos = consejos;
 	}
 
+	/**
+	 * Metodo que agrega el nuevo consejo a la lista de consejo.
+	 * @param consejo representa el consejo que se va a agregar a la 
+	 * lista.
+	 */
 	public void addConsejo(Consejo consejo) {
 		int id = 1+ consejos.size();
 		consejo.setFechaPublicacion(LocalDate.now());
@@ -67,21 +72,30 @@ public class ListaConsejo {
 		consejos.add(consejo);
 	}
 	
+	/**
+	 * Metodo que actualiza los valores del consejo que se modifico
+	 *  en la lista de consejo.
+	 * @param consejoModificado representa el consejo que se modifico.
+	 * 
+	 */
 	public void updateConsejo(Consejo consejoModificado) {
-		List<Consejo> listaConsejo = new ArrayList<Consejo>();
-		listaConsejo=getConsejos();
-		 for(Consejo consejo: listaConsejo) {
+		//List<Consejo> listaConsejo = new ArrayList<Consejo>();
+		//listaConsejo=getConsejos();
+		 for(Consejo consejo: getConsejos()) {
 		    	if(consejo.getId() == consejoModificado.getId()) {
-		    		consejo.setFechaPublicacion(consejoModificado.getFechaPublicacion());
+		    		consejo.setFechaPublicacion(LocalDate.now());
 		    		consejo.setParrafo(consejoModificado.getParrafo());
 		    		consejo.setTitulo(consejoModificado.getTitulo());
-		    		break;
 		    	}
 		    }
-		 setConsejos(listaConsejo);
+		// setConsejos(listaConsejo);
 	}
 	
-	
+	/***
+	 * Metodo que busca el consejo atraves de su id.
+	 * @param id representa el id del consejo que se debe encontrar en la lista.
+	 * @return el consejo encontrado en la lista de consejo.
+	 */
 	public Consejo getConsejo(int id) {
 	    Consejo consejoEncontrado = new Consejo();
 	    for(Consejo consejo: getConsejos()) {
@@ -93,6 +107,10 @@ public class ListaConsejo {
 		return consejoEncontrado;
 	}
 	
+	/**
+	 * Metodo que elimina el consejo segun el id. 
+	 * @param id representa el id del consejo que se elimina.
+	 */
 	public void deleteConsejo(int id) {
 		for(Consejo consejo: getConsejos()) {
 	    	if(consejo.getId()==id) {

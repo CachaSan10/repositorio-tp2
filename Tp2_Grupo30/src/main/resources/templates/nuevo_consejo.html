@@ -13,8 +13,8 @@
 
 
 		<section class="form-register">
-			<form th:object="${consejo}" th:action="${edicion}?@{/consejo/modificar/}+${consejo.id}:@{/consejo/guardar}"
-				method="post">
+			<form  th:action="${edicion}?@{/consejo/modificar/}+${consejo.id}:@{/consejo/guardar}"
+			th:object="${consejo}"	method="post">
 				<h3 th:text="${edicion}?'Modificar Consejo de Salud':'Agregar Consejo de Salud'"></h3>
 				
 
