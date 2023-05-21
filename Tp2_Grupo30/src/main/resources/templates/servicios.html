@@ -18,7 +18,8 @@
 	            <thead class="cabecera-tabla bg-info h-50 border-td-th">
 		            <tr>
 		            	<th class="border-td-th">Id</th>
-		                <th class="border-td-th">Horarios</th>
+		                <th class="border-td-th">Inicio Servicio</th>
+		                <th class="border-td-th">Fin Servicio</th>
 		                <th class="border-td-th">Nombre y Apellido</th>
 		                <th class="border-td-th">Día</th>
 		                <th class="border-td-th">Acción</th>
@@ -28,7 +29,8 @@
 	             <tbody class="body-tabla bg-success">
 		            <tr th:each="servicio : ${servicios}">
 		            	<td th:text="${servicio.id}" class="border-td-th h-50"></td>
-		                <td th:text="${servicio.fullTime}" class="border-td-th h-50"></td>
+		                <td th:text="${servicio.startTime}" class="border-td-th h-50"></td>
+		                <td th:text="${servicio.finishTime}" class="border-td-th h-50"></td>
 		                <td th:text="${servicio.fullName}" class="border-td-th h-50"></td>
 		                <td th:text="${servicio.day}" class="border-td-th h-50"></td>
 		                <td  class="border-td-th"><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="bt-add" >Editar</button></a><br/>
