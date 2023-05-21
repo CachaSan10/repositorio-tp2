@@ -13,7 +13,7 @@
 		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 
 			<div id="main-container">
-				<a th:href="@{/sucursal/nuevo}">Nueva Sucursal</a>
+				<a th:href="@{/sucursal/nuevo}" class="boton-agregar">Nueva Sucursal</a>
 				<table class="tabla322">
 					<thead class="thead322">
 						<tr>
@@ -27,17 +27,17 @@
 							<th>Acciones</th>
 						</tr>
 					</thead>
-						<tr th:each="sucu: ${sucursales}">
-							<td th:text="${sucu.codigo}"></td>
-							<td th:text="${sucu.nombre}"></td> 
-							<td th:text="${sucu.direccion}"></td> 
-							<td th:text="${sucu.provincia}"></td> 
-							<td th:text="${#temporals.format(sucu.fechaInicio, 'dd/MM/yyyy')}"></td> 
-							<td th:text="${sucu.email}"></td> 
-							<td th:text="${sucu.telefono}"></td>
+						<tr th:each="sucursal: ${sucursales}">
+							<td th:text="${sucursal.codigo}"></td>
+							<td th:text="${sucursal.nombre}"></td> 
+							<td th:text="${sucursal.direccion}"></td> 
+							<td th:text="${sucursal.provincia}"></td> 
+							<td th:text="${#temporals.format(sucursal.fechaInicio, 'dd/MM/yyyy')}"></td> 
+							<td th:text="${sucursal.email}"></td> 
+							<td th:text="${sucursal.telefono}"></td>
 							<td>
-								<a class="botons" th:href="@{/sucursal/modificar/}+${sucu.codigo}">Modificar</a>
-								<a class="botons" th:href="@{/sucursal/eliminar/}+${sucu.codigo}">Eliminar</a>
+								<a class="bt-add" th:href="@{/sucursal/modificar/}+${sucursal.codigo}">Modificar</a>
+								<a class="bt-add" th:href="@{/sucursal/eliminar/}+${sucursal.codigo}">Eliminar</a>
 							</td> 
 						</tr>
 			</table>

@@ -36,7 +36,8 @@ public class SucursalesController {
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarSucursalPage(@ModelAttribute("sucursal")Sucursal sucursal) {
 		ModelAndView mav = new ModelAndView("sucursales");
-		listaSucursales.getSucursales().add(sucursal);
+		//listaSucursales.getSucursales().add(sucursal);
+		listaSucursales.addSucursal(sucursal);
 		mav.addObject("sucursales", listaSucursales.getSucursales());
 		return mav;
 	}
@@ -56,7 +57,7 @@ public class SucursalesController {
 		return "nueva_sucursal";
 	}
 	
-	@PostMapping("/modificar")
+	@PostMapping("/modificar/{codigo}")
 	public String modificarSucursal(@ModelAttribute("sucursal")Sucursal sucursalModificado) {
 		for(Sucursal sucursal: listaSucursales.getSucursales()) {
 			if(sucursal.getCodigo()==sucursalModificado.getCodigo()) {
