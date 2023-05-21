@@ -3,23 +3,41 @@ package ar.edu.unju.fi.model;
 
 public class Servicio {
 	private String id;
-	private String fullTime;
-	private Date horarioFinal;
+	private String startTime;
+	private String finishTime;
 	private String fullName;
 	private String day;
-	
-	
 	
 	public Servicio() {
 		
 	}
-	public Servicio(String id, String fullTime, String fullName, String day) {
+	public Servicio(String id, String startTime, String finishTime, String fullName, String day) {
 		this.id = id;
-		this.fullTime = fullTime;
+		this.startTime = startTime;
+		this.finishTime = finishTime;
 		this.fullName = fullName;
 		this.day = day;
-	}	
-		
+	}
+
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+
+	public String getFinishTime() {
+		return finishTime;
+	}
+
+
+	public void setFinishTime(String finishTime) {
+		this.finishTime = finishTime;
+	}
 	
 	public String getId() {
 		return id;
@@ -28,12 +46,7 @@ public class Servicio {
 		this.id = id;
 	}
 	
-	public String getFullTime() {
-		return fullTime;
-	}
-	public void setFullTime(String fullTime) {
-		this.fullTime = fullTime;
-	}
+	
 	public String getFullName() {
 		return fullName;
 	}
