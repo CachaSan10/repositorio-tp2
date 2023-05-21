@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.listas;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import ar.edu.unju.fi.model.Servicio;
@@ -10,30 +11,41 @@ public class ListaServicio {
 	public ListaServicio(){
 		servicios = new ArrayList<Servicio>();
 		
-		servicios.add(new Servicio("1","07:30 a 08:30","Luis Martinez","Lunes"));
-		servicios.add(new Servicio("2","09:00 a 10:00","Maria Darco","Lunes"));
-		servicios.add(new Servicio("3","07:30 a 08:30","Horacio Campos","Martes"));
-		servicios.add(new Servicio("4","09:00 a 10:00","Luna Jara","Martes"));
-		servicios.add(new Servicio("5","07:30 a 08:30","Luis Martinez","Miercoles"));
-		servicios.add(new Servicio("6","09:00 a 10:00","Maria Darco","Miercoles"));
-		servicios.add(new Servicio("7","07:30 a 08:30","Horacio Campos","Jueves"));
-		servicios.add(new Servicio("8","09:00 a 10:00","Luna Jara","Jueves"));
-		servicios.add(new Servicio("9","07:30 a 08:30","Lucas Diaz","Viernes"));
-		servicios.add(new Servicio("10","09:00 a 10:00","Marisol Davalo","Viernes"));
+		servicios.add(new Servicio(1,LocalTime.of(7, 30), LocalTime.of(8, 30),"Luis Martinez","Lunes"));
+		servicios.add(new Servicio(2,LocalTime.of(9, 00), LocalTime.of(10, 00),"Maria Darco","Lunes"));
+		servicios.add(new Servicio(3,LocalTime.of(7, 30), LocalTime.of(8, 30),"Horacio Campos","Martes"));
+		servicios.add(new Servicio(4,LocalTime.of(9, 00), LocalTime.of(10, 00),"Luna Jara","Martes"));
+		servicios.add(new Servicio(5,LocalTime.of(7, 30), LocalTime.of(8, 30),"Luis Martinez","Miercoles"));
+		servicios.add(new Servicio(6,LocalTime.of(9, 00), LocalTime.of(10, 00),"Maria Darco","Miercoles"));
+		servicios.add(new Servicio(7,LocalTime.of(7, 30), LocalTime.of(8, 30),"Horacio Campos","Jueves"));
+		servicios.add(new Servicio(8,LocalTime.of(9, 00), LocalTime.of(10, 00),"Luna Jara","Jueves"));
+		servicios.add(new Servicio(9,LocalTime.of(7, 30), LocalTime.of(8, 30),"Lucas Diaz","Viernes"));
+		servicios.add(new Servicio(10,LocalTime.of(9, 00), LocalTime.of(10, 00),"Marisol Davalo","Viernes"));
 	}
 	
+	/**
+	 * Metodo que agrega servicio a la lista de servicio
+	 * @param servicio representa el servicio que se va agregar a la 
+	 * lista de servicio.
+	 */
 	public void addServicio(Servicio servicio) {
-		String id = Integer.toString(1 + servicios.size());
+		int id = 1 + servicios.size();
 		servicio.setId(id);
 		servicios.add(servicio);
 	}
 	
+	/**
+	 * Metodo que modifica el servicio de la lista servicio
+	 * @param servicioModificado representa el servicio modificado
+	 * que se modifico en la lista servicio.
+	 */
 	public void updateServicio(Servicio servicioModificado) {
 		List<Servicio> listaServicio = new ArrayList<Servicio>();
 		listaServicio= getServicios();
 		 for(Servicio servicio: listaServicio) {
-		    	if(servicio.getId().equals(servicioModificado.getId())) {
-		    		servicio.setFullTime(servicioModificado.getFullTime());
+		    	if(servicio.getId()==servicioModificado.getId()) {
+		    		servicio.setStartTime(servicioModificado.getStartTime());
+		    		servicio.setFinishTime(servicioModificado.getFinishTime());
 		    		servicio.setFullName(servicioModificado.getFullName());
 		    		servicio.setDay(servicioModificado.getDay());
 		    		break;
@@ -42,11 +54,16 @@ public class ListaServicio {
 		 setServicios(listaServicio);
 	}
 	
-	
-	public Servicio getServicio(String id) {
+	/**
+	 * Metodo que busca el servicio de a traves de su id.
+	 * @param id representa el id del servicio que se esta buscando en 
+	 * la lista de servicio.
+	 * @return el servicio que se encontro en la lista.
+	 */
+	public Servicio getServicio(int id) {
 	    Servicio servicioEncontrado = new Servicio();
 	    for(Servicio servicio: getServicios()) {
-	    	if(servicio.getId().equals(id)) {
+	    	if(servicio.getId()==id) {
 	    		servicioEncontrado=servicio;
 	    		break;
 	    	}
@@ -54,9 +71,13 @@ public class ListaServicio {
 		return servicioEncontrado;
 	}
 	
-	public void deleteServicio(String id) {
+	/**
+	 * Metodo que elimina el servicio dependiendo del id
+	 * @param id representa el id del servicio que se quiere eliminar
+	 */
+	public void deleteServicio(int id) {
 		for(Servicio servicio: getServicios()) {
-	    	if(servicio.getId().equals(id)) {
+	    	if(servicio.getId()==id) {
 	    		getServicios().remove(servicio);
 	    		break;
 	    	}
