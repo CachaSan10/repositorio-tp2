@@ -10,17 +10,17 @@
 		<div id="contenedor">
 			<header th:replace="~{layouts/header :: header}"></header>
 			
-				<h1 class="cont-boton"> Nuestros Horarios</h1>
+				<h1 class="cont-boton"> Horarios</h1>
 	        	<section class="form-register">
 					<form th:object="${servicio}" th:action="${edicion}?@{/servicio/modificar/}+${servicio.id}:@{/servicio/guardar}"
 						method="post">
 						<h3 th:text="${edicion}?'Modificar Servicio':'Agregar Nuevo Servicio'"></h3>
 							
-						<input th:field="*{startTime}" class="controls" type="text"
-						name="startTime-from" id="startTime-form" placeholder="Agregar Inicio Servicio">
+						<input th:field="*{startTime}" class="controls" type="time"
+						name="startTime-from" id="startTime-form" placeholder="">
 						
-						<input th:field="*{finishTime}" class="controls" type="text"
-						name="finishTime-from" id="finishTime-form" placeholder="Agregar Fin Servicio">
+						<input th:field="*{finishTime}" class="controls" type="time"
+						name="finishTime-from" id="finishTime-form" placeholder="">
 						
 						<input th:field="*{fullName}" class="controls" type="text"
 						name="fullName-from" id="fullName-form" placeholder="Agregar Nombre Completo">
