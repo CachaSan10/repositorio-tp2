@@ -402,6 +402,22 @@ nav ul li a:hover {
 	background-color: #29962A;
 }
 
+.controls-select{
+	width: 100%;  /* tamaño de cajas */
+	background: #24303c;
+	padding: 10px;
+	border-radius: 4px;
+	margin-bottom: 16px;
+	border: 1px solid #1f53c5;
+	font-family: 'calibri';
+	font-size: 18px;
+	color: black;
+	
+}
+.controls-select:hover{
+	background-color: white;
+	
+}
 /*---------------------------------------MAIN DE SERVICIO DE PASEOS-------------------------------------------------------------*/
 
 .bg-primary{

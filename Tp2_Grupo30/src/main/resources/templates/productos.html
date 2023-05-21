@@ -25,10 +25,11 @@
                     <h1 th:text="${produc.nombreProducto}"></h1>
                     <h6>cod. <span th:text=${produc.id}></span></h6>
                     <p >$ <span th:text="${produc.precioProducto}"></span></p>
+                    <p >con descuento $ <span th:text="${produc.calcularDescuento()}"></span></p>
                 </div>
                 <div class="contenedor-boton">
-	  				<a><button type="button" class="boton-opcion" >Modificar</button></a>
-					<a><button type="button" class="boton-opcion" >Eliminar</button></a>
+	  				<a th:href="@{/productos/modificar/}+${produc.id}"><button type="button" class="boton-opcion" >Modificar</button></a>
+					<a th:href="@{/productos/eliminar/}+${produc.id}"><button type="button" class="boton-opcion" >Eliminar</button></a>
 				</div>
                 <button class="boton-compra">Comprar
                     <i class="fa-sharp fa-solid fa-cart-shopping fa-lg" style="color: #000000;"></i>

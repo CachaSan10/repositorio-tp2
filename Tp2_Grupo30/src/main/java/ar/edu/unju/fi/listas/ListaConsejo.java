@@ -86,6 +86,7 @@ public class ListaConsejo {
 		    		consejo.setFechaPublicacion(LocalDate.now());
 		    		consejo.setParrafo(consejoModificado.getParrafo());
 		    		consejo.setTitulo(consejoModificado.getTitulo());
+		    		break;
 		    	}
 		    }
 		// setConsejos(listaConsejo);
