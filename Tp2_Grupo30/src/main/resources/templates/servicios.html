@@ -29,8 +29,8 @@
 	             <tbody class="body-tabla bg-success">
 		            <tr th:each="servicio : ${servicios}">
 		            	<td th:text="${servicio.id}" class="border-td-th h-50"></td>
-		                <td th:text="${servicio.startTime}" class="border-td-th h-50"></td>
-		                <td th:text="${servicio.finishTime}" class="border-td-th h-50"></td>
+		                <td th:text="${#temporals.format(servicio.startTime, 'HH:mm')}" class="border-td-th h-50"></td>
+		                <td th:text="${#temporals.format(servicio.finishTime, 'HH:mm')}" class="border-td-th h-50"></td>
 		                <td th:text="${servicio.fullName}" class="border-td-th h-50"></td>
 		                <td th:text="${servicio.day}" class="border-td-th h-50"></td>
 		                <td  class="border-td-th"><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="bt-add" >Editar</button></a><br/>
