@@ -43,7 +43,7 @@ public class ServicioController {
 	}
 	
 	@GetMapping("/modificar/{id}")
-	public String getModificarServicioPage(Model model, @PathVariable(value="id") String id) {
+	public String getModificarServicioPage(Model model, @PathVariable(value="id") int id) {
 		boolean edicion=true;
 		model.addAttribute("servicio", listaServicio.getServicio(id));
 		model.addAttribute("edicion", edicion);
@@ -59,7 +59,7 @@ public class ServicioController {
 	}
 	
 	@GetMapping("/eliminar/{id}")
-	public String eliminarServicio(@PathVariable(value="id")String id) {
+	public String eliminarServicio(@PathVariable(value="id")int id) {
 		listaServicio.deleteServicio(id);
 		return "redirect:/servicio/listado";
 	}
