@@ -4,6 +4,7 @@ package ar.edu.unju.fi.model;
 public class Servicio {
 	private String id;
 	private String fullTime;
+	private Date horarioFinal;
 	private String fullName;
 	private String day;
 	
