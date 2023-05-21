@@ -3,19 +3,22 @@ package ar.edu.unju.fi.model;
 public class Producto {
 	private int id;
 	private String nombreProducto;
-	private String descripcionProducto;
-	private float precioProducto;
+	private String categoriaProducto;
+	private double precioProducto;
+	private int descuentoProducto;
 	
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Producto(int id, String nombreProducto, String descripcionProducto, float precioProducto) {
+	public Producto(int id, String nombreProducto, String categoriaProducto, double precioProducto,
+			int descuentoProducto) {
 		super();
 		this.id = id;
 		this.nombreProducto = nombreProducto;
-		this.descripcionProducto = descripcionProducto;
+		this.categoriaProducto = categoriaProducto;
 		this.precioProducto = precioProducto;
+		this.descuentoProducto = descuentoProducto;
 	}
 
 	public int getId() {
@@ -34,20 +37,32 @@ public class Producto {
 		this.nombreProducto = nombreProducto;
 	}
 
-	public String getDescripcionProducto() {
-		return descripcionProducto;
+	public String getCategoriaProducto() {
+		return categoriaProducto;
 	}
 
-	public void setDescripcionProducto(String descripcionProducto) {
-		this.descripcionProducto = descripcionProducto;
+	public void setCategoriaProducto(String categoriaProducto) {
+		this.categoriaProducto = categoriaProducto;
 	}
 
-	public float getPrecioProducto() {
+	public double getPrecioProducto() {
 		return precioProducto;
 	}
 
-	public void setPrecioProducto(float precioProducto) {
+	public void setPrecioProducto(double precioProducto) {
 		this.precioProducto = precioProducto;
-	}	
+	}
+
+	public int getDescuentoProducto() {
+		return descuentoProducto;
+	}
+
+	public void setDescuentoProducto(int descuentoProducto) {
+		this.descuentoProducto = descuentoProducto;
+	}
 	
+	public double calcularDescuento() {
+		double resultado= (descuentoProducto/(double)100)*precioProducto;
+		return precioProducto-resultado;
+	}
 }

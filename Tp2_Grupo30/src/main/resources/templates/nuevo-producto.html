@@ -15,13 +15,22 @@
 			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 			
 			<section class="form-register">
-				<form th:action="@{/productos/guardar}" th:object="${producto}" method="post">
-					<input type="number" id="codigoProducto" name="codigo" placeholder="Ingrese Codigo"  th:field="*{id}" class="controls">
-					<input type="text" id="nombreProducto" name="nombre" placeholder="Ingrese Nombre" th:field="*{nombreProducto}" class="controls">
-					<input type="text" id="descripcionProducto" name="descripcion" placeholder="Ingrese descripcion" th:field="*{descripcionProducto}" class="controls">
-					<input type="number" id="precioProducto" name="precio" placeholder="Ingrese precio" th:field="*{precioProducto}" class="controls">
+				<form th:action="${edicion}?@{/productos/modificar/}+${producto.id}:@{/productos/guardar}" th:object="${producto}" method="post">
+					<label for="name">Nombre del Producto</label>
+					<input type="text" id="nombreProducto" name="nombre" required th:field="*{nombreProducto}" class="controls">
+					<label for="categoria">Ingrese Categoria</label>
+					<select id="categoriaProducto" name="categoria" th:field="*{categoriaProducto}" class="controls-select">
+						<option value="Alimento">Alimento</option>
+						<option value="Juguete">Juguete</option>
+						<option value="Vestimenta">Vestimenta</option>
+						<option value="Cuidado">Cuidado</option>
+					</select>
+					<label for="precio">Precio</label>
+					<input type="number" id="precioProducto" name="precio" required th:field="*{precioProducto}" class="controls">
+					<label for="descuento">Descuento</label>
+					<input type="number" id="descuentoProducto" name="descuento" required placeholder="Ingrese descuento (0-50)" min="0" max="50" th:field="*{descuentoProducto}" class="controls">
 					
-					<button type="submit" class="botons" th:text="Guardar" ></button>
+					<button type="submit" class="botons" th:text="${edicion}?'Modificar':'Agregar'" ></button>
 				</form>
 			</section>
 			
