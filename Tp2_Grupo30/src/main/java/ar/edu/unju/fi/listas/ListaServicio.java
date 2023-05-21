@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.listas;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import ar.edu.unju.fi.model.Servicio;
@@ -10,7 +11,7 @@ public class ListaServicio {
 	public ListaServicio(){
 		servicios = new ArrayList<Servicio>();
 		
-		servicios.add(new Servicio("1","07:30", "08:30","Luis Martinez","Lunes"));
+		servicios.add(new Servicio(1,LocalTime.of(7, 30), LocalTime.of(9, 30),"Luis Martinez","Lunes"));
 		servicios.add(new Servicio("2","09:00", "10:00","Maria Darco","Lunes"));
 		servicios.add(new Servicio("3","07:30", "08:30","Horacio Campos","Martes"));
 		servicios.add(new Servicio("4","09:00", "10:00","Luna Jara","Martes"));
