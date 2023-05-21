@@ -41,8 +41,15 @@ public class ListaSucursal {
 	public void setSucursales(List<Sucursal> sucursales) {
 		this.sucursales = sucursales;
 	}
-	
-	
+	/**
+	 * 
+	 * @param sucursal
+	 */
+	public void addSucursal(Sucursal sucursal) {
+		int codigo = 1+ sucursales.size();
+		sucursal.setCodigo(codigo);
+		sucursales.add(sucursal);
+	}
 	
 	
 }
