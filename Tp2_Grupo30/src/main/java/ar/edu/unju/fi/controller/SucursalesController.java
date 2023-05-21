@@ -44,9 +44,9 @@ public class SucursalesController {
 	public String getModificarSucursalPage(Model model,@PathVariable(value="codigo")int codigo) {
 		boolean edicion=true;
 		Sucursal sucursalEncontrada = new Sucursal();
-		for(Sucursal sucu: listaSucursales.getSucursales()) {
-			if(sucu.getCodigo()==codigo) {
-				sucursalEncontrada = sucu;
+		for(Sucursal sucursales: listaSucursales.getSucursales()) {
+			if(sucursales.getCodigo()==codigo) {
+				sucursalEncontrada = sucursales;
 				break;
 			}
 		}
@@ -57,15 +57,15 @@ public class SucursalesController {
 	}
 	
 	@PostMapping("/modificar")
-	public String modificarSucursal(@ModelAttribute("sucursal")Sucursal sucursal) {
-		for(Sucursal sucu: listaSucursales.getSucursales()) {
-			if(sucu.getCodigo()==sucursal.getCodigo()) {
-				sucu.setNombre(sucursal.getNombre());
-				sucu.setEmail(sucursal.getEmail());
-				sucu.setDireccion(sucursal.getDireccion());
-				sucu.setFechaInicio(sucursal.getFechaInicio());
-				sucu.setProvincia(sucursal.getProvincia());
-				sucu.setTelefono(sucursal.getTelefono());
+	public String modificarSucursal(@ModelAttribute("sucursal")Sucursal sucursalModificado) {
+		for(Sucursal sucursal: listaSucursales.getSucursales()) {
+			if(sucursal.getCodigo()==sucursalModificado.getCodigo()) {
+				sucursal.setNombre(sucursalModificado.getNombre());
+				sucursal.setEmail(sucursalModificado.getEmail());
+				sucursal.setDireccion(sucursalModificado.getDireccion());
+				sucursal.setFechaInicio(sucursalModificado.getFechaInicio());
+				sucursal.setProvincia(sucursalModificado.getProvincia());
+				sucursal.setTelefono(sucursalModificado.getTelefono());
 				
 			}
 		}
@@ -74,9 +74,9 @@ public class SucursalesController {
 	
 	@GetMapping("/eliminar/{codigo}")
 	public String eliminarSucursal(@PathVariable(value="codigo")int codigo) {
-		for(Sucursal sucu: listaSucursales.getSucursales()) {
-			if(sucu.getCodigo()==codigo) {
-				listaSucursales.getSucursales().remove(sucu);
+		for(Sucursal sucursales: listaSucursales.getSucursales()) {
+			if(sucursales.getCodigo()==codigo) {
+				listaSucursales.getSucursales().remove(sucursales);
 				break;
 			}
 		}

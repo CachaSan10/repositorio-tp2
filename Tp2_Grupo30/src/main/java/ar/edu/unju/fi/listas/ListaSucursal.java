@@ -16,18 +16,18 @@ public class ListaSucursal {
 		LocalDate fechaInicio;
 		
 		fechaInicio = LocalDate.of(2010, 2, 22);
-		sucursales.add(new Sucursal(322,"CASA CENTRAL","Av. General Belgrano Nº 3915","Jujuy",fechaInicio,"central@gmail.com","388-4999999"));
+		sucursales.add(new Sucursal(1,"CASA CENTRAL","Av. General Belgrano Nº 3915","Jujuy",fechaInicio,"central@gmail.com","388-4999999"));
 		
 		
 		fechaInicio = LocalDate.of(2012, 5, 15);
-		sucursales.add(new Sucursal(644,"SUCURSAL NECOCHEA","Av. General Belgrano Nº 3915","Salta",fechaInicio,"snecocheal@gmail.com","388-4666666"));
+		sucursales.add(new Sucursal(2,"SUCURSAL NECOCHEA","Av. General Belgrano Nº 3915","Salta",fechaInicio,"snecocheal@gmail.com","388-4666666"));
 	
 		fechaInicio = LocalDate.of(2020, 3, 5);
-		sucursales.add(new Sucursal(566,"SUCURSAL MERCADO","Av. General Belgrano Nº 3915","Formosa",fechaInicio,"mercado@gmail.com","388-4777777"));
+		sucursales.add(new Sucursal(3,"SUCURSAL MERCADO","Av. General Belgrano Nº 3915","Formosa",fechaInicio,"mercado@gmail.com","388-4777777"));
 	
 		
 		fechaInicio = LocalDate.of(2015, 1, 20);
-		sucursales.add(new Sucursal(822,"SUCURSAL PUPPIS","Av. General Belgrano Nº 3915","Tucuman",fechaInicio,"puppis@gmail.com","388-4888888"));
+		sucursales.add(new Sucursal(4,"SUCURSAL PUPPIS","Av. General Belgrano Nº 3915","Tucuman",fechaInicio,"puppis@gmail.com","388-4888888"));
 	}
 
 
