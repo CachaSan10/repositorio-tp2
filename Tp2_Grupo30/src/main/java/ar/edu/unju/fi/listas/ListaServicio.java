@@ -83,6 +83,10 @@ public class ListaServicio {
 	    	}
 	    }
 	}
+	/**
+	 * Creacion del getter y setter del atributo List servicios
+	 *
+	 */
 	public List<Servicio> getServicios() {
 		return servicios;
 	}
