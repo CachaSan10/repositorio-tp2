@@ -13,7 +13,7 @@
 		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 
 			<div id="main-container">
-				<a th:href="@{/sucursal/nuevo}" class="boton-agregar">Nueva Sucursal</a>
+				<a th:href="@{/sucursal/nuevo}" class="btn-nueva-sucursal">Nueva Sucursal</a>
 				<table class="tabla322">
 					<thead class="thead322">
 						<tr>
@@ -36,8 +36,8 @@
 							<td th:text="${sucursal.email}"></td> 
 							<td th:text="${sucursal.telefono}"></td>
 							<td>
-								<a class="bt-add" th:href="@{/sucursal/modificar/}+${sucursal.codigo}">Modificar</a>
-								<a class="bt-add" th:href="@{/sucursal/eliminar/}+${sucursal.codigo}">Eliminar</a>
+								<a class="btn-add" th:href="@{/sucursal/modificar/}+${sucursal.codigo}">Modificar</a>
+								<a class="btn-add" th:href="@{/sucursal/eliminar/}+${sucursal.codigo}">Eliminar</a>
 							</td> 
 						</tr>
 			</table>
