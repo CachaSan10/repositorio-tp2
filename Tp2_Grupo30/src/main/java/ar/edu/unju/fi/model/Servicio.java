@@ -13,11 +13,20 @@ public class Servicio {
 	private String fullName;
 	private String day;
 
+	/**
+	 * Constructor sin parametros
+	 */
 	public Servicio() {
 
 	}
-
-	
+	/**
+	 * Contructor con parametros
+	 * @param id
+	 * @param startTime
+	 * @param finishTime
+	 * @param fullName
+	 * @param day
+	 */
 	public Servicio(int id, LocalTime startTime, LocalTime finishTime, String fullName, String day) {
 		super();
 		this.id = id;
@@ -26,7 +35,9 @@ public class Servicio {
 		this.fullName = fullName;
 		this.day = day;
 	}
-
+	/**
+	 * Creacion de los getters and Setter de los atributos de la clase Servicio.
+	 */
 
 	public int getId() {
 		return id;

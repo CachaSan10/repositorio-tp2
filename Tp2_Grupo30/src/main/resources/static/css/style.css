@@ -418,8 +418,8 @@ nav ul li a:hover {
 	background-color: white;
 	
 }
-/*---------------------------------------MAIN DE SERVICIO DE PASEOS-------------------------------------------------------------*/
-
+/*--------------------------------------CSS DE LA PAGINA SERVICIO--------------------------------------------------*/
+/*-----------Clase patrones para los colores-------------*/
 .bg-primary{
 	background: #BEBFC5;
 }
@@ -432,7 +432,7 @@ nav ul li a:hover {
 .bg-info{
 	background:#DDD06A;
 }
-
+/*------------------------*/
 .container-paseos{
 	width: 98%;
 	max-width: 440px;
