@@ -502,34 +502,36 @@ pt-30{
 }
 
 /*------------sucursales--------------*/
-#main-container{
-	margin: 150px auto;
-	width: 600px;
-}
-.tabla322{
-	background-color: #ffffff;
-	text-align: left;
-	width: 100%;
-	border-collapse:collapse; 
-	
-}
-th, td{
-	
-	padding: 10px;
-}
-.thead322{
-	background-color: #246355;
-	border-bottom: solid 5px #0F362D;
-	color: white;
+#main-container {
+  margin: 150px auto;
+  width: 600px;
 }
 
-.tabla322 tr:hover td{
-	background-color: #369681;
-	color: white;
+.tabla322 {
+  background-color: #ffffff;
+  text-align: left;
+  width: 100%;
+  border-collapse: collapse;
 }
+
+th, td {
+  padding: 10px;
+}
+
+.thead322 {
+  background-color: #246355;
+  border-bottom: solid 5px #0F362D;
+  color: white;
+}
+
+.tabla322 tr:hover td {
+  background-color: #369681;
+  color: white;
+}
+
 #contenido-principal-sucursales {
   margin: 50px auto;
-  width: 100%;
+  max-width: 100%;
   text-align: center;
 }
 
@@ -579,13 +581,44 @@ th, td{
 }
 
 .contenedor-de-sucursales strong {
-  font-weight: bold;
+ 	font-weight: bold;
 }
 
 .contenedor-de-sucursales li:last-child {
+  	margin-bottom: 0;
+}
+
+.btn-add {
+	width: 100%;
+	background: #004d71;
+	border: none;
+	padding: 1px;
+	color: white;
+	margin: 1px 0; 
+}
+
+.btn-add:last-child {
   margin-bottom: 0;
 }
 
+.btn-add:hover{
+    background: #f27900;
+    color: white;
+}
+
+.btn-nueva-sucursal{
+	width: 100%;
+	background: #004d71;
+	border: none;
+	padding: 5px;
+	color: white;
+	margin: 16px 0;
+}
+
+.btn-nueva-sucursal:hover{
+    background: #f27900;
+    color: white;
+}
 
 /*------------FOOTER------------------*/
 footer {
