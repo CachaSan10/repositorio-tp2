@@ -9,6 +9,7 @@ import ar.edu.unju.fi.model.Consejo;
 public class ListaConsejo {
 
 	private List<Consejo> consejos;
+	private int id;
 
 	public ListaConsejo() {
 		String titulo;
@@ -49,7 +50,7 @@ public class ListaConsejo {
 				+ " máximo de 4 raciones diarias. Además de todo esto, es importante respetar siempre las mismas horas para cada toma, ya que los perros son animales de costumbres. Y recuerda que estas recomendaciones son orientativas. Si tienes alguna duda, pide consejo a tu veterinario, él es quien mejor puede asesorarte.";
 		fechaPublicacion= LocalDate.of(2023, 4, 16);
 		consejos.add(new Consejo(3,titulo, parrafo, fechaPublicacion));
-		
+		id=3;
 	}
 
 	public List<Consejo> getConsejos() {
@@ -66,7 +67,7 @@ public class ListaConsejo {
 	 * lista.
 	 */
 	public void addConsejo(Consejo consejo) {
-		int id = 1+ consejos.size();
+		id++;
 		consejo.setFechaPublicacion(LocalDate.now());
 		consejo.setId(id);
 		consejos.add(consejo);

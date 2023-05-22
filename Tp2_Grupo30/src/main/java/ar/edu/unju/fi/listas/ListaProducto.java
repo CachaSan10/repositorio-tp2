@@ -8,7 +8,7 @@ import ar.edu.unju.fi.model.Producto;
 public class ListaProducto {
 	
 	private List<Producto> productos;
-	static int contador;
+	static int id;
 	public ListaProducto() {
 		// TODO Auto-generated constructor stub
 		productos = new ArrayList<Producto>();
@@ -21,7 +21,7 @@ public class ListaProducto {
 		productos.add(new Producto(7,"Kit Sanitario Grande", "Cuidado", 1100, 20));
 		productos.add(new Producto(8,"Hueso Suelto 4/5", ", Juguete", 140, 0));
 		
-		contador=productos.size()+1;
+		id=8;
 		
 	}
 
@@ -34,7 +34,8 @@ public class ListaProducto {
 	}
 	
 	public void addProducto(Producto producto) {
-		producto.setId(contador++);
+		id++;
+		producto.setId(id);
 		productos.add(producto);
 	}
 	

@@ -7,6 +7,7 @@ import ar.edu.unju.fi.model.Servicio;
 
 public class ListaServicio {
 	private List<Servicio> servicios;
+	private int id;
 	
 	public ListaServicio(){
 		servicios = new ArrayList<Servicio>();
@@ -21,6 +22,7 @@ public class ListaServicio {
 		servicios.add(new Servicio(8,LocalTime.of(9, 00), LocalTime.of(10, 00),"Luna Jara","Jueves"));
 		servicios.add(new Servicio(9,LocalTime.of(7, 30), LocalTime.of(8, 30),"Lucas Diaz","Viernes"));
 		servicios.add(new Servicio(10,LocalTime.of(9, 00), LocalTime.of(10, 00),"Marisol Davalo","Viernes"));
+		id=10;
 	}
 	
 	/**
@@ -29,7 +31,7 @@ public class ListaServicio {
 	 * lista de servicio.
 	 */
 	public void addServicio(Servicio servicio) {
-		int id = 1 + servicios.size();
+	    id++;
 		servicio.setId(id);
 		servicios.add(servicio);
 	}

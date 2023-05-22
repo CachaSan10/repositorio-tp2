@@ -8,6 +8,7 @@ import ar.edu.unju.fi.model.Sucursal;
 
 public class ListaSucursal {
 	private List<Sucursal> sucursales;
+	private int id;
 	
 	
 	
@@ -28,6 +29,7 @@ public class ListaSucursal {
 		
 		fechaInicio = LocalDate.of(2015, 1, 20);
 		sucursales.add(new Sucursal(4,"SUCURSAL PUPPIS","Av. General Belgrano Nº 3915","Tucuman",fechaInicio,"puppis@gmail.com","388-4888888"));
+		id=4;
 	}
 
 
@@ -46,8 +48,8 @@ public class ListaSucursal {
 	 * @param sucursal
 	 */
 	public void addSucursal(Sucursal sucursal) {
-		int codigo = 1+ sucursales.size();
-		sucursal.setCodigo(codigo);
+		id++;
+		sucursal.setCodigo(id);
 		sucursales.add(sucursal);
 	}
 	
