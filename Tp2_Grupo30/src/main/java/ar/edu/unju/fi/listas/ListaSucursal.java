@@ -4,8 +4,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import ar.edu.unju.fi.model.Sucursal;
 
+@Component
 public class ListaSucursal {
 	private List<Sucursal> sucursales;
 	private int id;

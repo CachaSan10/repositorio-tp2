@@ -1,26 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" th:href="@{/css/style.css}">
-<title>Sucursales - Tienda de Mascota Puppis</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title>Sucursales - Tienda de Mascota Puppis</title>
+		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<link th:rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 	<header th:replace="~{layouts/header :: header}"></header>
-	<section class="form-register">
-				<form th:action="${edicion}?@{/sucursal/modificar/}+${sucursal.codigo}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
-								<h3 th:text="${edicion}?'Modificar Sucursal':'Nueva Sucursal'"></h3> 
-					<input th:field="*{nombre}" class="controls" type="text" name="nombres" id="nombres" placeholder="Nombre">
-					<input th:field="*{direccion}" class="controls" type="text" name="mail" id="mail" placeholder="Direccion">
-					<input th:field="*{provincia}" class="controls" type="text" name="ciudad" id="ciudad" placeholder="Provincia">
-					<input th:field="*{fechaInicio}" class="controls" type="date" name="ciudad" id="ciudad" placeholder="fecha">
-					<input th:field="*{email}" class="controls" type="email" name="ciudad" id="ciudad" placeholder="Email">
-					<input th:field="*{telefono}" class="controls" type="text" name="ciudad" id="ciudad" placeholder="Telefono">
-					<p><input type="submit" class="botons" th:value="${edicio}?'Modicicar':'Guardar'"></p>
-				</form>
-	</section>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+					<h3 th:text="${edicion}?'Modificar Sucursal':'Nueva Sucursal'" class="text-center"></h3>
+					<div class="card-body">
+						<form  th:action="${edicion}?@{/sucursal/modificar/}+${sucursal.codigo}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
+							<div class="form-group">
+								<label>Nombre : </label>
+								<input th:field="*{nombre}" class="form-control" type="text" name="nombres" id="nombres" placeholder="Nombre" required>
+							</div>
+		
+							<div class="form-group">
+								<label>Direccion : </label>
+								<input th:field="*{direccion}" class="form-control" type="text" name="mail" id="mail" placeholder="Direccion" required>
+							</div>
+							
+							<div class="form-group">
+								<label>Provincia : </label>
+								<input th:field="*{provincia}" class="form-control" type="text" name="provincia" id="provincia" placeholder="Provincia" required>
+							</div>
+
+							<div class="form-group">
+								<label>Fecha : </label>
+								<input th:field="*{fechaInicio}" class="form-control" type="date" name="fecha" id="fecha" placeholder="fecha" required>
+							</div>
+																					
+							<div class="form-group">
+								<label>Email : </label>
+								<input th:field="*{email}" class="form-control" type="email" name="email" id="email" placeholder="Email" required>
+							</div>
+							
+							<div class="form-group">
+								<label>Telefono : </label>
+								<input th:field="*{telefono}" class="form-control" type="text" name="telefono" id="telefono" placeholder="Telefono" required>
+							</div>	
+							<br>
+							<div class="box-footer">
+								<button th:value="${edicio}?'Modicicar':'Guardar'" class="btn btn-success">Guardar</button>
+							</div>						
+						</form>
+					</div>
+					
+				</div>
+			</div>
+		</div>
 
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 
 </html>

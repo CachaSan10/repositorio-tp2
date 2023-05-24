@@ -2,20 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<title>Sucursales - Tienda de Mascota Puppis</title>
+		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<link th:rel="stylesheet" th:href="@{/css/style.css}">
 	</head>
 	<body>
-	
-		<div id="contenedor">
 		
 		<header th:replace="~{layouts/header :: header}"></header>
 		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 
-			<div id="main-container">
-				<a th:href="@{/sucursal/nuevo}" class="btn-nueva-sucursal">Nueva Sucursal</a>
-				<table class="tabla322">
-					<thead class="thead322">
+			<div class="container">
+				<div class="row">
+					<h2>Lista Sucursales</h2>
+				</div>
+				<div>
+					<div class="row">
+						<div class="col-lg-e">
+						 	<a th:href="@{/sucursal/nuevo}" class="btn btn-primary btn-sm mb3">Nueva Sucursal</a>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="table-responsive">
+				<table class="table-sm table table-striped table-bordered table-hover  ">
+					<thead class="table-dark">
 						<tr>
 							<th>Codigo</th>
 							<th>Nombre</th>
@@ -27,23 +38,29 @@
 							<th>Acciones</th>
 						</tr>
 					</thead>
+					<tbody>
 						<tr th:each="sucursal: ${sucursales}">
 							<td th:text="${sucursal.codigo}"></td>
-							<td th:text="${sucursal.nombre}"></td> 
-							<td th:text="${sucursal.direccion}"></td> 
-							<td th:text="${sucursal.provincia}"></td> 
-							<td th:text="${#temporals.format(sucursal.fechaInicio, 'dd/MM/yyyy')}"></td> 
-							<td th:text="${sucursal.email}"></td> 
+							<td th:text="${sucursal.nombre}"></td>
+							<td th:text="${sucursal.direccion}"></td>
+							<td th:text="${sucursal.provincia}"></td>
+							<td th:text="${#temporals.format(sucursal.fechaInicio, 'dd/MM/yyyy')}"></td>
+							<td th:text="${sucursal.email}"></td>
 							<td th:text="${sucursal.telefono}"></td>
 							<td>
-								<a class="btn-add" th:href="@{/sucursal/modificar/}+${sucursal.codigo}">Modificar</a>
-								<a class="btn-add" th:href="@{/sucursal/eliminar/}+${sucursal.codigo}">Eliminar</a>
-							</td> 
+								<a class="btn btn-info" th:href="@{/sucursal/modificar/}+${sucursal.codigo}">Modificar</a>
+								
+								
+								<a class="btn btn-danger" th:href="@{/sucursal/eliminar/}+${sucursal.codigo}">Eliminar</a>
+							</td>
 						</tr>
-			</table>
+					</tbody>
+				</table>
+				</div>
 			</div>
 				
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 		</div>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	</body>
 </html>
