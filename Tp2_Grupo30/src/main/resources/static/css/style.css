@@ -48,23 +48,20 @@ nav {
 	height: 40px;
 }
 
-nav ul li {
-	list-style: none;
-	float: left;
-}
 
-nav ul li a {
+
+nav a {
 	text-decoration: none;
 	text-transform: uppercase; 
-	color: orange;
-	display: block;
-	padding: 0px 20px 0px 20px;
-	text-align: center;
-	font-size: 0.85em;
-	line-height: 40px;
+	color: orange !important;
+	line-height: 25px;
 }
 
-nav ul li a:hover {
+.color-collapse{
+	background-color:orangered;
+}
+
+nav  a:hover {
 	background: orangered;
 	color: white;
 }

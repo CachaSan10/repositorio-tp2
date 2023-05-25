@@ -4,17 +4,24 @@
 <meta charset="UTF-8">
 </head>
 <body>
-	<nav th:fragment="nav">
-		<ul class="enlases-menu">
-			<li><a th:href="@{/inicio}" title="Ir a la pagina de Inicio">Principal</a></li>
-			<li><a th:href="@{/productos/listado}" title="Ir a Producto">Productos</a></li>
-			<li><a th:href="@{/consejo/listado}"
-				title="Ir a Consejo de Salud">Consejos de Salud</a></li>
-			<li><a th:href="@{/servicio/listado}" title="Ir a Sevicio">Servicios</a></li>
-			<li><a th:href="@{/sucursal/listado}" title="Ir a Sucursales">Sucursales</a></li>
-			<li><a th:href="@{/contacto}" title="Ir a Contacto">Contactanos</a></li>
-		</ul>
-	</nav>
+	<nav th:fragment="nav" class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon color-collapse"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+      <div class="navbar-nav ">
+        <a class="nav-link " th:href="@{/inicio}">Principal</a>
+        <a class="nav-link" th:href="@{/productos/listado}">Productos</a>
+        <a class="nav-link" th:href="@{/consejo/listado}">Consejos de Salud</a>
+        <a class="nav-link" th:href="@{/servicio/listado}">Servicios</a>
+        <a class="nav-link" th:href="@{/sucursal/listado}" >Sucursales</a>
+        <a class="nav-link" th:href="@{/contacto}">Contactanos</a>
+               
+      </div>
+    </div>
+  </div>
+</nav>
 
 </body>
 </html>
