@@ -25,23 +25,21 @@ header {
 }
 
 header h1{
-	text-align: right;
 	text-shadow: 1px 1px 2px black;
 	padding-right:30px;
 	padding-top:20px;
 	color: orange;
-	font-size: 45px;
-	
+	font-size:2.2rem;
+width: 20rem;	
 	
 }
 
 header p{
 	padding: 5px;
-	margin-left:150px;
-	text-align: center;
+	font-size:1rem;
 	color: #092327;
-	font-size: 20px;
-}
+width: 20rem;}
+
 
 /*------------MENU------------------*/
 nav {
@@ -79,9 +77,10 @@ nav ul li a:hover {
   	font-family: 'Heebo', sans-serif,fantasy;
 }
 
+
 #contenedor-consejos-salud h2 {
-	font-size: 20px;
-	text-align: center;
+	font-size: 25px;
+	
 	margin-top: 20px;
 	margin-bottom: 20px;
 	color: #6A5ACD;
@@ -132,7 +131,7 @@ nav ul li a:hover {
 	margin-bottom:20px;
 	display: block;
 	font-size: 15px;
-	width: 80%;
+	width: 90%;
 }
 
 #contenedor-consejos-salud article p strong {
@@ -223,13 +222,18 @@ nav ul li a:hover {
 .contenedor-boton {
 	text-align: center;
 }
-.boton-agregar{
+.btn-consejos{
 	width: 20%;
-	background: #1f53c5;
 	border: none;
 	padding: 15px;
-	color: white;
 	margin: 16px 0; 
+}
+
+.btn-nuevo-consejo{
+	width: 100%;
+	border: none;
+	padding: 15px;
+	margin: 16px 0;
 }
 
 /* inputs de Contactanos.html */
