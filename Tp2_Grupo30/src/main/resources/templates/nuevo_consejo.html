@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 
 <title>Agregar Consejo de Salud</title>
 </head>
@@ -11,22 +12,25 @@
 
 		<header th:replace="~{layouts/header :: header}"></header>
 
-
-		<section class="form-register">
-			<form  th:action="${edicion}?@{/consejo/modificar/}+${consejo.id}:@{/consejo/guardar}"
+<div class="form-register">
+<form th:action="${edicion}?@{/consejo/modificar/}+${consejo.id}:@{/consejo/guardar}"
 			th:object="${consejo}"	method="post">
-				<h3 th:text="${edicion}?'Modificar Consejo de Salud':'Agregar Consejo de Salud'"></h3>
-				
-
-
-				<input th:field="*{titulo}" class="controls" type="text"
-					name="titulo" id="idtitulo" placeholder="Ingrese Titulo">
-				<textarea th:field="*{parrafo}" rows="15" cols="5" class="controls"
-					name="parrafo" id="idparrafo" placeholder="Ingrese Parrafo"></textarea>
-				<button type="submit" class="botons" th:text="${edicion}?'Modificar':'Agregar'" ></button>
-			</form>
-		</section>
+<h3 th:text="${edicion}?'Modificar Consejo de Salud':'Agregar Consejo de Salud'"></h3>
+  <div class="mb-3">
+    <label for="idTitulo" class="form-label">Titulo</label>
+    <input th:field="*{titulo}" type="text" class="form-control controls" name="titulo" id="idTitulo" aria-describedby="TituloConsejo">
+  </div>
+  <div class="mb-3">
+  <label for="idparrafo" class="form-label">Parrafo</label>
+  <textarea th:field="*{parrafo}" class="form-control" id="idparrafo" rows="15" cols="5" name="parrafo"></textarea>
+</div>
+  <button type="submit" th:text="${edicion}?'Modificar':'Agregar'"class="btn btn-success btn-nuevo-consejo"></button>
+</form>
+</div>
+		
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</div>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	
 </body>
 </html>

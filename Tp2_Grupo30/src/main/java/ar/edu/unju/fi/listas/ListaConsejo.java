@@ -32,7 +32,7 @@ public class ListaConsejo {
 		fechaPublicacion = LocalDate.of(2023, 3, 21);
 		consejos.add(new Consejo(2,titulo, parrafo, fechaPublicacion));
 
-		titulo = " ¿Cuántas veces al día debe comer un perro";
+		titulo = " ¿Cuántas veces al día debe comer un perro?";
 		parrafo = "La cantidad de comida de los perros es muy importante. ¡Es una de las claves de su salud! Nuestro amigo de cuatro patas nos pediría comida a todas horas, pero ¿cada cuánto tiempo deberíamos darle su ración? ¡Conoce todas las cantidades que necesita en cada etapa!.\n"
 				+ " La salud de tu perro depende tanto de la calidad como de la cantidad de su comida. Por eso, además de ofrecer a tu peludo un pienso personalizado, es importante repartir su alimentación diaria en el número correcto de tomas.\n"
 				+ " ¿Cuántas veces al día come un perro según su edad?\n"
