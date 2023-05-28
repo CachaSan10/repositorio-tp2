@@ -3,45 +3,75 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+		<!--  <link rel="stylesheet" th:href="@{/css/style.css}">-->
 		<title>Servicio de Paseos - Tienda de Mascota Puppis</title>
 	</head>
-	<body>
-		<div id="contenedor">
+	<body class="container">
+	
 			<header th:replace="~{layouts/header :: header}"></header>
 			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
-			<div class="contenedor-boton"><a th:href="@{/servicio/nuevo}"><button type="button" class="boton-agregar">Agregar Servicio</button></a></div>
-	        <section class="container-paseos content bg-success">
-	        <h1 class="titulo-paseo bg-secondary mt-20">Servicios de Paseos</h1>
-	        <table class="tabla">
-	            <thead class="cabecera-tabla bg-info h-50 border-td-th">
-		            <tr>
-		            	<th class="border-td-th">Id</th>
-		                <th class="border-td-th">Inicio Servicio</th>
-		                <th class="border-td-th">Fin Servicio</th>
-		                <th class="border-td-th">Nombre y Apellido</th>
-		                <th class="border-td-th">Día</th>
-		                <th class="border-td-th">Acción</th>
-		                
-		             </tr>
-	             </thead>
-	             <tbody class="body-tabla bg-success">
-		            <tr th:each="servicio : ${servicios}">
-		            	<td th:text="${servicio.id}" class="border-td-th h-50"></td>
-		                <td th:text="${#temporals.format(servicio.startTime, 'HH:mm')}" class="border-td-th h-50"></td>
-		                <td th:text="${#temporals.format(servicio.finishTime, 'HH:mm')}" class="border-td-th h-50"></td>
-		                <td th:text="${servicio.fullName}" class="border-td-th h-50"></td>
-		                <td th:text="${servicio.day}" class="border-td-th h-50"></td>
-		                <td  class="border-td-th"><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="bt-add" >Editar</button></a><br/>
-		                	<a th:href="@{/servicio/eliminar/}+${servicio.id}"><button type="button" class="bt-add" >Eliminar</button></a>
-		                </td>
-		                
-		            </tr>
-	             </tbody>
-	       	</table>
+			<!-- -->
+	        <section class="row justify-content-center container">
+		        
+		        <div class="p-5 bg-light rounded-shadom text-center mb-5 col-md-8 col-12">
+		        	<h1 class="text-primary display-5 text-center fw-bolder">Bienvenido a Servicios de Paseos</h1>
+		        	<p class="fw-bold mt-3 text-center">
+		        		Aqui podra gestionar sus Servicios de Paseos!
+		        	</p>
+		        	<hr>
+		        	<p class="text-center">
+		        		Consulte, cree, actualice o elimine sus horarios de Paseos de forma facil y segura. 
+		        	</p>
+		        </div>
+	        	<div class="text-center">
+	        	
+	        		<a th:href="@{/servicio/nuevo}">
+	        		<button type="button" 
+	        				class="btn btn-success fw-bolder py-3">Agregar Servicio Nuevo</button></a>
+	        	</div>
+	        	
+	        	<div class="row justify-content-center container">
+	        		<div class="col-md-10 col-12 text-center">
+			    	    <div class="table-responsive">
+				 	       
+				 	       <div class="text-center bg-warning pt-2 mt-2">
+				       		<h2 class="fw-bold">Lista de Servicios</h2>
+				    	   </div>
+				    	   
+					        <table class="table table-bordered table-striped">
+					            <thead class="bg-secondary text-white">
+						            <tr class="">
+						            	<th class="">Id</th>
+						                <th class="">Inicio Servicio</th>
+						                <th class="">Fin Servicio</th>
+						                <th class="">Nombre y Apellido</th>
+						                <th class="">Día</th>
+						                <th class="">Acción</th>
+						                
+						             </tr>
+					             </thead>
+					             <tbody class="">
+						            <tr th:each="servicio : ${servicios}">
+						            	<td th:text="${servicio.id}" class=""></td>
+						                <td th:text="${#temporals.format(servicio.startTime, 'HH:mm')}" class=""></td>
+						                <td th:text="${#temporals.format(servicio.finishTime, 'HH:mm')}" class=""></td>
+						                <td th:text="${servicio.fullName}" class="py-1"></td>
+						                <td th:text="${servicio.day}" class="py-1"></td>
+						                <td  class=""><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="btn btn-primary py-1" >Editar</button></a><br/>
+						                	<a th:href="@{/servicio/eliminar/}+${servicio.id}"><button type="button" class="btn btn-danger py-1" >Eliminar</button></a>
+						                </td>
+						                
+						            </tr>
+					             </tbody>
+					        </table>
+	       				</div>
+	       			</div>
+	       		</div>
 	   	</section>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
-		</div>
+	
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>
 </html>
