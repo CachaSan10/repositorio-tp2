@@ -2,29 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
+		<!--Especificacion de viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<title>Sucursales - Tienda de Mascota Puppis</title>
+		<!-- Bootstrap referencia  -->
 		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<!-- Css referencia-->
 		<link th:rel="stylesheet" th:href="@{/css/style.css}">
 	</head>
 	<body>
 		
+	<div id="contenedor">
+		<!--Uso del fragmento header -->
 		<header th:replace="~{layouts/header :: header}"></header>
+		<!--Uso del fragmento nav -->
 		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
-
-			<div class="container">
+	
+		<div class="container">
+			<div class="row">
+				<h2>Lista Sucursales</h2>
+			</div>
+			<div>
 				<div class="row">
-					<h2>Lista Sucursales</h2>
-				</div>
-				<div>
-					<div class="row">
-						<div class="col-lg-e">
-						 	<a th:href="@{/sucursal/nuevo}" class="btn btn-primary btn-sm mb3">Nueva Sucursal</a>
-						</div>
+					<div class="col-lg-e">
+						<a th:href="@{/sucursal/nuevo}" class="btn btn-primary btn-sm mb3">Nueva Sucursal</a>
 					</div>
 				</div>
-				<br>
-				<div class="table-responsive">
+			</div>
+			<br>
+			<div class="table-responsive">
+				<!--Tabla de sucursales-->
 				<table class="table-sm table table-striped table-bordered table-hover  ">
 					<thead class="table-dark">
 						<tr>
@@ -49,18 +56,19 @@
 							<td th:text="${sucursal.telefono}"></td>
 							<td>
 								<a class="btn btn-info" th:href="@{/sucursal/modificar/}+${sucursal.codigo}">Modificar</a>
-								
-								
+	
+	
 								<a class="btn btn-danger" th:href="@{/sucursal/eliminar/}+${sucursal.codigo}">Eliminar</a>
 							</td>
 						</tr>
 					</tbody>
 				</table>
-				</div>
 			</div>
-				
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
 		</div>
+		<!--Uso del fragmento footer -->
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+		<!--Archivo javascript referencia -->
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	</body>
 </html>

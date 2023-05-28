@@ -19,9 +19,11 @@ import org.springframework.ui.Model;
 @RequestMapping("/sucursal")
 public class SucursalesController {
 	
+	//Se inyecta objeto de tipo sucursal
 	@Autowired
 	 ListaSucursal listaSucursales ;
 	
+	//Listado de sucursales
 	@GetMapping("/listado")
 	public String getSucursalesPage(Model model) {
 		model.addAttribute("sucursales", listaSucursales.getSucursales());
@@ -44,6 +46,7 @@ public class SucursalesController {
 		mav.addObject("sucursales", listaSucursales.getSucursales());
 		return mav;
 	}
+	//Peticion de modificar sucursal
 	@GetMapping("/modificar/{codigo}")
 	public String getModificarSucursalPage(Model model,@PathVariable(value="codigo")int codigo) {
 		boolean edicion=true;
@@ -75,7 +78,7 @@ public class SucursalesController {
 		}
 		return "redirect:/sucursal/listado";
 	}
-	
+	//Peticion de eliminar sucursal
 	@GetMapping("/eliminar/{codigo}")
 	public String eliminarSucursal(@PathVariable(value="codigo")int codigo) {
 		for(Sucursal sucursales: listaSucursales.getSucursales()) {

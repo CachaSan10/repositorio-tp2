@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import ar.edu.unju.fi.model.Sucursal;
-
+//Se instancia objeto de tipo sucursal
 @Component
 public class ListaSucursal {
 	private List<Sucursal> sucursales;
