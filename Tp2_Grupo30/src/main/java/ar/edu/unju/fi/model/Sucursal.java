@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-
+//Se instancia objeto sucursal
 @Component
 public class Sucursal {
 	private int codigo;

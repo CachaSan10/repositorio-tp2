@@ -2,19 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
 		<meta charset="UTF-8">
+		<!--Especificacion de viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<title>Sucursales - Tienda de Mascota Puppis</title>
+		<!-- Bootstrap referencia  -->
 		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<!-- Css referencia-->
 		<link th:rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+	<div id="contenedor">
+	<!--Uso del fragmento header -->
 	<header th:replace="~{layouts/header :: header}"></header>
-
+		<!--Uso del fragmento nav -->
+		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
 					<h3 th:text="${edicion}?'Modificar Sucursal':'Nueva Sucursal'" class="text-center"></h3>
 					<div class="card-body">
+						<!--Formulario de alta/edicion sucursales -->
 						<form  th:action="${edicion}?@{/sucursal/modificar/}+${sucursal.codigo}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
 							<div class="form-group">
 								<label>Nombre : </label>
@@ -55,8 +62,10 @@
 				</div>
 			</div>
 		</div>
-
+	<!--Uso del fragmento footer -->
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+	<!--Archivo javascript referencia -->
 	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 
