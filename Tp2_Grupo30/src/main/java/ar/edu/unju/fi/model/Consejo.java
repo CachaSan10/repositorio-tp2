@@ -5,6 +5,11 @@ import java.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+/**
+ * Esta clase representa un Consejo de salud del sistema
+ * @author Cachambi Nahuel Alberto
+ *
+ */
 @Component
 public class Consejo {
 
@@ -14,12 +19,22 @@ public class Consejo {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fechaPublicacion;
 
+	
+	/**
+	 * Constructor por defecto
+	 */
 	public Consejo() {
 	}
 
 	
 	
-
+	/**
+	 * Constructor Parametrizado
+	 * @param id es el id de consejo de salud
+	 * @param titulo es el titulo de consejo de salud
+	 * @param parrafo es el parrafo de consejo de salud
+	 * @param fechaPublicacion es la fecha de publicacion de consejo de salud
+	 */
 	public Consejo(int id, String titulo, String parrafo, LocalDate fechaPublicacion) {
 		this.id = id;
 		this.titulo = titulo;
