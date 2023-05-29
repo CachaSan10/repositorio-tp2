@@ -22,12 +22,33 @@
 		</div>
 		
 		
-	<div class="row " >				  
-	 <a  th:href="@{/consejo/nuevo}" ><button type="button" class="btn btn-primary btn-consejos" >Agregar Consejo</button></a>
+	<div class="row " >	
+	<div class="col-xl-5">			  
+	 <a  th:href="@{/consejo/nuevo}" class="btn btn-primary btn-consejos"  >Agregar Consejo</a>
+	</div>
 	</div>
 	
-	
+	  <div class="col-md-12 col-xl-12" >
+          <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1 g-4" >
+            <div class="col" th:each="consejo : ${consejos}" >
+              <div class="card">
+				  <div class="card-header">
+				    				<p> Fecha de Publicacion: <Strong th:text="${#temporals.format(consejo.fechaPublicacion,'dd-MM-yyyy')}"></Strong></p>
+				  </div>
+				  <div class="card-body">
+				    <h2 class="card-title text-center"  th:text="${consejo.titulo}"></h2>
+				    <p class="card-text" th:text="${consejo.parrafo}"></p>
+				   <div class="contenedor-boton">
+						<a th:href="@{/consejo/modificar/}+${consejo.id}" class="btn btn-warning btn-consejos" >Modificar</a>
+						<a th:href="@{/consejo/eliminar/}+${consejo.id}" class="btn btn-danger btn-consejos">Eliminar</a>
+						</div>
+				  </div>
+				</div>
+            </div>
+          </div>
+        </div>
 		
+		<!-- 
 		<section id="contenedor-consejos-salud" class="row">
 				<h1>Consejos de Salud para las mascotas</h1>
 			
@@ -42,10 +63,10 @@
 						</div>
 				
 			</article>
-
+		</section>
+		 -->
 
 			
-		</section>
 		
 
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
