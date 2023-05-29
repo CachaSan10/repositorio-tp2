@@ -30,14 +30,17 @@
 	
 	  <div class="col-md-12 col-xl-12" >
           <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1 g-4" >
+              <h1 class="titulo-principal-consejo">Consejos de Salud para las mascotas</h1>
+           
             <div class="col" th:each="consejo : ${consejos}" >
+            	
               <div class="card">
 				  <div class="card-header">
 				    				<p> Fecha de Publicacion: <Strong th:text="${#temporals.format(consejo.fechaPublicacion,'dd-MM-yyyy')}"></Strong></p>
 				  </div>
 				  <div class="card-body">
-				    <h2 class="card-title text-center"  th:text="${consejo.titulo}"></h2>
-				    <p class="card-text" th:text="${consejo.parrafo}"></p>
+				    <h2 class="card-title text-center titulo-consejo"  th:text="${consejo.titulo}"></h2>
+				    <p class="card-text parrafo-consejo " th:text="${consejo.parrafo}"></p>
 				   <div class="contenedor-boton">
 						<a th:href="@{/consejo/modificar/}+${consejo.id}" class="btn btn-warning btn-consejos" >Modificar</a>
 						<a th:href="@{/consejo/eliminar/}+${consejo.id}" class="btn btn-danger btn-consejos">Eliminar</a>
