@@ -4,55 +4,65 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+		<!--  <link rel="stylesheet" th:href="@{/css/style.css}">-->
 		<title>Tienda de Mascotas - PUPPIS</title>
 	</head>
-	<body>
-		<div id="contenedor">
-				<header th:replace="~{layouts/header :: header}"></header>
+	<body class=>
+		
+		<header th:replace="~{layouts/header :: header}"></header>
 		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 
-	    <main class="container-index">
-	    	<img src="/images/mascotas-pets.jpg" alt="Imagen de Presentacion" class="bg-image">
+	    <div class="container justify-content-center">
+	    		<div class="row">
+	    		<img src="/images/mascotas-pets.jpg" alt="Imagen de Presentacion" class="border border-info rounded">
 	    	
-	    	<section class="seccion-index">
-	    		   <h2 class="titulo-h2">ARTICULOS DESTACADOS</h2>
-	    	
-		    		<article class="articulo-index">
-	                    <img src="/images/oferta_mes.jpg" alt="Oferta del Mes" class="articulo-imagen">
-	                    <div class="titulo-body">
-		                    <h3>OFERTAS DEL MES</h3>
-		                    <p>Los productos PRO PLAN en sus diferentes opciones aportan las nutrientes necesarios para su mascota.</p>
-		                </div>
-	                </article>
-	                <article class="articulo-index">
-	                    <img src="/images/perro_mejor-mascota.jpg" class="articulo-imagen">
-	                    <div class="titulo-body">
-		                    <h3>LA MASCOTA DEL MES</h3>
-		                    <p>La mascota ganadora del mes fue Bolt de la Ciudad del Perico. Su dueña Maria comento que Bolt tiene muy buena actitud</p> 
-		                </div>
-	                </article>           
-	                <article class="articulo-index">
-	                    <img src="/images/alimentos.jpg" alt="Mejores marcas" class="articulo-imagen">
-	                    <div class="titulo-body">
-		                    <h3>LAS MEJORES MARCAS</h3>
-		                    <p>La salud de sus Mascotas es el Pilar de nuestro negocio por eso Ofrecemos todas marcas de calidad a los mejores precios</p>
-		                </div>
-	                </article> 
-            </section>
-	    	<aside class="sitios-amigos">
-				    <h2>Sitios relacionados</h2>
-				    <div class="lista">
-				        <ul>
-						      <li><a href="https://www.expertoanimal.com/">Experto Animal</a></li>
-						      <li><a href="https://mascotas.fit/">Macotas Fit</a></li>
-						      <li><a href="https://adiestrarte.com.ar/">Adiestramiento Canino</a></li>
-				    	 </ul>
-				     </div>
-	    	</aside>
-	    </main>
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
-
+	    		<!--<section class="col-10"> -->
+	    			<div class="d-inline-flex justify-content-center">
+	    				<h2 class="py-2 border border-warning rounded mt-2 bg-success">ARTICULOS DESTACADOS</h2>
+	    			</div>
+	    			<div class="col-12 col-md-6 col-lg-3 py-2">	
+			   	 		<article class="card border border-warning">
+		       	             <img src="/images/oferta_mes.jpg" alt="Oferta del Mes" class="card-img-top">
+		       	             <div class="card-body">
+			                    <h5 class="card-title text-center">OFERTAS DEL MES</h5>
+			                    <p class="card-text">Los productos PRO PLAN en sus diferentes opciones
+			                    		 aportan las nutrientes necesarios para su mascota.</p>
+			                </div>
+		                </article>
+	                </div>
+	                <div class="col-12 col-md-6 col-lg-3 py-2">
+		                <article class="card border border-warning">
+		                    <img src="/images/perro_mejor-mascota.jpg" class="card-img-top">
+		                    <div class="card-body">
+			                    <h5 class="card-title text-center">MASCOTA DEL MES</h5>
+			                    <p class="card-text">La mascota ganadora del mes fue Bolt de la Ciudad del Perico.
+			                    		 Su dueña Maria comento que Bolt tiene muy buena actitud.</p> 
+			                </div>
+		                </article>   
+	                </div>
+	                <div class="col-12 col-md-6 col-lg-3 py-2">        
+		                <article class="card border border-warning">
+		                    <img src="/images/alimentos.jpg" alt="Mejores marcas" class="card-img-top">
+		                    <div class="card-body">
+			                    <h5 class="card-title text-center">MEJORES MARCAS</h5>
+			                    <p class="card-text">La salud de sus Mascotas es el Pilar de nuestro negocio por
+			                    		 eso Ofrecemos alimentos de calidad.</p>
+			                </div>
+		                </article> 
+	                </div>
+          		 <!-- </section> -->
+          		 <div class="col-12 col-md-6 col-lg-3 py-2">
+		    		 <aside class="list-group">
+					    <button type="button" class="list-group-item list-group-item-action active fw-bolder text-center">Sitios Amigos</button>
+					    <a href="https://www.expertoanimal.com/" class="list-group-item list-group-item-action">Experto Animal</a></li>
+						<a href="https://mascotas.fit/" class="list-group-item list-group-item-action">Macotas Fit</a></li>
+						<a href="https://adiestrarte.com.ar/" class="list-group-item list-group-item-action">Adiestramiento Canino</a></li>
+					  </aside>
+	    		 </div>
+	    	</div>
 	    </div>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>
 </html>
