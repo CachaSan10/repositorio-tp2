@@ -3,8 +3,12 @@ package ar.edu.unju.fi.listas;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.stereotype.Component;
+
 import ar.edu.unju.fi.model.Servicio;
 
+@Component
 public class ListaServicio {
 	private List<Servicio> servicios;
 	private int id;

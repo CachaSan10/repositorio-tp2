@@ -3,7 +3,9 @@ package ar.edu.unju.fi.model;
 import java.time.LocalTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Servicio {
 	private int id;
 	@DateTimeFormat(pattern = "hh:mm")
