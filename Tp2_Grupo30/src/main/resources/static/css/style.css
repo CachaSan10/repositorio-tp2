@@ -70,12 +70,11 @@ nav  a:hover {
 
 #contenedor-consejos-salud {
 	margin-top: 20px;
-	text-align: justify;
   	font-family: 'Heebo', sans-serif,fantasy;
 }
 
 
-#contenedor-consejos-salud h2 {
+.titulo-consejo {
 	font-size: 25px;
 	
 	margin-top: 20px;
@@ -83,28 +82,14 @@ nav  a:hover {
 	color: #6A5ACD;
 }
 
-#contenedor-consejos-salud h1{
+.titulo-principal-consejo{
 	text-align: center;
 	font-size: 40px;
 	color: #8B0000;
 	font-family: sans-serif ,inherit,cursive;
 }
 
-#contenedor-consejos-salud h3 {
-	font-size: 20px;
-	margin: 15px;
-	text-align: center;
-	color: #FA8072;
-	
-}
 
-#contenedor-consejos-salud h4 {
-	font-size: 20px;
-	margin: 20px;
-	text-align: center;
-	color: #CD853F;
-	
-}
 
 .foto-gato-consejo-salud {
 	width: 70%;
@@ -112,38 +97,39 @@ nav  a:hover {
 	display: block;
 }
 
-#contenedor-consejos-salud article {
-	width: 70%;
-	margin: auto;
-	margin-top: 20px;
-	display: block;
-	border: 5px dashed black;
-	background-color: #FFEFD5;
-	
-}
 
-#contenedor-consejos-salud article p {
+
+.parrafo-consejo {
 	margin: auto;
 	margin-top: 15px;
 	margin-bottom:20px;
 	display: block;
 	font-size: 15px;
+	text-align: justify;
+	
 	width: 90%;
 }
 
-#contenedor-consejos-salud article p strong {
-	color: #FF4500;
-	}
-#contenedor-consejos-salud article ul {
-	margin: auto;
-	margin-bottom:10px;
-	display: block;
-	width: 80%;
-	font-size: 15px;
+
+
+
+/*--------------Boton de agregar-consejo---------------*/
+/*  Boton de agregar-consejo.html */
+.contenedor-boton {
+	text-align: center;
+}
+.btn-consejos{
+	width: 20%;
+	border: none;
+	padding: 15px;
+	margin: 16px 0; 
 }
 
-#contenedor-consejos-salud article ul li strong {
-	color: #008080;
+.btn-nuevo-consejo{
+	width: 100%;
+	border: none;
+	padding: 15px;
+	margin: 16px 0;
 }
 
 /*--------------contactanos---------------*/
@@ -214,24 +200,6 @@ nav  a:hover {
 	color: black;
 }
 
-/*--------------Boton de agregar-consejo---------------*/
-/*  Boton de agregar-consejo.html */
-.contenedor-boton {
-	text-align: center;
-}
-.btn-consejos{
-	width: 20%;
-	border: none;
-	padding: 15px;
-	margin: 16px 0; 
-}
-
-.btn-nuevo-consejo{
-	width: 100%;
-	border: none;
-	padding: 15px;
-	margin: 16px 0;
-}
 
 /* inputs de Contactanos.html */
 .controls{
