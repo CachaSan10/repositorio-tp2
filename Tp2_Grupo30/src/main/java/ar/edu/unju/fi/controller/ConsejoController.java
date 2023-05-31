@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
-
+import org.springframework.validation.BindingResult;
 
 import ar.edu.unju.fi.listas.ListaConsejo;
 import ar.edu.unju.fi.model.Consejo;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/consejo")
@@ -38,8 +39,14 @@ public class ConsejoController {
 	}
 	
 	@PostMapping("/guardar")
-	public ModelAndView agregarConsejo(@ModelAttribute("consejo") Consejo consejo) {
+	public ModelAndView agregarConsejo(@Valid @ModelAttribute("consejo") Consejo consejo, BindingResult result) {
 		ModelAndView  modelAndView = new ModelAndView("consejos");
+		if(result.hasErrors()) {
+			modelAndView.setViewName("nuevo_consejo");
+			modelAndView.addObject("consejo", consejo);
+			return modelAndView;
+		}
+		
 		listaConsejo.addConsejo(consejo);
 		modelAndView.addObject("consejos",listaConsejo.getConsejos() );
 

@@ -50,27 +50,6 @@
             </div>
           </div>
         </div>
-		
-		<!-- 
-		<section id="contenedor-consejos-salud" class="row">
-				<h1>Consejos de Salud para las mascotas</h1>
-			
-			<article th:each="consejo : ${consejos}" >
-				<h2 class="text-center" th:text="${consejo.titulo}"></h2>
-				
-				<p> Fecha de Publicacion: <Strong th:text="${#temporals.format(consejo.fechaPublicacion,'dd-MM-yyyy')}"></Strong></p>
-				<p th:text="${consejo.parrafo}"> </p>
-						<div class="contenedor-boton">
-						<a th:href="@{/consejo/modificar/}+${consejo.id}" ><button type="button" class="btn btn-warning btn-consejos" >Modificar</button></a>
-						<a th:href="@{/consejo/eliminar/}+${consejo.id}" ><button type="button" class="btn btn-danger btn-consejos" >Eliminar</button></a>
-						</div>
-				
-			</article>
-		</section>
-		 -->
-
-			
-		
 
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 			

@@ -19,10 +19,13 @@
   <div class="mb-3">
     <label for="idTitulo" class="form-label">Titulo</label>
     <input th:field="*{titulo}" type="text" class="form-control controls" name="titulo" id="idTitulo" aria-describedby="TituloConsejo">
+  	<div class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
   </div>
   <div class="mb-3">
   <label for="idparrafo" class="form-label">Parrafo</label>
   <textarea th:field="*{parrafo}" class="form-control" id="idparrafo" rows="15" cols="5" name="parrafo"></textarea>
+	  	<div class="text-danger" th:if="${#fields.hasErrors('parrafo')}" th:errors="*{parrafo}"></div>
+	
 </div>
   <button type="submit" th:text="${edicion}?'Modificar':'Agregar'"class="btn btn-success btn-nuevo-consejo"></button>
 </form>

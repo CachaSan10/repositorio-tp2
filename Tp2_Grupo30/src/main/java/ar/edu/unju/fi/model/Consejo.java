@@ -5,6 +5,10 @@ import java.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 /**
  * Esta clase representa un Consejo de salud del sistema
  * @author Cachambi Nahuel Alberto
@@ -14,7 +18,13 @@ import org.springframework.stereotype.Component;
 public class Consejo {
 
 	private int id;
+	@NotEmpty()
+	@NotBlank()
+	@Size(min=10,max=100)
 	private String titulo;
+	@NotEmpty()
+	@NotBlank()
+	@Size(min=10,max=100)
 	private String parrafo;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fechaPublicacion;
