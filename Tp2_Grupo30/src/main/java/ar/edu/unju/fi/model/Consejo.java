@@ -29,6 +29,8 @@ public class Consejo {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fechaPublicacion;
 
+	private String imagen;
+
 	
 	/**
 	 * Constructor por defecto
@@ -36,22 +38,23 @@ public class Consejo {
 	public Consejo() {
 	}
 
-	
-	
+
 	/**
 	 * Constructor Parametrizado
-	 * @param id es el id de consejo de salud
-	 * @param titulo es el titulo de consejo de salud
-	 * @param parrafo es el parrafo de consejo de salud
-	 * @param fechaPublicacion es la fecha de publicacion de consejo de salud
+	 * @param id es el id de consejo de salud.
+	 * @param titulo es el titulo de consejo de salud.
+	 * @param parrafo es el parrafo de consejo de salud.
+	 * @param fechaPublicacion es la fecha de publicacion de consejo de salud.
+	 * @param imagen es la imagen de la publicacion de consejo de salud.
 	 */
-	public Consejo(int id, String titulo, String parrafo, LocalDate fechaPublicacion) {
+	public Consejo(int id, @NotEmpty @NotBlank @Size(min = 10, max = 100) String titulo,
+			@NotEmpty @NotBlank @Size(min = 10, max = 100) String parrafo, LocalDate fechaPublicacion, String imagen) {
 		this.id = id;
 		this.titulo = titulo;
 		this.parrafo = parrafo;
 		this.fechaPublicacion = fechaPublicacion;
+		this.imagen = imagen;
 	}
-
 
 
 
@@ -92,5 +95,27 @@ public class Consejo {
 	public void setFechaPublicacion(LocalDate fechaPublicacion) {
 		this.fechaPublicacion = fechaPublicacion;
 	}
+
+
+
+	public String getImagen() {
+		return imagen;
+	}
+
+
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Consejo [id=" + id + ", titulo=" + titulo + ", parrafo=" + parrafo + ", fechaPublicacion="
+				+ fechaPublicacion + ", imagen=" + imagen + "]";
+	}
+	
+	
 
 }
