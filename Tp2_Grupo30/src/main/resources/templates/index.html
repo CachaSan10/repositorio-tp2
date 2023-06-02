@@ -8,8 +8,8 @@
 		<link rel="stylesheet" th:href="@{/css/style.css}">
 		<title>Tienda de Mascotas - PUPPIS</title>
 	</head>
-	<body class=>
-		
+	<body>
+		<div class="container">
 		<header th:replace="~{layouts/header :: header}"></header>
 		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 
@@ -54,14 +54,15 @@
           		 <div class="col-12 col-md-6 col-lg-3 py-2">
 		    		 <aside class="list-group">
 					    <button type="button" class="list-group-item list-group-item-action active fw-bolder text-center">Sitios Amigos</button>
-					    <a href="https://www.expertoanimal.com/" class="list-group-item list-group-item-action">Experto Animal</a></li>
-						<a href="https://mascotas.fit/" class="list-group-item list-group-item-action">Macotas Fit</a></li>
-						<a href="https://adiestrarte.com.ar/" class="list-group-item list-group-item-action">Adiestramiento Canino</a></li>
+					    <a href="https://www.expertoanimal.com/" class="list-group-item list-group-item-action">Experto Animal</a>
+						<a href="https://mascotas.fit/" class="list-group-item list-group-item-action">Macotas Fit</a>
+						<a href="https://adiestrarte.com.ar/" class="list-group-item list-group-item-action">Adiestramiento Canino</a>
 					  </aside>
 	    		 </div>
 	    	</div>
 	    </div>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	    </div>
 	    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>
 </html>
