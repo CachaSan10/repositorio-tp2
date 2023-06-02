@@ -37,8 +37,7 @@ public class Servicio {
 	@Pattern(regexp="[a-zA-Z]+", message="El apellido solo puede contener letras")
 	private String lastName;
 	/**Representa el dia del servicio*/
-	@NotEmpty(message="Debe ingresar un día")
-	@Pattern(regexp="[a-zA-Z]+", message="El día solo puede contener letras")
+	@NotBlank(message="Debe seleccionar un día")
 	private String day;
 	
 	//-----------------Constructores--------------------
