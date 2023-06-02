@@ -93,16 +93,20 @@ public class ListaConsejo {
 	 * Metodo que actualiza los valores del consejo que se modifico
 	 *  en la lista de consejo.
 	 * @param consejoModificado representa el consejo que se modifico.
+	 * @throws IOException 
 	 * 
 	 */
-	public void updateConsejo(Consejo consejoModificado) {
+	public void updateConsejo(Consejo consejoModificado,MultipartFile imagen) throws IOException {
 		//List<Consejo> listaConsejo = new ArrayList<Consejo>();
 		//listaConsejo=getConsejos();
+		 String imagenString = uploadFile.copy(imagen);
 		 for(Consejo consejo: getConsejos()) {
 		    	if(consejo.getId() == consejoModificado.getId()) {
 		    		consejo.setFechaPublicacion(LocalDate.now());
 		    		consejo.setParrafo(consejoModificado.getParrafo());
 		    		consejo.setTitulo(consejoModificado.getTitulo());
+		    		   uploadFile.delete(consejo.getImagen());
+		    			consejo.setImagen(imagenString);
 		    		break;
 		    	}
 		    }
@@ -132,6 +136,7 @@ public class ListaConsejo {
 	public void deleteConsejo(int id) {
 		for(Consejo consejo: getConsejos()) {
 	    	if(consejo.getId()==id) {
+	    		uploadFile.delete(consejo.getImagen());
 	    		getConsejos().remove(consejo);
 	    		break;
 	    	}

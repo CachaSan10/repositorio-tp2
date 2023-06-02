@@ -91,8 +91,9 @@ public class ConsejoController {
 	
 	
 	@PostMapping("/modificar/{id}")
-	public String modificarConsejo(@ModelAttribute("consejo")Consejo consejoModificado) {
-		listaConsejo.updateConsejo(consejoModificado);
+	public String modificarConsejo(@ModelAttribute("consejo")Consejo consejoModificado,
+			@RequestParam("file") MultipartFile imagen) throws IOException  {
+		listaConsejo.updateConsejo(consejoModificado,imagen);
 		return "redirect:/consejo/listado";
 	}
 	

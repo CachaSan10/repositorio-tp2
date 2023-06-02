@@ -28,6 +28,7 @@ public class Consejo {
 	private String parrafo;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fechaPublicacion;
+
 	private String imagen;
 
 	
