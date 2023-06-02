@@ -14,7 +14,7 @@
 
 <div class="form-register">
 <form th:action="${edicion}?@{/consejo/modificar/}+${consejo.id}:@{/consejo/guardar}"
-			th:object="${consejo}"	method="post">
+			th:object="${consejo}"	method="post" enctype="multipart/form-data">
 <h3 th:text="${edicion}?'Modificar Consejo de Salud':'Agregar Consejo de Salud'"></h3>
   <div class="mb-3">
     <label for="idTitulo" class="form-label">Titulo</label>
@@ -26,6 +26,12 @@
   <textarea th:field="*{parrafo}" class="form-control" id="idparrafo" rows="15" cols="5" name="parrafo"></textarea>
 	  	<div class="text-danger" th:if="${#fields.hasErrors('parrafo')}" th:errors="*{parrafo}"></div>
 	
+</div>
+<!-- Para subir archivos al proyecto -->
+<div class="mb-3">
+  <label for="file" class="form-label">Imagen de la publicacion de consejos</label>
+  <input class="form-control" type="file" id="file" name="file"
+  th:text="${consejo.imagen}">
 </div>
   <button type="submit" th:text="${edicion}?'Modificar':'Agregar'"class="btn btn-success btn-nuevo-consejo"></button>
 </form>
