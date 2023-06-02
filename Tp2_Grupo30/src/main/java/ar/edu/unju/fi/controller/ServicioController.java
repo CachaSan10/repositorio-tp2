@@ -3,6 +3,7 @@ package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,13 +13,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaServicio;
 import ar.edu.unju.fi.model.Servicio;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/servicio")
 public class ServicioController {
+	
 	@Autowired
 	private ListaServicio listaServicio;
-	
+	/*
+	 * Servicio inyectado
+	 */
 	@Autowired
 	private Servicio servicio;
 	@GetMapping("/listado")
@@ -36,12 +41,17 @@ public class ServicioController {
 	}
 	
 	@PostMapping("/guardar")
-	public ModelAndView agregarServicio(@ModelAttribute("servicio") Servicio servicio) {
-		ModelAndView  modelAndView = new ModelAndView("servicios");
+	public ModelAndView agregarServicio(@Valid @ModelAttribute("servicio") Servicio servicio, BindingResult result) {
+		ModelAndView  modelView = new ModelAndView("servicios");
+		if(result.hasErrors()) {
+			modelView.setViewName("nuevo_servicio");
+			modelView.addObject("servicio",servicio);
+			return modelView;
+		}
 		listaServicio.addServicio(servicio);
-		modelAndView.addObject("servicios",listaServicio.getServicios());
+		modelView.addObject("servicios",listaServicio.getServicios());
 
-		return modelAndView;
+		return modelView;
 	}
 	
 	@GetMapping("/modificar/{id}")
