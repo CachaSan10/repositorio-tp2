@@ -12,8 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaSucursal;
 import ar.edu.unju.fi.model.Sucursal;
+import jakarta.validation.Valid;
 
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 @Controller
 @RequestMapping("/sucursal")
@@ -21,7 +23,9 @@ public class SucursalesController {
 	
 	//Se inyecta objeto de tipo sucursal
 	@Autowired
-	 ListaSucursal listaSucursales ;
+	private ListaSucursal listaSucursales ;
+	@Autowired
+	private Sucursal sucursal;
 	
 	//Listado de sucursales
 	@GetMapping("/listado")
@@ -33,14 +37,19 @@ public class SucursalesController {
 	@GetMapping("/nuevo")
 	public String getNuevaSucursalPage(Model model) {
 		boolean edicion= false;
-		model.addAttribute("sucursal", new Sucursal());
+		model.addAttribute("sucursal", sucursal);
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
 	}
 	
 	@PostMapping("/guardar")
-	public ModelAndView getGuardarSucursalPage(@ModelAttribute("sucursal")Sucursal sucursal) {
+	public ModelAndView getGuardarSucursalPage(@Valid @ModelAttribute("sucursal")Sucursal sucursal, BindingResult bindingResult ) {
 		ModelAndView mav = new ModelAndView("sucursales");
+		if(bindingResult.hasErrors()) {
+			mav.setViewName("nueva_sucursal");
+			mav.addObject("sucursal", sucursal);
+			return mav;
+		}
 		//listaSucursales.getSucursales().add(sucursal);
 		listaSucursales.addSucursal(sucursal);
 		mav.addObject("sucursales", listaSucursales.getSucursales());

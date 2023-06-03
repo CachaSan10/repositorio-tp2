@@ -4,16 +4,34 @@ import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 //Se instancia objeto sucursal
 @Component
 public class Sucursal {
 	private int codigo;
+	@NotEmpty(message="El nombre de la sucursal no puede estar vacio")
+	@Size(min=3, max=10,message="El nombre de sucursal debe tener entre 3 y 10 caracteres")
 	private String nombre;
+	@NotEmpty(message="Este campo no puede estar vacio")
+	@Size(min=10, max=30,message="El nombre de la direccion debe tener entre 10 y 30 caracteres")
 	private String direccion;
+	@NotEmpty(message="Este campo no puede estar vacio")
+	@Size(min=5, max=15,message="El nombre de provincia debe tener entre 5 y 15 caracteres")
 	private String provincia;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@NotNull(message = "La fecha no puede ser nula")
+	@FutureOrPresent(message = "La fecha debe ser hoy o posterior")
 	private LocalDate fechaInicio;
+	@Email(message = "Ingrese un mail valido")
+	@NotEmpty(message="El mail de la sucursal no puede estar vacio")
 	private String email;
+	@NotEmpty(message="Este campo no puede estar vacio")
+	@Size(min=11, max=11,message="Ingrese un numero de telefono valido")
 	private String telefono;
 	
 	public Sucursal() {
