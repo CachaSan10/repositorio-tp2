@@ -26,31 +26,37 @@
 							<div class="form-group">
 								<label for="nombre" class="form-label">Nombre : </label>
 								<input th:field="*{nombre}" class="form-control" type="text" name="nombres" id="nombres" placeholder="Nombre" required>
+								<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 							</div>
 		
 							<div class="form-group">
 								<label for="nombre" class="form-label">Direccion : </label>
 								<input th:field="*{direccion}" class="form-control" type="text" name="mail" id="mail" placeholder="Direccion" required>
+								<div class="text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></div>
 							</div>
 							
 							<div class="form-group">
-								<label for="nombre" class="form-label">Provincia : </label>
+                <label for="nombre" class="form-label">Provincia : </label>
 								<input th:field="*{provincia}" class="form-control" type="text" name="provincia" id="provincia" placeholder="Provincia" required>
+								<div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
 							</div>
 
 							<div class="form-group">
 								<label for="nombre" class="form-label">Fecha : </label>
 								<input th:field="*{fechaInicio}" class="form-control" type="date" name="fecha" id="fecha" placeholder="fecha" required>
+								<div class="text-danger" th:if="${#fields.hasErrors('fechaInicio')}" th:errors="*{fechaInicio}"></div>
 							</div>
 																					
 							<div class="form-group">
 								<label for="nombre" class="form-label">Email : </label>
 								<input th:field="*{email}" class="form-control" type="email" name="email" id="email" placeholder="Email" required>
+								<div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 							</div>
 							
 							<div class="form-group">
 								<label for="nombre" class="form-label">Telefono : </label>
 								<input th:field="*{telefono}" class="form-control" type="text" name="telefono" id="telefono" placeholder="Telefono" required>
+								<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 							</div>	
 							<br>
 							<div class="box-footer">
