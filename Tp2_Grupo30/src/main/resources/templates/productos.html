@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" th:href="@{/css/style.css}">
-<script src="https://kit.fontawesome.com/20b79bacc0.js"
-	crossorigin="anonymous"></script>
-<title>Productos - Tienda de Mascota Puppis</title>
-</head>
-<body>
-	<div id="contenedor">
-		<header th:replace="~{layouts/header :: header}"></header>
-		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
-
-
-
-		<div class="contenedor-boton"><a th:href="@{/productos/nuevo}" ><button type="button" class="boton-agregar" >Agregar Producto</button></a></div>	
-		<section class="contenedor-section">
-		
-            <div th:each="produc: ${productos}" class="tarjeta">
-                <div class="cuerpo">
-                    <img src="/images/Producto1.png" alt="imagen de producto">
-                    <h1 th:text="${produc.nombreProducto}"></h1>
-                    <h6>cod. <span th:text=${produc.id}></span></h6>
-                    <p >$ <span th:text="${produc.precioProducto}"></span></p>
-                    <p >con descuento $ <span th:text="${produc.calcularDescuento()}"></span></p>
-                </div>
-                <div class="contenedor-boton">
-	  				<a th:href="@{/productos/modificar/}+${produc.id}"><button type="button" class="boton-opcion" >Modificar</button></a>
-					<a th:href="@{/productos/eliminar/}+${produc.id}"><button type="button" class="boton-opcion" >Eliminar</button></a>
+	<head>
+		<meta charset="UTF-8">
+		<!--Especificacion de viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<!-- Bootstrap referencia  -->
+		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<!-- Css referencia-->
+		<link th:rel="stylesheet" th:href="@{/css/style.css}">
+		<script src="https://kit.fontawesome.com/20b79bacc0.js" crossorigin="anonymous"></script>
+		<title>Productos - Tienda de Mascota Puppis</title>
+	</head>
+	<body>
+		<div class="container">
+			<!--Uso del fragmento header -->
+			<header th:replace="~{layouts/header :: header}"></header>
+			<!-- Uso del fragmento nav-->
+			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
+			
+			<div class="text-center my-2">
+	        	<a th:href="@{/productos/nuevo}" ><button type="button" class="btn btn-success fw-bolder py-3">Agregar Producto</button></a>
+	        </div>
+			
+			<div class="row gy-3 my-3">
+			
+				<div class="col-sm-6 col-md-4 col-lg-3" th:each="produc: ${productos}">
+					<div class="card" >
+						<img src="/images/Producto1.png" alt="imagen de producto">
+						<div class="card-body">
+							<h4  th:text="${produc.nombreProducto}" class="card-title"></h4>
+						    <h6>cod. <span th:text=${produc.id}></span></h6>
+						    <p class="card-text">$ <span th:text="${produc.precioProducto}"></span></p>
+						    <p >con descuento $ <span th:text="${produc.calcularDescuento()}"></span></p>
+						    <div class="row gy-3 my-2">
+						    	<div class="col-xs-12 col-sm-6 col-md-6">
+						    		<a th:href="@{/productos/modificar/}+${produc.id}"><button type="button" class="btn btn-warning" >Modificar</button></a>
+						    	</div>
+							    <div class="col-xs-12 col-sm-6 col-md-6">
+							    	<a th:href="@{/productos/eliminar/}+${produc.id}"><button type="button" class="btn btn-danger" >Eliminar</button></a>
+							    </div>
+						    </div>
+							<div class="d-grid gap-2">
+								<button type="button" class="btn btn-success">Comprar<i class="fa-sharp fa-solid fa-cart-shopping fa-lg" style="color: #000000;"></i></button>
+							</div>
+						</div>
+					</div>
 				</div>
-                <button class="boton-compra">Comprar
-                    <i class="fa-sharp fa-solid fa-cart-shopping fa-lg" style="color: #000000;"></i>
-                </button>
-            </div>
-            
-        </section>
-
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
-
-	</div>
-</body>
+			</div>
+			<footer th:replace="~{layouts/footer :: footer}"></footer>
+		</div>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	</body>
 </html>

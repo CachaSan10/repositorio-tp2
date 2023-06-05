@@ -3,8 +3,17 @@ package ar.edu.unju.fi.listas;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import ar.edu.unju.fi.model.Producto;
 
+/**
+ * 
+ * @author Acosta Jose David
+ *
+ */
+
+@Component
 public class ListaProducto {
 	
 	private List<Producto> productos;
@@ -24,21 +33,34 @@ public class ListaProducto {
 		id=8;
 		
 	}
-
+	/**
+	 * 
+	 * @return lista de productos
+	 */
 	public List<Producto> getProductos() {
 		return productos;
 	}
-
+	/**
+	 * 
+	 * @param productos
+	 */
 	public void setProductos(List<Producto> productos) {
 		this.productos = productos;
 	}
-	
+	/**
+	 * Metodo que agrega un producto a la lista de productos
+	 * @param producto
+	 */
 	public void addProducto(Producto producto) {
 		id++;
 		producto.setId(id);
 		productos.add(producto);
 	}
-	
+	/**
+	 * 
+	 * @param id
+	 * @return producto buscado
+	 */
 	public Producto productoBuscado(int id) {
 		Producto productoEncontrado = new Producto();
 		for(Producto unProducto: getProductos()) {
@@ -49,7 +71,10 @@ public class ListaProducto {
 		}
 		return productoEncontrado;
 	}
-
+	/**
+	 * Metodo que actualiza los valores del producto que se modifico
+	 * @param productoModificado
+	 */
 	public void actualizarProducto(Producto productoModificado) {
 		for(Producto producto: getProductos()) {
 	    	if(producto.getId() == productoModificado.getId()) {
@@ -60,7 +85,10 @@ public class ListaProducto {
 	    	}
 	    }
 	}
-	
+	/**
+	 * Metodo que eliminia un producto
+	 * @param id
+	 */
 	public void deleteProducto(int id) {
 		for(Producto producto: getProductos()) {
 	    	if(producto.getId()==id) {
