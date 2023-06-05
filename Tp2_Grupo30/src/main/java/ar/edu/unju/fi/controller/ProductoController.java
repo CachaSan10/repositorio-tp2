@@ -41,13 +41,8 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/guardar")
-	public ModelAndView getGuardarProductoPage(@Valid @ModelAttribute("producto") Producto producto, BindingResult result) {
+	public ModelAndView getGuardarProductoPage(@ModelAttribute("producto") Producto producto) {
 		ModelAndView  modelAndView = new ModelAndView("productos");
-		if(result.hasErrors()) {
-			modelAndView.setViewName("nuevo_producto");
-			modelAndView.addObject("producto",producto);
-			return modelAndView;
-		}
 		listaProductos.addProducto(producto);
 		modelAndView.addObject("productos",listaProductos.getProductos());
 		return modelAndView;
