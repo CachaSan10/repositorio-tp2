@@ -18,8 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
-import ar.edu.unju.fi.listas.ListaConsejo;
 import ar.edu.unju.fi.model.Consejo;
+import ar.edu.unju.fi.service.IConsejoService;
 import ar.edu.unju.fi.util.UploadFile;
 import jakarta.validation.Valid;
 
@@ -28,24 +28,24 @@ import jakarta.validation.Valid;
 public class ConsejoController {
 
 	@Autowired
-	private ListaConsejo listaConsejo;
+	private IConsejoService consejoService;
 	
 	@Autowired
-	private Consejo consejo;
+	private Consejo unConsejo;
 	
 	@Autowired
 	private UploadFile uploadFile;
 
 	@GetMapping("/listado")
 	public String getListaConsejo(Model model) {
-		model.addAttribute("consejos", listaConsejo.getConsejos());
+		model.addAttribute("consejos", consejoService.getConsejos());
 		return "consejos";
 	}
 	
 	@GetMapping("/nuevo")
 	public String getAgregarConsejoPage(Model model) {
 		boolean edicion=false;
-		model.addAttribute("consejo", consejo);
+		model.addAttribute("consejo", unConsejo);
 		model.addAttribute("edicion", edicion);
 		return "nuevo_consejo";
 	}
@@ -60,8 +60,8 @@ public class ConsejoController {
 			return modelAndView;
 		}
 		
-		listaConsejo.addConsejo(consejo,imagen);
-		modelAndView.addObject("consejos",listaConsejo.getConsejos() );
+		consejoService.addConsejo(consejo,imagen);
+		modelAndView.addObject("consejos",consejoService.getConsejos() );
 
 		return modelAndView;
 	}
@@ -83,7 +83,7 @@ public class ConsejoController {
 	@GetMapping("/modificar/{id}")
 	public String getModificarConsejoPage(Model model,@PathVariable(value="id")int id) {
 		boolean edicion=true;
-		model.addAttribute("consejo", listaConsejo.getConsejo(id));
+		model.addAttribute("consejo", consejoService.getConsejoEncontrado(id));
 		model.addAttribute("edicion", edicion);
 		
 		return "nuevo_consejo";
@@ -93,13 +93,13 @@ public class ConsejoController {
 	@PostMapping("/modificar/{id}")
 	public String modificarConsejo(@ModelAttribute("consejo")Consejo consejoModificado,
 			@RequestParam("file") MultipartFile imagen) throws IOException  {
-		listaConsejo.updateConsejo(consejoModificado,imagen);
+		consejoService.updateConsejo(consejoModificado,imagen);
 		return "redirect:/consejo/listado";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarConsejo(@PathVariable(value="id")int id) {
-		listaConsejo.deleteConsejo(id);
+		consejoService.deleteConsejo(id);
 		return "redirect:/consejo/listado";
 	}
 	

@@ -13,7 +13,8 @@ public interface IConsejoService {
 	
 	public void addConsejo(Consejo consejo,MultipartFile imagen) throws IOException;
 	
-	public Consejo getConsejo(int id);
+	public Consejo getConsejoEncontrado(int id);
+	
 	
 	public void updateConsejo(Consejo consejoModificado,MultipartFile imagen) throws IOException;
 	
