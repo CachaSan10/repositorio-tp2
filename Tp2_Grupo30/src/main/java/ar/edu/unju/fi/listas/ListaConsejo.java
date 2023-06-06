@@ -1,24 +1,19 @@
 package ar.edu.unju.fi.listas;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 
 import ar.edu.unju.fi.model.Consejo;
-import ar.edu.unju.fi.util.UploadFile;
 
 @Component
 public class ListaConsejo {
 
 	private List<Consejo> consejos;
-	private int id;
-	@Autowired
-	private UploadFile uploadFile;
+	public static int id;
+	
 
 	public ListaConsejo() {
 		String titulo;
@@ -74,73 +69,6 @@ public class ListaConsejo {
 		this.consejos = consejos;
 	}
 
-	/**
-	 * Metodo que agrega el nuevo consejo a la lista de consejo.
-	 * @param consejo representa el consejo que se va a agregar a la 
-	 * lista.
-	 * @throws IOException 
-	 */
-	public void addConsejo(Consejo consejo,MultipartFile imagen) throws IOException {
-		id++;
-		consejo.setFechaPublicacion(LocalDate.now());
-		consejo.setId(id);
-		String uniqueFileName = uploadFile.copy(imagen);
-		consejo.setImagen(uniqueFileName);
-		consejos.add(consejo);
-	}
 	
-	/**
-	 * Metodo que actualiza los valores del consejo que se modifico
-	 *  en la lista de consejo.
-	 * @param consejoModificado representa el consejo que se modifico.
-	 * @throws IOException 
-	 * 
-	 */
-	public void updateConsejo(Consejo consejoModificado,MultipartFile imagen) throws IOException {
-		//List<Consejo> listaConsejo = new ArrayList<Consejo>();
-		//listaConsejo=getConsejos();
-		 String imagenString = uploadFile.copy(imagen);
-		 for(Consejo consejo: getConsejos()) {
-		    	if(consejo.getId() == consejoModificado.getId()) {
-		    		consejo.setFechaPublicacion(LocalDate.now());
-		    		consejo.setParrafo(consejoModificado.getParrafo());
-		    		consejo.setTitulo(consejoModificado.getTitulo());
-		    		   uploadFile.delete(consejo.getImagen());
-		    			consejo.setImagen(imagenString);
-		    		break;
-		    	}
-		    }
-		// setConsejos(listaConsejo);
-	}
-	
-	/***
-	 * Metodo que busca el consejo atraves de su id.
-	 * @param id representa el id del consejo que se debe encontrar en la lista.
-	 * @return el consejo encontrado en la lista de consejo.
-	 */
-	public Consejo getConsejo(int id) {
-	    Consejo consejoEncontrado = new Consejo();
-	    for(Consejo consejo: getConsejos()) {
-	    	if(consejo.getId()==id) {
-	    		consejoEncontrado=consejo;
-	    		break;
-	    	}
-	    }
-		return consejoEncontrado;
-	}
-	
-	/**
-	 * Metodo que elimina el consejo segun el id. 
-	 * @param id representa el id del consejo que se elimina.
-	 */
-	public void deleteConsejo(int id) {
-		for(Consejo consejo: getConsejos()) {
-	    	if(consejo.getId()==id) {
-	    		uploadFile.delete(consejo.getImagen());
-	    		getConsejos().remove(consejo);
-	    		break;
-	    	}
-	    }
-	}
 	
 }
