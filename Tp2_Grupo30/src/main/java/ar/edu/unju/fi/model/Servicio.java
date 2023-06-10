@@ -118,5 +118,12 @@ public class Servicio {
 	public void setDay(String day) {
 		this.day = day;
 	}
+	
+	@Override
+	public String toString() {
+		return "Servicio [id=" + id + ", startTime=" + startTime + ", finishTime=" + finishTime + ", firstName="
+				+ firstName + ", lastName=" + lastName + ", day=" + day + "]";
+	}
+	
 
 }
