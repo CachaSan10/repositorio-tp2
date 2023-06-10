@@ -22,10 +22,14 @@ public class SucursalServiceImp implements ISucursalService {
 		
 		return sucursal;
 	}
+	
+	private int id = 4;
+	
 
 	@Override
 	public void guardarSucursal(Sucursal sucursal) {
-		
+		id++;
+		sucursal.setCodigo(id);
 		listaSucursal.getSucursales().add(sucursal);
 	}
 
@@ -74,6 +78,5 @@ public class SucursalServiceImp implements ISucursalService {
 		return listaSucursal.getSucursales();
 	}
 
-
-
+	
 }
