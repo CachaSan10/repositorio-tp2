@@ -1,13 +1,9 @@
 package ar.edu.unju.fi.service.imp;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import ar.edu.unju.fi.listas.ListaServicio;
 import ar.edu.unju.fi.model.Servicio;
 import ar.edu.unju.fi.service.IServicioService;
@@ -19,13 +15,13 @@ public class ServicioServiceImp implements IServicioService{
 	private ListaServicio servicios;
 	
 	@Override
-	public List<Servicio> getServicios() {return servicios.getServicios();
+	public List<Servicio> getServicios(){
+		return servicios.getServicios();
 	}
 	
 	/**
 	 * Metodo que agrega servicio a la lista de servicio
-	 * @param servicio representa el servicio que se va agregar a la 
-	 * lista de servicio.
+	 * 
 	 */
 	@Override
 	public void addServicio(Servicio servicio) throws IOException{
@@ -35,9 +31,7 @@ public class ServicioServiceImp implements IServicioService{
 	}
 	
 	/**
-	 * Metodo que modifica el servicio de la lista servicio
-	 * @param servicioModificado representa el servicio modificado
-	 * que se modifico en la lista servicio.
+	 * Metodo que modifica un servicio de la lista servicio
 	 */
 	@Override
 	public void updateServicio(Servicio servicioModificado){
@@ -57,10 +51,8 @@ public class ServicioServiceImp implements IServicioService{
 	}
 	
 	/**
-	 * Metodo que busca el servicio de a traves de su id.
-	 * @param id representa el id del servicio que se esta buscando en 
-	 * la lista de servicio.
-	 * @return el servicio que se encontro en la lista.
+	 * Metodo que busca el servicio buscado mediante su id.
+	 * @return retorna el servicio que se encontro en la lista.
 	 */
 	public Servicio getServicioEncontrado(int id) {
 	    Servicio servicioEncontrado = new Servicio();
@@ -76,7 +68,7 @@ public class ServicioServiceImp implements IServicioService{
 	
 	/**
 	 * Metodo que elimina el servicio dependiendo del id
-	 * @param id representa el id del servicio que se quiere eliminar
+	 * id representa el id del servicio que se quiere eliminar
 	 */
 	public void deleteServicio(int id) {
 		for(Servicio servicio: getServicios()) {
