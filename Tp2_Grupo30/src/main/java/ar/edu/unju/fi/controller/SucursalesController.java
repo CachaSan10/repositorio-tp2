@@ -35,7 +35,7 @@ public class SucursalesController {
 	@GetMapping("/nuevo")
 	public String getNuevaSucursalPage(Model model) {
 		boolean edicion= false;
-		model.addAttribute("sucursal", sucursalService.getSucursal());
+		model.addAttribute("sucursal", new Sucursal());
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
 	}
@@ -45,7 +45,7 @@ public class SucursalesController {
 		ModelAndView mav = new ModelAndView("sucursales");
 		if(bindingResult.hasErrors()) {
 			mav.setViewName("nueva_sucursal");
-			mav.addObject("sucursal", sucursal);
+			mav.addObject("edicion", false);
 			return mav;
 		}
 		sucursalService.guardarSucursal(sucursal);
@@ -64,8 +64,10 @@ public class SucursalesController {
 	}
 	
 	@PostMapping("/modificar/{codigo}")
-	public String modificarSucursal(@ModelAttribute("sucursal")Sucursal sucursalModificado) {
-
+	public String modificarSucursal(@Valid @ModelAttribute("sucursal")Sucursal sucursalModificado, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return "nueva_sucursal";
+		}
 		sucursalService.modificarSucursal(sucursalModificado);
 		return "redirect:/sucursal/listado";
 	}
