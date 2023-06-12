@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.listas.ListaProducto;
 import ar.edu.unju.fi.model.Producto;
+import ar.edu.unju.fi.service.IProductoService;
 import jakarta.validation.Valid;
 
 @Controller
@@ -20,14 +20,14 @@ import jakarta.validation.Valid;
 public class ProductoController {
 	
 	@Autowired
-	private ListaProducto listaProductos;
+	private IProductoService productoService;
 
 	@Autowired
 	private Producto producto;
 	
 	@GetMapping("/listado")
 	public String getListaProductoPage(Model model) {
-		model.addAttribute("productos",listaProductos.getProductos());
+		model.addAttribute("productos",productoService.getListaProducto());
 		return "productos";
 	}
 	
@@ -43,15 +43,15 @@ public class ProductoController {
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarProductoPage(@ModelAttribute("producto") Producto producto) {
 		ModelAndView  modelAndView = new ModelAndView("productos");
-		listaProductos.addProducto(producto);
-		modelAndView.addObject("productos",listaProductos.getProductos());
+		productoService.guardarProducto(producto);
+		modelAndView.addObject("productos",productoService.getListaProducto());
 		return modelAndView;
 	}
 	
 	@GetMapping("/modificar/{id}")
 	public String getModificarProductoPage(Model model, @PathVariable(value="id") int id){
 		boolean edicion=true;
-		model.addAttribute("producto", listaProductos.productoBuscado(id));
+		model.addAttribute("producto", productoService.buscarProducto(id));
 		model.addAttribute("edicion", edicion);
 		
 		return "nuevo-producto";
@@ -59,13 +59,13 @@ public class ProductoController {
 	
 	@PostMapping("/modificar/{id}")
 	public String modificarProducto(@ModelAttribute("producto") Producto productoModificado) {
-		listaProductos.actualizarProducto(productoModificado);
+		productoService.modificarProducto(productoModificado);
 		return "redirect:/productos/listado";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarProducto(@PathVariable(value="id")int id) {
-		listaProductos.deleteProducto(id);
+		productoService.eliminarProducto(id);
 		return "redirect:/productos/listado";
 	}
 }
