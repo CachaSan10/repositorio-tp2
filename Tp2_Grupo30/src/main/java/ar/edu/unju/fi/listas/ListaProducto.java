@@ -17,7 +17,7 @@ import ar.edu.unju.fi.model.Producto;
 public class ListaProducto {
 	
 	private List<Producto> productos;
-	static int id;
+	public static int id;
 	public ListaProducto() {
 		// TODO Auto-generated constructor stub
 		productos = new ArrayList<Producto>();
@@ -47,54 +47,5 @@ public class ListaProducto {
 	public void setProductos(List<Producto> productos) {
 		this.productos = productos;
 	}
-	/**
-	 * Metodo que agrega un producto a la lista de productos
-	 * @param producto
-	 */
-	public void addProducto(Producto producto) {
-		id++;
-		producto.setId(id);
-		productos.add(producto);
-	}
-	/**
-	 * 
-	 * @param id
-	 * @return producto buscado
-	 */
-	public Producto productoBuscado(int id) {
-		Producto productoEncontrado = new Producto();
-		for(Producto unProducto: getProductos()) {
-			if(unProducto.getId()==id) {
-				productoEncontrado=unProducto;
-				break;
-			}
-		}
-		return productoEncontrado;
-	}
-	/**
-	 * Metodo que actualiza los valores del producto que se modifico
-	 * @param productoModificado
-	 */
-	public void actualizarProducto(Producto productoModificado) {
-		for(Producto producto: getProductos()) {
-	    	if(producto.getId() == productoModificado.getId()) {
-	    		producto.setNombreProducto(productoModificado.getNombreProducto());
-	    		producto.setCategoriaProducto(productoModificado.getCategoriaProducto());
-	    		producto.setPrecioProducto(productoModificado.getPrecioProducto());
-	    		producto.setDescuentoProducto(productoModificado.getDescuentoProducto());
-	    	}
-	    }
-	}
-	/**
-	 * Metodo que eliminia un producto
-	 * @param id
-	 */
-	public void deleteProducto(int id) {
-		for(Producto producto: getProductos()) {
-	    	if(producto.getId()==id) {
-	    		getProductos().remove(producto);
-	    		break;
-	    	}
-	    }
-	}
+	
 }
