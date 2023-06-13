@@ -6,77 +6,52 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.entity.Sucursal;
-import ar.edu.unju.fi.listas.ListaSucursal;
+import ar.edu.unju.fi.repository.ISucursalRepository;
 import ar.edu.unju.fi.service.ISucursalService;
 
-@Service
+@Service("sucursalServiceMysql")
 public class SucursalServiceImp implements ISucursalService {
-	
 	@Autowired
-	private ListaSucursal listaSucursal;
+	private ISucursalRepository sucursalRepository;
+	
 	@Autowired
 	private Sucursal sucursal;
 	
 	@Override
 	public Sucursal getSucursal() {
-		
 		return sucursal;
 	}
-	
-	private int id = 4;
-	
 
 	@Override
 	public void guardarSucursal(Sucursal sucursal) {
-		id++;
-		sucursal.setCodigo(id);
-		listaSucursal.getSucursales().add(sucursal);
+		sucursal.setEstado(true);
+		sucursalRepository.save(sucursal);
+
 	}
 
 	@Override
 	public void modificarSucursal(Sucursal sucursal) {
-		for(Sucursal suc :this.listaSucursal.getSucursales()) {
-			if(suc.getCodigo()==sucursal.getCodigo()) {
-				suc.setNombre(sucursal.getNombre());
-				suc.setDireccion(sucursal.getDireccion());
-				suc.setEmail(sucursal.getEmail());
-				suc.setFechaInicio(sucursal.getFechaInicio());
-				suc.setProvincia(sucursal.getProvincia());
-				suc.setTelefono(sucursal.getTelefono());
-			}
-		}
-		
+		sucursal.setEstado(true);
+		sucursalRepository.save(sucursal);
+
 	}
 
 	@Override
 	public void eliminarSucursal(Sucursal sucursal) {
-		listaSucursal.getSucursales().remove(sucursal);
-		
-	}
+		sucursal.setEstado(false);
+		sucursalRepository.save(sucursal);
 
-//	@Override
-//	public ListaSucursal getListaSucursal() {
-//		
-//		return this.listaSucursal;
-//	}
-
-	@Override
-	public Sucursal buscarSucursal(int codigo) {
-		Sucursal devolverSucursal = null;
-		for(Sucursal sucursal : this.listaSucursal.getSucursales()) {
-			if(sucursal.getCodigo()==codigo) {
-				devolverSucursal=sucursal;
-			}
-		}
-		
-		return devolverSucursal;
 	}
 
 	@Override
 	public List<Sucursal> getLista() {
-	
-		return listaSucursal.getSucursales();
+		return sucursalRepository.findByEstado(true);
 	}
 
-	
+	@Override
+	public Sucursal buscarSucursal(Long id) {
+		
+		return sucursalRepository.findById(id).get();
+	}
+
 }

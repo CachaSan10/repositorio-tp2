@@ -2,6 +2,7 @@ package ar.edu.unju.fi.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,6 +22,7 @@ import org.springframework.validation.BindingResult;
 @RequestMapping("/sucursal")
 public class SucursalesController {
 	@Autowired
+	@Qualifier("sucursalServiceMysql")
 	private ISucursalService sucursalService;
 	
 	@GetMapping("/gestion")
@@ -57,17 +59,18 @@ public class SucursalesController {
 		return mav;
 	}
 	//Peticion de modificar sucursal
-	@GetMapping("/modificar/{codigo}")
-	public String getModificarSucursalPage(Model model,@PathVariable(value="codigo")int codigo) {
+	@GetMapping("/modificar/{id}")
+	public String getModificarSucursalPage(Model model,@PathVariable(value="id")Long id) {
 		boolean edicion=true;
-		Sucursal sucursalEncontrada = sucursalService.buscarSucursal(codigo);
+		Sucursal sucursalEncontrada = sucursalService.buscarSucursal(id);
 		
 		model.addAttribute("sucursal", sucursalEncontrada);
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
 	}
 	
-	@PostMapping("/modificar/{codigo}")
+	
+	@PostMapping("/modificar/{id}")
 	public String modificarSucursal(@Valid @ModelAttribute("sucursal")Sucursal sucursalModificado, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			return "nueva_sucursal";
@@ -76,10 +79,10 @@ public class SucursalesController {
 		return "redirect:/sucursal/gestion";
 	}
 	//Peticion de eliminar sucursal
-	@GetMapping("/eliminar/{codigo}")
-	public String eliminarSucursal(@PathVariable(value="codigo")int codigo) {
+	@GetMapping("/eliminar/{id}")
+	public String eliminarSucursal(@PathVariable(value="id")Long id) {
 		
-		Sucursal sucursalEncontradaSucursal = sucursalService.buscarSucursal(codigo);
+		Sucursal sucursalEncontradaSucursal = sucursalService.buscarSucursal(id);
 		sucursalService.eliminarSucursal(sucursalEncontradaSucursal);
 		
 		return "redirect:/sucursal/gestion";
