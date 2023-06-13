@@ -21,6 +21,9 @@ public class ConsejoServiceImp implements IConsejoService {
 
 	@Autowired
 	private UploadFile uploadFile;
+	
+	@Autowired
+	private Consejo consejo;
 
 	@Override
 	public List<Consejo> getConsejos() {
@@ -83,6 +86,11 @@ public class ConsejoServiceImp implements IConsejoService {
 				break;
 			}
 		}
+	}
+
+	@Override
+	public Consejo getConsejo() {
+		return consejo;
 	}
 
 }

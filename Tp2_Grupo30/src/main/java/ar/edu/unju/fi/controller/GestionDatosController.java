@@ -5,11 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 //import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-//@RequestMapping("/gestion")
 public class GestionDatosController {
 	
 	@GetMapping("/gestion")
 	public String getGestionDatosPage() {
-		return "gestiondatos";
+		return "gestion_datos";
 	}
 }

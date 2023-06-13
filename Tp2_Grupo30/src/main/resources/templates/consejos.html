@@ -22,12 +22,7 @@
 		<nav  th:replace="~{layouts/nav :: nav}"></nav>
 		</div>
 		
-		
-	<div class="row " >	
-	<div class="col-xl-5">			  
-	 <a  th:href="@{/consejo/nuevo}" class="btn btn-primary btn-consejos"  >Agregar Consejo</a>
-	</div>
-	</div>
+	
 	
 	  <div class="col-md-12 col-xl-12" >
           <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1 g-4" >
@@ -44,10 +39,7 @@
 				      <img th:src="@{/consejo/cargar/}+${consejo.imagen}" class="card-img-top" alt="...">
 				    
 				    <p class="card-text parrafo-consejo " th:text="${consejo.parrafo}"></p>
-				   <div class="contenedor-boton">
-						<a th:href="@{/consejo/modificar/}+${consejo.id}" class="btn btn-warning btn-consejos" >Modificar</a>
-						<a th:href="@{/consejo/eliminar/}+${consejo.id}" class="btn btn-danger btn-consejos">Eliminar</a>
-						</div>
+				  
 				  </div>
 				</div>
             </div>
