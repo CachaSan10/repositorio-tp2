@@ -508,6 +508,15 @@ th, td {
     background: #f27900;
     color: white;
 }
+/*------------COLORES PARA GESTION DE DATOS------------------*/
+/*
+Colores de mi sitio web
+
+*/
+.bg-section{
+	background-color:#E5F9DB;
+}
+
 
 /*------------FOOTER------------------*/
 footer {
