@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
-import ar.edu.unju.fi.model.Consejo;
+import ar.edu.unju.fi.entity.Consejo;
 import ar.edu.unju.fi.service.IConsejoService;
 import ar.edu.unju.fi.util.UploadFile;
 import jakarta.validation.Valid;
