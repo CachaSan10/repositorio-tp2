@@ -5,6 +5,12 @@ import java.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -16,25 +22,37 @@ import jakarta.validation.constraints.Size;
  *
  */
 @Component
+@Entity
+@Table(name = "consejos")
 public class Consejo {
 
 	// Representa el id de consejo
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "consejo_id")
 	private int id;
+	
 	// Representa el titulo de consejo
 	@NotEmpty()
 	@NotBlank()
 	@Size(min = 10, max = 100)
+	@Column(name = "consejo_titulo", nullable = false)
 	private String titulo;
+	
 	// Representa el parrafo de consejo
 	@NotEmpty()
 	@NotBlank()
-	@Size(min = 10, max = 100)
+	@Size(min = 10, max = 5000)
+	@Column(name = "consejo_parrafo", nullable = false)
 	private String parrafo;
+	
 	// Representa la fecha de publicacion de consejo
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Column(name = "consejo_fecha_publicacion")
 	private LocalDate fechaPublicacion;
 
 	// Representa la imagen de consejo
+	@Column(name = "consejo_imagen", length = 30, nullable = false)
 	private String imagen;
 
 	/**
