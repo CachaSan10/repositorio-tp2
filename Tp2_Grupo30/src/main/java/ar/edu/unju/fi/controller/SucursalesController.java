@@ -23,6 +23,11 @@ public class SucursalesController {
 	@Autowired
 	private ISucursalService sucursalService;
 	
+	@GetMapping("/gestion")
+	public String getGestionPage(Model model) {
+		model.addAttribute("sucursales", sucursalService.getLista());
+		return "gestion_sucursales";
+	}
 	
 	//Listado de sucursales
 	@GetMapping("/listado")
@@ -68,7 +73,7 @@ public class SucursalesController {
 			return "nueva_sucursal";
 		}
 		sucursalService.modificarSucursal(sucursalModificado);
-		return "redirect:/sucursal/listado";
+		return "redirect:/sucursal/gestion";
 	}
 	//Peticion de eliminar sucursal
 	@GetMapping("/eliminar/{codigo}")
@@ -77,7 +82,7 @@ public class SucursalesController {
 		Sucursal sucursalEncontradaSucursal = sucursalService.buscarSucursal(codigo);
 		sucursalService.eliminarSucursal(sucursalEncontradaSucursal);
 		
-		return "redirect:/sucursal/listado";
+		return "redirect:/sucursal/gestion";
 	}
 	
 }
