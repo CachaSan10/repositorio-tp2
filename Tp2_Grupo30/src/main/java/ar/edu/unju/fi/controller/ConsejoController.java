@@ -30,8 +30,6 @@ public class ConsejoController {
 	@Autowired
 	private IConsejoService consejoService;
 	
-	@Autowired
-	private Consejo unConsejo;
 	
 	@Autowired
 	private UploadFile uploadFile;
@@ -45,7 +43,7 @@ public class ConsejoController {
 	@GetMapping("/nuevo")
 	public String getAgregarConsejoPage(Model model) {
 		boolean edicion=false;
-		model.addAttribute("consejo", unConsejo);
+		model.addAttribute("consejo", consejoService.getConsejo());
 		model.addAttribute("edicion", edicion);
 		return "nuevo_consejo";
 	}
@@ -103,6 +101,12 @@ public class ConsejoController {
 		return "redirect:/consejo/listado";
 	}
 	
+	
+	@GetMapping("/gestion-consejos")
+	public String getGestionConsejoPage(Model model) {
+		model.addAttribute("consejos", consejoService.getConsejos());
+		return "gestion_consejos";
+	}
 	
 	
 	

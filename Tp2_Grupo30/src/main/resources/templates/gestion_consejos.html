@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!--Configuracion para usar bootstrap.min.css -->
+<link th:rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<title>Gestion de consejos</title>
+</head>
+<body class="container">
+	<!--Uso del fragmento header -->
+	<header th:replace="~{layouts/header :: header}"></header>
+		 <a  th:href="@{/gestion}" class="btn btn-primary btn-consejos"  >Volver a menu Principal</a>
+	
+	<div class="card">
+	<h1 class="card-title text-center">Gestion de Consejos de Salud</h1>
+	<div class="row justify-content-md-center"  >	
+	<div class="col">			  
+	 <a  th:href="@{/consejo/nuevo}" class="btn btn btn-success btn-consejos"  >Agregar Consejo</a>
+	</div>
+	</div>
+		<div class="card-body">
+		<table class="table table-success table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>
+       <div class="contenedor-boton">
+   <a class="btn btn-warning btn-consejos" >Modificar</a>
+   <a class="btn btn-danger btn-consejos">Eliminar</a>
+</div>
+      </td>
+    </tr>
+  
+  </tbody>
+</table>
+		</div>
+	</div>
+	<!-- Uso del fragmento footer -->
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	<!-- Configuracion para usar bootstrap js -->
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
