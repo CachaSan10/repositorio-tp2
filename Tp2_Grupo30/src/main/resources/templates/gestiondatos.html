@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<!--Configuracion para usar bootstrap.min.css -->
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<title>Gestión de Datos - Tienda Puppis</title>
+	</head>
+	<body class="container">
+			<!--Uso del fragmento header -->
+			<header th:replace="~{layouts/header :: header}"></header>
+			<!-- Uso del fragmento nav-->
+			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
+			<!-- -->
+	        <section class="row justify-content-center container pt-2">
+		        
+		        <div class="p-4 bg-section rounded-shadom text-center mb-4 col-8 mx-auto">
+		        	<h1 class="text-primary display-5 text-center fw-bolder">Bienvenido a Gestión de Datos</h1>
+		        	<p class="fw-bold mt-3 text-center">
+		        		Aqui podra gestionar los Datos de sus Paginas Webs!
+		        	</p>
+		        	<hr>
+		        	<p class="text-center">
+		        		Consulte, cree, actualice o elimine sus direntes publicaciones o datos de forma facil y segura. 
+		        	</p>
+		        </div>
+	        	<div class="p-4 bg-section rounded-shadom text-center mb-4 col-8 mx-auto">
+	        		<ul class="nav flex-column">
+					  <li class="nav-item btn btn-primary m-1 fs-5 text">
+					    <a class="nav-link text-white" aria-current="page" href="#">Productos</a>
+					  </li>
+					  <li class="nav-item btn btn-primary m-1 fs-5 text">
+					    <a class="nav-link text-white" href="#">Consejos de Salud</a>
+					  </li>
+					  <li class="nav-item btn btn-primary m-1 fs-5 text">
+					    <a class="nav-link text-white" href="#">Servicios</a>
+					  </li>
+					  <li class="nav-item btn btn-primary m-1 fs-5 text">
+					    <a class="nav-link text-white" th:href="@{/sucursal/gestion}">Sucursales</a>
+					  </li>
+					</ul>
+	        	</div>
+	   		</section>
+	   	<!-- Uso del fragmento footer -->
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+		<!-- Configuracion para usar bootstrap js -->
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	</body>
+</html>

@@ -54,12 +54,6 @@
 							<td th:text="${#temporals.format(sucursal.fechaInicio, 'dd/MM/yyyy')}"></td>
 							<td th:text="${sucursal.email}"></td>
 							<td th:text="${sucursal.telefono}"></td>
-							<td>
-								<a class="btn btn-info btn-sm" th:href="@{/sucursal/modificar/}+${sucursal.codigo}">Modificar</a>
-	
-	
-								<a class="btn btn-danger btn-sm" th:href="@{/sucursal/eliminar/}+${sucursal.codigo}">Eliminar</a>
-							</td>
 						</tr>
 					</tbody>
 				</table>
