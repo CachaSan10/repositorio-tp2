@@ -22,13 +22,13 @@
 			<div class="row">
 				<h2 class="my-4">Lista Sucursales</h2>
 			</div>
-			<div>
-				<div class="row mb-4">
-					<div class="col-lg-e">
-						<a th:href="@{/sucursal/nuevo}" class="btn btn-success fw-bolder py-3">Nueva Sucursal</a>
-					</div>
-				</div>
-			</div>
+<!-- 			<div> -->
+<!-- 				<div class="row mb-4"> -->
+<!-- 					<div class="col-lg-e"> -->
+<!-- 						<a th:href="@{/sucursal/nuevo}" class="btn btn-success fw-bolder py-3">Nueva Sucursal</a> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 			<br>
 			<div class="table-responsive">
 				<!--Tabla de sucursales-->
@@ -42,12 +42,11 @@
 							<th>Fecha Inicio</th>
 							<th>Email</th>
 							<th>Telefono</th>
-							<th>Acciones</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="sucursal: ${sucursales}">
-							<td th:text="${sucursal.codigo}"></td>
+							<td th:text="${sucursal.id}"></td>
 							<td th:text="${sucursal.nombre}"></td>
 							<td th:text="${sucursal.direccion}"></td>
 							<td th:text="${sucursal.provincia}"></td>

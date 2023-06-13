@@ -22,7 +22,7 @@
 					<h3 th:text="${edicion}?'Modificar Sucursal':'Nueva Sucursal'" class="text-center mb-3"></h3>
 					<div class="card-body">
 						<!--Formulario de alta/edicion sucursales -->
-						<form  th:action="${edicion}?@{/sucursal/modificar/}+${sucursal.codigo}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
+						<form  th:action="${edicion}?@{/sucursal/modificar/}+${sucursal.id}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
 							<div class="form-group">
 								<label for="nombre" class="form-label">Nombre : </label>
 								<input th:field="*{nombre}" class="form-control" type="text" name="nombres" id="nombres" placeholder="Nombre" required>

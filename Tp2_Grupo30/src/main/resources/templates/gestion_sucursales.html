@@ -42,13 +42,13 @@
 					</thead>
 					<tbody>
 						<tr th:each="sucursal: ${sucursales}">
-							<td th:text="${sucursal.codigo}"></td>
+							<td th:text="${sucursal.id}"></td>
 							<td th:text="${sucursal.nombre}"></td>
 							<td>
-								<a class="btn btn-info btn-sm" th:href="@{/sucursal/modificar/}+${sucursal.codigo}">Modificar</a>
+								<a class="btn btn-info btn-sm" th:href="@{/sucursal/modificar/}+${sucursal.id}">Modificar</a>
 	
 	
-								<a class="btn btn-danger btn-sm" th:href="@{/sucursal/eliminar/}+${sucursal.codigo}">Eliminar</a>
+								<a class="btn btn-danger btn-sm" th:href="@{/sucursal/eliminar/}+${sucursal.id}">Eliminar</a>
 							</td>
 						</tr>
 					</tbody>
