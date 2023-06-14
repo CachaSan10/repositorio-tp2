@@ -13,7 +13,7 @@ import ar.edu.unju.fi.listas.ListaConsejo;
 import ar.edu.unju.fi.service.IConsejoService;
 import ar.edu.unju.fi.util.UploadFile;
 
-@Service
+@Service("consejoServiceListaImp")
 public class ConsejoServiceImp implements IConsejoService {
 
 	@Autowired
@@ -41,7 +41,7 @@ public class ConsejoServiceImp implements IConsejoService {
 	}
 
 	@Override
-	public Consejo getConsejoEncontrado(int id) {
+	public Consejo getConsejoEncontrado(Long id) {
 		Consejo consejoEncontrado = new Consejo();
 		for (Consejo consejo : getConsejos()) {
 			if (consejo.getId() == id) {
@@ -78,7 +78,7 @@ public class ConsejoServiceImp implements IConsejoService {
 	}
 
 	@Override
-	public void deleteConsejo(int id) {
+	public void deleteConsejo(Long id) {
 		for (Consejo consejo : getConsejos()) {
 			if (consejo.getId() == id) {
 				uploadFile.delete(consejo.getImagen());

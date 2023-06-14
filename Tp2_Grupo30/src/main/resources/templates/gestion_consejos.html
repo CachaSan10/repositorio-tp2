@@ -33,13 +33,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
+    <tr th:each="consejo : ${consejos}">
+      <th scope="row"  th:text="${consejo.id}"></th>
+      <td  th:text="${consejo.titulo}">Mark</td>
       <td>
        <div class="contenedor-boton">
-   <a class="btn btn-warning btn-consejos" >Modificar</a>
-   <a class="btn btn-danger btn-consejos">Eliminar</a>
+   <a th:href="@{/consejo/modificar/}+${consejo.id}" class="btn btn-warning btn-consejos" >Modificar</a>
+   <a th:href="@{/consejo/eliminar/}+${consejo.id}" class="btn btn-danger btn-consejos">Eliminar</a>
 </div>
       </td>
     </tr>

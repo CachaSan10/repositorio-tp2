@@ -29,38 +29,43 @@ public class Consejo {
 	// Representa el id de consejo
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "consejo_id")
-	private int id;
+	@Column(name = "id")
+	private Long id;
 	
 	// Representa el titulo de consejo
 	@NotEmpty()
 	@NotBlank()
 	@Size(min = 10, max = 100)
-	@Column(name = "consejo_titulo", nullable = false)
+	@Column(name = "titulo", nullable = false)
 	private String titulo;
 	
 	// Representa el parrafo de consejo
 	@NotEmpty()
 	@NotBlank()
 	@Size(min = 10, max = 5000)
-	@Column(name = "consejo_parrafo", nullable = false)
+	@Column(name = "parrafo", nullable = false)
 	private String parrafo;
 	
 	// Representa la fecha de publicacion de consejo
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@Column(name = "consejo_fecha_publicacion")
+	@Column(name = "fecha_publicacion")
 	private LocalDate fechaPublicacion;
 
 	// Representa la imagen de consejo
-	@Column(name = "consejo_imagen", length = 30, nullable = false)
+	@Column(name = "imagen")
 	private String imagen;
 
+	// Representa el estado de consejo
+	@Column(name = "estado")
+	private boolean estado;
+	
 	/**
 	 * Constructor por defecto
 	 */
 	public Consejo() {
 	}
 
+	
 	/**
 	 * Constructor Parametrizado
 	 * 
@@ -69,29 +74,35 @@ public class Consejo {
 	 * @param parrafo          es el parrafo de consejo de salud.
 	 * @param fechaPublicacion es la fecha de publicacion de consejo de salud.
 	 * @param imagen           es la imagen de la publicacion de consejo de salud.
+	 * @param estado		   es el estado de consejo de salud
 	 */
-	public Consejo(int id, @NotEmpty @NotBlank @Size(min = 10, max = 100) String titulo,
-			@NotEmpty @NotBlank @Size(min = 10, max = 100) String parrafo, LocalDate fechaPublicacion, String imagen) {
+	public Consejo(Long id, @NotEmpty @NotBlank @Size(min = 10, max = 100) String titulo,
+			@NotEmpty @NotBlank @Size(min = 10, max = 5000) String parrafo, LocalDate fechaPublicacion, String imagen,
+			boolean estado) {
 		this.id = id;
 		this.titulo = titulo;
 		this.parrafo = parrafo;
 		this.fechaPublicacion = fechaPublicacion;
 		this.imagen = imagen;
+		this.estado = estado;
 	}
 
+	
+	
 	/**
 	 * Metodo que retorna el id de consejo
 	 * @return the id
 	 */
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
+
 
 	/**
 	 * Metodo que modifica el id de consejo
 	 * @param id the id to set
 	 */
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -159,10 +170,30 @@ public class Consejo {
 		this.imagen = imagen;
 	}
 
+	/**
+	 * Metodo que devuelve el estado de consejo
+	 * @return the estado
+	 */
+	public boolean isEstado() {
+		return estado;
+	}
+
+	/**
+	 * Metodo que modifica el estado de consejo
+	 * @param estado the estado to set
+	 */
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Consejo [id=" + id + ", titulo=" + titulo + ", parrafo=" + parrafo + ", fechaPublicacion="
-				+ fechaPublicacion + ", imagen=" + imagen + "]";
+				+ fechaPublicacion + ", imagen=" + imagen + ", estado=" + estado + "]";
 	}
+	
+	
+
 
 }
