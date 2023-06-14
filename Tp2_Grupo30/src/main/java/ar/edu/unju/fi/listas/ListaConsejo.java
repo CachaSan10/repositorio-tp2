@@ -12,7 +12,7 @@ import ar.edu.unju.fi.entity.Consejo;
 public class ListaConsejo {
 
 	private List<Consejo> consejos;
-	public static int id;
+	public static Long id;
 	
 
 	public ListaConsejo() {
@@ -29,7 +29,7 @@ public class ListaConsejo {
 				+ " Otra de las medidas que se deben tomar, y la más básica, es el cepillado diario del pelo. Los gatos, tienden a lamerse mucho el cuerpo, y a raíz de lamerse tanto el cuerpo, tragan demasiado pelo.Si nos acostumbramos a cepillarles el pelo una vez al día, todo el pelo que recojamos con el cepillo, no acabará en el estómago de la mascota.";
 		fechaPublicacion = LocalDate.of(2023, 5, 12);
 		imagen = "cepillar-gato.jpg";
-		consejos.add(new Consejo(1,titulo, parrafo, fechaPublicacion,imagen));
+		consejos.add(new Consejo(1L,titulo, parrafo, fechaPublicacion,imagen,true));
 
 		titulo = " Alimentación para perros con digestiones sensibles";
 		parrafo = "Algunos perros sufren digestiones más sensibles de lo normal y necesitan una alimentación especialmente formulada para ellos.\n"
@@ -37,7 +37,7 @@ public class ListaConsejo {
 				+ " Bentonita, una arcilla nutricional que actúa como si fuera una venda dentro del intestino protegiendo contra las toxinas y absorbiendo agua de manera que las heces salen más compactas. Una combinación especial de fibras que también ayudan a compactar las heces. Huevo, muy fácil de digerir para que el intestino trabaje menos.\n";
 		fechaPublicacion = LocalDate.of(2023, 3, 21);
 		imagen = "alimentacion-digestion-sensible.jpg";
-		consejos.add(new Consejo(2,titulo, parrafo, fechaPublicacion,imagen));
+		consejos.add(new Consejo(2L,titulo, parrafo, fechaPublicacion,imagen,true));
 
 		titulo = " ¿Cuántas veces al día debe comer un perro?";
 		parrafo = "La cantidad de comida de los perros es muy importante. ¡Es una de las claves de su salud! Nuestro amigo de cuatro patas nos pediría comida a todas horas, pero ¿cada cuánto tiempo deberíamos darle su ración? ¡Conoce todas las cantidades que necesita en cada etapa!.\n"
@@ -57,8 +57,8 @@ public class ListaConsejo {
 				+ " máximo de 4 raciones diarias. Además de todo esto, es importante respetar siempre las mismas horas para cada toma, ya que los perros son animales de costumbres. Y recuerda que estas recomendaciones son orientativas. Si tienes alguna duda, pide consejo a tu veterinario, él es quien mejor puede asesorarte.";
 		fechaPublicacion= LocalDate.of(2023, 4, 16);
 		imagen = "comer-dia-perro-portada.jpg";
-		consejos.add(new Consejo(3,titulo, parrafo, fechaPublicacion,imagen));
-		id=3;
+		consejos.add(new Consejo(3L,titulo, parrafo, fechaPublicacion,imagen,true));
+		id=3L;
 	}
 
 	public List<Consejo> getConsejos() {

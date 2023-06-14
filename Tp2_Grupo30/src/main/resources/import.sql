@@ -1,0 +1,1 @@
+insert into consejos (id, titulo, parrafo, imagen, fecha_publicacion,estado) values(1,'hola mundo', 'como estan todos', 'cepillar-gato.jpg','2022-06-14',1);

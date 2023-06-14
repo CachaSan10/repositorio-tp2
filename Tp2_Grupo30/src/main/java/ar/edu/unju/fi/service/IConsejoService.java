@@ -15,11 +15,11 @@ public interface IConsejoService {
 	
 	public void addConsejo(Consejo consejo,MultipartFile imagen) throws IOException;
 	
-	public Consejo getConsejoEncontrado(int id);
+	public Consejo getConsejoEncontrado(Long id);
 	
 	
 	public void updateConsejo(Consejo consejoModificado,MultipartFile imagen) throws IOException;
 	
-	public void deleteConsejo(int id);
+	public void deleteConsejo(Long id);
 	
 }
