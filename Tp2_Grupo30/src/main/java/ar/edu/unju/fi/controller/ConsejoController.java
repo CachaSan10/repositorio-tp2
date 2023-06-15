@@ -110,7 +110,12 @@ public class ConsejoController {
 		return "gestion_consejos";
 	}
 	
-	
+	@GetMapping("/{id}")
+	public ModelAndView getConsejoPage(ModelAndView modelAndView , @PathVariable(value = "id")Long id) {
+		modelAndView.addObject("consejo",consejoService.getConsejoEncontrado(id));
+		modelAndView.setViewName("consejo");
+		return modelAndView;
+	}
 	
 
 }

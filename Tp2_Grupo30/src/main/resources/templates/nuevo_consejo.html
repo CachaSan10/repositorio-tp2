@@ -12,7 +12,8 @@
 
 		<header th:replace="~{layouts/header :: header}"></header>
 
-<div class="form-register">
+<div class="form-register-consejo">
+
 <form th:action="${edicion}?@{/consejo/modificar/}+${consejo.id}:@{/consejo/guardar}"
 			th:object="${consejo}"	method="post" enctype="multipart/form-data">
 <h3 th:text="${edicion}?'Modificar Consejo de Salud':'Agregar Consejo de Salud'"></h3>
@@ -34,8 +35,12 @@
   th:text="${consejo.imagen}">
   
 </div>
-  <button type="submit" th:text="${edicion}?'Modificar':'Agregar'"class="btn btn-success btn-nuevo-consejo"></button>
+   <a class="btn btn-primary btn-consejos" th:href="@{/consejo/gestion}" >Volver</a>
+
+  <button type="submit" th:text="${edicion}?'Modificar':'Agregar'"  class="btn btn-success btn-nuevo-consejo"></button>
+  
 </form>
+
 </div>
 		
 		<footer th:replace="~{layouts/footer :: footer}"></footer>

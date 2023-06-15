@@ -20,7 +20,7 @@
 	<h1 class="card-title text-center">Gestion de Consejos de Salud</h1>
 	<div class="row justify-content-md-center"  >	
 	<div class="col">			  
-	 <a  th:href="@{/consejo/nuevo}" class="btn btn btn-success btn-consejos"  >Agregar Consejo</a>
+	 <a  th:href="@{/consejo/nuevo}" class="btn  btn-success btn-consejos"  >Agregar</a>
 	</div>
 	</div>
 		<div class="card-body">
@@ -40,6 +40,8 @@
        <div class="contenedor-boton">
    <a th:href="@{/consejo/modificar/}+${consejo.id}" class="btn btn-warning btn-consejos" >Modificar</a>
    <a th:href="@{/consejo/eliminar/}+${consejo.id}" class="btn btn-danger btn-consejos">Eliminar</a>
+      <a th:href="@{/consejo/}+${consejo.id}" class="btn btn-light btn-consejos">Ver</a>
+   
 </div>
       </td>
     </tr>
