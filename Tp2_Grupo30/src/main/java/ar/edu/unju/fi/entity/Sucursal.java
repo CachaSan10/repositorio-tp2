@@ -49,12 +49,6 @@ public class Sucursal {
 	@Column(name="sucu_fecha_inicio")
 	private LocalDate fechaInicio;
 	
-	@NotNull(message = "La fecha no puede ser nula")
-	@FutureOrPresent(message = "La fecha debe ser hoy o posterior")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name = "sucu_fecha_fin")
-	private LocalDate fechaFin;
-	
 	@Email(message = "Ingrese un mail valido")
 	@NotEmpty(message="El mail de la sucursal no puede estar vacio")
 	@Column(name="sucu_email")
@@ -66,6 +60,7 @@ public class Sucursal {
 	private String telefono;
 	@Column(name = "sucu_estado")
 	private boolean estado;
+	@NotNull(message="Debe seleccionar una provincia")
 	@ManyToOne
 	@JoinColumn(name = "provincia_id")
 	private Provincia provincia;
@@ -78,14 +73,14 @@ public class Sucursal {
 	}
 
 
-	public Sucursal(Long id, String nombre, String direccion, LocalDate fechaInicio, LocalDate fechaFin, String email,
+	public Sucursal(Long id, String nombre, String direccion, LocalDate fechaInicio, String email,
 			String telefono, boolean estado, Provincia provincia) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.fechaInicio = fechaInicio;
-		this.fechaFin = fechaFin;
+		
 		this.email = email;
 		this.telefono = telefono;
 		this.estado = estado;
@@ -180,14 +175,6 @@ public class Sucursal {
 
 
 
-	public LocalDate getFechaFin() {
-		return fechaFin;
-	}
-
-
-	public void setFechaFin(LocalDate fechaFin) {
-		this.fechaFin = fechaFin;
-	}
 
 
 	@Override

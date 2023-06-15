@@ -37,7 +37,6 @@
 							<th>Direccion</th>
 							<th>Provincia</th>
 							<th>Fecha Inicio</th>
-							<th>Fecha Fin</th>
 							<th>Email</th>
 							<th>Telefono</th>
 						</tr>
@@ -49,7 +48,6 @@
 							<td th:text="${sucursal.direccion}"></td>
 							<td th:text="${sucursal.provincia.nombre}"></td>
 							<td th:text="${#temporals.format(sucursal.fechaInicio, 'dd/MM/yyyy')}"></td>
-							<td th:text="${#temporals.format(sucursal.fechaFin, 'dd/MM/yyyy')}"></td>
 							<td th:text="${sucursal.email}"></td>
 							<td th:text="${sucursal.telefono}"></td>
 						</tr>
