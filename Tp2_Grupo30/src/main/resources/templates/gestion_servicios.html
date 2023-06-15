@@ -60,8 +60,7 @@
 						            <td th:text="${servicio.firstName}" class="py-1"></td>
 						            <td th:text="${servicio.lastName}" class="py-1"></td>
 						            <td th:text="${servicio.day}" class="py-1"></td>
-						            <!--  <td><label class="badge badge-danger">Pending</label></td>-->
-		                            <td  class=""><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="btn btn-primary py-1" >Editar</button></a><br/>
+						            <td  class=""><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="btn btn-primary py-1" >Editar</button></a><br/>
 						                	<a th:href="@{/servicio/eliminar/}+${servicio.id}"><button type="button" class="btn btn-danger py-1" >Eliminar</button></a>
 						            </td>
 		                       </tbody>
