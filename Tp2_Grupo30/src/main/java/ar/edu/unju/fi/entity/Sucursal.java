@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.FutureOrPresent;
@@ -36,17 +38,23 @@ public class Sucursal {
 	@Column(name="sucu_direccion")
 	private String direccion;
 	
-	@NotEmpty(message="Este campo no puede estar vacio")
-	@Size(min=5, max=15,message="El nombre de provincia debe tener entre 5 y 15 caracteres")
-	@Column(name="sucu_provincia")
-	private String provincia;
+//	@NotEmpty(message="Este campo no puede estar vacio")
+//	@Size(min=5, max=15,message="El nombre de provincia debe tener entre 5 y 15 caracteres")
+//	@Column(name="sucu_provincia")
+//	private String provincia;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@NotNull(message = "La fecha no puede ser nula")
 	@FutureOrPresent(message = "La fecha debe ser hoy o posterior")
 	@Column(name="sucu_fecha_inicio")
 	private LocalDate fechaInicio;
-
+	
+	@NotNull(message = "La fecha no puede ser nula")
+	@FutureOrPresent(message = "La fecha debe ser hoy o posterior")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "sucu_fecha_fin")
+	private LocalDate fechaFin;
+	
 	@Email(message = "Ingrese un mail valido")
 	@NotEmpty(message="El mail de la sucursal no puede estar vacio")
 	@Column(name="sucu_email")
@@ -58,7 +66,9 @@ public class Sucursal {
 	private String telefono;
 	@Column(name = "sucu_estado")
 	private boolean estado;
-	
+	@ManyToOne
+	@JoinColumn(name = "provincia_id")
+	private Provincia provincia;
 
 
 
@@ -68,17 +78,28 @@ public class Sucursal {
 	}
 
 
-	public Sucursal(Long id, String nombre, String direccion, String provincia, LocalDate fechaInicio, String email,
-			String telefono, boolean estado) {
+	public Sucursal(Long id, String nombre, String direccion, LocalDate fechaInicio, LocalDate fechaFin, String email,
+			String telefono, boolean estado, Provincia provincia) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.direccion = direccion;
-		this.provincia = provincia;
 		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
 		this.email = email;
 		this.telefono = telefono;
 		this.estado = estado;
+		this.provincia = provincia;
+	}
+
+	
+	public Provincia getProvincia() {
+		return provincia;
+	}
+
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
 	}
 
 
@@ -109,16 +130,6 @@ public class Sucursal {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
-	}
-
-
-	public String getProvincia() {
-		return provincia;
-	}
-
-
-	public void setProvincia(String provincia) {
-		this.provincia = provincia;
 	}
 
 
@@ -167,6 +178,16 @@ public class Sucursal {
 		this.estado = estado;
 	}
 
+
+
+	public LocalDate getFechaFin() {
+		return fechaFin;
+	}
+
+
+	public void setFechaFin(LocalDate fechaFin) {
+		this.fechaFin = fechaFin;
+	}
 
 
 	@Override

@@ -1,17 +1,23 @@
 package ar.edu.unju.fi.controller;
 
 
+import java.time.LocalDate;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Sucursal;
+import ar.edu.unju.fi.service.IProvinciaService;
 import ar.edu.unju.fi.service.ISucursalService;
 import jakarta.validation.Valid;
 
@@ -25,6 +31,9 @@ public class SucursalesController {
 	@Qualifier("sucursalServiceMysql")
 	private ISucursalService sucursalService;
 	
+	@Autowired
+	private IProvinciaService provinciaService;
+
 	@GetMapping("/gestion")
 	public String getGestionPage(Model model) {
 		model.addAttribute("sucursales", sucursalService.getLista());
@@ -33,14 +42,16 @@ public class SucursalesController {
 	
 	//Listado de sucursales
 	@GetMapping("/listado")
-	public String getSucursalesPage(Model model) {
-		model.addAttribute("sucursales", sucursalService.getLista());
+	public String getSucursalesPage(Model model) {		
+		model.addAttribute("sucursales", sucursalService.getLista());	
+		
 		return "sucursales";
 	}
 	
 	@GetMapping("/nuevo")
 	public String getNuevaSucursalPage(Model model) {
 		boolean edicion= false;
+		model.addAttribute("provincias", provinciaService.getLista());
 		model.addAttribute("sucursal", new Sucursal());
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
@@ -49,13 +60,15 @@ public class SucursalesController {
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarSucursalPage(@Valid @ModelAttribute("sucursal")Sucursal sucursal, BindingResult bindingResult ) {
 		ModelAndView mav = new ModelAndView("sucursales");
+		
 		if(bindingResult.hasErrors()) {
 			mav.setViewName("nueva_sucursal");
 			mav.addObject("edicion", false);
 			return mav;
 		}
+		mav.addObject("provincia", provinciaService.getLista());
 		sucursalService.guardarSucursal(sucursal);
-		mav.addObject("sucursales", sucursalService.getLista());
+		mav.setViewName("redirect:/sucursal/listado");
 		return mav;
 	}
 	//Peticion de modificar sucursal
@@ -64,6 +77,7 @@ public class SucursalesController {
 		boolean edicion=true;
 		Sucursal sucursalEncontrada = sucursalService.buscarSucursal(id);
 		
+		model.addAttribute("provincias", provinciaService.getLista());
 		model.addAttribute("sucursal", sucursalEncontrada);
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";

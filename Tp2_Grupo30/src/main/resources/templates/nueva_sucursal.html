@@ -36,15 +36,24 @@
 							</div>
 							
 							<div class="form-group">
-                <label for="nombre" class="form-label">Provincia : </label>
-								<input th:field="*{provincia}" class="form-control" type="text" name="provincia" id="provincia" placeholder="Provincia" required>
-								<div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+               					 <label for="provinciaId" class="form-label">Provincia : </label>
+               					 <select th:field="*{provincia.id}" class="form-control" id="provincia">
+               					 	<option th:each="provincia : ${provincias}" th:value="${provincia.id}"
+               					 	th:text="${provincia.nombre}"></option>
+               					 </select>
+               					 <div class=text-danger th:if="${#fields.hasErrors('provincia')}" th:errors=""></div>
 							</div>
 
 							<div class="form-group">
-								<label for="nombre" class="form-label">Fecha : </label>
+								<label for="nombre" class="form-label">Fecha Inicio : </label>
 								<input th:field="*{fechaInicio}" class="form-control" type="date" name="fecha" id="fecha" placeholder="fecha" required>
 								<div class="text-danger" th:if="${#fields.hasErrors('fechaInicio')}" th:errors="*{fechaInicio}"></div>
+							</div>
+							
+							<div class="form-group">
+								<label for="nombre" class="form-label">Fecha Fin : </label>
+								<input th:field="*{fechaFin}" class="form-control" type="date" name="fecha" id="fecha" placeholder="fecha" required>
+								<div class="text-danger" th:if="${#fields.hasErrors('fechaFin')}" th:errors="*{fechaFin}"></div>
 							</div>
 																					
 							<div class="form-group">

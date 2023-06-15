@@ -22,15 +22,12 @@
 			<div class="row">
 				<h2 class="my-4">Lista Sucursales</h2>
 			</div>
-<!-- 			<div> -->
-<!-- 				<div class="row mb-4"> -->
-<!-- 					<div class="col-lg-e"> -->
-<!-- 						<a th:href="@{/sucursal/nuevo}" class="btn btn-success fw-bolder py-3">Nueva Sucursal</a> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-			<br>
+
+				<br>
+
+			
 			<div class="table-responsive">
+
 				<!--Tabla de sucursales-->
 				<table class="table-sm table table-striped table-bordered table-hover">
 					<thead class="bg-secondary text-white">
@@ -40,6 +37,7 @@
 							<th>Direccion</th>
 							<th>Provincia</th>
 							<th>Fecha Inicio</th>
+							<th>Fecha Fin</th>
 							<th>Email</th>
 							<th>Telefono</th>
 						</tr>
@@ -49,8 +47,9 @@
 							<td th:text="${sucursal.id}"></td>
 							<td th:text="${sucursal.nombre}"></td>
 							<td th:text="${sucursal.direccion}"></td>
-							<td th:text="${sucursal.provincia}"></td>
+							<td th:text="${sucursal.provincia.nombre}"></td>
 							<td th:text="${#temporals.format(sucursal.fechaInicio, 'dd/MM/yyyy')}"></td>
+							<td th:text="${#temporals.format(sucursal.fechaFin, 'dd/MM/yyyy')}"></td>
 							<td th:text="${sucursal.email}"></td>
 							<td th:text="${sucursal.telefono}"></td>
 						</tr>
@@ -61,6 +60,7 @@
 		<!--Uso del fragmento footer -->
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</div>
+	
 		<!--Archivo javascript referencia -->
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	</body>
