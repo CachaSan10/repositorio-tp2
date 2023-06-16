@@ -64,6 +64,7 @@ public class SucursalesController {
 		if(bindingResult.hasErrors()) {
 			mav.setViewName("nueva_sucursal");
 			mav.addObject("edicion", false);
+			mav.addObject("provincias", provinciaService.getLista());
 			return mav;
 		}
 		mav.addObject("provincia", provinciaService.getLista());
