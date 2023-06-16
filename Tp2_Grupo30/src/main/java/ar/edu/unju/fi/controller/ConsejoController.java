@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,7 @@ import jakarta.validation.Valid;
 public class ConsejoController {
 
 	@Autowired
+	@Qualifier("consejoServiceMysqlImp")
 	private IConsejoService consejoService;
 	
 	
@@ -51,7 +53,7 @@ public class ConsejoController {
 	@PostMapping("/guardar")
 	public ModelAndView agregarConsejo(@Valid @ModelAttribute("consejo") Consejo consejo, BindingResult result,
 			@RequestParam("file") MultipartFile imagen ) throws IOException {
-		ModelAndView  modelAndView = new ModelAndView("consejos");
+		ModelAndView  modelAndView = new ModelAndView("gestion_consejos");
 		if(result.hasErrors()) {
 			modelAndView.setViewName("nuevo_consejo");
 			modelAndView.addObject("consejo", consejo);
@@ -79,7 +81,7 @@ public class ConsejoController {
 	}
 	
 	@GetMapping("/modificar/{id}")
-	public String getModificarConsejoPage(Model model,@PathVariable(value="id")int id) {
+	public String getModificarConsejoPage(Model model,@PathVariable(value="id")Long id) {
 		boolean edicion=true;
 		model.addAttribute("consejo", consejoService.getConsejoEncontrado(id));
 		model.addAttribute("edicion", edicion);
@@ -92,23 +94,28 @@ public class ConsejoController {
 	public String modificarConsejo(@ModelAttribute("consejo")Consejo consejoModificado,
 			@RequestParam("file") MultipartFile imagen) throws IOException  {
 		consejoService.updateConsejo(consejoModificado,imagen);
-		return "redirect:/consejo/listado";
+		return "redirect:/consejo/gestion";
 	}
 	
 	@GetMapping("/eliminar/{id}")
-	public String eliminarConsejo(@PathVariable(value="id")int id) {
+	public String eliminarConsejo(@PathVariable(value="id")Long id) {
 		consejoService.deleteConsejo(id);
-		return "redirect:/consejo/listado";
+		return "redirect:/consejo/gestion";
 	}
 	
 	
-	@GetMapping("/gestion-consejos")
+	@GetMapping("/gestion")
 	public String getGestionConsejoPage(Model model) {
 		model.addAttribute("consejos", consejoService.getConsejos());
 		return "gestion_consejos";
 	}
 	
-	
+	@GetMapping("/{id}")
+	public ModelAndView getConsejoPage(ModelAndView modelAndView , @PathVariable(value = "id")Long id) {
+		modelAndView.addObject("consejo",consejoService.getConsejoEncontrado(id));
+		modelAndView.setViewName("consejo");
+		return modelAndView;
+	}
 	
 
 }

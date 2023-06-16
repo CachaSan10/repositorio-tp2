@@ -16,24 +16,7 @@
 			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 			<!-- -->
 	        <section class="row justify-content-center container">
-		        
-		        <div class="p-5 bg-light rounded-shadom text-center mb-5 col-md-8 col-12">
-		        	<h1 class="text-primary display-5 text-center fw-bolder">Bienvenido a Servicios de Paseos</h1>
-		        	<p class="fw-bold mt-3 text-center">
-		        		Aqui podra gestionar sus Servicios de Paseos!
-		        	</p>
-		        	<hr>
-		        	<p class="text-center">
-		        		Consulte, cree, actualice o elimine sus horarios de Paseos de forma facil y segura. 
-		        	</p>
-		        </div>
-	        	<div class="text-center">
-	        	
-	        		<a th:href="@{/servicio/nuevo}">
-	        		<button type="button" 
-	        				class="btn btn-success fw-bolder py-3">Agregar Servicio Nuevo</button></a>
-	        	</div>
-	        	
+		        	        
 	        	<div class="row justify-content-center container">
 	        		<div class="col-md-10 col-12 text-center">
 			    	    <div class="table-responsive">
@@ -45,14 +28,13 @@
 					        <table class="table table-bordered table-striped">
 					            <thead class="bg-secondary text-white">
 						            <tr class="">
-						            	<th class="">Id</th>
+						            	<th class="">Id Servicio</th>
 						                <th class="">Inicio Servicio</th>
 						                <th class="">Fin Servicio</th>
 						                <th class="">Nombres</th>
-						                <th class="">Apellido</th>
+						                <th class="">Apellidos</th>
 						                <th class="">Día</th>
-						                <th class="">Acción</th>
-						                
+						               			                
 						             </tr>
 					             </thead>
 					             <tbody class="">
@@ -63,9 +45,9 @@
 						                <td th:text="${servicio.firstName}" class="py-1"></td>
 						                <td th:text="${servicio.lastName}" class="py-1"></td>
 						                <td th:text="${servicio.day}" class="py-1"></td>
-						                <td  class=""><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="btn btn-primary py-1" >Editar</button></a><br/>
+						                <!--  <td  class=""><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="btn btn-primary py-1" >Editar</button></a><br/>
 						                	<a th:href="@{/servicio/eliminar/}+${servicio.id}"><button type="button" class="btn btn-danger py-1" >Eliminar</button></a>
-						                </td>
+						                </td>-->
 						                
 						            </tr>
 					             </tbody>
