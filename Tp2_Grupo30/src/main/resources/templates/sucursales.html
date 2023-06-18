@@ -25,7 +25,27 @@
 
 				<br>
 
-			
+
+			<!-- Formulario de búsqueda -->
+			<form th:action="@{/sucursal/buscar}" method="post">
+				<div class="form-group row">
+					<label class="col-form-label">Buscar por fecha:</label>
+					<div class="col-sm-6">
+						<input type="date" class="form-control" name="fecha" required>
+					</div>
+					<div class="col-sm-3">
+						<button type="submit" class="btn btn-primary">Buscar</button>
+					</div>
+				</div>
+			</form>
+			<!-- Formulario de limpiar -->
+			<form th:action="@{/sucursal/limpiar}" method="post">
+				<div class="col-sm-3">
+					<button type="submit" class="btn btn-secondary">Limpiar</button>
+				</div>
+			</form>
+
+
 			<div class="table-responsive">
 
 				<!--Tabla de sucursales-->
