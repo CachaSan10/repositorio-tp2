@@ -33,18 +33,40 @@ public class SucursalesController {
 	
 	@Autowired
 	private IProvinciaService provinciaService;
+	
+
+	@PostMapping("/limpiar")
+	public String limpiar(Model model) {
+		
+	    List<Sucursal> sucursales = sucursalService.getLista();
+	    model.addAttribute("sucursales", sucursales);
+	    return "sucursales";
+	}
+
+	@PostMapping("/buscar")
+	public String buscarPorFecha(@RequestParam("fecha") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fecha, Model model) {
+	   
+		if (fecha != null) {
+	        List<Sucursal> sucursales = sucursalService.buscarPorFecha(fecha);
+	        model.addAttribute("sucursales", sucursales);
+	    } else {
+	        List<Sucursal> sucursales = sucursalService.getLista();
+	        model.addAttribute("sucursales", sucursales);
+	    }
+	    return "sucursales";
+	}
 
 	@GetMapping("/gestion")
 	public String getGestionPage(Model model) {
 		model.addAttribute("sucursales", sucursalService.getLista());
 		return "gestion_sucursales";
 	}
+
 	
 	//Listado de sucursales
 	@GetMapping("/listado")
 	public String getSucursalesPage(Model model) {		
-		model.addAttribute("sucursales", sucursalService.getLista());	
-		
+		model.addAttribute("sucursales", sucursalService.getLista());
 		return "sucursales";
 	}
 	
