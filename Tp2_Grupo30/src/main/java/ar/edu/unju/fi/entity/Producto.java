@@ -2,6 +2,7 @@ package ar.edu.unju.fi.entity;
 
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
@@ -13,6 +14,7 @@ import jakarta.validation.constraints.Size;
  * @author Acosta Jose David 
  */
 @Component
+@Entity
 public class Producto {
 	private int id;
 	@NotEmpty(message="El nombre del producto no puede estar vacio")
