@@ -10,12 +10,11 @@
 		<!-- Css referencia-->
 		<link th:rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
+<body class="container">
 	<div id="contenedor">
 	<!--Uso del fragmento header -->
 	<header th:replace="~{layouts/header :: header}"></header>
 		<!--Uso del fragmento nav -->
-		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
@@ -44,6 +43,7 @@
 							<br>
 							<div class="box-footer">
 								<button th:value="${edicio}?'Modicicar':'Guardar'" class="btn btn-success">Guardar</button>
+								<a class="btn btn-primary btn-consejos" th:href="@{/provincia/listado}" >Volver</a>
 							</div>						
 						</form>
 					</div>
