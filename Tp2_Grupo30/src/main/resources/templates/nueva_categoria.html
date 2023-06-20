@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<!--Especificacion de viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-		<title>Sucursales - Tienda de Mascota Puppis</title>
+		<title>Categoria de Producto</title>
 		<!-- Bootstrap referencia  -->
 		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 		<!-- Css referencia-->
@@ -21,32 +21,19 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-					<h3 th:text="${edicion}?'Modificar Provincia':'Nueva Provincia'" class="text-center mb-3"></h3>
+					<h3 th:text="${edicion}?'Modificar Categoria':'Nueva Categoria'" class="text-center mb-3"></h3>
 					<div class="card-body">
-						<!--Formulario de alta/edicion provincias -->
-						<form  th:action="${edicion}?@{/provincia/modificar/}+${provincia.id}:@{/provincia/guardar}" th:object="${provincia}" method="post">
+						<!--Formulario de alta/edicion categoria -->
+						<form  th:action="${edicion}?@{/categoria/modificar/}+${categoria.id}:@{/categoria/guardar}" th:object="${categoria}" method="post">
 							<div class="form-group">
 								<label for="nombre" class="form-label">Nombre : </label>
 								<input th:field="*{nombre}" class="form-control" type="text" name="nombres" id="nombres" placeholder="Nombre" required>
 								<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 							</div>
-		
-							<div class="form-group">
-								<label for="nombre" class="form-label">Codigo Postal : </label>
-								<input th:field="*{codigoPostal}" class="form-control" type="text" name="mail" id="mail" placeholder="CP" required>
-								<div class="text-danger" th:if="${#fields.hasErrors('codigoPostal')}" th:errors="*{codigoPostal}"></div>
-							</div>
-							
-
-							<div class="form-group">
-								<label for="nombre" class="form-label">Fecha Creacion : </label>
-								<input th:field="*{fechaCreacion}" class="form-control" type="date" name="fecha" id="fecha" placeholder="fecha" required>
-								<div class="text-danger" th:if="${#fields.hasErrors('fechaCreacion')}" th:errors="*{fechaCreacion}"></div>
-							</div>
 							<br>
 							<div class="box-footer">
 								<button th:value="${edicio}?'Modicicar':'Guardar'" class="btn btn-success">Guardar</button>
-								<a class="btn btn-primary btn-consejos" th:href="@{/provincia/listado}" >Volver</a>
+								<a class="btn btn-primary btn-consejos" th:href="@{/categoria/listado}" >Volver</a>
 							</div>						
 						</form>
 					</div>
