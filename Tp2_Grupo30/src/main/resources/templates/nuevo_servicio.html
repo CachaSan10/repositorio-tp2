@@ -1,82 +1,110 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<!-- Configuracio para el uso de bootstrap.min.css-->
-	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-	<link rel="stylesheet" th:href="@{/css/style.css}">
-	<title>Gestión Servicios</title>
-	</head>
-	<body class="container">
-		<!-- Uso del fragmento header -->
-		<header th:replace="~{layouts/header :: header}"></header>
-		
-		<div class="p-5 bg-light rounded-shadom text-center mb-5 col-md-8 col-12">
-		        	<h1 class="text-primary display-5 text-center fw-bolder">Bienvenido a Servicios de Paseos</h1>
-		        	<p class="fw-bold mt-3 text-center">
-		        		Aqui podra gestionar sus Servicios de Paseos!
-		        	</p>
-		        	<hr>
-		        	<p class="text-center">
-		        		Consulte, cree, actualice o elimine sus horarios de Paseos de forma facil y segura. 
-		        	</p>
-		        </div>
-	        	<div class="text-center">
-	        	
-	        		<a th:href="@{/servicio/nuevo}">
-	        		<button type="button" 
-	        				class="btn btn-success fw-bolder py-3">Nuevo Servicio</button></a>
-	        	</div>
-	        	
-			<section class="row justify-content-center bg-light py-4">
-				<div class="card col-sm-7 p-3 bg-info">
-					<div class="mb-2">
-					<!-- Card y tabla  para cargar nuevo servicio -->
-						<div class="card">
-		                <div class="card-body">
-		                  <h4 class="card-title">Basic Table</h4>
-		                  <p class="card-description">
-		                    Basic table with card
-		                  </p>
-		                  <div class="table-responsive">
-		                    <table class="table">
-		                      <thead>
-		                        <tr>
-		                          <th>Id Servicio</th>
-		                          <th>Inicio Servicio</th>
-		                          <th>Fin Servicio</th>
-		                          <th>Nombres</th>
-		                          <th>Apellido</th>
-		                          <th>Día</th>
-		                          <th>Acciones</th>
-		                        </tr>
-		                      </thead>
-		                      <tbody>
-		                         <tr th:each="servicio : ${servicios}">
-						            <td th:text="${servicio.id}" class=""></td>
-						            <td th:text="${#temporals.format(servicio.startTime, 'HH:mm')}" class=""></td>
-						            <td th:text="${#temporals.format(servicio.finishTime, 'HH:mm')}" class=""></td>
-						            <td th:text="${servicio.firstName}" class="py-1"></td>
-						            <td th:text="${servicio.lastName}" class="py-1"></td>
-						            <td th:text="${servicio.day}" class="py-1"></td>
-						            <!--  <td><label class="badge badge-danger">Pending</label></td>-->
-		                            <td  class=""><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="btn btn-primary py-1" >Editar</button></a><br/>
-						                	<a th:href="@{/servicio/eliminar/}+${servicio.id}"><button type="button" class="btn btn-danger py-1" >Eliminar</button></a>
-						            </td>
-		                       </tbody>
-		                    </table>
-		                  </div>
-		                </div>
-		              </div>	
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- Configuracio para el uso de bootstrap.min.css-->
+<link th:rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<title>Nuevos Servicios</title>
+</head>
+<body class="container">
+	<!-- Uso del fragmento header -->
+	<header th:replace="~{layouts/header :: header}"></header>
+
+	<section class="row justify-content-center bg-light py-4">
+		<div class="card col-sm-7 p-3 bg-info">
+			<div class="mb-2">
+				<!-- Formulario para cargar nuevo servicio -->
+				<form
+					th:action="${edicion}?@{/servicio/modificar/}+${servicio.id}:@{/servicio/guardar}"
+					th:object="${servicio}" method="post" class="mt-3">
+					<h3 class="text-center fw-bolder"
+						th:text="${edicion}?'Modificar Servicio':'Agregar Nuevo Servicio'"></h3>
+
+					<div class="mb-2 row">
+						<label for="startTime" class="col-sm-12 col-lg-3 col-form-label">Ingrese Inicio de Servicio:</label>
+						<div class="col-sm-12 col-lg-9">
+							<input th:field="*{startTime}" class="form-control" type="time" name="time-form" id="startTime">
+							<div class="text-danger" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></div>
+						</div>
 					</div>
-				</div>
-			</section>	
-			
-					
-		<!-- Uso del fragmento footer -->		    		
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
-		<!-- Configuracion para usar bootstrap js -->
-		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
-	</body>
+
+					<div class="mb-2 row">
+						<label for="finishTime" class="col-sm-12 col-lg-3 col-form-label">Ingrese Fin de Servicio:</label>
+						<div class="col-sm-12 col-lg-9">
+							<input th:field="*{finishTime}" class="form-control" type="time" name="time-form" id="finishTime">
+							<div class="text-danger" th:if="${#fields.hasErrors('finishTime')}"	th:errors="*{finishTime}"></div>
+						</div>
+					</div>
+
+					<div class="mb-2 row">
+						<label for="names" class="col-sm-12 col-lg-3 col-form-label">Ingrese Nombre Completo:</label>
+						<div class="col-sm-12 col-lg-9">
+							<select class="form-select" id="employee" th:field="*{employee.id}">
+								<option th:each="e: ${empleados}" th:value="${a.id}"
+								th:text="${e.names}+'-'+${e.lastName}"></option>
+							</select>
+								
+							<div class="text-danger" th:if="${#fields.hasErrors('employee.names')}" th:errors="*{employee.names}"></div>
+						</div>
+					</div>
+									
+					<div class="mb-2 row">
+						<label for="day" class="col-sm-12 col-lg-3 col-form-label">Ingrese el Día:</label>
+						<div class="col-sm-12 col-lg-9">
+							<select th:field="*{day}" class="form-select" id="day">
+								<option value="" selected>Seleccione una opción...</option>
+								<option value="Lunes">Lunes</option>
+								<option value="Martes">Martes</option>
+								<option value="Miercoles">Miercoles</option>
+								<option value="Jueves">Jueves</option>
+								<option value="Viernes">Viernes</option>
+								<option value="Sabado">Sabado</option>
+							</select>
+							<div class="text-danger" th:if="${#fields.hasErrors('day')}" th:errors="*{day}"></div>
+						</div>
+					</div>
+
+					<div class="mt-3  row justify-content-center">
+						<div class="col-sm-12 col-md-8 col-xl-9">
+							<a href="../servicio/gestion"
+								class="btn btn-danger w-100 mb-1 fw-bolder">Cancelar</a>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary w-100 fw-bolder"
+								data-bs-toggle="modal" data-bs-target="#modalSaveServicio">Registrar Servicio</button>
+						</div>
+					</div>
+					<!-- Modal -->
+					<div class="modal fade" id="modalSaveServicio" tabindex="-1"
+						aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Ventana de Confirmación</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+								<div class="modal-body">¿Confirma la operación?</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">Cancelar</button>
+									<button type="submit" class="btn btn-primary"
+										th:text="${edicion}?'Modificar':'Confirmar'"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<!-- Uso del fragmento footer -->
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	<!-- Configuracion para usar bootstrap js -->
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
 </html>

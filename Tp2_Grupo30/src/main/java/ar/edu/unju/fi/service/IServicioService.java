@@ -1,19 +1,19 @@
 package ar.edu.unju.fi.service;
 
-import java.io.IOException;
 import java.util.List;
-
 import ar.edu.unju.fi.entity.Servicio;
 
 public interface IServicioService {
 	
-	public List<Servicio> getServicios();
+	List<Servicio> getServicios();
 	
-	public void addServicio(Servicio servicio) throws IOException;
+	void addServicio(Servicio servicio);
 	
-	public Servicio getServicioEncontrado(int id);
+	Servicio getServicioEncontrado(Long id);
 	
-	public void updateServicio(Servicio servicioModificado) throws IOException;
+	void updateServicio(Servicio servicioModificado);
 	
-	public void deleteServicio(int id);
+	void deleteServicio(Servicio servicio);
+
+	Servicio getServicio();
 }
