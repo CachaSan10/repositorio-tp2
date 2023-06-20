@@ -33,6 +33,9 @@ public class Categoria {
 	@Column(name = "categoria_nombre")
 	private String nombre;
 
+	@Column(name = "categoria_estado")
+	private boolean estado;
+	
 	@OneToOne(mappedBy = "producto")
 	private Producto producto;
 	
@@ -100,6 +103,22 @@ public class Categoria {
 	 */
 	public void setProducto(Producto producto) {
 		this.producto = producto;
+	}
+	
+	
+
+	/**
+	 * @return the estado
+	 */
+	public boolean isEstado() {
+		return estado;
+	}
+
+	/**
+	 * @param estado the estado to set
+	 */
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 
 	@Override
