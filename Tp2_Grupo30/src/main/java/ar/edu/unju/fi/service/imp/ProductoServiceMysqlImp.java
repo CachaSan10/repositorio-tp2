@@ -20,7 +20,7 @@ public class ProductoServiceMysqlImp implements IProductoService {
 	private IProductoRepository productoRepository;
 	
 	@Override
-	public List<Producto> getListaProducto() {
+	public List<Producto> obtenerListaProducto() {
 		return productoRepository.findByEstado(true);
 	}
 
@@ -45,12 +45,12 @@ public class ProductoServiceMysqlImp implements IProductoService {
 	}
 
 	@Override
-	public List<Producto> getListaProductoSegunCategoria(Categoria categoria) {
+	public List<Producto> obtenerListaProductoSegunCategoria(Categoria categoria) {
 		return productoRepository.findByCategoria(categoria);
 	}
 
 	@Override
-	public Producto getProducto() {
+	public Producto obtenerProducto() {
 		return producto;
 	}
 

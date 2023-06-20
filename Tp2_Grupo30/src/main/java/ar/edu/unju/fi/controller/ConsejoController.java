@@ -38,14 +38,14 @@ public class ConsejoController {
 
 	@GetMapping("/listado")
 	public String getListaConsejo(Model model) {
-		model.addAttribute("consejos", consejoService.getConsejos());
+		model.addAttribute("consejos", consejoService.obtenerConsejos());
 		return "consejos";
 	}
 	
 	@GetMapping("/nuevo")
 	public String getAgregarConsejoPage(Model model) {
 		boolean edicion=false;
-		model.addAttribute("consejo", consejoService.getConsejo());
+		model.addAttribute("consejo", consejoService.obtenerConsejo());
 		model.addAttribute("edicion", edicion);
 		return "nuevo_consejo";
 	}
@@ -60,8 +60,8 @@ public class ConsejoController {
 			return modelAndView;
 		}
 		
-		consejoService.addConsejo(consejo,imagen);
-		modelAndView.addObject("consejos",consejoService.getConsejos() );
+		consejoService.agregarConsejo(consejo,imagen);
+		modelAndView.addObject("consejos",consejoService.obtenerConsejos() );
 
 		return modelAndView;
 	}
@@ -83,7 +83,7 @@ public class ConsejoController {
 	@GetMapping("/modificar/{id}")
 	public String getModificarConsejoPage(Model model,@PathVariable(value="id")Long id) {
 		boolean edicion=true;
-		model.addAttribute("consejo", consejoService.getConsejoEncontrado(id));
+		model.addAttribute("consejo", consejoService.obtenerConsejoEncontrado(id));
 		model.addAttribute("edicion", edicion);
 		
 		return "nuevo_consejo";
@@ -93,26 +93,26 @@ public class ConsejoController {
 	@PostMapping("/modificar/{id}")
 	public String modificarConsejo(@ModelAttribute("consejo")Consejo consejoModificado,
 			@RequestParam("file") MultipartFile imagen) throws IOException  {
-		consejoService.updateConsejo(consejoModificado,imagen);
+		consejoService.actualizarConsejo(consejoModificado,imagen);
 		return "redirect:/consejo/gestion";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarConsejo(@PathVariable(value="id")Long id) {
-		consejoService.deleteConsejo(id);
+		consejoService.eliminarConsejo(id);
 		return "redirect:/consejo/gestion";
 	}
 	
-	
+
 	@GetMapping("/gestion")
 	public String getGestionConsejoPage(Model model) {
-		model.addAttribute("consejos", consejoService.getConsejos());
+		model.addAttribute("consejos", consejoService.obtenerConsejos());
 		return "gestion_consejos";
 	}
 	
 	@GetMapping("/{id}")
 	public ModelAndView getConsejoPage(ModelAndView modelAndView , @PathVariable(value = "id")Long id) {
-		modelAndView.addObject("consejo",consejoService.getConsejoEncontrado(id));
+		modelAndView.addObject("consejo",consejoService.obtenerConsejoEncontrado(id));
 		modelAndView.setViewName("consejo");
 		return modelAndView;
 	}

@@ -19,12 +19,14 @@ public class CategoriaServiceMysqlImp implements ICategoriaService {
 	private ICategoriaRepository categoriaRepository;
 	
 	@Override
-	public Categoria getCategoria() {
+	public Categoria obtenerCategoria() {
 		return categoria;
 	}
 
 	@Override
 	public void guardarCategoria(Categoria categoria) {
+		categoria.setEstado(true);
+		
 		categoriaRepository.save(categoria);
 	}
 
@@ -44,7 +46,7 @@ public class CategoriaServiceMysqlImp implements ICategoriaService {
 	}
 
 	@Override
-	public List<Categoria> getLista() {
+	public List<Categoria> obtenerCategorias() {
 		return categoriaRepository.findByEstado(true);
 	}
 

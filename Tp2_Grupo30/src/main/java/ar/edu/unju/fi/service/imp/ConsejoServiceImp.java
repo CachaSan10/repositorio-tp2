@@ -26,24 +26,24 @@ public class ConsejoServiceImp implements IConsejoService {
 	private Consejo consejo;
 
 	@Override
-	public List<Consejo> getConsejos() {
+	public List<Consejo> obtenerConsejos() {
 		return consejos.getConsejos();
 	}
 
 	@Override
-	public void addConsejo(Consejo consejo, MultipartFile imagen) throws IOException {
+	public void agregarConsejo(Consejo consejo, MultipartFile imagen) throws IOException {
 		ListaConsejo.id++;
 		consejo.setFechaPublicacion(LocalDate.now());
 		consejo.setId(ListaConsejo.id);
 		String uniqueFileName = uploadFile.copy(imagen);
 		consejo.setImagen(uniqueFileName);
-		getConsejos().add(consejo);
+		obtenerConsejos().add(consejo);
 	}
 
 	@Override
-	public Consejo getConsejoEncontrado(Long id) {
+	public Consejo obtenerConsejoEncontrado(Long id) {
 		Consejo consejoEncontrado = new Consejo();
-		for (Consejo consejo : getConsejos()) {
+		for (Consejo consejo : obtenerConsejos()) {
 			if (consejo.getId() == id) {
 				consejoEncontrado = consejo;
 				break;
@@ -53,9 +53,9 @@ public class ConsejoServiceImp implements IConsejoService {
 	}
 
 	@Override
-	public void updateConsejo(Consejo consejoModificado, MultipartFile imagen) throws IOException {
+	public void actualizarConsejo(Consejo consejoModificado, MultipartFile imagen) throws IOException {
 
-		for (Consejo consejo : getConsejos()) {
+		for (Consejo consejo : obtenerConsejos()) {
 			System.out.println(consejo.getId());
 			if (consejo.getId() == consejoModificado.getId()) {
 				consejo.setFechaPublicacion(LocalDate.now());
@@ -78,18 +78,18 @@ public class ConsejoServiceImp implements IConsejoService {
 	}
 
 	@Override
-	public void deleteConsejo(Long id) {
-		for (Consejo consejo : getConsejos()) {
+	public void eliminarConsejo(Long id) {
+		for (Consejo consejo : obtenerConsejos()) {
 			if (consejo.getId() == id) {
 				uploadFile.delete(consejo.getImagen());
-				getConsejos().remove(consejo);
+				obtenerConsejos().remove(consejo);
 				break;
 			}
 		}
 	}
 
 	@Override
-	public Consejo getConsejo() {
+	public Consejo obtenerConsejo() {
 		return consejo;
 	}
 

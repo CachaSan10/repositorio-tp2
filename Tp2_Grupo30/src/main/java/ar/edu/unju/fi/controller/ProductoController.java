@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,22 +13,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Producto;
+import ar.edu.unju.fi.service.ICategoriaService;
 import ar.edu.unju.fi.service.IProductoService;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/productos")
+@RequestMapping("/producto")
 public class ProductoController {
 	
 	@Autowired
+	@Qualifier("productoServiceMysqlImp")
 	private IProductoService productoService;
-
+	
 	@Autowired
-	private Producto producto;
+	@Qualifier("categoriaServiceMysqlImp")
+	private ICategoriaService categoriaService;
 	
 	@GetMapping("/listado")
 	public String getListaProductoPage(Model model) {
-		model.addAttribute("productos",productoService.getListaProducto());
+		model.addAttribute("productos",productoService.obtenerListaProducto());
 		return "productos";
 	}
 	
@@ -35,21 +39,28 @@ public class ProductoController {
 	public String getNuevoProductoPage(Model model) {
 		boolean edicion=false;
 		
-		model.addAttribute("producto", producto);
+		model.addAttribute("producto", productoService.obtenerProducto());
+		model.addAttribute("categorias", categoriaService.obtenerCategorias());
 		model.addAttribute("edicion", edicion);
 		return "nuevo-producto";
 	}
 	
 	@PostMapping("/guardar")
-	public ModelAndView getGuardarProductoPage(@ModelAttribute("producto") Producto producto) {
+	public ModelAndView getGuardarProductoPage(@Valid @ModelAttribute("producto") Producto producto, BindingResult result) {
 		ModelAndView  modelAndView = new ModelAndView("productos");
+		if(result.hasErrors()) {
+			modelAndView.setViewName("nuevo-producto");
+			modelAndView.addObject("categorias", categoriaService.obtenerCategorias());
+			modelAndView.addObject("producto", productoService.obtenerProducto());
+			return modelAndView;
+		}
 		productoService.guardarProducto(producto);
-		modelAndView.addObject("productos",productoService.getListaProducto());
+		modelAndView.addObject("productos",productoService.obtenerListaProducto());
 		return modelAndView;
 	}
 	
 	@GetMapping("/modificar/{id}")
-	public String getModificarProductoPage(Model model, @PathVariable(value="id") int id){
+	public String getModificarProductoPage(Model model, @PathVariable(value="id") Long id){
 		boolean edicion=true;
 		model.addAttribute("producto", productoService.buscarProducto(id));
 		model.addAttribute("edicion", edicion);
@@ -64,8 +75,15 @@ public class ProductoController {
 	}
 	
 	@GetMapping("/eliminar/{id}")
-	public String eliminarProducto(@PathVariable(value="id")int id) {
+	public String eliminarProducto(@PathVariable(value="id")Long id) {
 		productoService.eliminarProducto(id);
 		return "redirect:/productos/listado";
 	}
+	
+	@GetMapping("/gestion")
+	public String getGestionConsejoPage(Model model) {
+		model.addAttribute("productos", productoService.obtenerListaProducto());
+		return "gestion_productos";
+	}
+	
 }

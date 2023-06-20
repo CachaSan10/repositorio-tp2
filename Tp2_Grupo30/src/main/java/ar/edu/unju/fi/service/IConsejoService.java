@@ -9,17 +9,17 @@ import ar.edu.unju.fi.entity.Consejo;
 
 public interface IConsejoService {
 
-	public List<Consejo> getConsejos();
+	public List<Consejo> obtenerConsejos();
 	
-	public Consejo getConsejo();
+	public Consejo obtenerConsejo();
 	
-	public void addConsejo(Consejo consejo,MultipartFile imagen) throws IOException;
+	public void agregarConsejo(Consejo consejo,MultipartFile imagen) throws IOException;
 	
-	public Consejo getConsejoEncontrado(Long id);
+	public Consejo obtenerConsejoEncontrado(Long id);
 	
 	
-	public void updateConsejo(Consejo consejoModificado,MultipartFile imagen) throws IOException;
+	public void actualizarConsejo(Consejo consejoModificado,MultipartFile imagen) throws IOException;
 	
-	public void deleteConsejo(Long id);
+	public void eliminarConsejo(Long id);
 	
 }
