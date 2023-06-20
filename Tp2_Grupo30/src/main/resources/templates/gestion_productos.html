@@ -52,10 +52,10 @@
 							<td th:text="${producto.id}"></td>
 							<td th:text="${producto.nombre}"></td>
 							<td>
-								<a class="btn btn-info btn-sm" th:href="@{/producto/modificar/}+${sucursal.id}">Modificar</a>
+								<a class="btn btn-info btn-sm" th:href="@{/producto/modificar/}+${producto.id}">Modificar</a>
 	
 	
-								<a class="btn btn-danger btn-sm" th:href="@{/producto/eliminar/}+${sucursal.id}">Eliminar</a>
+								<a class="btn btn-danger btn-sm" th:href="@{/producto/eliminar/}+${producto.id}">Eliminar</a>
 							</td>
 						</tr>
 					</tbody>

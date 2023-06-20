@@ -18,7 +18,7 @@
 			
 			<section class="form-register">
 				<form th:action="${edicion}?@{/producto/modificar/}+${producto.id}:@{/producto/guardar}" th:object="${producto}" method="post">
-					<label for="name">Nombre del Producto</label>
+					<label for="nombreProducto">Nombre del Producto</label>
 					<input type="text" id="nombreProducto" name="nombre" required th:field="*{nombreProducto}" class="controls">
 					
 					<div class="form-group">
