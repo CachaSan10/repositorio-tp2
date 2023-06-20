@@ -40,15 +40,10 @@ public class Producto {
 	@Column(name = "producto_nombre")
 	private String nombreProducto;
 	
-	//Representa la categoria de producto
-	@NotEmpty(message="La categoria del producto no puede estar vacio")
-	@Size(min=3, max=10,message="La categoria del producto debe tener entre 3 y 10 caracteres")
-	private String categoriaProducto;
-	
 	
 	//Representa el precio de producto
 	@NotEmpty(message="El precio de producto no puede estar vacio")
-	@Positive(message = "El precio es un numero positivo")
+	@Positive(message = "El precio debe ser numero positivo")
 	@Column(name = "producto_precio")
 	private double precioProducto;
 	
@@ -80,20 +75,17 @@ public class Producto {
 	 * Contructor con parametros
 	 * @param id numero de producto
 	 * @param nombreProducto nombre de producto
-	 * @param categoriaProducto categoria de producto(Alimento, Juguete, Vestimenta, Cuidado)
 	 * @param precioProducto precio de producto
 	 * @param descuentoProducto descuento de producto(0-50)
 	 * @param representa el estado de producto
 	 */
 	public Producto(Long id,
 			@NotEmpty(message = "El nombre del producto no puede estar vacio") @Size(min = 3, max = 20, message = "El nombre del producto debe tener entre 3 y 20 caracteres") String nombreProducto,
-			@NotEmpty(message = "La categoria del producto no puede estar vacio") @Size(min = 3, max = 10, message = "La categoria del producto debe tener entre 3 y 10 caracteres") String categoriaProducto,
 			@NotEmpty(message = "El precio de producto no puede estar vacio") @Positive(message = "El precio es un numero positivo") double precioProducto,
 			@NotEmpty(message = "El descuento de producto no puede estar vacio") @PositiveOrZero(message = "el descuento es un numero positivo o 0") @Max(message = "El descuento no debe ser mayor a 50", value = 50) int descuentoProducto,
 			boolean estado, Categoria categoria) {
 		this.id = id;
 		this.nombreProducto = nombreProducto;
-		this.categoriaProducto = categoriaProducto;
 		this.precioProducto = precioProducto;
 		this.descuentoProducto = descuentoProducto;
 		this.estado = estado;
@@ -138,20 +130,7 @@ public class Producto {
 		this.nombreProducto = nombreProducto;
 	}
 
-	/**
-	 * 
-	 * @return categoria de producto
-	 */
-	public String getCategoriaProducto() {
-		return categoriaProducto;
-	}
-	/**
-	 * 
-	 * @param categoriaProducto
-	 */
-	public void setCategoriaProducto(String categoriaProducto) {
-		this.categoriaProducto = categoriaProducto;
-	}
+	
 	/**
 	 * Metodo que retorna el precio de producto
 	 * @return precio de producto
@@ -222,10 +201,10 @@ public class Producto {
 
 	@Override
 	public String toString() {
-		return "Producto [id=" + id + ", nombreProducto=" + nombreProducto + ", categoriaProducto=" + categoriaProducto
-				+ ", precioProducto=" + precioProducto + ", descuentoProducto=" + descuentoProducto + ", estado="
-				+ estado + "]";
+		return "Producto [id=" + id + ", nombreProducto=" + nombreProducto + ", precioProducto=" + precioProducto
+				+ ", descuentoProducto=" + descuentoProducto + ", estado=" + estado + ", categoria=" + categoria + "]";
 	}
+
 	
 	
 }
