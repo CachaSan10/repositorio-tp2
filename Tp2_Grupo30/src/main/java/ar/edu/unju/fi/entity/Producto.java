@@ -11,6 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -42,14 +43,13 @@ public class Producto {
 	
 	
 	//Representa el precio de producto
-	@NotEmpty(message="El precio de producto no puede estar vacio")
 	@Positive(message = "El precio debe ser numero positivo")
 	@Column(name = "producto_precio")
 	private double precioProducto;
 	
 	//Representa el descuento de producto
-	@NotEmpty(message="El descuento de producto no puede estar vacio")
 	@PositiveOrZero(message = "el descuento es un numero positivo o 0")
+	@Min(message = "El descuento no debe ser mayor a 50",value = 0)
 	@Max(message = "El descuento no debe ser mayor a 50",value = 50)
 	@Column(name = "producto_descuento")
 	private int descuentoProducto;

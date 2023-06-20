@@ -50,7 +50,7 @@
 					<tbody>
 						<tr th:each="producto: ${productos}">
 							<td th:text="${producto.id}"></td>
-							<td th:text="${producto.nombre}"></td>
+							<td th:text="${producto.nombreProducto}"></td>
 							<td>
 								<a class="btn btn-info btn-sm" th:href="@{/producto/modificar/}+${producto.id}">Modificar</a>
 	
