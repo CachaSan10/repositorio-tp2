@@ -23,11 +23,11 @@
 					
 					<div class="form-group">
                					 <label for="categoriaId" class="form-label">Categoria : </label>
-               					 <select th:field="*{categoria.id}" class="form-control" id="categoriaId">
+               					 <select th:field="*{categoria.id}" class="form-control" id="categoria">
                					 	<option th:each="categoria : ${categorias}" th:value="${categoria.id}"
                					 	th:text="${categoria.nombre}" />
                					 </select>
-               					 <div class=text-danger th:if="${#fields.hasErrors('producto')}" th:errors="*{producto}"></div>
+               					 <div class=text-danger th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
 							</div>
 					
 					<label for="precio">Precio</label>
