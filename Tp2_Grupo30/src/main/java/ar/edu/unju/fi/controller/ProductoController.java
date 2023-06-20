@@ -47,7 +47,7 @@ public class ProductoController {
 	
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarProductoPage(@Valid @ModelAttribute("producto") Producto producto, BindingResult result) {
-		ModelAndView  modelAndView = new ModelAndView("productos");
+		ModelAndView  modelAndView = new ModelAndView("gestion_productos");
 		if(result.hasErrors()) {
 			modelAndView.setViewName("nuevo-producto");
 			modelAndView.addObject("categorias", categoriaService.obtenerCategorias());
@@ -71,13 +71,13 @@ public class ProductoController {
 	@PostMapping("/modificar/{id}")
 	public String modificarProducto(@ModelAttribute("producto") Producto productoModificado) {
 		productoService.modificarProducto(productoModificado);
-		return "redirect:/productos/listado";
+		return "redirect:/producto/gestion";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarProducto(@PathVariable(value="id")Long id) {
 		productoService.eliminarProducto(id);
-		return "redirect:/productos/listado";
+		return "redirect:/producto/gestion";
 	}
 	
 	@GetMapping("/gestion")
