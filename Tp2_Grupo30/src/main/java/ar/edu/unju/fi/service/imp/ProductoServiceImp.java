@@ -5,11 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ar.edu.unju.fi.entity.Categoria;
 import ar.edu.unju.fi.entity.Producto;
 import ar.edu.unju.fi.listas.ListaProducto;
 import ar.edu.unju.fi.service.IProductoService;
 
-@Service
+@Service("productoServiceListaImp")
 public class ProductoServiceImp implements IProductoService{
 	
 	@Autowired
@@ -53,7 +54,7 @@ public class ProductoServiceImp implements IProductoService{
 	 * @param id
 	 */
 	@Override
-	public void eliminarProducto(int id) {
+	public void eliminarProducto(Long id) {
 		for(Producto producto: getListaProducto()) {
 	    	if(producto.getId()==id) {
 	    		getListaProducto().remove(producto);
@@ -68,7 +69,7 @@ public class ProductoServiceImp implements IProductoService{
 	 * @return producto buscado
 	 */
 	@Override
-	public Producto buscarProducto(int id) {
+	public Producto buscarProducto(Long id) {
 		Producto productoEncontrado = new Producto();
 		for(Producto unProducto: getListaProducto()) {
 			if(unProducto.getId()==id) {
@@ -77,6 +78,18 @@ public class ProductoServiceImp implements IProductoService{
 			}
 		}
 		return productoEncontrado;
+	}
+
+	@Override
+	public List<Producto> getListaProductoSegunCategoria(Categoria categoria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Producto getProducto() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
