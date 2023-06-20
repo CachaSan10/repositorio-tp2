@@ -55,7 +55,7 @@ public class ProductoController {
 			return modelAndView;
 		}
 		productoService.guardarProducto(producto);
-		modelAndView.addObject("productos",productoService.obtenerListaProducto());
+		modelAndView.addObject("gestion_productos",productoService.obtenerListaProducto());
 		return modelAndView;
 	}
 	
