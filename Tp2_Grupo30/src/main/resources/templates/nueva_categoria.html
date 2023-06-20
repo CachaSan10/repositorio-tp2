@@ -39,26 +39,21 @@
 									th:errors="*{nombre}"></div>
 							</div>
 							<br>
-							<div class="box-footer">
-<<<<<<< HEAD
-								<button th:value="${edicio}?'Modicicar':'Guardar'" class="btn btn-success">Guardar</button>
-								<a class="btn btn-primary btn-consejos" th:href="@{/categoria/gestion}" >Volver</a>
-							</div>						
-=======
-								<button th:value="${edicion}?'Modicicar':'Guardar'"
-									class="btn btn-success">Guardar</button>
-								<a class="btn btn-primary btn-consejos"
-									th:href="@{/categoria/listado}">Volver</a>
-							</div>
->>>>>>> branch 'producto-repository' of git@github.com:CachaSan10/repositorio-tp2.git
+							<button th:value="${edicion}?'Modificar':'Guardar'"
+								class="btn btn-success">Guardar</button>
+							<a class="btn btn-primary btn-consejos"
+								th:href="@{/categoria/gestion}">Volver</a>
 						</form>
 					</div>
 
+					
 				</div>
+
 			</div>
 		</div>
-		<!--Uso del fragmento footer -->
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+	<!--Uso del fragmento footer -->
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</div>
 	<!--Archivo javascript referencia -->
 	<script type="text/javascript"
