@@ -9,7 +9,7 @@
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
 <!-- Configuracio para el uso de style.css personalizados-->
 <link rel="stylesheet" th:href="@{/css/style.css}">
-<title>Gestión de Servicio</title>
+<title>Gestión de Empleado</title>
 </head>
 <body class="container">
 	<!-- Uso del fragmento header -->
@@ -20,19 +20,11 @@
 	<!-- Card y tabla  para cargar nuevo servicio -->
 	<div class="card border border-success">
 		<div class="card-body">
-			<h2 class="card-title text-center">Gestión de Servicios</h2>
-			<div
-				class="d-grid gap-2 d-md-flex justify-content-md-start text-center py-2">
-				<a th:href="@{/servicio/nuevo}">
-					<button type="button" class="btn btn-lg btn-success fw-bolder py-2">Nuevo
-						Servicio</button>
-				</a>
-			</div>
+			<h2 class="card-title text-center">Gestión de Empleado</h2>
 			<div
 				class="d-grid gap-2 d-md-flex justify-content-md-start text-center py-2">
 				<a th:href="@{/empleado/nuevo}">
-					<button type="button" class="btn btn-lg btn-success fw-bolder py-2">Nuevo
-						Empleado</button>
+					<button type="button" class="btn btn-lg btn-success fw-bolder py-2">Nuevo Empleado</button>
 				</a>
 			</div>
 			<div class="table-responsive">
@@ -40,25 +32,32 @@
 					class="table table-bordered table-striped border border-secondary">
 					<thead>
 						<tr class="text-center">
-							<th scope="col">Id Servicio</th>
-							<th scope="col">Inicio Servicio</th>
-							<th scope="col">Fin Servicio</th>
-							<th scope="col">Empleado</th>
-							<th scope="col">Día</th>
+							<th scope="col">Id Empleado</th>
+							<th scope="col">Nombres</th>
+							<th scope="col">Apellido</th>
+							<th scope="col">Dni</th>
+							<th scope="col">Fecha Nacimiento</th>
+							<th scope="col">Dirección</th>
+							<th scope="col">Categoria</th>
+							<th scope="col">Teléfono</th>
 							<th scope="col">Acciones</th>
 						</tr>
 					</thead>
-					<tbody class="table-group-divider">
-						<tr class="text-center" th:each="servicio : ${servicios}">
-							<td th:text="${servicio.id}" class=""></td>
-							<td th:text="${#temporals.format(servicio.startTime, 'HH:mm')}"	class=""></td>
-							<td th:text="${#temporals.format(servicio.finishTime, 'HH:mm')}" class=""></td>
-							<td th:text="${servicio.employee.names}+' '+${servicio.employee.lastName}" class="py-1"></td>
-							<td th:text="${servicio.day}" class="py-1"></td>
-							<td class=""><a th:href="@{/servicio/modificar/}+${servicio.id}"><button
+					<tbody>
+						<tr th:each="empleado: ${empleados}">
+							<td th:text="${empleado.id}"></td>
+							<td th:text="${empleado.names}"></td>
+							<td th:text="${empleado.lastName}"></td>
+							<td th:text="${empleado.dni}"></td>
+							<td	th:text="${#temporals.format(empleado.dateOfBirth, 'yyyy/MM/dd')}"></td>
+							<td th:text="${empleado.address}"></td>
+							<td th:text="${empleado.category}"></td>
+							<td th:text="${empleado.phone}"></td>
+							<td class=""><a th:href="@{/empleado/modificar/}+${empleado.id}"><button
 										type="button" class="btn btn-primary py-1">Editar</button></a><br />
-								<a th:href="@{/servicio/eliminar/}+${servicio.id}"><button
+								<a th:href="@{/empleado/eliminar/}+${empleado.id}"><button
 										type="button" class="btn btn-danger py-1">Eliminar</button></a></td>
+						</tr>
 					</tbody>
 				</table>
 			</div>

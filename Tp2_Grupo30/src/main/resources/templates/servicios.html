@@ -15,47 +15,41 @@
 			<!-- Uso del fragmento nav-->
 			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 			<!-- -->
-	        <section class="row justify-content-center container">
-		        	        
-	        	<div class="row justify-content-center container">
-	        		<div class="col-md-10 col-12 text-center">
-			    	    <div class="table-responsive">
-				 	       
-				 	       <div class="text-center bg-warning pt-2 mt-2">
-				       		<h2 class="fw-bold">Lista de Servicios</h2>
-				    	   </div>
+	        <section class="">
+		        <div class="">
+			        <div class="">
+				       <div class="text-center bg-warning pt-2 mt-2">
+				     		<h2 class="fw-bold">Lista de Servicios</h2>
+				   	   </div>
 				    	   <!-- Tabla de Servicios -->
-					        <table class="table table-bordered table-striped">
+					        <table class="table table-bordered table-striped container">
 					            <thead class="bg-secondary text-white">
-						            <tr class="">
-						            	<th class="">Id Servicio</th>
-						                <th class="">Inicio Servicio</th>
-						                <th class="">Fin Servicio</th>
-						                <th class="">Nombres</th>
-						                <th class="">Apellidos</th>
-						                <th class="">Día</th>
+						            <tr class="text-center">
+						            	<th scope="col">Id Servicio</th>
+						                <th scope="col">Inicio Servicio</th>
+						                <th scope="col">Fin Servicio</th>
+						                <th scope="col">Empleado</th>
+						                <th scope="col">Día</th>
 						               			                
 						             </tr>
 					             </thead>
-					             <tbody class="">
-						            <tr th:each="servicio : ${servicios}">
+					             <tbody class="table-group-divider">
+						            <tr class="text-center" th:each="servicio : ${servicios}">
 						            	<td th:text="${servicio.id}" class=""></td>
 						                <td th:text="${#temporals.format(servicio.startTime, 'HH:mm')}" class=""></td>
 						                <td th:text="${#temporals.format(servicio.finishTime, 'HH:mm')}" class=""></td>
-						                <td th:text="${servicio.firstName}" class="py-1"></td>
-						                <td th:text="${servicio.lastName}" class="py-1"></td>
+						                <td th:text="${servicio.employee.names}+' '+${servicio.employee.lastName}" class="py-1"></td>
 						                <td th:text="${servicio.day}" class="py-1"></td>
 						                <!--  <td  class=""><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="btn btn-primary py-1" >Editar</button></a><br/>
 						                	<a th:href="@{/servicio/eliminar/}+${servicio.id}"><button type="button" class="btn btn-danger py-1" >Eliminar</button></a>
 						                </td>-->
 						                
-						            </tr>
-					             </tbody>
-					        </table>
-	       				</div>
+					            </tr>
+					         </tbody>
+				        </table>
 	       			</div>
 	       		</div>
-	   	</section>
+	       	</section>
 	   	<!-- Uso del fragmento footer -->
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 		<!-- Configuracion para usar bootstrap js -->

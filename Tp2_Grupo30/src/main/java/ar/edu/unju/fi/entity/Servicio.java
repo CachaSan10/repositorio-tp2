@@ -2,43 +2,54 @@ package ar.edu.unju.fi.entity;
 
 import java.time.LocalTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
-
 @Component
+@Entity
+@Table(name = "servicios")
 public class Servicio {
 	
 	//Se autogenera.
 	/**Representa el identificador unico del servicio*/
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name= "serv_id")
+	private Long id;
 	
 	/**Representa el horario de inicio del servicio*/
 	@DateTimeFormat(pattern = "hh:mm")
 	@NotNull(message="Debe ingresar una hora de inicio")
+	@Column(name= "serv_inicio", nullable = false)
 	private LocalTime startTime;
 	/**Representa el horario de fin del servicio*/
 	@DateTimeFormat(pattern = "hh:mm")
 	@NotNull(message="Debe ingresar una hora de fin")
+	@Column(name= "serv_fin", nullable = false)
 	private LocalTime finishTime;
-	/**Representa los nombres del paseador/paseadora*/
-	@NotBlank(message="Debe ingresar los nombres")
-	@Size(min=3,max=30, message="Los nombres deben tener entre 3 y 30 caracteres")
-	@Pattern(regexp="[a-z A-Z]*", message="Los nombres solo pueden contener letras")
-	private String firstName;
-	/**Representa el apellido del paseador/paseadora*/
-	@NotBlank(message="Debe ingresar un apellido")
-	@Size(min=3,max=20, message="El apellido debe tener entre 3 y 30 caracteres")
-	@Pattern(regexp="[a-z A-Z]*", message="El apellido solo puede contener letras")
-	private String lastName;
 	/**Representa el día del servicio*/
 	@NotBlank(message="Debe seleccionar un día")
+	@Column(name= "serv_días", nullable = false)
 	private String day;
-	
+	@Column(name="serv_estado")
+	private boolean status;
+	@NotNull(message="Debe seleccionar un Empleado")
+	@ManyToOne(fetch=FetchType.LAZY)//Eager cargamento anticipado con LAZY corregimos eso
+	@JoinColumn(name="empleado")
+	private Empleado empleado;
+		
 	//-----------------Constructores--------------------
 	/**
 	 * Constructor sin parametros
@@ -55,23 +66,20 @@ public class Servicio {
 	 * * @param lastName apellido del paseador o paseadora responsable
 	 * @param day dia de la semana en que se realiza el servicio de paseo
 	 */
-	public Servicio(int id, LocalTime startTime, LocalTime finishTime, String firstName,String lastName, String day) {
+	public Servicio(Long id, LocalTime startTime, LocalTime finishTime, String day, Empleado empleado) {
 		this.id = id;
 		this.startTime = startTime;
 		this.finishTime = finishTime;
-		this.firstName = firstName;
-		this.lastName = lastName;
 		this.day = day;
+		this.empleado = empleado;
 	}
 	/**
 	 * Creacion de los getters and Setter de los atributos de la clase Servicio.
 	 */
-
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -95,21 +103,6 @@ public class Servicio {
 		this.finishTime = finishTime;
 	}
 
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
 	public String getDay() {
 		return day;
 	}
@@ -117,12 +110,32 @@ public class Servicio {
 	public void setDay(String day) {
 		this.day = day;
 	}
-	
-	@Override
-	public String toString() {
-		return "Servicio [id=" + id + ", startTime=" + startTime + ", finishTime=" + finishTime + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", day=" + day + "]";
+	/**
+	 * @return the empleado
+	 */
+	public Empleado getEmployee() {
+		return empleado;
+	}
+	/**
+	 * @param empleado the empleado to set
+	 */
+	public void setEmployee(Empleado empleado) {
+		this.empleado = empleado;
+	}
+
+	public boolean isStatus() {
+		return status;
 	}
 	
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 
+	@Override
+	public String toString() {
+		return "Servicio [id=" + id + ", startTime=" + startTime + ", finishTime=" + finishTime + ", day=" + day
+				+ ", status=" + status + ", empleado=" + empleado + "]";
+	}
+	
+	
 }
