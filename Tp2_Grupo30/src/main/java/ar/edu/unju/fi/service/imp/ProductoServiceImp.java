@@ -42,7 +42,6 @@ public class ProductoServiceImp implements IProductoService{
 		for(Producto producto: obtenerListaProducto()) {
 	    	if(producto.getId() == productoModificado.getId()) {
 	    		producto.setNombreProducto(productoModificado.getNombreProducto());
-	    		producto.setCategoriaProducto(productoModificado.getCategoriaProducto());
 	    		producto.setPrecioProducto(productoModificado.getPrecioProducto());
 	    		producto.setDescuentoProducto(productoModificado.getDescuentoProducto());
 	    	}

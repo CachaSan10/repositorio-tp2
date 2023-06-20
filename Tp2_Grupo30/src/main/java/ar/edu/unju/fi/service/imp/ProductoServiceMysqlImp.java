@@ -26,11 +26,13 @@ public class ProductoServiceMysqlImp implements IProductoService {
 
 	@Override
 	public void guardarProducto(Producto producto) {
+		producto.setEstado(true);
 		productoRepository.save(producto);
 	}
 
 	@Override
 	public void modificarProducto(Producto productoModificado) {
+		productoModificado.setEstado(true);
 		productoRepository.save(productoModificado);
 	}
 

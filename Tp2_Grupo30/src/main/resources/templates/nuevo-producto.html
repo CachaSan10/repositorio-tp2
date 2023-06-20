@@ -18,16 +18,16 @@
 			
 			<section class="form-register">
 				<form th:action="${edicion}?@{/producto/modificar/}+${producto.id}:@{/producto/guardar}" th:object="${producto}" method="post">
-					<label for="name">Nombre del Producto</label>
+					<label for="nombreProducto">Nombre del Producto</label>
 					<input type="text" id="nombreProducto" name="nombre" required th:field="*{nombreProducto}" class="controls">
 					
 					<div class="form-group">
                					 <label for="categoriaId" class="form-label">Categoria : </label>
-               					 <select th:field="*{categoria.id}" class="form-control" id="categoriaId">
-               					 	<option th:each="categoria : ${categorias}" th:value="${provincia.id}"
+               					 <select th:field="*{categoria.id}" class="form-control" id="categoria">
+               					 	<option th:each="categoria : ${categorias}" th:value="${categoria.id}"
                					 	th:text="${categoria.nombre}" />
                					 </select>
-               					 <div class=text-danger th:if="${#fields.hasErrors('producto')}" th:errors="*{producto}"></div>
+               					 <div class=text-danger th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
 							</div>
 					
 					<label for="precio">Precio</label>

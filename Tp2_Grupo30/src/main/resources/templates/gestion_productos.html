@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<!--Especificacion de viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-		<title>Sucursales - Tienda de Mascota Puppis</title>
+		<title>Gestion Productos - Tienda de Mascota Puppis</title>
 		<!-- Bootstrap referencia  -->
 		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 		<!-- Css referencia-->
@@ -50,12 +50,12 @@
 					<tbody>
 						<tr th:each="producto: ${productos}">
 							<td th:text="${producto.id}"></td>
-							<td th:text="${producto.nombre}"></td>
+							<td th:text="${producto.nombreProducto}"></td>
 							<td>
-								<a class="btn btn-info btn-sm" th:href="@{/producto/modificar/}+${sucursal.id}">Modificar</a>
+								<a class="btn btn-info btn-sm" th:href="@{/producto/modificar/}+${producto.id}">Modificar</a>
 	
 	
-								<a class="btn btn-danger btn-sm" th:href="@{/producto/eliminar/}+${sucursal.id}">Eliminar</a>
+								<a class="btn btn-danger btn-sm" th:href="@{/producto/eliminar/}+${producto.id}">Eliminar</a>
 							</td>
 						</tr>
 					</tbody>
