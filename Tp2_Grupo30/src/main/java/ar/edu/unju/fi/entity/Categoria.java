@@ -3,6 +3,8 @@
  */
 package ar.edu.unju.fi.entity;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
@@ -10,7 +12,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /**
@@ -36,8 +38,8 @@ public class Categoria {
 	@Column(name = "categoria_estado")
 	private boolean estado;
 	
-	@OneToOne(mappedBy = "producto")
-	private Producto producto;
+	@OneToMany(mappedBy = "categoria")
+	private List<Producto> productos;
 	
 	
 	/**
@@ -50,13 +52,17 @@ public class Categoria {
 	 * Constructor Parametrizado
 	 * @param id representa el id de la categoria
 	 * @param nombre  representa el nombre de la categoria
-	 * @param producto representa el producto que pertence la categoria
+	 * @param productos representa la lista de productos que pertence la categoria
 	 */
-	public Categoria(Long id, String nombre, Producto producto) {
+
+	public Categoria(Long id, String nombre, boolean estado, List<Producto> productos) {
 		this.id = id;
 		this.nombre = nombre;
-		this.producto = producto;
+		this.estado = estado;
+		this.productos = productos;
 	}
+	
+	
 
 	/**
 	 * Metodo que retorna el id de categoria
@@ -91,21 +97,23 @@ public class Categoria {
 	}
 	
 
+	
+	
+	
+
 	/**
-	 * @return the producto
+	 * @return the productos
 	 */
-	public Producto getProducto() {
-		return producto;
+	public List<Producto> getProductos() {
+		return productos;
 	}
 
 	/**
-	 * @param producto the producto to set
+	 * @param productos the productos to set
 	 */
-	public void setProducto(Producto producto) {
-		this.producto = producto;
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
 	}
-	
-	
 
 	/**
 	 * @return the estado
@@ -123,7 +131,8 @@ public class Categoria {
 
 	@Override
 	public String toString() {
-		return "Categoria [id=" + id + ", nombre=" + nombre + "]";
+		return "Categoria [id=" + id + ", nombre=" + nombre + ", estado=" + estado + ", productos=" + productos + "]";
 	}
 
+	
 }

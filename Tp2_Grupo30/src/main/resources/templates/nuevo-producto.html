@@ -17,16 +17,19 @@
 			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 			
 			<section class="form-register">
-				<form th:action="${edicion}?@{/productos/modificar/}+${producto.id}:@{/productos/guardar}" th:object="${producto}" method="post">
+				<form th:action="${edicion}?@{/producto/modificar/}+${producto.id}:@{/producto/guardar}" th:object="${producto}" method="post">
 					<label for="name">Nombre del Producto</label>
 					<input type="text" id="nombreProducto" name="nombre" required th:field="*{nombreProducto}" class="controls">
-					<label for="categoria">Ingrese Categoria</label>
-					<select id="categoriaProducto" name="categoria" th:field="*{categoriaProducto}" class="controls-select">
-						<option value="Alimento">Alimento</option>
-						<option value="Juguete">Juguete</option>
-						<option value="Vestimenta">Vestimenta</option>
-						<option value="Cuidado">Cuidado</option>
-					</select>
+					
+					<div class="form-group">
+               					 <label for="categoriaId" class="form-label">Categoria : </label>
+               					 <select th:field="*{categoria.id}" class="form-control" id="categoriaId">
+               					 	<option th:each="categoria : ${categorias}" th:value="${provincia.id}"
+               					 	th:text="${categoria.nombre}" />
+               					 </select>
+               					 <div class=text-danger th:if="${#fields.hasErrors('producto')}" th:errors="*{producto}"></div>
+							</div>
+					
 					<label for="precio">Precio</label>
 					<input type="number" id="precioProducto" name="precio" required th:field="*{precioProducto}" class="controls">
 					<label for="descuento">Descuento</label>

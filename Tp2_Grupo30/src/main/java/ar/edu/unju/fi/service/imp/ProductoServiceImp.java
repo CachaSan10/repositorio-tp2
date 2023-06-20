@@ -18,7 +18,7 @@ public class ProductoServiceImp implements IProductoService{
 	
 
 	@Override
-	public List<Producto> getListaProducto() {
+	public List<Producto> obtenerListaProducto() {
 		return listaProductos.getProductos();
 	}
 	
@@ -30,7 +30,7 @@ public class ProductoServiceImp implements IProductoService{
 	public void guardarProducto(Producto producto) {
 		ListaProducto.id++;
 		producto.setId(ListaProducto.id);
-		getListaProducto().add(producto);
+		obtenerListaProducto().add(producto);
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class ProductoServiceImp implements IProductoService{
 	 */
 	@Override
 	public void modificarProducto(Producto productoModificado) {
-		for(Producto producto: getListaProducto()) {
+		for(Producto producto: obtenerListaProducto()) {
 	    	if(producto.getId() == productoModificado.getId()) {
 	    		producto.setNombreProducto(productoModificado.getNombreProducto());
 	    		producto.setCategoriaProducto(productoModificado.getCategoriaProducto());
@@ -55,9 +55,9 @@ public class ProductoServiceImp implements IProductoService{
 	 */
 	@Override
 	public void eliminarProducto(Long id) {
-		for(Producto producto: getListaProducto()) {
+		for(Producto producto: obtenerListaProducto()) {
 	    	if(producto.getId()==id) {
-	    		getListaProducto().remove(producto);
+	    		obtenerListaProducto().remove(producto);
 	    		break;
 	    	}
 		}
@@ -71,7 +71,7 @@ public class ProductoServiceImp implements IProductoService{
 	@Override
 	public Producto buscarProducto(Long id) {
 		Producto productoEncontrado = new Producto();
-		for(Producto unProducto: getListaProducto()) {
+		for(Producto unProducto: obtenerListaProducto()) {
 			if(unProducto.getId()==id) {
 				productoEncontrado=unProducto;
 				break;
@@ -81,13 +81,13 @@ public class ProductoServiceImp implements IProductoService{
 	}
 
 	@Override
-	public List<Producto> getListaProductoSegunCategoria(Categoria categoria) {
+	public List<Producto> obtenerListaProductoSegunCategoria(Categoria categoria) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Producto getProducto() {
+	public Producto obtenerProducto() {
 		// TODO Auto-generated method stub
 		return null;
 	}

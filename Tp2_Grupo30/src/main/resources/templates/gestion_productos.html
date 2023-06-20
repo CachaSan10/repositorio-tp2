@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<!--Especificacion de viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title>Sucursales - Tienda de Mascota Puppis</title>
+		<!-- Bootstrap referencia  -->
+		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<!-- Css referencia-->
+		<link th:rel="stylesheet" th:href="@{/css/style.css}">
+	</head>
+	<body>
+		
+	<div class="container">
+		<!--Uso del fragmento header -->
+		<header th:replace="~{layouts/header :: header}"></header>
+		<a  th:href="@{/gestion}" class="btn btn-primary btn-consejos"  >Volver a menu Principal</a>
+	
+	
+<div class="container">
+			<div class="row">
+				<h2 class="my-4">Lista Producto</h2>
+			</div>
+			<div>
+				<div class="row mb-4">
+					<div class="col-lg-e">
+						<a th:href="@{/producto/nuevo}" class="btn btn-success fw-bolder py-3">Nuevo Producto</a>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="row mb-4">
+					<div class="col-lg-e">
+						<a th:href="@{/categoria/gestion}" class="btn btn-success fw-bolder py-3">Categorias</a>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="table-responsive">
+				<!--Tabla de sucursales-->
+				<table class="table-sm table table-striped table-bordered table-hover">
+					<thead class="bg-secondary text-white">
+						<tr>
+							<th>Codigo</th>
+							<th>Nombre</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="producto: ${productos}">
+							<td th:text="${producto.id}"></td>
+							<td th:text="${producto.nombre}"></td>
+							<td>
+								<a class="btn btn-info btn-sm" th:href="@{/producto/modificar/}+${sucursal.id}">Modificar</a>
+	
+	
+								<a class="btn btn-danger btn-sm" th:href="@{/producto/eliminar/}+${sucursal.id}">Eliminar</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--Uso del fragmento footer -->
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+		<!--Archivo javascript referencia -->
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	</body>
+</html>

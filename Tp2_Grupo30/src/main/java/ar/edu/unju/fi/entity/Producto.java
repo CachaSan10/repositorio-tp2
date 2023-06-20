@@ -8,10 +8,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
@@ -48,7 +49,7 @@ public class Producto {
 	//Representa el precio de producto
 	@NotEmpty(message="El precio de producto no puede estar vacio")
 	@Positive(message = "El precio es un numero positivo")
-	@Column(name = "producto_nombre")
+	@Column(name = "producto_precio")
 	private double precioProducto;
 	
 	//Representa el descuento de producto
@@ -62,8 +63,9 @@ public class Producto {
 	//Representa el estado de producto
 			@Column(name = "estado")
 			private boolean estado;
-			
-	@OneToOne()
+	
+	@NotNull(message="Debe seleccionar una provincia")
+	@ManyToOne()
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
 	

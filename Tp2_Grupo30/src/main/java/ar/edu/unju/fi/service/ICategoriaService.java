@@ -6,11 +6,11 @@ import ar.edu.unju.fi.entity.Categoria;
 
 public interface ICategoriaService {
 	
-	public Categoria getCategoria();
+	public Categoria obtenerCategoria();
 	public void guardarCategoria(Categoria categoria);
 	public void modificarCategoria(Categoria categoria);
 	public void eliminarCategoria(Long id);
 	public Categoria buscarCategoria(Long id);
-	public List<Categoria> getLista();
+	public List<Categoria> obtenerCategorias();
  
 }

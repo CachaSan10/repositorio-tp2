@@ -30,7 +30,7 @@ public class ConsejoServiceMysqlImp implements IConsejoService {
 	 * @return lista de consejos disponible
 	 */
 	@Override
-	public List<Consejo> getConsejos() {
+	public List<Consejo> obtenerConsejos() {
 		return consejoRepository.findByEstado(true); 
 	}
 
@@ -39,7 +39,7 @@ public class ConsejoServiceMysqlImp implements IConsejoService {
 	 * @return un consejo
 	 */
 	@Override
-	public Consejo getConsejo() {
+	public Consejo obtenerConsejo() {
 		return consejo;
 	}
 
@@ -49,7 +49,7 @@ public class ConsejoServiceMysqlImp implements IConsejoService {
 	 * @param imagen representa una imagen de la publicacion del consejo
 	 */
 	@Override
-	public void addConsejo(Consejo consejo, MultipartFile imagen) throws IOException {
+	public void agregarConsejo(Consejo consejo, MultipartFile imagen) throws IOException {
 		consejo.setFechaPublicacion(LocalDate.now());
 		String uniqueFileName = uploadFile.copy(imagen);
 		consejo.setImagen(uniqueFileName);
@@ -64,7 +64,7 @@ public class ConsejoServiceMysqlImp implements IConsejoService {
 	 * @return el consejo que se encontro a traves del id
 	 */
 	@Override
-	public Consejo getConsejoEncontrado(Long id) {
+	public Consejo obtenerConsejoEncontrado(Long id) {
 		Consejo consejoEncontrado = new Consejo();
 		consejoEncontrado.setId(id);
 		consejoEncontrado.setFechaPublicacion(consejoRepository.findById(id).get().getFechaPublicacion());
@@ -83,7 +83,7 @@ public class ConsejoServiceMysqlImp implements IConsejoService {
 	 * @param imagen representa la imagen que se va a modificar en consejo
 	 */
 	@Override
-	public void updateConsejo(Consejo consejoModificado, MultipartFile imagen) throws IOException {
+	public void actualizarConsejo(Consejo consejoModificado, MultipartFile imagen) throws IOException {
 		Consejo unConsejo = new Consejo();
 		System.out.println("consejo modificado: " + consejoModificado.toString());
 		System.out.println("consejo modificado2: " + consejoRepository.findById(consejoModificado.getId()).get().toString());
@@ -97,13 +97,13 @@ public class ConsejoServiceMysqlImp implements IConsejoService {
 		if (!imagen.isEmpty()) {
 			String imagenString = imagen.getOriginalFilename();
 
-			if (imagenString.compareTo(getConsejoEncontrado(consejoModificado.getId()).getImagen()) != 0) {
-				uploadFile.delete(getConsejoEncontrado(consejoModificado.getId()).getImagen());
+			if (imagenString.compareTo(obtenerConsejoEncontrado(consejoModificado.getId()).getImagen()) != 0) {
+				uploadFile.delete(obtenerConsejoEncontrado(consejoModificado.getId()).getImagen());
 				imagenString = uploadFile.copy(imagen);
 				unConsejo.setImagen(imagenString);
 			}
 		}else {
-			unConsejo.setImagen(getConsejoEncontrado(consejoModificado.getId()).getImagen());
+			unConsejo.setImagen(obtenerConsejoEncontrado(consejoModificado.getId()).getImagen());
 		}
 		
 		consejoRepository.save(unConsejo);
@@ -115,7 +115,7 @@ public class ConsejoServiceMysqlImp implements IConsejoService {
 	 * @param id representa el id del consejo que se desea eliminar de manera logica de la base de datos
 	 */
 	@Override
-	public void deleteConsejo(Long id) {
+	public void eliminarConsejo(Long id) {
 		
 		Consejo otroConsejo = new Consejo();
 		otroConsejo = consejoRepository.findById(id).get();
