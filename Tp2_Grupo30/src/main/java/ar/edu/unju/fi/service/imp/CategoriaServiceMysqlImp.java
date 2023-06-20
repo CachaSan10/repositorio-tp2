@@ -32,12 +32,16 @@ public class CategoriaServiceMysqlImp implements ICategoriaService {
 
 	@Override
 	public void modificarCategoria(Categoria categoria) {
+		categoria.setEstado(true);
 		categoriaRepository.save(categoria);
 	}
 
 	@Override
 	public void eliminarCategoria(Long id) {
-		categoriaRepository.deleteById(id);
+		Categoria unaCategoria = new Categoria();
+		unaCategoria = buscarCategoria(id);
+		unaCategoria.setEstado(false);
+		categoriaRepository.save(unaCategoria);
 	}
 
 	@Override
