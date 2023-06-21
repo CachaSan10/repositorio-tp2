@@ -2,21 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<!--Especificacion de viewport -->
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<!--Configuracion para usar bootstrap.min.css -->
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+		<link rel="stylesheet" th:href="@{/css/style.css}">
 		<title>Gestion Productos - Tienda de Mascota Puppis</title>
-		<!-- Bootstrap referencia  -->
-		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-		<!-- Css referencia-->
-		<link th:rel="stylesheet" th:href="@{/css/style.css}">
+		
 	</head>
 	<body>
 		
 	<div class="container">
 		<!--Uso del fragmento header -->
 		<header th:replace="~{layouts/header :: header}"></header>
+		
 		<a  th:href="@{/gestion}" class="btn btn-primary btn-consejos"  >Volver a menu Principal</a>
 	
+  
 	
 <div class="container">
 			<div class="row">
@@ -36,6 +38,23 @@
 					</div>
 				</div>
 			</div>
+			
+			
+<!-- Example single danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    Filtrar Productos por categoria
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" th:each="categoria : ${categorias}"
+               					 	th:text="${categoria.nombre}" th:href="@{/producto/buscar/}+${categoria.id}"></a></li>
+    
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item"th:href="@{/producto/buscar/}+'0'">Todas las Categorias</a></li>
+  </ul>
+</div>		
+     					 
+			</div>
 			<br>
 			<div class="table-responsive">
 				<!--Tabla de sucursales-->
@@ -44,6 +63,10 @@
 						<tr>
 							<th>Codigo</th>
 							<th>Nombre</th>
+							<th>Precio</th>
+							<th>Descuento</th>
+							<th>Categoria</th>
+							<th>Precio con Descuento</th>
 							<th>Acciones</th>
 						</tr>
 					</thead>
@@ -51,6 +74,11 @@
 						<tr th:each="producto: ${productos}">
 							<td th:text="${producto.id}"></td>
 							<td th:text="${producto.nombreProducto}"></td>
+							<td th:text="'$'+${producto.precioProducto}"></td>
+							<td th:text="${producto.descuentoProducto}+'%'"></td>
+					        <td th:text="${producto.categoria.nombre}"></td>
+						    <td th:text="'$'+${producto.calcularDescuento()}"></td>
+							
 							<td>
 								<a class="btn btn-info btn-sm" th:href="@{/producto/modificar/}+${producto.id}">Modificar</a>
 	
@@ -64,8 +92,7 @@
 		</div>
 		<!--Uso del fragmento footer -->
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
-	</div>
-		<!--Archivo javascript referencia -->
-		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<!-- Configuracion para usar bootstrap js -->
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>
 </html>

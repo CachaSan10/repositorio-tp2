@@ -6,40 +6,60 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<!-- Bootstrap referencia  -->
 		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<!-- Css referencia-->
+		<link th:rel="stylesheet" th:href="@{/css/style.css}">
 		<title>Nuevo Producto - Tienda de Mascota Puppis</title>
 	</head>
 	<body>
 		<div class="container">
 			<!--Uso del fragmento header -->
 			<header th:replace="~{layouts/header :: header}"></header>
-			<!-- Uso del fragmento nav-->
-			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 			
 			<section class="form-register">
 				<form th:action="${edicion}?@{/producto/modificar/}+${producto.id}:@{/producto/guardar}" th:object="${producto}" method="post">
-					<label for="nombreProducto">Nombre del Producto</label>
-					<input type="text" id="nombreProducto" name="nombre" required th:field="*{nombreProducto}" class="controls">
 					
+					  <div class="mb-3">
+								<label for="IdNombre">Nombre del Producto</label>
+								<input type="text" id="IdNombre" name="nombre"  th:field="*{nombreProducto}" class="form-control controls">
+								<div class="text-danger" th:if="${#fields.hasErrors('nombreProducto')}" th:errors="*{nombreProducto}"></div>
+						</div>
+						
 					<div class="form-group">
                					 <label for="categoriaId" class="form-label">Categoria : </label>
                					 <select th:field="*{categoria.id}" class="form-control" id="categoria">
                					 	<option th:each="categoria : ${categorias}" th:value="${categoria.id}"
                					 	th:text="${categoria.nombre}" />
                					 </select>
-               					 <div class=text-danger th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
+               					 <div class="text-danger" th:if="${#fields.hasErrors('categoria.nombre')}" th:errors="*{categoria.nombre}"></div>
 							</div>
 					
-					<label for="precio">Precio</label>
-					<input type="number" id="precioProducto" name="precio" required th:field="*{precioProducto}" class="controls">
-					<label for="descuento">Descuento</label>
-					<input type="number" id="descuentoProducto" name="descuento" required placeholder="Ingrese descuento (0-50)" min="0" max="50" th:field="*{descuentoProducto}" class="controls">
+					<div class="mb-3">				
+						<label for="precio">Precio</label>
+						<input type="number" id="precioProducto" name="precio"  th:field="*{precioProducto}" class=" form-control controls">
+				 			<div class="text-danger" th:if="${#fields.hasErrors('precioProducto')}" th:errors="*{precioProducto}"></div>
+					</div>
 					
-					<button type="submit" class="botons" th:text="${edicion}?'Modificar':'Agregar'" ></button>
+					<div class="mb-3">
+						<label for="descuento">Descuento</label>
+						<input type="number" id="descuentoProducto" name="descuento"  placeholder="Ingrese descuento (0-50)" th:field="*{descuentoProducto}" class="form-control controls">
+				  			<div class="text-danger" th:if="${#fields.hasErrors('descuentoProducto')}" th:errors="*{descuentoProducto}"></div>
+					</div>
+					
+					
+					<div>
+					<a class="btn btn-danger w-100 mb-1 fw-bolder" th:href="@{/producto/gestion}" >Cancelar</a>
+					
+					<button type="submit" class="btn btn-success w-100 mb-1 fw-bolder" th:text="${edicion}?'Modificar':'Agregar'" ></button>
+					</div>
+					
 				</form>
 			</section>
 			
+	
+			
 			<footer th:replace="~{layouts/footer :: footer}"></footer>
+					<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+			
 		</div>
 	</body>
 </html>

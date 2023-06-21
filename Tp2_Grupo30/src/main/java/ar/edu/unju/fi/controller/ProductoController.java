@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unju.fi.entity.Categoria;
 import ar.edu.unju.fi.entity.Producto;
 import ar.edu.unju.fi.service.ICategoriaService;
 import ar.edu.unju.fi.service.IProductoService;
@@ -47,7 +48,8 @@ public class ProductoController {
 	
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarProductoPage(@Valid @ModelAttribute("producto") Producto producto, BindingResult result) {
-		ModelAndView  modelAndView = new ModelAndView("gestion_productos");
+		ModelAndView  modelAndView = new ModelAndView("redirect:/producto/gestion");
+		
 		if(result.hasErrors()) {
 			modelAndView.setViewName("nuevo-producto");
 			modelAndView.addObject("categorias", categoriaService.obtenerCategorias());
@@ -56,12 +58,14 @@ public class ProductoController {
 		}
 		productoService.guardarProducto(producto);
 		modelAndView.addObject("productos",productoService.obtenerListaProducto());
+
 		return modelAndView;
 	}
 	
 	@GetMapping("/modificar/{id}")
 	public String getModificarProductoPage(Model model, @PathVariable(value="id") Long id){
 		boolean edicion=true;
+		model.addAttribute("categorias", categoriaService.obtenerCategorias());
 		model.addAttribute("producto", productoService.buscarProducto(id));
 		model.addAttribute("edicion", edicion);
 		
@@ -81,8 +85,21 @@ public class ProductoController {
 	}
 	
 	@GetMapping("/gestion")
-	public String getGestionConsejoPage(Model model) {
+	public String getGestionProductoPage(Model model) {
+		model.addAttribute("categorias", categoriaService.obtenerCategorias());
 		model.addAttribute("productos", productoService.obtenerListaProducto());
+		return "gestion_productos";
+	}
+	
+	@GetMapping("/buscar/{id}")
+	public String getGestionProductoCategoriaPage(Model model ,@PathVariable(value = "id")Long id) {
+		Categoria categoria = new Categoria();
+		if(id == 0L) {
+			return "redirect:/producto/gestion";
+		}
+		categoria = categoriaService.buscarCategoria(id);
+		model.addAttribute("productos", productoService.obtenerListaProductoSegunCategoria(categoria));
+		model.addAttribute("categorias", categoriaService.obtenerCategorias());
 		return "gestion_productos";
 	}
 	

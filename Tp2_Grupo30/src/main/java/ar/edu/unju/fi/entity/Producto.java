@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -36,7 +37,7 @@ public class Producto {
 	private Long id;
 	
 	//Representa el nombre de producto
-	@NotEmpty(message="El nombre del producto no puede estar vacio")
+	@NotEmpty()
 	@Size(min=3, max=20,message="El nombre del producto debe tener entre 3 y 20 caracteres")
 	@Column(name = "producto_nombre")
 	private String nombreProducto;
@@ -59,11 +60,13 @@ public class Producto {
 			@Column(name = "estado")
 			private boolean estado;
 	
-	@NotNull(message="Debe seleccionar una provincia")
-	@ManyToOne()
+	@NotNull(message="Debe seleccionar una categoria")
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
 	
+	
+
 		
 	/**
 	 * Constructor por defecto
