@@ -23,13 +23,13 @@
 						<form  th:action="${edicion}?@{/sucursal/modificar/}+${sucursal.id}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
 							<div class="form-group">
 								<label for="nombre" class="form-label">Nombre : </label>
-								<input th:field="*{nombre}" class="form-control" type="text" name="nombres" id="nombres" placeholder="Nombre" required>
+								<input th:field="*{nombre}" class="form-control" type="text" name="nombres" id="nombres" placeholder="Nombre" >
 								<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 							</div>
 		
 							<div class="form-group">
 								<label for="nombre" class="form-label">Direccion : </label>
-								<input th:field="*{direccion}" class="form-control" type="text" name="mail" id="mail" placeholder="Direccion" required>
+								<input th:field="*{direccion}" class="form-control" type="text" name="mail" id="mail" placeholder="Direccion" >
 								<div class="text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></div>
 							</div>
 							
@@ -44,7 +44,7 @@
 
 							<div class="form-group">
 								<label for="nombre" class="form-label">Fecha Inicio : </label>
-								<input th:field="*{fechaInicio}" class="form-control" type="date" name="fecha" id="fecha" placeholder="fecha" required>
+								<input th:field="*{fechaInicio}" class="form-control" type="date" name="fecha" id="fecha" placeholder="fecha" >
 								<div class="text-danger" th:if="${#fields.hasErrors('fechaInicio')}" th:errors="*{fechaInicio}"></div>
 							</div>
 							
@@ -52,13 +52,13 @@
 																					
 							<div class="form-group">
 								<label for="nombre" class="form-label">Email : </label>
-								<input th:field="*{email}" class="form-control" type="email" name="email" id="email" placeholder="Email" required>
+								<input th:field="*{email}" class="form-control" type="email" name="email" id="email" placeholder="Email" >
 								<div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 							</div>
 							
 							<div class="form-group">
 								<label for="nombre" class="form-label">Telefono : </label>
-								<input th:field="*{telefono}" class="form-control" type="text" name="telefono" id="telefono" placeholder="Telefono" required>
+								<input th:field="*{telefono}" class="form-control" type="text" name="telefono" id="telefono" placeholder="Telefono">
 								<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 							</div>	
 							<br>
