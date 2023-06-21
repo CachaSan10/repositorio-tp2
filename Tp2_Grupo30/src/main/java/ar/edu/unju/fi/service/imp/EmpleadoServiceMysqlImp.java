@@ -17,16 +17,17 @@ public class EmpleadoServiceMysqlImp implements IEmpleadoService {
 	private Empleado empleado;
 	
 	@Override
-	public List<Empleado> getLista() {
+	public List<Empleado> obtenerEmpleados() {
 		return empleadoRepository.findByStatus(true);
 	}
 	@Override
-	public Empleado getEmpleado(Long id) {
+	public Empleado buscarEmpleado(Long id) {
 		return empleadoRepository.findById(id).get();
 	}
 
 	@Override
 	public void guardarEmpleado(Empleado empleado) {
+		empleado.setStatus(true);
 		empleadoRepository.save(empleado);
 
 	}
@@ -38,14 +39,14 @@ public class EmpleadoServiceMysqlImp implements IEmpleadoService {
 	}
 
 	@Override
-	public void eliminarEmpleado(Empleado empleado) {
+	public void eliminarEmpleado(Long id) {
 		//Se realiza una eliminacion logica
 		empleado.setStatus(false);
 		empleadoRepository.save(empleado);
 	}
 
 	@Override
-	public Empleado buscarEmpleado(Long id) {
+	public Empleado obtenerEmpleado() {
 		return empleado;
 	}
 	

@@ -21,7 +21,7 @@ public class EmpleadoController {
 	
 	@GetMapping("/listado")
 	public String getEmpleadoPageString(Model model) {
-		model.addAttribute("empleados", empleadoService.getLista());
+		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
 		return "empleados";
 	}
 	
@@ -29,22 +29,23 @@ public class EmpleadoController {
 	@GetMapping("/nuevo")
 	public String getNuevoEmpleadoPage(Model model) {
 		boolean edicion=false;
-		model.addAttribute("empleado",new Empleado() );
+		model.addAttribute("empleado", empleadoService.obtenerEmpleado() );
 		model.addAttribute("edicion", edicion);
 		return "nuevo_empleado";
 	}
 	
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarEmpledoPage(@Valid @ModelAttribute("empleado")Empleado empleado, BindingResult bindingResult) {
-		ModelAndView mav = new ModelAndView("empleados");
+		ModelAndView mav = new ModelAndView("gestion_empleados");
 		
 		if(bindingResult.hasErrors()) {
 			mav.setViewName("nuevo_empleado");
+			mav.addObject("empleado", empleadoService.obtenerEmpleado());
 			mav.addObject("edicion", false);
 			return mav;
 		}
 		empleadoService.guardarEmpleado(empleado);
-		mav.setViewName("redirect:/empleado/listado");
+		mav.addObject("empleados",empleadoService.obtenerEmpleados());
 		return mav;
 	}
 	
@@ -71,14 +72,13 @@ public class EmpleadoController {
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarEmpleado(@PathVariable(value="id")Long id) {
-		Empleado empleadoEncontrado = empleadoService.buscarEmpleado(id);
-		empleadoService.eliminarEmpleado(empleadoEncontrado);
+		empleadoService.eliminarEmpleado(id);
 	
 		return "redirect:/empleado/listado";
 	}
 	@GetMapping("/gestion")
 	public String getGestionEmpleadoPage(Model model) {
-		model.addAttribute("empleados", empleadoService.getLista());
+		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
 		return "gestion_empleados";
 	}
 	
