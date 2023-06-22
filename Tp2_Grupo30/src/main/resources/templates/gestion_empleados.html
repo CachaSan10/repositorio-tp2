@@ -38,7 +38,6 @@
 							<th scope="col">Fecha Nacimiento</th>
 							<th scope="col">Dirección</th>
 							<th scope="col">Teléfono</th>
-							<th scope="col">Categoria</th>
 							<th scope="col">Acciones</th>
 						</tr>
 					</thead>
@@ -51,7 +50,6 @@
 							<td	th:text="${#temporals.format(empleado.fechaNacimiento, 'yyyy/MM/dd')}"></td>
 							<td th:text="${empleado.direccion}"></td>
 							<td th:text="${empleado.telefono}"></td>
-							<td th:text="${empleado.categoriaEmpleado.nombre}"></td>
 							<td class=""><a th:href="@{/empleado/modificar/}+${empleado.id}"><button
 										type="button" class="btn btn-primary py-1">Editar</button></a><br />
 								<a th:href="@{/empleado/eliminar/}+${empleado.id}"><button
