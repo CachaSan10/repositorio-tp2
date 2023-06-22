@@ -41,7 +41,7 @@
 					</div>
 
 					<div class="mb-2 row">
-						<label for="nombres" class="col-sm-12 col-lg-3 col-form-label">Ingrese Nombre Completo:</label>
+						<label for="nombres" class="col-sm-12 col-lg-3 col-form-label">Seleccione Empleado:</label>
 						<div class="col-sm-12 col-lg-9">
 							<select class="form-select" id="empleado" th:field="*{empleado.id}">
 								<option th:each="empleado: ${empleados}" th:value="${empleado.id}"

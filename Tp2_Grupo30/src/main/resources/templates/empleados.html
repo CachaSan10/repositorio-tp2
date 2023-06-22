@@ -48,8 +48,6 @@
 							<th>Fecha Nacimiento</th>
 							<th>Dirección</th>
 							<th>Teléfono</th>
-							<th>Categoria</th>
-							
 						</tr>
 					</thead>
 					<tbody>
@@ -61,8 +59,7 @@
 							<td	th:text="${#temporals.format(empleado.fechaNacimiento, 'yyyy-MM-dd')}"></td>
 							<td th:text="${empleado.direccion}"></td>
 							<td th:text="${empleado.telefono}"></td>
-							<td th:text="${categoria_empleado.nombre}"></td>
-							
+														
 						</tr>
 					</tbody>
 				</table>

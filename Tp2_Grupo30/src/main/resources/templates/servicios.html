@@ -25,8 +25,7 @@
 					        <table class="table table-bordered table-striped container">
 					            <thead class="bg-secondary text-white">
 						            <tr class="text-center">
-						            	<th scope="col">Id Servicio</th>
-						                <th scope="col">Inicio Servicio</th>
+						            	<th scope="col">Inicio Servicio</th>
 						                <th scope="col">Fin Servicio</th>
 						                <th scope="col">Empleado</th>
 						                <th scope="col">Día</th>
@@ -35,8 +34,7 @@
 					             </thead>
 					             <tbody class="table-group-divider">
 						            <tr class="text-center" th:each="servicio : ${servicios}">
-						            	<td th:text="${servicio.id}" class=""></td>
-						                <td th:text="${#temporals.format(servicio.inicioHorario, 'HH:mm')}" class=""></td>
+						            	<td th:text="${#temporals.format(servicio.inicioHorario, 'HH:mm')}" class=""></td>
 						                <td th:text="${#temporals.format(servicio.finHorario, 'HH:mm')}" class=""></td>
 						                <td th:text="${servicio.empleado.nombres}+' '+${servicio.empleado.apellido}" class="py-1"></td>
 						                <td th:text="${servicio.dia}" class="py-1"></td>
