@@ -5,7 +5,6 @@ package ar.edu.unju.fi.entity;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
@@ -15,6 +14,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /**
  * @author Nahuel Alberto Cachambi 
@@ -33,6 +35,9 @@ public class Categoria {
 	private Long id;
 	
 	//Representa el nombre de categoria
+	@NotEmpty()
+	@Pattern(regexp="[a-z A-Z]*")
+	@Size(min=5, max=20)
 	@Column(name = "categoria_nombre")
 	private String nombre;
 

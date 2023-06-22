@@ -53,7 +53,7 @@ public class ProductoController {
 		if(result.hasErrors()) {
 			modelAndView.setViewName("nuevo-producto");
 			modelAndView.addObject("categorias", categoriaService.obtenerCategorias());
-			modelAndView.addObject("producto", productoService.obtenerProducto());
+			modelAndView.addObject("producto", producto);
 			return modelAndView;
 		}
 		productoService.guardarProducto(producto);

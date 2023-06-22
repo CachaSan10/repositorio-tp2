@@ -13,9 +13,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -39,18 +37,22 @@ public class Producto {
 	private Long id;
 	
 	//Representa el nombre de producto
-	@NotBlank(message="Debe ingresar un nombre")
-	@Pattern(regexp="[a-z A-Z]*", message="Los nombres solo pueden contener letras")
-	@Size(min=3, max=20,message="El nombre del producto debe tener entre 3 y 20 caracteres")
+	@NotEmpty()
+	@Pattern(regexp="[a-z A-Z]*", message="")
+	@Size(min=6, max=20)
 	@Column(name = "producto_nombre")
 	private String nombreProducto;
 	
 	
 	//Representa el precio de producto
+	@Positive()
 	@Column(name = "producto_precio")
 	private double precioProducto;
 	
 	//Representa el descuento de producto
+	@PositiveOrZero()
+	@Min(value = 0)
+	@Max(value = 50)
 	@Column(name = "producto_descuento")
 	private int descuentoProducto;
 	
@@ -59,7 +61,6 @@ public class Producto {
 			@Column(name = "estado")
 			private boolean estado;
 	
-	@NotNull(message="Debe seleccionar una categoria")
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;

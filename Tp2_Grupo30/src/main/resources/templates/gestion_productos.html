@@ -1,98 +1,105 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<!--Configuracion para usar bootstrap.min.css -->
-		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-		<link rel="stylesheet" th:href="@{/css/style.css}">
-		<title>Gestion Productos - Tienda de Mascota Puppis</title>
-		
-	</head>
-	<body>
-		
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!--Configuracion para usar bootstrap.min.css -->
+<link th:rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<title>Gestion Productos - Tienda de Mascota Puppis</title>
+
+</head>
+<body>
+
 	<div class="container">
 		<!--Uso del fragmento header -->
 		<header th:replace="~{layouts/header :: header}"></header>
-		
-		<a  th:href="@{/gestion}" class="btn btn-primary btn-consejos"  >Volver a menu Principal</a>
-	
-  
-	
-<div class="container">
-			<div class="row">
-				<h2 class="my-4">Lista Producto</h2>
-			</div>
-			<div>
-				<div class="row mb-4">
-					<div class="col-lg-e">
-						<a th:href="@{/producto/nuevo}" class="btn btn-success fw-bolder py-3">Nuevo Producto</a>
+
+		<a th:href="@{/gestion}" class="btn btn-primary btn-consejos">Volver
+			a menu Principal</a>
+			
+				<div class="card">
+	<h1 class="card-title text-center">Gestion de Productos</h1>
+	<div class="row justify-content-md-center"  >	
+				<div class="container text-center">
+				<div class="row align-items-center">
+					<div class="col">
+						<a th:href="@{/producto/nuevo}"
+							class="btn btn-success fw-bolder py-3">Nuevo Producto</a>
+					</div>
+					<div class="col">
+						<a th:href="@{/categoria/gestion}"
+							class="btn btn-success fw-bolder py-3">Categorias</a>
+					</div>
+					<div class="col">
+
+						<!-- Example single danger button -->
+						<div class="btn-group">
+							<button type="button" class="btn btn-danger dropdown-toggle"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								Filtrar Productos por categoria</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item"
+									th:each="categoria : ${categorias}"
+									th:text="${categoria.nombre}"
+									th:href="@{/producto/buscar/}+${categoria.id}"></a></li>
+
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item"
+									th:href="@{/producto/buscar/}+'0'">Todas las Categorias</a></li>
+							</ul>
+						</div>
+
 					</div>
 				</div>
 			</div>
-			<div>
-				<div class="row mb-4">
-					<div class="col-lg-e">
-						<a th:href="@{/categoria/gestion}" class="btn btn-success fw-bolder py-3">Categorias</a>
-					</div>
-				</div>
-			</div>
-			
-			
-<!-- Example single danger button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    Filtrar Productos por categoria
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" th:each="categoria : ${categorias}"
-               					 	th:text="${categoria.nombre}" th:href="@{/producto/buscar/}+${categoria.id}"></a></li>
-    
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item"th:href="@{/producto/buscar/}+'0'">Todas las Categorias</a></li>
-  </ul>
-</div>		
-     					 
-			</div>
-			<br>
-			<div class="table-responsive">
-				<!--Tabla de sucursales-->
-				<table class="table-sm table table-striped table-bordered table-hover">
-					<thead class="bg-secondary text-white">
-						<tr>
-							<th>Codigo</th>
-							<th>Nombre</th>
-							<th>Precio</th>
-							<th>Descuento</th>
-							<th>Categoria</th>
-							<th>Precio con Descuento</th>
-							<th>Acciones</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="producto: ${productos}">
-							<td th:text="${producto.id}"></td>
-							<td th:text="${producto.nombreProducto}"></td>
-							<td th:text="'$'+${producto.precioProducto}"></td>
-							<td th:text="${producto.descuentoProducto}+'%'"></td>
-					        <td th:text="${producto.categoria.nombre}"></td>
-						    <td th:text="'$'+${producto.calcularDescuento()}"></td>
-							
-							<td>
-								<a class="btn btn-info btn-sm" th:href="@{/producto/modificar/}+${producto.id}">Modificar</a>
-	
-	
-								<a class="btn btn-danger btn-sm" th:href="@{/producto/eliminar/}+${producto.id}">Eliminar</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+
+	</div>
+		<div class="card-body">
+				<div class="table-responsive">
+				
+				<table
+				class="table-sm table table-striped table-bordered table-hover">
+				<thead class="bg-secondary text-white">
+					<tr>
+						<th>Codigo</th>
+						<th>Nombre</th>
+						<th>Precio</th>
+						<th>Descuento</th>
+						<th>Categoria</th>
+						<th>Precio con Descuento</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="producto: ${productos}">
+						<td th:text="${producto.id}"></td>
+						<td th:text="${producto.nombreProducto}"></td>
+						<td th:text="'$'+${producto.precioProducto}"></td>
+						<td th:text="${producto.descuentoProducto}+'%'"></td>
+						<td th:text="${producto.categoria.nombre}"></td>
+						<td th:text="'$'+${producto.calcularDescuento()}"></td>
+
+						<td><a class="btn btn-info btn-sm"
+							th:href="@{/producto/modificar/}+${producto.id}">Modificar</a> <a
+							class="btn btn-danger btn-sm"
+							th:href="@{/producto/eliminar/}+${producto.id}">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
 			</div>
 		</div>
-		<!--Uso del fragmento footer -->
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+	<!--Uso del fragmento footer -->
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+		</div>
+		
+	
 	<!-- Configuracion para usar bootstrap js -->
-		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
-	</body>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
 </html>
