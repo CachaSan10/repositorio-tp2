@@ -25,38 +25,39 @@
 						th:text="${edicion}?'Modificar Servicio':'Agregar Nuevo Servicio'"></h3>
 
 					<div class="mb-2 row">
-						<label for="startTime" class="col-sm-12 col-lg-3 col-form-label">Ingrese Inicio de Servicio:</label>
+						<label for="inicioHorario" class="col-sm-12 col-lg-3 col-form-label">Ingrese Inicio de Servicio:</label>
 						<div class="col-sm-12 col-lg-9">
-							<input th:field="*{startTime}" class="form-control" type="time" name="time-form" id="startTime">
-							<div class="text-danger" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></div>
+							<input th:field="*{inicioHorario}" class="form-control" type="time" name="time-form" id="inicioHorario">
+							<div class="text-danger" th:if="${#fields.hasErrors('inicioHorario')}" th:errors="*{inicioHorario}"></div>
 						</div>
 					</div>
 
 					<div class="mb-2 row">
-						<label for="finishTime" class="col-sm-12 col-lg-3 col-form-label">Ingrese Fin de Servicio:</label>
+						<label for="finHorario" class="col-sm-12 col-lg-3 col-form-label">Ingrese Fin de Servicio:</label>
 						<div class="col-sm-12 col-lg-9">
-							<input th:field="*{finishTime}" class="form-control" type="time" name="time-form" id="finishTime">
-							<div class="text-danger" th:if="${#fields.hasErrors('finishTime')}"	th:errors="*{finishTime}"></div>
+							<input th:field="*{finHorario}" class="form-control" type="time" name="time-form" id="finHorario">
+							<div class="text-danger" th:if="${#fields.hasErrors('finHorario')}"	th:errors="*{finHorario}"></div>
 						</div>
 					</div>
 
 					<div class="mb-2 row">
-						<label for="names" class="col-sm-12 col-lg-3 col-form-label">Ingrese Nombre Completo:</label>
+						<label for="nombres" class="col-sm-12 col-lg-3 col-form-label">Ingrese Nombre Completo:</label>
 						<div class="col-sm-12 col-lg-9">
-							<select class="form-select" id="employee" th:field="*{employee.id}">
-								<option th:each="e: ${empleados}" th:value="${a.id}"
-								th:text="${e.names}+'-'+${e.lastName}"></option>
+							<select class="form-select" id="empleado" th:field="*{empleado.id}">
+								<option th:each="empleado: ${empleados}" th:value="${empleado.id}"
+								th:text="${empleado.nombres}+'-'+${empleado.apellido}"></option>
 							</select>
 								
-							<div class="text-danger" th:if="${#fields.hasErrors('employee.names')}" th:errors="*{employee.names}"></div>
+							<div class="text-danger" th:if="${#fields.hasErrors('empleado.nombres')}" th:errors="*{empleado.nombres}"></div>
+							<div class="text-danger" th:if="${#fields.hasErrors('empleado.apellido')}" th:errors="*{empleado.apellido}"></div>
 						</div>
 					</div>
 									
 					<div class="mb-2 row">
-						<label for="day" class="col-sm-12 col-lg-3 col-form-label">Ingrese el Día:</label>
+						<label for="dia" class="col-sm-12 col-lg-3 col-form-label">Ingrese el Día:</label>
 						<div class="col-sm-12 col-lg-9">
-							<select th:field="*{day}" class="form-select" id="day">
-								<option value="" selected>Seleccione una opción...</option>
+							<select th:field="*{dia}" class="form-select" id="dia">
+								<option value="selected" >Seleccione una opción...</option>
 								<option value="Lunes">Lunes</option>
 								<option value="Martes">Martes</option>
 								<option value="Miercoles">Miercoles</option>
@@ -64,7 +65,7 @@
 								<option value="Viernes">Viernes</option>
 								<option value="Sabado">Sabado</option>
 							</select>
-							<div class="text-danger" th:if="${#fields.hasErrors('day')}" th:errors="*{day}"></div>
+							<div class="text-danger" th:if="${#fields.hasErrors('dia')}" th:errors="*{dia}"></div>
 						</div>
 					</div>
 

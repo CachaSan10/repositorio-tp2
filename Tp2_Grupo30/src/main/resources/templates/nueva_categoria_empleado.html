@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<!--Especificacion de viewport -->
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+	<title>Categoria de Empleado</title>
+	<!-- Bootstrap referencia  -->
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<!-- Css referencia-->
+	<link th:rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="container">
+	<div id="contenedor">
+		<!--Uso del fragmento header -->
+		<header th:replace="~{layouts/header :: header}"></header>
+
+		<div class="container">
+			<div class="row">
+				<div
+					class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+					<h3 th:text="${edicion}?'Modificar Categoria':'Nueva Categoria'"
+						class="text-center mb-3"></h3>
+					<div class="card-body">
+						<!--Formulario de alta/edicion categoria -->
+						<form
+							th:action="${edicion}?@{/categoriaEmpleado/modificar/}+${categoria.id}:@{/categoriaEmpleado/guardar}"
+							th:object="${categoria_empleado}" method="post">
+							<div class="form-group">
+								<label for="nombre" class="form-label">Nombre : </label> <input
+									th:field="*{nombre}" class="form-control" type="text"
+									name="nombres" id="nombres" placeholder="Ej: Paseador o Encargado">
+								<div class="text-danger" th:if="${#fields.hasErrors('nombre')}"
+									th:errors="*{nombre}"></div>
+							</div>
+							<br>
+							<button th:value="${edicion}?'Modificar':'Guardar'"
+								class="btn btn-success">Guardar</button>
+							<a class="btn btn-primary btn-consejos"
+								th:href="@{/categoriaEmpleado/gestion}">Volver</a>
+						</form>
+					</div>
+
+					
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--Uso del fragmento footer -->
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	<!--Archivo javascript referencia -->
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

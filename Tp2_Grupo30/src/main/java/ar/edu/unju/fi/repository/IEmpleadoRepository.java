@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 import ar.edu.unju.fi.entity.Empleado;
 @Repository
 public interface IEmpleadoRepository extends CrudRepository<Empleado, Long>{
-	public List<Empleado> findByStatus(boolean status);
+	public List<Empleado> findByEstado(boolean estado);
 }

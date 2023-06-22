@@ -19,7 +19,7 @@ public class ServicioServiceMysqlImp implements IServicioService {
 	
 	@Override
 	public List<Servicio> getServicios() {
-		return servicioRepository.findByStatus(true);
+		return servicioRepository.findByEstado(true);
 	}
 	/**
 	 * Metodo que retorna un servicio
@@ -31,7 +31,7 @@ public class ServicioServiceMysqlImp implements IServicioService {
 	}
 	@Override
 	public void addServicio(Servicio servicio){
-		servicio.setStatus(true);
+		servicio.setEstado(true);
 		servicioRepository.save(servicio);
 	}
 
@@ -51,7 +51,7 @@ public class ServicioServiceMysqlImp implements IServicioService {
 	public void deleteServicio(Servicio servicio) {
 		//Vamos a hacer eliminación lógica colcando en false
 		
-		servicio.setStatus(false);
+		servicio.setEstado(false);
 		servicioRepository.save(servicio);
 	}
 	

@@ -7,7 +7,7 @@
 		<!--Configuracion para usar bootstrap.min.css -->
 		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 		<link rel="stylesheet" th:href="@{/css/style.css}">
-		<title>Servicio de Paseos - Tienda de Mascota Puppis</title>
+		<title>Servicios- Tienda de Mascota Puppis</title>
 	</head>
 	<body class="container">
 			<!--Uso del fragmento header -->
@@ -36,10 +36,10 @@
 					             <tbody class="table-group-divider">
 						            <tr class="text-center" th:each="servicio : ${servicios}">
 						            	<td th:text="${servicio.id}" class=""></td>
-						                <td th:text="${#temporals.format(servicio.startTime, 'HH:mm')}" class=""></td>
-						                <td th:text="${#temporals.format(servicio.finishTime, 'HH:mm')}" class=""></td>
-						                <td th:text="${servicio.employee.names}+' '+${servicio.employee.lastName}" class="py-1"></td>
-						                <td th:text="${servicio.day}" class="py-1"></td>
+						                <td th:text="${#temporals.format(servicio.inicioHorario, 'HH:mm')}" class=""></td>
+						                <td th:text="${#temporals.format(servicio.finHorario, 'HH:mm')}" class=""></td>
+						                <td th:text="${servicio.empleado.nombres}+' '+${servicio.empleado.apellido}" class="py-1"></td>
+						                <td th:text="${servicio.dia}" class="py-1"></td>
 						                <!--  <td  class=""><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="btn btn-primary py-1" >Editar</button></a><br/>
 						                	<a th:href="@{/servicio/eliminar/}+${servicio.id}"><button type="button" class="btn btn-danger py-1" >Eliminar</button></a>
 						                </td>-->

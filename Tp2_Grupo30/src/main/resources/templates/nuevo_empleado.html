@@ -26,20 +26,20 @@
 						th:text="${edicion}?'Modificar Empleado':'Agregar Nuevo Empleado'"></h3>
 
 					<div class="mb-2 row">
-						<label for="names" class="col-sm-12 col-lg-3 col-form-label">Ingrese Nombres:</label>
+						<label for="nombres" class="col-sm-12 col-lg-3 col-form-label">Ingrese Nombres:</label>
 						<div class="col-sm-12 col-lg-9">
-							<input th:field="*{names}" class="form-control" type="text"
-								name="names-form" id="names" placeholder="Ej: Mario Luis">
-							<div class="text-danger" th:if="${#fields.hasErrors('names')}" th:errors="*{names}"></div>
+							<input th:field="*{nombres}" class="form-control" type="text"
+								name="nombres-form" id="nombres" placeholder="Ej: Mario Luis">
+							<div class="text-danger" th:if="${#fields.hasErrors('nombres')}" th:errors="*{nombres}"></div>
 						</div>
 					</div>
 
 					<div class="mb-2 row">
-						<label for="lastName" class="col-sm-12 col-lg-3 col-form-label">Ingrese	Apellido:</label>
+						<label for="apellido" class="col-sm-12 col-lg-3 col-form-label">Ingrese	Apellido:</label>
 						<div class="col-sm-12 col-lg-9">
-							<input th:field="*{lastName}" class="form-control" type="text"
-								name="lastName-form" id="lastName" placeholder="Ej: Juarez">
-							<div class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+							<input th:field="*{apellido}" class="form-control" type="text"
+								name="apellido-form" id="apellido" placeholder="Ej: Juarez">
+							<div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
 						</div>
 					</div>
 					<div class="mb-2 row">
@@ -52,40 +52,38 @@
 						</div>
 					</div>
 					<div class="mb-2 row">
-						<label for="dateOfBirth" class="col-sm-12 col-lg-3 col-form-label">Ingrese Fecha Nacimiento:</label>
+						<label for="fechaNacimiento" class="col-sm-12 col-lg-3 col-form-label">Ingrese Fecha Nacimiento:</label>
 						<div class="col-sm-12 col-lg-9">
-							<input th:field="*{dateOfBirth}" class="form-control" type="date"
-								name="dateOfBirth-from" id="dateOfBirth" placeholder="Ej: 14/03/1990" onkeydown="return false">
-							<div class="text-danger" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></div>
+							<input th:field="*{fechaNacimiento}" class="form-control" type="date"
+								name="fechaNacimiento-from" id="fechaNacimiento" placeholder="Ej: 14/03/1990" onkeydown="return false">
+							<div class="text-danger" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
 						</div>
 					</div>
 					<div class="mb-2 row">
-						<label for="address" class="col-sm-12 col-lg-3 col-form-label">Ingrese Dirección:</label>
+						<label for="direccion" class="col-sm-12 col-lg-3 col-form-label">Ingrese Dirección:</label>
 						<div class="col-sm-12 col-lg-9">
-							<input th:field="*{address}" class="form-control" type="text"
-								name="address-from" id="address" placeholder="Ej: España 960">
-							<div class="text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
+							<input th:field="*{direccion}" class="form-control" type="text"
+								name="direccion-from" id="direccion" placeholder="Ej: España 960">
+							<div class="text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></div>
 						</div>
 					</div>
 					<div class="mb-2 row">
-						<label for="category" class="col-sm-12 col-lg-3 col-form-label">Ingrese Categoria:</label>
+						<label for="telefono" class="col-sm-12 col-lg-3 col-form-label">Ingrese Teléfono:</label>
 						<div class="col-sm-12 col-lg-9">
-							<select th:field="*{category}" class="form-select" id="category">
-								<option value="" selected>Seleccione una opción...</option>
-								<option value="Paseador">Paseador</option>
-								<option value="Paseadora">Paseadora</option>
-								<option value="Encargado">Encargado</option>
-								<option value="Encargada">Encargada</option>
+							<input th:field="*{telefono}" class="form-control" type="text"
+								name="telefono-form" id="telefono" placeholder="Ej: 3886079890">
+							<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+						</div>
+					</div>
+					<div class="mb-2 row">
+						<label for="categoriaEmpleado" class="col-sm-12 col-lg-3 col-form-label">Ingrese Categoria:</label>
+						<div class="col-sm-12 col-lg-9">
+							<select th:field="*{categoriaEmpleado.id}" class="form-select" id="categoriaEmpleado">
+								<option value="selected" >Seleccione una opción...</option>
+								<option th:each="categoria:${categoriasEmpleado}" th:value="${categoria.id}"
+								th:text="${categoria.nombre}"></option>
 							</select>
-							<div class="text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></div>
-						</div>
-					</div>
-					<div class="mb-2 row">
-						<label for="phone" class="col-sm-12 col-lg-3 col-form-label">Ingrese Teléfono:</label>
-						<div class="col-sm-12 col-lg-9">
-							<input th:field="*{phone}" class="form-control" type="text"
-								name="phone-form" id="phone" placeholder="Ej: 3886079890">
-							<div class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
+							<div class="text-danger" th:if="${#fields.hasErrors('categoriaEmpleado.nombre')}" th:errors="*{categoria.nombre}"></div>
 						</div>
 					</div>
 
@@ -109,8 +107,7 @@
 								</div>
 								<div class="modal-body">¿Confirma la operación?</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-bs-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-secondary"	data-bs-dismiss="modal">Cancelar</button>
 									<button type="submit" class="btn btn-primary" th:text="${edicion}?'Modificar':'Confirmar'"></button>
 								</div>
 							</div>
