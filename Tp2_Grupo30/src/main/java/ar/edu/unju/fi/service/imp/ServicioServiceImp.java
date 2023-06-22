@@ -14,7 +14,7 @@ public class ServicioServiceImp implements IServicioService{
 	private ListaServicio servicios;
 	
 	@Override
-	public List<Servicio> getServicios(){
+	public List<Servicio> obtenerServicios(){
 		return servicios.getServicios();
 	}
 	
@@ -23,17 +23,17 @@ public class ServicioServiceImp implements IServicioService{
 	 * 
 	 */
 	@Override
-	public void addServicio(Servicio servicio){
+	public void agregarServicio(Servicio servicio){
 	    ListaServicio.id++;
 		servicio.setId(ListaServicio.id);
-		getServicios().add(servicio);
+		obtenerServicios().add(servicio);
 	}
 	
 	/**
 	 * Metodo que modifica un servicio de la lista servicio
 	*/ 
 	@Override
-	public void updateServicio(Servicio servicioModificado){
+	public void actualizarServicio(Servicio servicioModificado){
 		/**
 		 for(Servicio servicio: getServicios()) {
 			 	
@@ -53,10 +53,10 @@ public class ServicioServiceImp implements IServicioService{
 	 * Metodo que busca el servicio buscado mediante su id.
 	 * @return retorna el servicio que se encontro en la lista.
 	 */
-	public Servicio getServicioEncontrado(Long id) {
+	public Servicio obtenerServicioEncontrado(Long id) {
 	    Servicio servicioEncontrado = new Servicio();
 	    
-	    for(Servicio servicio: getServicios()) {
+	    for(Servicio servicio: obtenerServicios()) {
 	    	if(servicio.getId()==id) {
 	    		servicioEncontrado=servicio;
 	    		break;
@@ -70,22 +70,28 @@ public class ServicioServiceImp implements IServicioService{
 	 * id representa el id del servicio que se quiere eliminar
 	 */
 	public void deleteServicio(Long id) {
-		for(Servicio servicio: getServicios()) {
+		for(Servicio servicio: obtenerServicios()) {
 	    	if(servicio.getId()==id) {
-	    		getServicios().remove(servicio);
+	    		obtenerServicios().remove(servicio);
 	    		break;
 	    	}
 	    }
 	}
 
 	@Override
-	public void deleteServicio(Servicio servicio) {
+	public void eliminarServicio(Servicio servicio) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Servicio getServicio() {
+	public Servicio obtenerServicio() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Servicio> obtenerServiciosSegunDia(String dia) {
 		// TODO Auto-generated method stub
 		return null;
 	}

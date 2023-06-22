@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Servicio;
-import ar.edu.unju.fi.service.IEmpleadoService;
 import ar.edu.unju.fi.service.IServicioService;
 import jakarta.validation.Valid;
 
@@ -27,14 +26,14 @@ public class ServicioController {
 		
 	@GetMapping("/listado")
 	public String getListaServicio(Model model) {
-		model.addAttribute("servicios", servicioService.getServicios());
+		model.addAttribute("servicios", servicioService.obtenerServicios());
 		return "servicios";
 	}
 	
 	@GetMapping("/nuevo")
 	public String getAgregarServicioPage(Model model) {
 		boolean edicion=false;
-		model.addAttribute("servicio", servicioService.getServicio());
+		model.addAttribute("servicio", servicioService.obtenerServicio());
 		model.addAttribute("edicion", edicion);
 		return "nuevo_servicio";
 	}
@@ -47,8 +46,8 @@ public class ServicioController {
 			modelView.addObject("servicio",servicio);
 			return modelView;
 		}
-		servicioService.addServicio(servicio);
-		modelView.addObject("servicios",servicioService.getServicios());
+		servicioService.agregarServicio(servicio);
+		modelView.addObject("servicios",servicioService.obtenerServicios());
 
 		return modelView;
 	}
@@ -56,7 +55,7 @@ public class ServicioController {
 	@GetMapping("/modificar/{id}")
 	public String getModificarServicioPage(Model model, @PathVariable(value="id") Long id) {
 		boolean edicion=true;
-		model.addAttribute("servicio", servicioService.getServicioEncontrado(id));
+		model.addAttribute("servicio", servicioService.obtenerServicioEncontrado(id));
 		model.addAttribute("edicion", edicion);
 		
 		return "nuevo_servicio";
@@ -65,21 +64,32 @@ public class ServicioController {
 	@PostMapping("/modificar/{id}")
 	public String modificarServicio(@ModelAttribute("servicio")Servicio servicioModificado){//Tener en cuenta s
 		//servicioModificado.setId("id");
-		servicioService.updateServicio(servicioModificado);
+		servicioService.actualizarServicio(servicioModificado);
 		return "redirect:/servicio/listado";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarServicio(@PathVariable(value="id")Long id) {
-		Servicio servicioEncontrado = servicioService.getServicioEncontrado(id);
-		servicioService.deleteServicio(servicioEncontrado);
+		Servicio servicioEncontrado = servicioService.obtenerServicioEncontrado(id);
+		servicioService.eliminarServicio(servicioEncontrado);
 		return "redirect:/servicio/listado";
 	}
 	
 	@GetMapping("/gestion")
 	public String getGestionServicioPage(Model model) {
-		model.addAttribute("servicios", servicioService.getServicios());
+		model.addAttribute("servicios", servicioService.obtenerServicios());
 		return "gestion_servicios";
+	}
+	
+	@GetMapping("/buscar/{dia}")
+	public ModelAndView getServicioDiaPage(ModelAndView modelAndView,@PathVariable(value = "dia")String dia) {
+		modelAndView.setViewName("gestion_servicios");
+		if(dia.equals("Todo")) {
+			modelAndView.setViewName("redirect:/servicio/gestion");
+			return modelAndView;
+		}
+		modelAndView.addObject("Servicios", servicioService.obtenerServiciosSegunDia(dia));
+		return modelAndView;
 	}
 	
 }
