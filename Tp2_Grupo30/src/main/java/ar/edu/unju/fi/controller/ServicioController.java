@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Servicio;
+import ar.edu.unju.fi.service.IEmpleadoService;
 import ar.edu.unju.fi.service.IServicioService;
 import jakarta.validation.Valid;
 
@@ -23,6 +24,10 @@ public class ServicioController {
 	@Autowired
 	@Qualifier("servicioServiceMysqlImp")
 	private IServicioService servicioService;
+	
+	@Autowired
+	@Qualifier("empleadoServiceMysqlImp")
+	private IEmpleadoService empleadoService;
 		
 	@GetMapping("/listado")
 	public String getListaServicio(Model model) {
@@ -34,6 +39,7 @@ public class ServicioController {
 	public String getAgregarServicioPage(Model model) {
 		boolean edicion=false;
 		model.addAttribute("servicio", servicioService.obtenerServicio());
+		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
 		model.addAttribute("edicion", edicion);
 		return "nuevo_servicio";
 	}

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import ar.edu.unju.fi.entity.Empleado;
 import ar.edu.unju.fi.repository.IEmpleadoRepository;
 import ar.edu.unju.fi.service.IEmpleadoService;
-@Service
+@Service("empleadoServiceMysqlImp")
 public class EmpleadoServiceMysqlImp implements IEmpleadoService {
 	
 	@Autowired

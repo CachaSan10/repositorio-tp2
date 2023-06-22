@@ -40,18 +40,14 @@
 						</div>
 					</div>
 
-					<div class="mb-2 row">
-						<label for="nombres" class="col-sm-12 col-lg-3 col-form-label">Seleccione Empleado:</label>
-						<div class="col-sm-12 col-lg-9">
-							<select class="form-select" id="empleado" th:field="*{empleado.id}">
-								<option th:each="empleado: ${empleados}" th:value="${empleado.id}"
-								th:text="${empleado.nombres}+' '+${empleado.apellido}"></option>
-							</select>
-								
-							<div class="text-danger" th:if="${#fields.hasErrors('empleado.nombres')}" th:errors="*{empleado.nombres}"></div>
-							<div class="text-danger" th:if="${#fields.hasErrors('empleado.apellido')}" th:errors="*{empleado.apellido}"></div>
-						</div>
-					</div>
+					<div class="form-group">
+               					 <label for="empleadoId" class="form-label">Seleccione Empleado : </label>
+               					 <select th:field="*{empleado.id}" class="form-control" id="empleadoId">
+               					 	<option th:each="empleado : ${empleados}" th:value="${empleado.id}"
+               					 	th:text="${empleado.nombres}+'  '+${empleado.apellido}" />
+               					 </select>
+               					 <div class=text-danger th:if="${#fields.hasErrors('empleado')}" th:errors="*{empleado}"></div>
+							</div>
 									
 					<div class="mb-2 row">
 						<label for="dia" class="col-sm-12 col-lg-3 col-form-label">Ingrese el Día:</label>
