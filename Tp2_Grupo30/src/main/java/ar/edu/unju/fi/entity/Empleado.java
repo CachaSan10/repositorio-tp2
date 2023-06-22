@@ -58,11 +58,7 @@ public class Empleado {
 	/**Representa si el estado es activo o pasivo del paseador/a o encargado/a*/
 	@Column(name="empl_estado")
 	private boolean estado;
-	@ManyToOne(fetch=FetchType.LAZY)//Eager cargamento anticipado con LAZY corregimos eso
-	@JoinColumn(name="Cat_id")
-	private CategoriaEmpleado categoriaEmpleado;
-	
-	
+		
 	/**
 	 * Constructor por defecto
 	 */
@@ -78,10 +74,9 @@ public class Empleado {
 	 * @param direccion
 	 * @param telefono
 	 * @param estado
-	 * @param categoriaEmpleado
+	
 	 */
-	public Empleado(String nombres, String apellido, Integer dni, Date fechaNacimiento, String direccion, String telefono, boolean estado,
-			CategoriaEmpleado categoriaEmpleado) {
+	public Empleado(String nombres, String apellido, Integer dni, Date fechaNacimiento, String direccion, String telefono, boolean estado) {
 		this.nombres = nombres;
 		this.apellido = apellido;
 		this.dni = dni;
@@ -89,7 +84,6 @@ public class Empleado {
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.estado = estado;
-		this.categoriaEmpleado = categoriaEmpleado;
 	}
 	/**
 	 * @return the id
@@ -202,26 +196,11 @@ public class Empleado {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-
-	/**
-	 * @return the categoriaEmpleado
-	 */
-	public CategoriaEmpleado getCategoriaEmpleado() {
-		return categoriaEmpleado;
-	}
-
-	/**
-	 * @param categoriaEmpleado the categoriaEmpleado to set
-	 */
-	public void setCategoriaEmpleado(CategoriaEmpleado categoriaEmpleado) {
-		this.categoriaEmpleado = categoriaEmpleado;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Empleado [id=" + id + ", nombres=" + nombres + ", apellido=" + apellido + ", dni=" + dni + ", fechaNacimiento="
-				+ fechaNacimiento + ", direccion=" + direccion + ", telefono=" + telefono + ", estado=" + estado
-				+ ", categoriaEmpleado=" + categoriaEmpleado + "]";
+				+ fechaNacimiento + ", direccion=" + direccion + ", telefono=" + telefono + ", estado=" + estado + "]";
 	}
 
 	
