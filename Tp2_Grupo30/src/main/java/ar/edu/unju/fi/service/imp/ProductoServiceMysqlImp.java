@@ -38,7 +38,10 @@ public class ProductoServiceMysqlImp implements IProductoService {
 
 	@Override
 	public void eliminarProducto(Long id) {
-		productoRepository.deleteById(id);
+		Producto unProducto = new Producto();
+		unProducto = buscarProducto(id);
+		unProducto.setEstado(false);
+		productoRepository.save(unProducto);
 	}
 
 	@Override

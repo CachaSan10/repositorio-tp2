@@ -17,21 +17,18 @@
 		<header th:replace="~{layouts/header :: header}"></header>
 		<a  th:href="@{/producto/gestion}" class="btn btn-primary btn-consejos"  >Volver Gestion Producto</a>
 	
-		<div class="container">
-			<div class="row">
-				<h2 class="my-4">Lista Provincias</h2>
-			</div>
-			<div>
-				<div class="row mb-4">
-					<div class="col-lg-e">
-						<a th:href="@{/categoria/nuevo}" class="btn btn-success fw-bolder py-3">Nueva Categoria</a>
-					</div>
-				</div>
-			</div>
-				<br>
-
 			
-			<div class="table-responsive">
+		
+			
+				<div class="card">
+	<h1 class="card-title text-center">Gestion de Categorias</h1>
+	<div class="row justify-content-md-center"  >	
+	<div class="col">			  
+						<a th:href="@{/categoria/nuevo}" class="btn btn-success fw-bolder py-3">Nueva Categoria</a>
+	</div>
+	</div>
+		<div class="card-body">
+		<div class="table-responsive">
 
 				<!--Tabla de sucursales-->
 				<table class="table-sm table table-striped table-bordered table-hover">
@@ -55,10 +52,19 @@
 				</table>
 			</div>
 		</div>
-		<!--Uso del fragmento footer -->
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</div>
 	
+	
+		<!--Uso del fragmento footer -->
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	
+			
+		</div>
+		
+		
+		
+		
+		
 		<!--Archivo javascript referencia -->
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	</body>
