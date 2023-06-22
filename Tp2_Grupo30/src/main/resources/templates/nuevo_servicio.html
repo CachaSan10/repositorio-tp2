@@ -45,7 +45,7 @@
 						<div class="col-sm-12 col-lg-9">
 							<select class="form-select" id="empleado" th:field="*{empleado.id}">
 								<option th:each="empleado: ${empleados}" th:value="${empleado.id}"
-								th:text="${empleado.nombres}+'-'+${empleado.apellido}"></option>
+								th:text="${empleado.nombres}+' '+${empleado.apellido}"></option>
 							</select>
 								
 							<div class="text-danger" th:if="${#fields.hasErrors('empleado.nombres')}" th:errors="*{empleado.nombres}"></div>
@@ -57,7 +57,7 @@
 						<label for="dia" class="col-sm-12 col-lg-3 col-form-label">Ingrese el Día:</label>
 						<div class="col-sm-12 col-lg-9">
 							<select th:field="*{dia}" class="form-select" id="dia">
-								<option value="selected" >Seleccione una opción...</option>
+								<option value=""selected >Seleccione una opción...</option>
 								<option value="Lunes">Lunes</option>
 								<option value="Martes">Martes</option>
 								<option value="Miercoles">Miercoles</option>

@@ -1,18 +1,14 @@
 package ar.edu.unju.fi.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -46,7 +42,7 @@ public class Empleado {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@NotNull(message="Debe ingresar la fecha de nacimiento")
 	@Column(name= "empl_fecha de Nac", nullable = false)
-	private Date fechaNacimiento;
+	private LocalDate fechaNacimiento;
 	/**Representa la dirección del paseador/a o encargado/a*/
 	@NotBlank(message="Debe ingresar una dirección")
 	@Column(name="empl_dirección", length =50, nullable = false)
@@ -76,7 +72,7 @@ public class Empleado {
 	 * @param estado
 	
 	 */
-	public Empleado(String nombres, String apellido, Integer dni, Date fechaNacimiento, String direccion, String telefono, boolean estado) {
+	public Empleado(String nombres, String apellido, Integer dni, LocalDate fechaNacimiento, String direccion, String telefono, boolean estado) {
 		this.nombres = nombres;
 		this.apellido = apellido;
 		this.dni = dni;
@@ -144,14 +140,14 @@ public class Empleado {
 	/**
 	 * @return the fechaNacimiento
 	 */
-	public Date getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
 	/**
 	 * @param fechaNacimiento the fechaNacimiento to set
 	 */
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
