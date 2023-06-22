@@ -25,13 +25,13 @@ public class Empleado {
 	/**Representa los nombres del paseador/paseadora*/
 	@NotBlank(message="Debe ingresar los nombres")
 	@Size(min=3,max=30, message="Los nombres deben tener entre 3 y 30 caracteres")
-	@Pattern(regexp="[a-z A-Z]*", message="Los nombres solo pueden contener letras")
+	@Pattern(regexp="[a-z A-ZÀ-ÿ\\u00f1\\u00d1]*", message="Los nombres solo pueden contener letras")
 	@Column(name= "empl_nombres",nullable = false)
 	private String nombres;
 	/**Representa el apellido del paseador/paseadora*/
 	@NotBlank(message="Debe ingresar un apellido")
 	@Size(min=3,max=20, message="El apellido debe tener entre 3 y 30 caracteres")
-	@Pattern(regexp="[a-z A-Z]*", message="El apellido solo puede contener letras")
+	@Pattern(regexp="[a-z A-ZÀ-ÿ\\u00f1\\u00d1]*", message="El apellido solo puede contener letras")
 	@Column(name= "empl_apellidos",nullable = false)
 	private String apellido;
 	/**Representa el dni del paseador/a o encargado/a*/

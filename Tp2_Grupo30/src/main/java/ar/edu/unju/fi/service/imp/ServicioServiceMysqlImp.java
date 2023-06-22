@@ -30,7 +30,7 @@ public class ServicioServiceMysqlImp implements IServicioService {
 		return servicio;
 	}
 	@Override
-	public void agregarServicio(Servicio servicio){
+	public void guardarServicio(Servicio servicio){
 		servicio.setEstado(true);
 		servicioRepository.save(servicio);
 	}
@@ -48,9 +48,8 @@ public class ServicioServiceMysqlImp implements IServicioService {
 	}
 
 	@Override
-	public void eliminarServicio(Servicio servicio) {
+	public void eliminarServicio(Long id) {
 		//Vamos a hacer eliminación lógica colcando en false
-		
 		servicio.setEstado(false);
 		servicioRepository.save(servicio);
 	}

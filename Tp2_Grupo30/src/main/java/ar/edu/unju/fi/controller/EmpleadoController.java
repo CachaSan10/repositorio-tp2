@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +18,7 @@ import jakarta.validation.Valid;
 @RequestMapping("/empleado")
 public class EmpleadoController {
 	@Autowired
+	@Qualifier("empleadoServiceMysqlImp")
 	private IEmpleadoService empleadoService;
 	
 	@GetMapping("/listado")
@@ -27,10 +29,9 @@ public class EmpleadoController {
 	
 	
 	@GetMapping("/nuevo")
-	public String getNuevoEmpleadoPage(Model model) {
-		boolean edicion=false;
-		model.addAttribute("empleado", empleadoService.obtenerEmpleado() );
-		model.addAttribute("edicion", edicion);
+	public String getNuevoEmpleadoPage(ModelAndView mav) {
+		mav.setViewName("nuevo_empleado");
+		mav.addObject("empleado", empleadoService.obtenerEmpleado() );
 		return "nuevo_empleado";
 	}
 	
@@ -40,8 +41,7 @@ public class EmpleadoController {
 		
 		if(bindingResult.hasErrors()) {
 			mav.setViewName("nuevo_empleado");
-			mav.addObject("empleado", empleadoService.obtenerEmpleado());
-			mav.addObject("edicion", false);
+			mav.addObject("empleado", empleado);
 			return mav;
 		}
 		empleadoService.guardarEmpleado(empleado);
@@ -52,28 +52,20 @@ public class EmpleadoController {
 	@GetMapping("/modificar/{id}")
 	public String getModificarEmpleadoPage(Model model, @PathVariable(value="id")Long id) {
 		boolean edicion=true;
-		Empleado empleadoEncontrado = empleadoService.buscarEmpleado(id);
-		
-		model.addAttribute("empleado",	empleadoEncontrado);
+		model.addAttribute("empleado",	empleadoService.buscarEmpleado(id));
 		model.addAttribute("edicion", edicion);
 		return "nuevo_empleado";
 	}
 	
-	
 	@PostMapping("/modificar/{id}")
-	public String modificarEmpleado(@Valid @ModelAttribute("empleado")Empleado empleadoModificado, BindingResult bindingResult) {
-		if(bindingResult.hasErrors()) {
-			return "nuevo_empleado";
-		}
+	public String modificarEmpleado(@ModelAttribute("empleado")Empleado empleadoModificado) {
 		empleadoService.modificarEmpleado(empleadoModificado);
-		return "redirect:/empleado/listado";
-		
+		return "redirect:/empleado/gestion";
 	}
-	
+		
 	@GetMapping("/eliminar/{id}")
 	public String eliminarEmpleado(@PathVariable(value="id")Long id) {
 		empleadoService.eliminarEmpleado(id);
-	
 		return "redirect:/empleado/listado";
 	}
 	@GetMapping("/gestion")

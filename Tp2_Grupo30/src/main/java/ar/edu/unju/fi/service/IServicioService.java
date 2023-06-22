@@ -7,15 +7,15 @@ public interface IServicioService {
 	
 	public List<Servicio> obtenerServicios();
 	
-	public void agregarServicio(Servicio servicio);
+	public Servicio obtenerServicio();
 	
-	public Servicio obtenerServicioEncontrado(Long id);
+	public void guardarServicio(Servicio servicio);
 	
 	public void actualizarServicio(Servicio servicioModificado);
 	
-	public void eliminarServicio(Servicio servicio);
-
-	public Servicio obtenerServicio();
+	public void eliminarServicio(Long id);
 	
+	public Servicio obtenerServicioEncontrado(Long id);
+		
 	public List<Servicio> obtenerServiciosSegunDia(String dia);
 }

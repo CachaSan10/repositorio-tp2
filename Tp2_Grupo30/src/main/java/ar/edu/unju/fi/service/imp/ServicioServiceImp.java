@@ -23,7 +23,7 @@ public class ServicioServiceImp implements IServicioService{
 	 * 
 	 */
 	@Override
-	public void agregarServicio(Servicio servicio){
+	public void guardarServicio(Servicio servicio){
 	    ListaServicio.id++;
 		servicio.setId(ListaServicio.id);
 		obtenerServicios().add(servicio);
@@ -79,7 +79,7 @@ public class ServicioServiceImp implements IServicioService{
 	}
 
 	@Override
-	public void eliminarServicio(Servicio servicio) {
+	public void eliminarServicio(Long id) {
 		// TODO Auto-generated method stub
 		
 	}

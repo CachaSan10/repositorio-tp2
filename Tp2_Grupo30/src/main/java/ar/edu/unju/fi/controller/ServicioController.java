@@ -46,43 +46,43 @@ public class ServicioController {
 	
 	@PostMapping("/guardar")
 	public ModelAndView agregarServicio(@Valid @ModelAttribute("servicio") Servicio servicio, BindingResult result){
-		ModelAndView  modelView = new ModelAndView("servicios");
+		ModelAndView  mav = new ModelAndView("redirect:/servicio/gestion");
+		
 		if(result.hasErrors()) {
-			modelView.setViewName("nuevo_servicio");
-			modelView.addObject("servicio",servicio);
-			return modelView;
+			mav.setViewName("nuevo_servicio");
+			mav.addObject("servicios", servicioService.obtenerServicios());
+			mav.addObject("servicio",servicio);
+			return mav;
 		}
-		servicioService.agregarServicio(servicio);
-		modelView.addObject("servicios",servicioService.obtenerServicios());
-
-		return modelView;
+		servicioService.guardarServicio(servicio);
+		mav.addObject("servicios",servicioService.obtenerServicios());
+		return mav;
 	}
 	
 	@GetMapping("/modificar/{id}")
 	public String getModificarServicioPage(Model model, @PathVariable(value="id") Long id) {
 		boolean edicion=true;
+		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
 		model.addAttribute("servicio", servicioService.obtenerServicioEncontrado(id));
 		model.addAttribute("edicion", edicion);
-		
 		return "nuevo_servicio";
 	}
 		
 	@PostMapping("/modificar/{id}")
-	public String modificarServicio(@ModelAttribute("servicio")Servicio servicioModificado){//Tener en cuenta s
-		//servicioModificado.setId("id");
+	public String modificarServicio(@ModelAttribute("servicio")Servicio servicioModificado){
 		servicioService.actualizarServicio(servicioModificado);
-		return "redirect:/servicio/listado";
+		return "redirect:/servicio/gestion";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarServicio(@PathVariable(value="id")Long id) {
-		Servicio servicioEncontrado = servicioService.obtenerServicioEncontrado(id);
-		servicioService.eliminarServicio(servicioEncontrado);
-		return "redirect:/servicio/listado";
+		servicioService.eliminarServicio(id);
+		return "redirect:/servicio/gestion";
 	}
 	
 	@GetMapping("/gestion")
 	public String getGestionServicioPage(Model model) {
+		model.addAttribute("empleados", empleadoService.obtenerEmpleado());
 		model.addAttribute("servicios", servicioService.obtenerServicios());
 		return "gestion_servicios";
 	}
