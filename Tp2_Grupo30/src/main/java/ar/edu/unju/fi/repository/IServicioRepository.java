@@ -11,4 +11,5 @@ import ar.edu.unju.fi.entity.Servicio;
 public interface IServicioRepository extends CrudRepository<Servicio, Long> {
 	//Podemos crear metodos personalizados
 	public List<Servicio> findByEstado(boolean estado);
+	public List<Servicio> findByDia(String dia);
 }
