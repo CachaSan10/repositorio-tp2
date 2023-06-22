@@ -13,8 +13,10 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
@@ -37,21 +39,18 @@ public class Producto {
 	private Long id;
 	
 	//Representa el nombre de producto
-	@NotEmpty()
+	@NotBlank(message="Debe ingresar un nombre")
+	@Pattern(regexp="[a-z A-Z]*", message="Los nombres solo pueden contener letras")
 	@Size(min=3, max=20,message="El nombre del producto debe tener entre 3 y 20 caracteres")
 	@Column(name = "producto_nombre")
 	private String nombreProducto;
 	
 	
 	//Representa el precio de producto
-	@Positive(message = "El precio debe ser numero positivo")
 	@Column(name = "producto_precio")
 	private double precioProducto;
 	
 	//Representa el descuento de producto
-	@PositiveOrZero(message = "el descuento es un numero positivo o 0")
-	@Min(message = "El descuento no debe ser mayor a 50",value = 0)
-	@Max(message = "El descuento no debe ser mayor a 50",value = 50)
 	@Column(name = "producto_descuento")
 	private int descuentoProducto;
 	
