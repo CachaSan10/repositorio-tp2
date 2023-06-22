@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import ar.edu.unju.fi.entity.Empleado;
 import ar.edu.unju.fi.repository.IEmpleadoRepository;
 import ar.edu.unju.fi.service.IEmpleadoService;
+
 @Service("empleadoServiceMysqlImp")
 public class EmpleadoServiceMysqlImp implements IEmpleadoService {
 	
@@ -34,6 +34,7 @@ public class EmpleadoServiceMysqlImp implements IEmpleadoService {
 
 	@Override
 	public void modificarEmpleado(Empleado empleado) {
+		empleado.setEstado(true);
 		empleadoRepository.save(empleado);
 
 	}
@@ -41,8 +42,10 @@ public class EmpleadoServiceMysqlImp implements IEmpleadoService {
 	@Override
 	public void eliminarEmpleado(Long id) {
 		//Se realiza una eliminacion logica
-		empleado.setEstado(false);
-		empleadoRepository.save(empleado);
+		Empleado unEmpleado = new Empleado();
+		unEmpleado = buscarEmpleado(id);
+		unEmpleado.setEstado(false);
+		empleadoRepository.save(unEmpleado);
 	}
 
 	@Override

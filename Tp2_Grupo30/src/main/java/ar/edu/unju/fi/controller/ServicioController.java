@@ -45,12 +45,12 @@ public class ServicioController {
 	}
 	
 	@PostMapping("/guardar")
-	public ModelAndView agregarServicio(@Valid @ModelAttribute("servicio") Servicio servicio, BindingResult result){
+	public ModelAndView agregarServicio(@Valid @ModelAttribute("servicio") Servicio servicio, BindingResult bindingResult){
 		ModelAndView  mav = new ModelAndView("redirect:/servicio/gestion");
 		
-		if(result.hasErrors()) {
+		if(bindingResult.hasErrors()) {
 			mav.setViewName("nuevo_servicio");
-			mav.addObject("servicios", servicioService.obtenerServicios());
+			mav.addObject("empleados", empleadoService.obtenerEmpleados());
 			mav.addObject("servicio",servicio);
 			return mav;
 		}
@@ -82,7 +82,7 @@ public class ServicioController {
 	
 	@GetMapping("/gestion")
 	public String getGestionServicioPage(Model model) {
-		model.addAttribute("empleados", empleadoService.obtenerEmpleado());
+		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
 		model.addAttribute("servicios", servicioService.obtenerServicios());
 		return "gestion_servicios";
 	}
@@ -94,7 +94,7 @@ public class ServicioController {
 			modelAndView.setViewName("redirect:/servicio/gestion");
 			return modelAndView;
 		}
-		modelAndView.addObject("Servicios", servicioService.obtenerServiciosSegunDia(dia));
+		modelAndView.addObject("servicios", servicioService.obtenerServiciosSegunDia(dia));
 		return modelAndView;
 	}
 	

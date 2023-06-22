@@ -72,7 +72,17 @@ public class Empleado {
 	 * @param estado
 	
 	 */
-	public Empleado(String nombres, String apellido, Integer dni, LocalDate fechaNacimiento, String direccion, String telefono, boolean estado) {
+	
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	public Empleado(Long id, String nombres, String apellido, Integer dni, LocalDate fechaNacimiento,
+			String direccion, String telefono, boolean estado) {
+		this.id = id;
 		this.nombres = nombres;
 		this.apellido = apellido;
 		this.dni = dni;
@@ -80,12 +90,6 @@ public class Empleado {
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.estado = estado;
-	}
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
 	}
 
 	/**

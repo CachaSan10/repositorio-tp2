@@ -21,10 +21,7 @@ public class ServicioServiceMysqlImp implements IServicioService {
 	public List<Servicio> obtenerServicios() {
 		return servicioRepository.findByEstado(true);
 	}
-	/**
-	 * Metodo que retorna un servicio
-	 * @return un servicio
-	*/
+	
 	@Override
 	public Servicio obtenerServicio() {
 		return servicio;
@@ -43,6 +40,7 @@ public class ServicioServiceMysqlImp implements IServicioService {
 
 	@Override
 	public void actualizarServicio(Servicio servicio){
+		servicio.setEstado(true);
 		servicioRepository.save(servicio);
 
 	}
@@ -50,8 +48,10 @@ public class ServicioServiceMysqlImp implements IServicioService {
 	@Override
 	public void eliminarServicio(Long id) {
 		//Vamos a hacer eliminación lógica colcando en false
-		servicio.setEstado(false);
-		servicioRepository.save(servicio);
+		Servicio unServicio = new Servicio();
+		unServicio = obtenerServicioEncontrado(id);
+		unServicio.setEstado(false);
+		servicioRepository.save(unServicio);
 	}
 	@Override
 	public List<Servicio> obtenerServiciosSegunDia(String dia) {

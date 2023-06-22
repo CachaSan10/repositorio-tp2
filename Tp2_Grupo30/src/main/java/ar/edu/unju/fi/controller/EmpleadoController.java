@@ -29,10 +29,10 @@ public class EmpleadoController {
 	
 	
 	@GetMapping("/nuevo")
-	public String getNuevoEmpleadoPage(ModelAndView mav) {
+	public ModelAndView getNuevoEmpleadoPage(ModelAndView mav) {
 		mav.setViewName("nuevo_empleado");
-		mav.addObject("empleado", empleadoService.obtenerEmpleado() );
-		return "nuevo_empleado";
+		mav.addObject("empleado", empleadoService.obtenerEmpleado());
+		return mav;
 	}
 	
 	@PostMapping("/guardar")
@@ -44,6 +44,7 @@ public class EmpleadoController {
 			mav.addObject("empleado", empleado);
 			return mav;
 		}
+		
 		empleadoService.guardarEmpleado(empleado);
 		mav.addObject("empleados",empleadoService.obtenerEmpleados());
 		return mav;
@@ -66,7 +67,7 @@ public class EmpleadoController {
 	@GetMapping("/eliminar/{id}")
 	public String eliminarEmpleado(@PathVariable(value="id")Long id) {
 		empleadoService.eliminarEmpleado(id);
-		return "redirect:/empleado/listado";
+		return "redirect:/empleado/gestion";
 	}
 	@GetMapping("/gestion")
 	public String getGestionEmpleadoPage(Model model) {

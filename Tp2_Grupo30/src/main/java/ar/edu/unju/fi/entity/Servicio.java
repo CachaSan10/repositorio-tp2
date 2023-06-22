@@ -3,7 +3,6 @@ package ar.edu.unju.fi.entity;
 import java.time.LocalTime;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -11,7 +10,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -64,12 +62,7 @@ public class Servicio {
 	 * @param dia dia de la semana en que se realiza el servicio de paseo
 	 * @param empleado nombre y apellido del paseador o paseadora responsable
 	 */
-	public Servicio(LocalTime inicioHorario, LocalTime finHorario, String dia, Empleado empleado) {
-		this.inicioHorario = inicioHorario;
-		this.finHorario = finHorario;
-		this.dia = dia;
-		this.empleado = empleado;
-	}
+	
 	/**
 	 * Creacion de los getters and Setter de los atributos de la clase Servicio.
 	 */
@@ -78,6 +71,15 @@ public class Servicio {
 	 */
 	public Long getId() {
 		return id;
+	}
+	public Servicio(Long id, LocalTime inicioHorario, LocalTime finHorario, String dia, boolean estado,
+			Empleado empleado) {
+		this.id = id;
+		this.inicioHorario = inicioHorario;
+		this.finHorario = finHorario;
+		this.dia = dia;
+		this.estado = estado;
+		this.empleado = empleado;
 	}
 	/**
 	 * @param id the id to set
