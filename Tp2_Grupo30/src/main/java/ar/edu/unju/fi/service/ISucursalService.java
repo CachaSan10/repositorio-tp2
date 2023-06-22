@@ -14,5 +14,5 @@ public interface ISucursalService {
 //	public ListaSucursal getListaSucursal();
 	public List<Sucursal> getLista();
 	public Sucursal buscarSucursal(Long id);
-	public List<Sucursal> buscarPorFecha(LocalDate fecha);
+	public List<Sucursal> buscarPorRangoFecha(LocalDate fechaInicio, LocalDate fechaFin);
 }
