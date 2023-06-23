@@ -20,39 +20,39 @@
 		
 		<div class="card border border-success">
 
-			<div class="card-body ">
+			<div class="card">
 				<h2 class="card-title text-center">Gestión de Servicios</h2>
 				<div class="row justify-content-md-center">
 					<div class="container text-center">
 						<div class="row align-items-center">
 							<div
-								class="col d-grid gap-2 d-md-flex justify-content-md-start text-center py-2">
+								class="col d-grid gap-2 d-md-flex justify-content-md-center text-center py-2">
 								<a th:href="@{/empleado/gestion}">
 									<button type="button"
-										class="btn btn-lg btn-success fw-bolder py-2">Empleados</button>
+										class="btn btn-lg btn-success fw-bolder py-2">Gestion de Empleados</button>
 								</a>
 							</div>
 							<div
-								class=" col d-grid gap-2 d-md-flex justify-content-md-start text-center py-2">
+								class="col d-grid gap-2 d-md-flex justify-content-md-center text-center py-2">
 								<a th:href="@{/servicio/nuevo}">
 									<button type="button"
-										class="btn btn-lg btn-success fw-bolder py-2">Nuevo
-										Servicio</button>
+										class="btn btn-lg btn-success fw-bolder py-2">Nuevo Servicio</button>
 								</a>
 							</div>
-							<div class="col">
+							<div class="col d-grid gap-2 d-md-flex justify-content-md-center text-center py-2">
 								<div class="btn-group">
 									<button type="button" class="btn btn-danger dropdown-toggle"
 										data-bs-toggle="dropdown" aria-expanded="false">Filtrar
 										Servicio por el día</button>
 									<ul class="dropdown-menu">
 										<li><a class="dropdown-item"
-											th:each="servicio : ${servicios}" th:text="${servicio.dia}"
+											th:each="servicio : ${servicios}"
+											th:text="${servicio.dia}"
 											th:href="@{/servicio/buscar/}+${servicio.dia}"></a></li>
 
 										<li><hr class="dropdown-divider"></li>
 										<li><a class="dropdown-item"
-											th:href="@{/servicio/buscar/}+'0'">Todas los Servicios</a></li>
+											th:href="@{/servicio/buscar/}+'Todo'">Todos los Servicios</a></li>
 									</ul>
 								</div>
 							</div>
@@ -65,38 +65,36 @@
 							class="table table-bordered table-striped border border-secondary">
 							<thead>
 								<tr class="text-center">
-									<th scope="col">Codigo</th>
-									<th scope="col">Horario de Inicio de Servicio</th>
-									<th scope="col">Horario de Fin de Servicio</th>
-									<th scope="col">Empleado</th>
-									<th scope="col">Día</th>
-									<th scope="col">Acciones</th>
+									<th>Codigo</th>
+									<th>Horario de Inicio de Servicio</th>
+									<th>Horario de Fin de Servicio</th>
+									<th>Empleado</th>
+									<th>Día</th>
+									<th>Acciones</th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr th:each="servicio : ${servicios}">
+							<tbody class="table-group-divider">
+								<tr th:each="servicio: ${servicios}">
 									<td th:text="${servicio.id}"></td>
-									<td
-										th:text="${#temporals.format(servicio.inicioHorario, 'HH:mm')}"></td>
-									<td
-										th:text="${#temporals.format(servicio.finHorario, 'HH:mm')}"></td>
-									<td
-										th:text="${servicio.empleado.nombres}+' '+${servicio.empleado.apellido}"
-										class="py-1"></td>
+									<td th:text="${#temporals.format(servicio.inicioHorario, 'HH:mm')}"></td>
+									<td	th:text="${#temporals.format(servicio.finHorario, 'HH:mm')}"></td>
+									<td	th:text="${servicio.empleado.nombres}+' '+${servicio.empleado.apellido}" class="py-1"></td>
 									<td th:text="${servicio.dia}" class="py-1"></td>
+									
 									<td><a class="btn btn-primary py-1"
-										th:href="@{/servicio/modificar}+${servicio.id}">Editar</a><br />
+										th:href="@{/servicio/modificar}+${servicio.id}">Editar</a><br/>
 										<a class="btn btn-danger py-1"
-										th:href="@{/eliminar}+${servicio.id}">Eliminar</a></td>
+										th:href="@{/servicio/eliminar}+${servicio.id}">Eliminar</a>
+									</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
-				<!-- Uso del fragmento footer -->
-				<footer th:replace="~{layouts/footer :: footer}"></footer>
 			</div>
 		</div>
+		<!-- Uso del fragmento footer -->
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</div>
 	<!-- Configuracion para usar bootstrap js -->
 	<script type="text/javascript"

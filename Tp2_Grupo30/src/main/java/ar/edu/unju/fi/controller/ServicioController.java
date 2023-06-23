@@ -30,13 +30,13 @@ public class ServicioController {
 	private IEmpleadoService empleadoService;
 		
 	@GetMapping("/listado")
-	public String getListaServicio(Model model) {
+	public String getListaServicioPage(Model model) {
 		model.addAttribute("servicios", servicioService.obtenerServicios());
 		return "servicios";
 	}
 	
 	@GetMapping("/nuevo")
-	public String getAgregarServicioPage(Model model) {
+	public String getNuevoServicioPage(Model model) {
 		boolean edicion=false;
 		
 		model.addAttribute("servicio", servicioService.obtenerServicio());
@@ -46,7 +46,7 @@ public class ServicioController {
 	}
 	
 	@PostMapping("/guardar")
-	public ModelAndView agregarServicio(@Valid @ModelAttribute("servicio") Servicio servicio, BindingResult bindingResult){
+	public ModelAndView getGuardarServicioPage(@Valid @ModelAttribute("servicio") Servicio servicio, BindingResult bindingResult){
 		ModelAndView  mav = new ModelAndView("redirect:/servicio/gestion");
 		
 		if(bindingResult.hasErrors()) {
@@ -71,7 +71,7 @@ public class ServicioController {
 		
 	@PostMapping("/modificar/{id}")
 	public String modificarServicio(@ModelAttribute("servicio")Servicio servicioModificado){
-		servicioService.actualizarServicio(servicioModificado);
+		servicioService.modificarServicio(servicioModificado);
 		return "redirect:/servicio/gestion";
 	}
 	

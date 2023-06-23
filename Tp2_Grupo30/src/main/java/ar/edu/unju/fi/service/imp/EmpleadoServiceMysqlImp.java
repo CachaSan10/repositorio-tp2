@@ -41,9 +41,10 @@ public class EmpleadoServiceMysqlImp implements IEmpleadoService {
 
 	@Override
 	public void eliminarEmpleado(Long id) {
-		//Se realiza una eliminacion logica
+		
 		Empleado unEmpleado = new Empleado();
 		unEmpleado = buscarEmpleado(id);
+		//Se realiza una eliminacion logica
 		unEmpleado.setEstado(false);
 		empleadoRepository.save(unEmpleado);
 	}

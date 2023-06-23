@@ -20,13 +20,13 @@ public class EmpleadoController {
 	@Autowired
 	@Qualifier("empleadoServiceMysqlImp")
 	private IEmpleadoService empleadoService;
-	
+	/**
 	@GetMapping("/listado")
 	public String getEmpleadoPageString(Model model) {
 		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
 		return "empleados";
 	}
-	
+	*/
 	
 	@GetMapping("/nuevo")
 	public ModelAndView getNuevoEmpleadoPage(ModelAndView mav) {

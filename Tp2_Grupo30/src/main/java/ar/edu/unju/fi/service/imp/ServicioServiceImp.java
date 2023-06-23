@@ -35,7 +35,7 @@ public class ServicioServiceImp implements IServicioService{
 	 * Metodo que modifica un servicio de la lista servicio
 	*/ 
 	@Override
-	public void actualizarServicio(Servicio servicioModificado){
+	public void modificarServicio(Servicio servicioModificado){
 	
 		 for(Servicio servicio: obtenerServicios()) {
 			 	

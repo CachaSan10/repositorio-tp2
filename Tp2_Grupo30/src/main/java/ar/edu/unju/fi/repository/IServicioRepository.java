@@ -9,7 +9,7 @@ import ar.edu.unju.fi.entity.Servicio;
 
 @Repository
 public interface IServicioRepository extends CrudRepository<Servicio, Long> {
-	//Podemos crear metodos personalizados
+	//Crear metodos personalizados
 	public List<Servicio> findByEstado(boolean estado);
 	public List<Servicio> findByDia(String dia);
 }

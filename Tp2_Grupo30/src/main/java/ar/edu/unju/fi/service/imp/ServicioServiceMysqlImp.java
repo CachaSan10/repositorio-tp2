@@ -23,18 +23,14 @@ public class ServicioServiceMysqlImp implements IServicioService {
 	}
 	
 	@Override
-	public Servicio obtenerServicio() {
-		return servicio;
-	}
-	@Override
 	public void guardarServicio(Servicio servicio){
 		servicio.setEstado(true);
 		servicioRepository.save(servicio);
 	}
-	
+		
 	@Override
-	public void actualizarServicio(Servicio servicioModificado){
-		servicio.setEstado(true);
+	public void modificarServicio(Servicio servicioModificado){
+		servicioModificado.setEstado(true);
 		servicioRepository.save(servicioModificado);
 	}
 	
@@ -52,10 +48,16 @@ public class ServicioServiceMysqlImp implements IServicioService {
 	public Servicio buscarServicio(Long id) {
 		return servicioRepository.findById(id).get();
 	}
-	
+			
 	@Override
 	public List<Servicio> obtenerServiciosSegunDia(String dia) {
        return servicioRepository.findByDia(dia);
 	}
+	
+	@Override
+	public Servicio obtenerServicio() {
+		return servicio;
+	}
+	
 	
 }

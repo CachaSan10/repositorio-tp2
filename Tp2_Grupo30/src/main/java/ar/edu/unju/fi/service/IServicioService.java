@@ -11,7 +11,7 @@ public interface IServicioService {
 	
 	public void guardarServicio(Servicio servicio);
 	
-	public void actualizarServicio(Servicio servicioModificado);
+	public void modificarServicio(Servicio servicioModificado);
 	
 	public void eliminarServicio(Long id);
 	

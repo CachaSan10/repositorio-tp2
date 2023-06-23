@@ -6,6 +6,8 @@ import ar.edu.unju.fi.entity.Empleado;
 
 public interface IEmpleadoService {
 		
+	public List<Empleado> obtenerEmpleados();
+	
 	public Empleado obtenerEmpleado();
 	
 	public void guardarEmpleado(Empleado empleado);
@@ -15,7 +17,4 @@ public interface IEmpleadoService {
 	public void eliminarEmpleado(Long id);
 	
 	public Empleado buscarEmpleado(Long id);
-	
-	public List<Empleado> obtenerEmpleados();
-	
 }

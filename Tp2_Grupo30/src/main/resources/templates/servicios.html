@@ -14,15 +14,15 @@
 			<header th:replace="~{layouts/header :: header}"></header>
 			<!-- Uso del fragmento nav-->
 			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
+			<br/>
 			<!-- -->
-	        <section class="">
-		        <div class="">
-			        <div class="">
+	         <div class="card border border-black">
+			        <div class="card-body">
 				       <div class="text-center bg-warning pt-2 mt-2">
-				     		<h2 class="fw-bold">Lista de Servicios</h2>
+				     		<h2 class="fw-bold">Nuestros de Servicios</h2>
 				   	   </div>
 				    	   <!-- Tabla de Servicios -->
-					        <table class="table table-bordered table-striped container">
+					        <table class="table table-bordered table-striped">
 					            <thead class="bg-secondary text-white">
 						            <tr class="text-center">
 						            	<th scope="col">Horario de Inicio de Servicio</th>
@@ -46,10 +46,10 @@
 					         </tbody>
 				        </table>
 	       			</div>
+	       				<!-- Uso del fragmento footer -->
+				
 	       		</div>
-	       	</section>
-	   	<!-- Uso del fragmento footer -->
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	       <footer th:replace="~{layouts/footer :: footer}"></footer>	   
 		<!-- Configuracion para usar bootstrap js -->
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>

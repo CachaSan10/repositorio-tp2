@@ -44,8 +44,8 @@
 					<div class="mb-2 row">
 						<label for="dni" class="col-sm-12 col-lg-3 col-form-label">Ingrese Documento:</label>
 						<div class="col-sm-12 col-lg-9">
-							<input th:field="*{dni}" class="form-control" type="number" maxlength="8" oninput="if(this.value.length >
-								this.maxLength) this.value = this.value.slice(0, this.maxLength)"
+							<input th:field="*{dni}" class="form-control" type="number" maxlength="9" oninput="this.value = 
+								   this.value.slice(0, this.maxLength);"
 								name="dni-form" id="dni" placeholder="Ej: 24345678" step="any">
 							<div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
 						</div>
@@ -79,7 +79,7 @@
 							<a th:href="@{/empleado/gestion}" class="btn btn-danger w-100 mb-1 fw-bolder">Cancelar</a>
 							<!-- Button trigger modal -->
 							<button type="button" class="btn btn-primary w-100 fw-bolder"
-								data-bs-toggle="modal" data-bs-target="#modalSaveEmpleado">Registrar Servicio</button>
+								data-bs-toggle="modal" data-bs-target="#modalSaveEmpleado">Registrar Empleado</button>
 						</div>
 					</div>
 					<!-- Modal -->
@@ -95,7 +95,8 @@
 								<div class="modal-body">¿Confirma la operación?</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"	data-bs-dismiss="modal">Cancelar</button>
-									<button type="submit" class="btn btn-primary" th:text="${edicion}?'Modificar':'Confirmar'"></button>
+									<button type="submit" class="btn btn-primary"
+											th:text="${edicion}?'Modificar':'Confirmar'"></button>
 								</div>
 							</div>
 						</div>
