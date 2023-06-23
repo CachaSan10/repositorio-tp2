@@ -31,28 +31,28 @@ public class ServicioServiceMysqlImp implements IServicioService {
 		servicio.setEstado(true);
 		servicioRepository.save(servicio);
 	}
-
+	
 	@Override
-	public Servicio obtenerServicioEncontrado(Long id) {
-		
-		return servicioRepository.findById(id).get();
-	}
-
-	@Override
-	public void actualizarServicio(Servicio servicio){
+	public void actualizarServicio(Servicio servicioModificado){
 		servicio.setEstado(true);
-		servicioRepository.save(servicio);
-
+		servicioRepository.save(servicioModificado);
 	}
-
+	
 	@Override
 	public void eliminarServicio(Long id) {
-		//Vamos a hacer eliminación lógica colcando en false
+		
 		Servicio unServicio = new Servicio();
-		unServicio = obtenerServicioEncontrado(id);
+		unServicio = buscarServicio(id);
+		//Vamos a hacer eliminación lógica colcando en false
 		unServicio.setEstado(false);
 		servicioRepository.save(unServicio);
 	}
+	
+	@Override
+	public Servicio buscarServicio(Long id) {
+		return servicioRepository.findById(id).get();
+	}
+	
 	@Override
 	public List<Servicio> obtenerServiciosSegunDia(String dia) {
        return servicioRepository.findByDia(dia);

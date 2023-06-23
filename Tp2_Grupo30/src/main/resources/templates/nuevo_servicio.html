@@ -21,9 +21,6 @@
 				<form
 					th:action="${edicion}?@{/servicio/modificar/}+${servicio.id}:@{/servicio/guardar}"
 					th:object="${servicio}" method="post" class="mt-3">
-					<h3 class="text-center fw-bolder"
-						th:text="${edicion}?'Modificar Servicio':'Agregar Nuevo Servicio'"></h3>
-
 					<div class="mb-2 row">
 						<label for="inicioHorario" class="col-sm-12 col-lg-3 col-form-label">Ingrese Inicio de Servicio:</label>
 						<div class="col-sm-12 col-lg-9">

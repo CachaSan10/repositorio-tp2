@@ -20,18 +20,16 @@
 	<div class="card border border-success">
 		<div class="card-body">
 			<h2 class="card-title text-center">Gestión de Empleado</h2>
-			<div
-				class="d-grid gap-2 d-md-flex justify-content-md-start text-center py-2">
+			<div class="d-grid gap-2 d-md-flex justify-content-md-start text-center py-2">
 				<a th:href="@{/empleado/nuevo}">
 					<button type="button" class="btn btn-lg btn-success fw-bolder py-2">Nuevo Empleado</button>
 				</a>
 			</div>
 			<div class="table-responsive">
-				<table
-					class="table table-bordered table-striped border border-secondary">
+				<table class="table table-bordered table-striped border border-secondary">
 					<thead>
 						<tr class="text-center">
-							<th scope="col">Id Empleado</th>
+							<th scope="col">Codigo</th>
 							<th scope="col">Nombres</th>
 							<th scope="col">Apellido</th>
 							<th scope="col">Dni</th>
@@ -50,10 +48,13 @@
 							<td	th:text="${#temporals.format(empleado.fechaNacimiento, 'yyyy/MM/dd')}"></td>
 							<td th:text="${empleado.direccion}"></td>
 							<td th:text="${empleado.telefono}"></td>
-							<td class=""><a th:href="@{/empleado/modificar/}+${empleado.id}"><button
-										type="button" class="btn btn-primary py-1">Editar</button></a><br />
+							
+							<td class="">
+							    <a th:href="@{/empleado/modificar/}+${empleado.id}"><button
+										type="button" class="btn btn-primary py-1">Editar</button></a><br/>
 								<a th:href="@{/empleado/eliminar/}+${empleado.id}"><button
-										type="button" class="btn btn-danger py-1">Eliminar</button></a></td>
+										type="button" class="btn btn-danger py-1">Eliminar</button></a>
+							</td>
 						</tr>
 					</tbody>
 				</table>

@@ -38,6 +38,7 @@ public class ServicioController {
 	@GetMapping("/nuevo")
 	public String getAgregarServicioPage(Model model) {
 		boolean edicion=false;
+		
 		model.addAttribute("servicio", servicioService.obtenerServicio());
 		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
 		model.addAttribute("edicion", edicion);
@@ -60,10 +61,10 @@ public class ServicioController {
 	}
 	
 	@GetMapping("/modificar/{id}")
-	public String getModificarServicioPage(Model model, @PathVariable(value="id") Long id) {
+	public String getModificarServicioPage(Model model,@PathVariable(value="id") Long id) {
 		boolean edicion=true;
 		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
-		model.addAttribute("servicio", servicioService.obtenerServicioEncontrado(id));
+		model.addAttribute("servicio", servicioService.buscarServicio(id));
 		model.addAttribute("edicion", edicion);
 		return "nuevo_servicio";
 	}

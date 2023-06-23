@@ -15,7 +15,7 @@ public interface IServicioService {
 	
 	public void eliminarServicio(Long id);
 	
-	public Servicio obtenerServicioEncontrado(Long id);
+	public Servicio buscarServicio(Long id);
 		
 	public List<Servicio> obtenerServiciosSegunDia(String dia);
 }

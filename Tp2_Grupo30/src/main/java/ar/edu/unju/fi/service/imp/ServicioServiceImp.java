@@ -12,6 +12,8 @@ public class ServicioServiceImp implements IServicioService{
 	
 	@Autowired
 	private ListaServicio servicios;
+	@Autowired
+	private Servicio servicio;
 	
 	@Override
 	public List<Servicio> obtenerServicios(){
@@ -19,7 +21,7 @@ public class ServicioServiceImp implements IServicioService{
 	}
 	
 	/**
-	 * Metodo que agrega servicio a la lista de servicio
+	 * Metodo que guarda servicio a la lista de servicio
 	 * 
 	 */
 	@Override
@@ -34,18 +36,18 @@ public class ServicioServiceImp implements IServicioService{
 	*/ 
 	@Override
 	public void actualizarServicio(Servicio servicioModificado){
-		/**
-		 for(Servicio servicio: getServicios()) {
+	
+		 for(Servicio servicio: obtenerServicios()) {
 			 	
 		    	if(servicio.getId()==servicioModificado.getId()) {
-		    		servicio.setStartTime(servicioModificado.getStartTime());
-		    		servicio.setFinishTime(servicioModificado.getFinishTime());
-		    		servicio.setEmpleado(servicioModificado.getEmployee().getNames());
-		    		servicio.setEmpleado(servicioModificado.getEmployee().getLastName());
-		    		servicio.setDay(servicioModificado.getDay());
+		    		servicio.setInicioHorario(servicioModificado.getInicioHorario());
+		    		servicio.setFinHorario(servicioModificado.getFinHorario());
+		    		servicio.setFinHorario(servicioModificado.getFinHorario());
+		    		servicio.setDia(servicioModificado.getDia());
+		    			    		
 		    		break;
 		    	}
-		    }*/
+		    }
 		
 	}
 	
@@ -53,7 +55,7 @@ public class ServicioServiceImp implements IServicioService{
 	 * Metodo que busca el servicio buscado mediante su id.
 	 * @return retorna el servicio que se encontro en la lista.
 	 */
-	public Servicio obtenerServicioEncontrado(Long id) {
+	public Servicio buscarServicio(Long id) {
 	    Servicio servicioEncontrado = new Servicio();
 	    
 	    for(Servicio servicio: obtenerServicios()) {
@@ -69,7 +71,7 @@ public class ServicioServiceImp implements IServicioService{
 	 * Metodo que elimina el servicio dependiendo del id
 	 * id representa el id del servicio que se quiere eliminar
 	 */
-	public void deleteServicio(Long id) {
+	public void eliminarServicio(Long id) {
 		for(Servicio servicio: obtenerServicios()) {
 	    	if(servicio.getId()==id) {
 	    		obtenerServicios().remove(servicio);
@@ -77,17 +79,9 @@ public class ServicioServiceImp implements IServicioService{
 	    	}
 	    }
 	}
-
-	@Override
-	public void eliminarServicio(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@Override
 	public Servicio obtenerServicio() {
-		// TODO Auto-generated method stub
-		return null;
+		return servicio;
 	}
 
 	@Override
@@ -95,4 +89,6 @@ public class ServicioServiceImp implements IServicioService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+
 }

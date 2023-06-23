@@ -135,6 +135,7 @@ public class Servicio {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
+	
 	/**
 	 * @return the empleado
 	 */
@@ -147,6 +148,7 @@ public class Servicio {
 	public void setEmpleado(Empleado empleado) {
 		this.empleado = empleado;
 	}
+
 	@Override
 	public String toString() {
 		return "Servicio [id=" + id + ", inicioHorario=" + inicioHorario + ", finHorario=" + finHorario + ", dia=" + dia
