@@ -44,8 +44,9 @@ public class Servicio {
 	@Column(name="serv_estado")
 	private boolean estado;
 	@NotNull(message="Debe seleccionar un Empleado")
-	@OneToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)//Eager cargamento anticipado con LAZY corregimos eso
-	@JoinColumn(name="empleado")
+	//@OneToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)//Eager cargamento anticipado con LAZY corregimos eso
+	@OneToOne()
+	@JoinColumn(name="empleado_id")
 	private Empleado empleado;
 		
 	//-----------------Constructores--------------------

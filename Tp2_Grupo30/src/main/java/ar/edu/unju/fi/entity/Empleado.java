@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -58,6 +59,9 @@ public class Empleado {
 	/**Representa si el estado es activo o pasivo del empleado/a*/
 	@Column(name="empl_estado")
 	private boolean estado;
+	
+	@OneToOne(mappedBy = "empleado")
+	private Servicio servicio;
 			
 	/**
 	 * Constructor por defecto
