@@ -26,7 +26,7 @@ import org.springframework.validation.BindingResult;
 
 @Controller
 @RequestMapping("/sucursal")
-public class SucursalesController {
+public class SucursalController {
 	@Autowired
 	@Qualifier("sucursalServiceMysql")
 	private ISucursalService sucursalService;
