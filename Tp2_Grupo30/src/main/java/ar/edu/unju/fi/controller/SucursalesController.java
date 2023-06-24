@@ -44,17 +44,11 @@ public class SucursalesController {
 	}
 
 	@PostMapping("/buscar")
-	public String buscarPorFecha(@RequestParam("fecha") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fecha, Model model) {
-	   
-		if (fecha != null) {
-	        List<Sucursal> sucursales = sucursalService.buscarPorFecha(fecha);
-	        model.addAttribute("sucursales", sucursales);
-	    } else {
-	        List<Sucursal> sucursales = sucursalService.getLista();
-	        model.addAttribute("sucursales", sucursales);
-	    }
-	    return "sucursales";
-	}
+	public String buscarPorFecha(@RequestParam("fechaInicio") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaInicio, @RequestParam("fechaFin") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaFin, Model model) {
+		List<Sucursal> sucursales = sucursalService.buscarPorRangoFecha(fechaInicio, fechaFin);
+		model.addAttribute("sucursales", sucursales);
+		return "sucursales";
+}
 
 	@GetMapping("/gestion")
 	public String getGestionPage(Model model) {
