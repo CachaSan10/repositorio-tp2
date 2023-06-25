@@ -40,15 +40,16 @@ public class SucursalController {
 		
 	    List<Sucursal> sucursales = sucursalService.getLista();
 	    model.addAttribute("sucursales", sucursales);
-	    return "sucursales";
+	    return "gestion_sucursales";
 	}
 
 	@PostMapping("/buscar")
-	public String buscarPorFecha(@RequestParam("fechaInicio") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaInicio, @RequestParam("fechaFin") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaFin, Model model) {
+	public String buscarPorFecha(@DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaInicio, @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaFin, Model model) {
 		List<Sucursal> sucursales = sucursalService.buscarPorRangoFecha(fechaInicio, fechaFin);
 		model.addAttribute("sucursales", sucursales);
-		return "sucursales";
-}
+		return "gestion_sucursales";
+	}
+	
 
 	@GetMapping("/gestion")
 	public String getGestionPage(Model model) {
@@ -88,6 +89,7 @@ public class SucursalController {
 		mav.setViewName("redirect:/sucursal/listado");
 		return mav;
 	}
+	
 	//Peticion de modificar sucursal
 	@GetMapping("/modificar/{id}")
 	public String getModificarSucursalPage(Model model,@PathVariable(value="id")Long id) {
