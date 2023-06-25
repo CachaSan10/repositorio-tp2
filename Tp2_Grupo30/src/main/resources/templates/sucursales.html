@@ -3,85 +3,66 @@
 	<head>
 		<meta charset="UTF-8">
 		<!--Especificacion de viewport -->
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<title>Sucursales - Tienda de Mascota Puppis</title>
 		<!-- Bootstrap referencia  -->
-		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<link th:rel="stylesheet"
+			th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 		<!-- Css referencia-->
 		<link th:rel="stylesheet" th:href="@{/css/style.css}">
 	</head>
 	<body>
-		
-	<div class="container">
-		<!--Uso del fragmento header -->
-		<header th:replace="~{layouts/header :: header}"></header>
-		<!--Uso del fragmento nav -->
-		<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
 	
 		<div class="container">
-			<div class="row">
-				<h2 class="my-4">Lista Sucursales</h2>
-			</div>
-
-				<br>
-			
-			<!-- Formulario de limpiar -->
-			<form th:action="@{/sucursal/limpiar}" method="post">
-				<div class="col-sm-3">
-					<button type="submit" class="btn btn-secondary">Limpiar</button>
+			<!--Uso del fragmento header -->
+			<header th:replace="~{layouts/header :: header}"></header>
+			<!--Uso del fragmento nav -->
+			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
+	
+			<div class="container">
+				<div class="row">
+					<h2 class="my-4">Lista Sucursales</h2>
 				</div>
-			</form>
-			<form th:action="@{/sucursal/buscar}" method="post">
-			    <div class="form-group row">
-				    <label class="col-form-label">Fecha de inicio:</label>
-				    <div class="col-sm-6">
-				    	<input type="date" class="form-control" name="fechaInicio" required>
-					</div>
-				    <label class="col-form-label">Fecha de fin:</label>
-				    <div class="col-sm-6">
-				    	<input type="date" class="form-control" name="fechaFin" required>
-				    </div>
-					<div class="col-sm-3">
-				    	<button type="submit" class="btn btn-primary">Buscar</button>
-				    </div>
-			    </div>
-			</form>
-
-
-			<div class="table-responsive">
-			
-				<!--Tabla de sucursales-->
-				<table class="table-sm table table-striped table-bordered table-hover">
-					<thead class="bg-secondary text-white">
-						<tr>
-							<th>Codigo</th>
-							<th>Nombre</th>
-							<th>Direccion</th>
-							<th>Provincia</th>
-							<th>Fecha Inicio</th>
-							<th>Email</th>
-							<th>Telefono</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="sucursal: ${sucursales}">
-							<td th:text="${sucursal.id}"></td>
-							<td th:text="${sucursal.nombre}"></td>
-							<td th:text="${sucursal.direccion}"></td>
-							<td th:text="${sucursal.provincia.nombre}"></td>
-							<td th:text="${#temporals.format(sucursal.fechaInicio, 'dd/MM/yyyy')}"></td>
-							<td th:text="${sucursal.email}"></td>
-							<td th:text="${sucursal.telefono}"></td>
-						</tr>
-					</tbody>
-				</table>
+	
+				<br>
+	
+	
+				<div class="table-responsive">
+	
+					<!--Tabla de sucursales-->
+					<table
+						class="table-sm table table-striped table-bordered table-hover">
+						<thead class="bg-secondary text-white">
+							<tr>
+								<th>Nombre</th>
+								<th>Direccion</th>
+								<th>Provincia</th>
+								<th>Fecha Inicio</th>
+								<th>Email</th>
+								<th>Telefono</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="sucursal: ${sucursales}">
+								<td th:text="${sucursal.nombre}"></td>
+								<td th:text="${sucursal.direccion}"></td>
+								<td th:text="${sucursal.provincia.nombre}"></td>
+								<td
+									th:text="${#temporals.format(sucursal.fechaInicio, 'dd/MM/yyyy')}"></td>
+								<td th:text="${sucursal.email}"></td>
+								<td th:text="${sucursal.telefono}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
+			<!--Uso del fragmento footer -->
+			<footer th:replace="~{layouts/footer :: footer}"></footer>
 		</div>
-		<!--Uso del fragmento footer -->
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
-	</div>
 	
 		<!--Archivo javascript referencia -->
-		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+		<script type="text/javascript"
+			th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	</body>
 </html>

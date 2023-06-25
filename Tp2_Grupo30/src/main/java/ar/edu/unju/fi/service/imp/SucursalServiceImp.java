@@ -58,6 +58,7 @@ public class SucursalServiceImp implements ISucursalService {
     public List<Sucursal> buscarPorRangoFecha(LocalDate fechaInicio, LocalDate fechaFin) {
     	return sucursalRepository.findByFechaInicioBetween(fechaInicio, fechaFin);
     }
+	
 
 
 
