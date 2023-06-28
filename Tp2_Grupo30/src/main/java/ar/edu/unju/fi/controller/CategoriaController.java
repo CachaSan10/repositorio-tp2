@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/heads/main
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Categoria;
@@ -53,7 +56,7 @@ public class CategoriaController {
 		ModelAndView  modelAndView = new ModelAndView("gestion_categorias");
 		if(result.hasErrors()) {
 			modelAndView.setViewName("nueva_categoria");
-			modelAndView.addObject("categoria", categoriaService.obtenerCategoria());
+			modelAndView.addObject("categoria", categoria);
 			return modelAndView;
 		}
 		

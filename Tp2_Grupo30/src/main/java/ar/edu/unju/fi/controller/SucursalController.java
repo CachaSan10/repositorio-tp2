@@ -26,7 +26,7 @@ import org.springframework.validation.BindingResult;
 
 @Controller
 @RequestMapping("/sucursal")
-public class SucursalesController {
+public class SucursalController {
 	@Autowired
 	@Qualifier("sucursalServiceMysql")
 	private ISucursalService sucursalService;
@@ -40,21 +40,16 @@ public class SucursalesController {
 		
 	    List<Sucursal> sucursales = sucursalService.getLista();
 	    model.addAttribute("sucursales", sucursales);
-	    return "sucursales";
+	    return "gestion_sucursales";
 	}
 
 	@PostMapping("/buscar")
-	public String buscarPorFecha(@RequestParam("fecha") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fecha, Model model) {
-	   
-		if (fecha != null) {
-	        List<Sucursal> sucursales = sucursalService.buscarPorFecha(fecha);
-	        model.addAttribute("sucursales", sucursales);
-	    } else {
-	        List<Sucursal> sucursales = sucursalService.getLista();
-	        model.addAttribute("sucursales", sucursales);
-	    }
-	    return "sucursales";
+	public String buscarPorFecha(@DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaInicio, @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaFin, Model model) {
+		List<Sucursal> sucursales = sucursalService.buscarPorRangoFecha(fechaInicio, fechaFin);
+		model.addAttribute("sucursales", sucursales);
+		return "gestion_sucursales";
 	}
+	
 
 	@GetMapping("/gestion")
 	public String getGestionPage(Model model) {
@@ -94,6 +89,7 @@ public class SucursalesController {
 		mav.setViewName("redirect:/sucursal/listado");
 		return mav;
 	}
+	
 	//Peticion de modificar sucursal
 	@GetMapping("/modificar/{id}")
 	public String getModificarSucursalPage(Model model,@PathVariable(value="id")Long id) {

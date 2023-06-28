@@ -15,8 +15,8 @@
 	<div class="container">
 		<!--Uso del fragmento header -->
 		<header th:replace="~{layouts/header :: header}"></header>
-
-		<!--Uso del fragmento nav -->
+		
+		<a  th:href="@{/sucursal/gestion}" class="btn btn-primary"  >Volver a Listas Sucursales</a>
 	
 
 		<div class="container">
@@ -25,9 +25,8 @@
 			</div>
 			<div>
 				<div class="row mb-4">
-					<div class="col-lg-e">
+					<div class="form-group d-flex justify-content-between">
 						<a th:href="@{/provincia/nuevo}" class="btn btn-success fw-bolder py-3">Nueva Provincia</a>
-						<a  th:href="@{/sucursal/gestion}" class="btn btn-primary btn-consejos"  >Volver a Listas Sucursales</a>
 					</div>
 				</div>
 			</div>

@@ -1,49 +1,76 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<!--Especificacion de viewport -->
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-		<title>Sucursales - Tienda de Mascota Puppis</title>
-		<!-- Bootstrap referencia  -->
-		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-		<!-- Css referencia-->
-		<link th:rel="stylesheet" th:href="@{/css/style.css}">
-	</head>
-	<body class="container">
-		
+<head>
+<meta charset="UTF-8">
+<!--Especificacion de viewport -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+<title>Sucursales - Tienda de Mascota Puppis</title>
+<!-- Bootstrap referencia  -->
+<link th:rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<!-- Css referencia-->
+<link th:rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="container">
+
 	<div class="container">
 		<!--Uso del fragmento header -->
 		<header th:replace="~{layouts/header :: header}"></header>
 		<!--Uso del fragmento nav -->
-    <a  th:href="@{/gestion}" class="btn btn-primary btn-consejos"  >Volver a menu Principal</a>
-	
-<div class="container">
-			<div class="row">
-				<h2 class="my-4">Lista Sucursales</h2>
-			</div>
-			<div>
-				<div class="row mb-4">
-					<div class="col-lg-e">
-						<a th:href="@{/sucursal/nuevo}" class="btn btn-success fw-bolder py-3">Nueva Sucursal</a>
+
+		<a class="btn btn-primary btn-consejos" th:href="@{/gestion}">Volver
+			a Menú Principal</a>
+
+		<div class="card">
+			<h2 class="card-title text-center">Lista Sucursales</h2>
+			<div class="row justify-content-md-center">
+				<div class="row align-items-center">
+					<div class="col">
+						<a th:href="@{/sucursal/nuevo}" 
+						class="btn btn-success fw-bolder py-3">Nueva Sucursal</a>
 					</div>
-				</div>
-			</div>
-			<div>
-				<div class="row mb-4">
-					<div class="col-lg-e">
-						<a th:href="@{/provincia/listado}" class="btn btn-success fw-bolder py-3">Provincias</a>
+					<div class="col-lg-3">
+						<a th:href="@{/provincia/listado}"
+							class="btn btn-success fw-bolder py-3">Provincias</a>
 					</div>
-				</div>
+			<div class="col">
+				<form th:action="@{/sucursal/limpiar}" method="post">
+					<div class="col-sm-3">
+						<button type="submit" class="btn btn-secondary">Todas las Fechas</button>
+					</div>
+				</form>
+				<form th:action="@{/sucursal/buscar}" method="post">
+				    <div class="form-group row">
+					    <label class="col-form-label">Fecha de inicio:</label>
+					    <div class="col-sm-6">
+					    	<input type="date" class="form-control" name="fechaInicio" required>
+						</div>
+					    <label class="col-form-label">Fecha de fin:</label>
+					    <div class="col-sm-6">
+					    	<input type="date" class="form-control" name="fechaFin" required>
+					    </div>
+						<div class="col-sm-3">
+					    	<button type="submit" class="btn btn-danger">Filtrar Sucursales por fechas</button>
+					    </div>
+				    </div>
+				</form>
 			</div>
+		</div>
+	</div>
 			<br>
 			<div class="table-responsive">
 				<!--Tabla de sucursales-->
-				<table class="table-sm table table-striped table-bordered table-hover">
+				<table class="table-sm table table-striped table-bordered">
 					<thead class="bg-secondary text-white">
 						<tr>
 							<th>Codigo</th>
 							<th>Nombre</th>
+							<th>Direccion</th>
+							<th>Provincia</th>
+							<th>Fecha Inicio</th>
+							<th>Email</th>
+							<th>Telefono</th>
 							<th>Acciones</th>
 						</tr>
 					</thead>
@@ -51,12 +78,16 @@
 						<tr th:each="sucursal: ${sucursales}">
 							<td th:text="${sucursal.id}"></td>
 							<td th:text="${sucursal.nombre}"></td>
-							<td>
-								<a class="btn btn-info btn-sm" th:href="@{/sucursal/modificar/}+${sucursal.id}">Modificar</a>
-	
-	
-								<a class="btn btn-danger btn-sm" th:href="@{/sucursal/eliminar/}+${sucursal.id}">Eliminar</a>
-							</td>
+							<td th:text="${sucursal.direccion}"></td>
+							<td th:text="${sucursal.provincia.nombre}"></td>
+							<td 
+								th:text="${#temporals.format(sucursal.fechaInicio, 'dd/MM/yyyy')}"></td>
+							<td th:text="${sucursal.email}"></td>
+							<td th:text="${sucursal.telefono}"></td>
+							<td><a class="btn btn-info btn-sm"
+								th:href="@{/sucursal/modificar/}+${sucursal.id}">Modificar</a> <a
+								class="btn btn-danger btn-sm"
+								th:href="@{/sucursal/eliminar/}+${sucursal.id}">Eliminar</a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -65,7 +96,8 @@
 		<!--Uso del fragmento footer -->
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</div>
-		<!--Archivo javascript referencia -->
-		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-	</body>
+	<!--Archivo javascript referencia -->
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
 </html>

@@ -27,20 +27,20 @@
 						<form  th:action="${edicion}?@{/provincia/modificar/}+${provincia.id}:@{/provincia/guardar}" th:object="${provincia}" method="post">
 							<div class="form-group">
 								<label for="nombre" class="form-label">Nombre : </label>
-								<input th:field="*{nombre}" class="form-control" type="text" name="nombres" id="nombres" placeholder="Nombre" required>
+								<input th:field="*{nombre}" class="form-control" type="text" name="nombres" id="nombres" placeholder="Nombre">
 								<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 							</div>
 		
 							<div class="form-group">
 								<label for="nombre" class="form-label">Codigo Postal : </label>
-								<input th:field="*{codigoPostal}" class="form-control" type="text" name="mail" id="mail" placeholder="CP" required>
+								<input th:field="*{codigoPostal}" class="form-control" type="text" name="mail" id="mail" placeholder="CP" >
 								<div class="text-danger" th:if="${#fields.hasErrors('codigoPostal')}" th:errors="*{codigoPostal}"></div>
 							</div>
 							
 
 							<div class="form-group">
 								<label for="nombre" class="form-label">Fecha Creacion : </label>
-								<input th:field="*{fechaCreacion}" class="form-control" type="date" name="fecha" id="fecha" placeholder="fecha" required>
+								<input th:field="*{fechaCreacion}" class="form-control" type="date" name="fecha" id="fecha" placeholder="fecha" >
 								<div class="text-danger" th:if="${#fields.hasErrors('fechaCreacion')}" th:errors="*{fechaCreacion}"></div>
 							</div>
 							<br>

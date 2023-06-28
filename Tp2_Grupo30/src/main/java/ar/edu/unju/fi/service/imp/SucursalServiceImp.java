@@ -54,11 +54,11 @@ public class SucursalServiceImp implements ISucursalService {
 		
 		return sucursalRepository.findById(id).get();
 	}
-
-    @Override
-    public List<Sucursal> buscarPorFecha(LocalDate fecha) {
-        return sucursalRepository.findByFechaInicio(fecha);
+	@Override
+    public List<Sucursal> buscarPorRangoFecha(LocalDate fechaInicio, LocalDate fechaFin) {
+    	return sucursalRepository.findByFechaInicioBetween(fechaInicio, fechaFin);
     }
+	
 
 
 

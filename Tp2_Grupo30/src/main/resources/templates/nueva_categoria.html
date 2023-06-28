@@ -13,7 +13,7 @@
 <link th:rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body class="container">
-	<div id="contenedor">
+	<div >
 		<!--Uso del fragmento header -->
 		<header th:replace="~{layouts/header :: header}"></header>
 
@@ -32,9 +32,9 @@
 							th:action="${edicion}?@{/categoria/modificar/}+${categoria.id}:@{/categoria/guardar}"
 							th:object="${categoria}" method="post">
 							<div class="form-group">
-								<label for="nombre" class="form-label">Nombre : </label> <input
+								<label for="nombreId" class="form-label">Nombre : </label> <input
 									th:field="*{nombre}" class="form-control" type="text"
-									name="nombres" id="nombres" placeholder="Nombre" required>
+									name="nombre" id="nombreId" placeholder="Ingrese nombre de categoria" >
 								<div class="text-danger" th:if="${#fields.hasErrors('nombre')}"
 									th:errors="*{nombre}"></div>
 							</div>
@@ -55,8 +55,7 @@
 	<!--Uso del fragmento footer -->
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
 	<!--Archivo javascript referencia -->
-	<script type="text/javascript"
-		th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 
 </html>
