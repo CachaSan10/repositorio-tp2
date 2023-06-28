@@ -18,41 +18,46 @@ public class ServicioServiceMysqlImp implements IServicioService {
 	private Servicio servicio;
 	
 	@Override
-	public List<Servicio> getServicios() {
-		return servicioRepository.findByStatus(true);
+	public List<Servicio> obtenerServicios() {
+		return servicioRepository.findByEstado(true);
 	}
-	/**
-	 * Metodo que retorna un servicio
-	 * @return un servicio
-	*/
+	
 	@Override
-	public Servicio getServicio() {
-		return servicio;
-	}
-	@Override
-	public void addServicio(Servicio servicio){
+	public void guardarServicio(Servicio servicio){
+		servicio.setEstado(true);
 		servicioRepository.save(servicio);
-
 	}
-
-	@Override
-	public Servicio getServicioEncontrado(Long id) {
 		
+	@Override
+	public void modificarServicio(Servicio servicioModificado){
+		servicioModificado.setEstado(true);
+		servicioRepository.save(servicioModificado);
+	}
+	
+	@Override
+	public void eliminarServicio(Long id) {
+		
+		Servicio unServicio = new Servicio();
+		unServicio = buscarServicio(id);
+		//Vamos a hacer eliminación lógica colcando en false
+		unServicio.setEstado(false);
+		servicioRepository.save(unServicio);
+	}
+	
+	@Override
+	public Servicio buscarServicio(Long id) {
 		return servicioRepository.findById(id).get();
 	}
-
+			
 	@Override
-	public void updateServicio(Servicio servicio){
-		servicioRepository.save(servicio);
-
+	public List<Servicio> obtenerServiciosSegunDia(String dia) {
+       return servicioRepository.findByDia(dia);
 	}
-
+	
 	@Override
-	public void deleteServicio(Servicio servicio) {
-		//Vamos a hacer eliminación lógica colcando en false
-		
-		servicio.setStatus(false);
-		servicioRepository.save(servicio);
+	public Servicio obtenerServicio() {
+		return servicio;
 	}
+	
 	
 }

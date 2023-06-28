@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,68 +18,60 @@ import jakarta.validation.Valid;
 @RequestMapping("/empleado")
 public class EmpleadoController {
 	@Autowired
+	@Qualifier("empleadoServiceMysqlImp")
 	private IEmpleadoService empleadoService;
-	
+	/**
 	@GetMapping("/listado")
 	public String getEmpleadoPageString(Model model) {
-		model.addAttribute("empleados", empleadoService.getLista());
+		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
 		return "empleados";
 	}
-	
+	*/
 	
 	@GetMapping("/nuevo")
-	public String getNuevoEmpleadoPage(Model model) {
-		boolean edicion=false;
-		model.addAttribute("empleado",new Empleado() );
-		model.addAttribute("edicion", edicion);
-		return "nuevo_empleado";
+	public ModelAndView getNuevoEmpleadoPage(ModelAndView mav) {
+		mav.setViewName("nuevo_empleado");
+		mav.addObject("empleado", empleadoService.obtenerEmpleado());
+		return mav;
 	}
 	
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarEmpledoPage(@Valid @ModelAttribute("empleado")Empleado empleado, BindingResult bindingResult) {
-		ModelAndView mav = new ModelAndView("empleados");
+		ModelAndView mav = new ModelAndView("gestion_empleados");
 		
 		if(bindingResult.hasErrors()) {
 			mav.setViewName("nuevo_empleado");
-			mav.addObject("edicion", false);
+			mav.addObject("empleado", empleado);
 			return mav;
 		}
+		
 		empleadoService.guardarEmpleado(empleado);
-		mav.setViewName("redirect:/empleado/listado");
+		mav.addObject("empleados",empleadoService.obtenerEmpleados());
 		return mav;
 	}
 	
 	@GetMapping("/modificar/{id}")
 	public String getModificarEmpleadoPage(Model model, @PathVariable(value="id")Long id) {
 		boolean edicion=true;
-		Empleado empleadoEncontrado = empleadoService.buscarEmpleado(id);
-		
-		model.addAttribute("empleado",	empleadoEncontrado);
+		model.addAttribute("empleado",	empleadoService.buscarEmpleado(id));
 		model.addAttribute("edicion", edicion);
 		return "nuevo_empleado";
 	}
 	
-	
 	@PostMapping("/modificar/{id}")
-	public String modificarEmpleado(@Valid @ModelAttribute("empleado")Empleado empleadoModificado, BindingResult bindingResult) {
-		if(bindingResult.hasErrors()) {
-			return "nuevo_empleado";
-		}
+	public String modificarEmpleado(@ModelAttribute("empleado")Empleado empleadoModificado) {
 		empleadoService.modificarEmpleado(empleadoModificado);
-		return "redirect:/empleado/listado";
-		
+		return "redirect:/empleado/gestion";
 	}
-	
+		
 	@GetMapping("/eliminar/{id}")
 	public String eliminarEmpleado(@PathVariable(value="id")Long id) {
-		Empleado empleadoEncontrado = empleadoService.buscarEmpleado(id);
-		empleadoService.eliminarEmpleado(empleadoEncontrado);
-	
-		return "redirect:/empleado/listado";
+		empleadoService.eliminarEmpleado(id);
+		return "redirect:/empleado/gestion";
 	}
 	@GetMapping("/gestion")
 	public String getGestionEmpleadoPage(Model model) {
-		model.addAttribute("empleados", empleadoService.getLista());
+		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
 		return "gestion_empleados";
 	}
 	

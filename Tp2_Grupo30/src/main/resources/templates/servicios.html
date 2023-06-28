@@ -7,27 +7,26 @@
 		<!--Configuracion para usar bootstrap.min.css -->
 		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 		<link rel="stylesheet" th:href="@{/css/style.css}">
-		<title>Servicio de Paseos - Tienda de Mascota Puppis</title>
+		<title>Servicios- Tienda de Mascota Puppis</title>
 	</head>
 	<body class="container">
 			<!--Uso del fragmento header -->
 			<header th:replace="~{layouts/header :: header}"></header>
 			<!-- Uso del fragmento nav-->
 			<nav id="Menu-principal" th:replace="~{layouts/nav :: nav}"></nav>
+			<br/>
 			<!-- -->
-	        <section class="">
-		        <div class="">
-			        <div class="">
+	         <div class="card border border-black">
+			        <div class="card-body">
 				       <div class="text-center bg-warning pt-2 mt-2">
-				     		<h2 class="fw-bold">Lista de Servicios</h2>
+				     		<h2 class="fw-bold">Nuestros de Servicios</h2>
 				   	   </div>
 				    	   <!-- Tabla de Servicios -->
-					        <table class="table table-bordered table-striped container">
+					        <table class="table table-bordered table-striped">
 					            <thead class="bg-secondary text-white">
 						            <tr class="text-center">
-						            	<th scope="col">Id Servicio</th>
-						                <th scope="col">Inicio Servicio</th>
-						                <th scope="col">Fin Servicio</th>
+						            	<th scope="col">Horario de Inicio de Servicio</th>
+						                <th scope="col">Horario de Fin de Servicio</th>
 						                <th scope="col">Empleado</th>
 						                <th scope="col">Día</th>
 						               			                
@@ -35,11 +34,10 @@
 					             </thead>
 					             <tbody class="table-group-divider">
 						            <tr class="text-center" th:each="servicio : ${servicios}">
-						            	<td th:text="${servicio.id}" class=""></td>
-						                <td th:text="${#temporals.format(servicio.startTime, 'HH:mm')}" class=""></td>
-						                <td th:text="${#temporals.format(servicio.finishTime, 'HH:mm')}" class=""></td>
-						                <td th:text="${servicio.employee.names}+' '+${servicio.employee.lastName}" class="py-1"></td>
-						                <td th:text="${servicio.day}" class="py-1"></td>
+						            	<td th:text="${#temporals.format(servicio.inicioHorario, 'HH:mm')}" class=""></td>
+						                <td th:text="${#temporals.format(servicio.finHorario, 'HH:mm')}" class=""></td>
+						                <td th:text="${servicio.empleado.nombres}+' '+${servicio.empleado.apellido}" class="py-1"></td>
+						                <td th:text="${servicio.dia}" class="py-1"></td>
 						                <!--  <td  class=""><a th:href="@{/servicio/modificar/}+${servicio.id}"><button type="button" class="btn btn-primary py-1" >Editar</button></a><br/>
 						                	<a th:href="@{/servicio/eliminar/}+${servicio.id}"><button type="button" class="btn btn-danger py-1" >Eliminar</button></a>
 						                </td>-->
@@ -48,10 +46,10 @@
 					         </tbody>
 				        </table>
 	       			</div>
+	       				<!-- Uso del fragmento footer -->
+				
 	       		</div>
-	       	</section>
-	   	<!-- Uso del fragmento footer -->
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	       <footer th:replace="~{layouts/footer :: footer}"></footer>	   
 		<!-- Configuracion para usar bootstrap js -->
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>

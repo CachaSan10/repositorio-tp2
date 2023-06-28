@@ -14,31 +14,27 @@
 <body class="container">
 	<!-- Uso del fragmento header -->
 	<header th:replace="~{layouts/header :: header}"></header>
-	<a th:href="@{/gestion}"
-		class="btn btn-lg btn-primary fw-bolder py-1 mb-2">Volver a menu
-		Principal</a>
+	<a th:href="@{/servicio/gestion}"
+		class="btn btn-lg btn-primary fw-bolder py-1 mb-2">Volver a Gestion Servicio</a>
 	<!-- Card y tabla  para cargar nuevo servicio -->
 	<div class="card border border-success">
 		<div class="card-body">
 			<h2 class="card-title text-center">Gestión de Empleado</h2>
-			<div
-				class="d-grid gap-2 d-md-flex justify-content-md-start text-center py-2">
+			<div class="d-grid gap-2 d-md-flex justify-content-md-start text-center py-2">
 				<a th:href="@{/empleado/nuevo}">
 					<button type="button" class="btn btn-lg btn-success fw-bolder py-2">Nuevo Empleado</button>
 				</a>
 			</div>
 			<div class="table-responsive">
-				<table
-					class="table table-bordered table-striped border border-secondary">
+				<table class="table table-bordered table-striped border border-secondary">
 					<thead>
 						<tr class="text-center">
-							<th scope="col">Id Empleado</th>
+							<th scope="col">Codigo</th>
 							<th scope="col">Nombres</th>
 							<th scope="col">Apellido</th>
 							<th scope="col">Dni</th>
 							<th scope="col">Fecha Nacimiento</th>
 							<th scope="col">Dirección</th>
-							<th scope="col">Categoria</th>
 							<th scope="col">Teléfono</th>
 							<th scope="col">Acciones</th>
 						</tr>
@@ -46,17 +42,19 @@
 					<tbody>
 						<tr th:each="empleado: ${empleados}">
 							<td th:text="${empleado.id}"></td>
-							<td th:text="${empleado.names}"></td>
-							<td th:text="${empleado.lastName}"></td>
+							<td th:text="${empleado.nombres}"></td>
+							<td th:text="${empleado.apellido}"></td>
 							<td th:text="${empleado.dni}"></td>
-							<td	th:text="${#temporals.format(empleado.dateOfBirth, 'yyyy/MM/dd')}"></td>
-							<td th:text="${empleado.address}"></td>
-							<td th:text="${empleado.category}"></td>
-							<td th:text="${empleado.phone}"></td>
-							<td class=""><a th:href="@{/empleado/modificar/}+${empleado.id}"><button
-										type="button" class="btn btn-primary py-1">Editar</button></a><br />
+							<td	th:text="${#temporals.format(empleado.fechaNacimiento, 'yyyy/MM/dd')}"></td>
+							<td th:text="${empleado.direccion}"></td>
+							<td th:text="${empleado.telefono}"></td>
+							
+							<td class="">
+							    <a th:href="@{/empleado/modificar/}+${empleado.id}"><button
+										type="button" class="btn btn-primary py-1">Editar</button></a><br/>
 								<a th:href="@{/empleado/eliminar/}+${empleado.id}"><button
-										type="button" class="btn btn-danger py-1">Eliminar</button></a></td>
+										type="button" class="btn btn-danger py-1">Eliminar</button></a>
+							</td>
 						</tr>
 					</tbody>
 				</table>

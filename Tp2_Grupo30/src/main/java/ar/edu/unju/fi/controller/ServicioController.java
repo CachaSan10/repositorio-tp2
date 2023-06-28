@@ -24,62 +24,79 @@ public class ServicioController {
 	@Autowired
 	@Qualifier("servicioServiceMysqlImp")
 	private IServicioService servicioService;
+	
+	@Autowired
+	@Qualifier("empleadoServiceMysqlImp")
+	private IEmpleadoService empleadoService;
 		
 	@GetMapping("/listado")
-	public String getListaServicio(Model model) {
-		model.addAttribute("servicios", servicioService.getServicios());
+	public String getListaServicioPage(Model model) {
+		model.addAttribute("servicios", servicioService.obtenerServicios());
 		return "servicios";
 	}
 	
 	@GetMapping("/nuevo")
-	public String getAgregarServicioPage(Model model) {
+	public String getNuevoServicioPage(Model model) {
 		boolean edicion=false;
-		model.addAttribute("servicio", servicioService.getServicio());
+		
+		model.addAttribute("servicio", servicioService.obtenerServicio());
+		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
 		model.addAttribute("edicion", edicion);
 		return "nuevo_servicio";
 	}
 	
 	@PostMapping("/guardar")
-	public ModelAndView agregarServicio(@Valid @ModelAttribute("servicio") Servicio servicio, BindingResult result){
-		ModelAndView  modelView = new ModelAndView("servicios");
-		if(result.hasErrors()) {
-			modelView.setViewName("nuevo_servicio");
-			modelView.addObject("servicio",servicio);
-			return modelView;
+	public ModelAndView getGuardarServicioPage(@Valid @ModelAttribute("servicio") Servicio servicio, BindingResult bindingResult){
+		ModelAndView  mav = new ModelAndView("redirect:/servicio/gestion");
+		
+		if(bindingResult.hasErrors()) {
+			mav.setViewName("nuevo_servicio");
+			mav.addObject("empleados", empleadoService.obtenerEmpleados());
+			mav.addObject("servicio",servicio);
+			return mav;
 		}
-		servicioService.addServicio(servicio);
-		modelView.addObject("servicios",servicioService.getServicios());
-
-		return modelView;
+		servicioService.guardarServicio(servicio);
+		mav.addObject("servicios",servicioService.obtenerServicios());
+		return mav;
 	}
 	
 	@GetMapping("/modificar/{id}")
-	public String getModificarServicioPage(Model model, @PathVariable(value="id") Long id) {
+	public String getModificarServicioPage(Model model,@PathVariable(value="id") Long id) {
 		boolean edicion=true;
-		model.addAttribute("servicio", servicioService.getServicioEncontrado(id));
+		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
+		model.addAttribute("servicio", servicioService.buscarServicio(id));
 		model.addAttribute("edicion", edicion);
-		
 		return "nuevo_servicio";
 	}
 		
 	@PostMapping("/modificar/{id}")
-	public String modificarServicio(@ModelAttribute("servicio")Servicio servicioModificado){//Tener en cuenta s
-		//servicioModificado.setId("id");
-		servicioService.updateServicio(servicioModificado);
-		return "redirect:/servicio/listado";
+	public String modificarServicio(@ModelAttribute("servicio")Servicio servicioModificado){
+		servicioService.modificarServicio(servicioModificado);
+		return "redirect:/servicio/gestion";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarServicio(@PathVariable(value="id")Long id) {
-		Servicio servicioEncontrado = servicioService.getServicioEncontrado(id);
-		servicioService.deleteServicio(servicioEncontrado);
-		return "redirect:/servicio/listado";
+		servicioService.eliminarServicio(id);
+		return "redirect:/servicio/gestion";
 	}
 	
 	@GetMapping("/gestion")
 	public String getGestionServicioPage(Model model) {
-		model.addAttribute("servicios", servicioService.getServicios());
+		model.addAttribute("empleados", empleadoService.obtenerEmpleados());
+		model.addAttribute("servicios", servicioService.obtenerServicios());
 		return "gestion_servicios";
+	}
+	
+	@GetMapping("/buscar/{dia}")
+	public ModelAndView getServicioDiaPage(ModelAndView modelAndView,@PathVariable(value = "dia")String dia) {
+		modelAndView.setViewName("gestion_servicios");
+		if(dia.equals("Todo")) {
+			modelAndView.setViewName("redirect:/servicio/gestion");
+			return modelAndView;
+		}
+		modelAndView.addObject("servicios", servicioService.obtenerServiciosSegunDia(dia));
+		return modelAndView;
 	}
 	
 }

@@ -5,15 +5,17 @@ import ar.edu.unju.fi.entity.Servicio;
 
 public interface IServicioService {
 	
-	List<Servicio> getServicios();
+	public List<Servicio> obtenerServicios();
 	
-	void addServicio(Servicio servicio);
+	public Servicio obtenerServicio();
 	
-	Servicio getServicioEncontrado(Long id);
+	public void guardarServicio(Servicio servicio);
 	
-	void updateServicio(Servicio servicioModificado);
+	public void modificarServicio(Servicio servicioModificado);
 	
-	void deleteServicio(Servicio servicio);
-
-	Servicio getServicio();
+	public void eliminarServicio(Long id);
+	
+	public Servicio buscarServicio(Long id);
+		
+	public List<Servicio> obtenerServiciosSegunDia(String dia);
 }
