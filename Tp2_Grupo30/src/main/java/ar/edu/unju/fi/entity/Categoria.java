@@ -28,19 +28,24 @@ import jakarta.validation.constraints.Size;
 public class Categoria {
 
 
-	//Representa el id de categoria
+	/**
+	 * Representa el id de categoria
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "categoria_id")
 	private Long id;
 	
-	//Representa el nombre de categoria
+	/**
+	 * Representa el nombre de categoria
+	 */
 	@NotEmpty()
 	@Pattern(regexp="[a-z A-Z]*")
 	@Size(min=5, max=20)
 	@Column(name = "categoria_nombre")
 	private String nombre;
 
+	/** Representa el estado de la categoria*/
 	@Column(name = "categoria_estado")
 	private boolean estado;
 	
@@ -60,7 +65,6 @@ public class Categoria {
 	 * @param nombre  representa el nombre de la categoria
 	 * @param productos representa la lista de productos que pertence la categoria
 	 */
-
 	public Categoria(Long id, String nombre, boolean estado, List<Producto> productos) {
 		this.id = id;
 		this.nombre = nombre;

@@ -15,10 +15,16 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+
+/**
+ * Clase que representa el empleado en el sistema
+ */
 @Component
 @Entity
 @Table(name="empleados")
 public class Empleado {
+	
+	/**Representa el id del empleado */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="empl_id")
@@ -70,6 +76,7 @@ public class Empleado {
 	}
 	
 	/**
+	 * Constructor Parametrizado
 	 * @param id
 	 * @param nombres
 	 * @param apellido

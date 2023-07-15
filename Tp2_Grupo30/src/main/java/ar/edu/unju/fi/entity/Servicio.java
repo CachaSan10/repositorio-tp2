@@ -3,10 +3,8 @@ package ar.edu.unju.fi.entity;
 import java.time.LocalTime;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,6 +13,10 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+
+/**
+ * Clase que representa el servicio en el sistema
+ */
 @Component
 @Entity
 @Table(name = "servicios")
@@ -41,10 +43,11 @@ public class Servicio {
 	@NotBlank(message="Debe seleccionar un día")
 	@Column(name= "serv_días", nullable = false)
 	private String dia;
+	/**Representa la disponibilidad del servicio en la base de datos */
 	@Column(name="serv_estado")
 	private boolean estado;
 	@NotNull(message="Debe seleccionar un Empleado")
-	//@OneToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)//Eager cargamento anticipado con LAZY corregimos eso
+
 	@OneToOne()
 	@JoinColumn(name="empleado_id")
 	private Empleado empleado;
@@ -64,8 +67,6 @@ public class Servicio {
 	 * @param dia dia de la semana en que se realiza el servicio de paseo
 	 * @param empleado nombre y apellido del paseador o paseadora responsable
 	 */
-	
-	
 	public Servicio(Long id, LocalTime inicioHorario, LocalTime finHorario, String dia, boolean estado,
 			Empleado empleado) {
 		this.id = id;

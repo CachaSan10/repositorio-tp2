@@ -26,36 +26,36 @@ import jakarta.validation.constraints.Size;
 @Table(name = "consejos")
 public class Consejo {
 
-	// Representa el id de consejo
+	/**Representa el id de consejo*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
 	
-	// Representa el titulo de consejo
+	/**Representa el titulo de consejo*/
 	@NotEmpty()
 	@NotBlank()
 	@Size(min = 10, max = 100)
 	@Column(name = "titulo", nullable = false)
 	private String titulo;
 	
-	// Representa el parrafo de consejo
+	/**Representa el parrafo de consejo*/
 	@NotEmpty()
 	@NotBlank()
 	@Size(min = 10, max = 5000)
 	@Column(name = "parrafo", nullable = false)
 	private String parrafo;
 	
-	// Representa la fecha de publicacion de consejo
+	/**Representa la fecha de publicacion de consejo*/
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "fecha_publicacion")
 	private LocalDate fechaPublicacion;
 
-	// Representa la imagen de consejo
+	/**Representa la imagen de consejo*/
 	@Column(name = "imagen")
 	private String imagen;
 
-	// Representa el estado de consejo
+	/** Representa el estado de consejo*/ 
 	@Column(name = "estado")
 	private boolean estado;
 	

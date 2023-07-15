@@ -22,6 +22,7 @@ import jakarta.validation.constraints.Size;
 /**
  * 
  * @author Acosta Jose David 
+ * Clase que representa el producto en el sistema
  */
 @Component
 @Entity
@@ -30,13 +31,13 @@ public class Producto {
 	
 	
 
-	//Representa el id de proiducto
+	/**Representa el id de producto*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "producto_id")
 	private Long id;
 	
-	//Representa el nombre de producto
+	/**Representa el nombre de producto*/
 	@NotEmpty()
 	@Pattern(regexp="[a-z A-Z]*", message="")
 	@Size(min=6, max=20)
@@ -44,12 +45,12 @@ public class Producto {
 	private String nombreProducto;
 	
 	
-	//Representa el precio de producto
+	/**Representa el precio de producto*/
 	@Positive()
 	@Column(name = "producto_precio")
 	private double precioProducto;
 	
-	//Representa el descuento de producto
+	/**Representa el descuento de producto*/
 	@PositiveOrZero()
 	@Min(value = 0)
 	@Max(value = 50)
@@ -57,7 +58,7 @@ public class Producto {
 	private int descuentoProducto;
 	
 	
-	//Representa el estado de producto
+	/**Representa el estado de producto*/
 			@Column(name = "estado")
 			private boolean estado;
 	
